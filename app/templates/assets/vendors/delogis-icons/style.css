@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?orkqwr');
+  src: url('fonts/icomoon.eot?orkqwr#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?orkqwr') format('truetype'),
+    url('fonts/icomoon.woff?orkqwr') format('woff'),
+    url('fonts/icomoon.svg?orkqwr#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+.icon-phone-call:before {
+  content: "\e900";
+}
+
+.icon-mailbox:before {
+  content: "\e901";
+}
+
+.icon-maps-and-flags:before {
+  content: "\e902";
+}
+
+.icon-help:before {
+  content: "\e903";
+}
+
+.icon-anxiety:before {
+  content: "\e904";
+}
+
+.icon-magnifying-glass:before {
+  content: "\e905";
+}
+
+.icon-shopping-cart:before {
+  content: "\e906";
+}
+
+.icon-right-arrow:before {
+  content: "\e907";
+}
+
+.icon-left-arrow:before {
+  content: "\e908";
+}
+
+.icon-down-arrow:before {
+  content: "\e909";
+}
+
+.icon-up-arrow:before {
+  content: "\e90a";
+}
+
+.icon-philosophy:before {
+  content: "\e90b";
+}
+
+.icon-experience:before {
+  content: "\e90c";
+}
+
+.icon-psychology:before {
+  content: "\e90d";
+}
+
+.icon-somatise:before {
+  content: "\e90e";
+}
+
+.icon-self-confidence:before {
+  content: "\e90f";
+}
+
+.icon-heart:before {
+  content: "\e910";
+}
+
+.icon-family:before {
+  content: "\e911";
+}
+
+.icon-meeting:before {
+  content: "\e912";
+}
+
+.icon-woman:before {
+  content: "\e913";
+}
+
+.icon-girl-face-with-two-small-pony-tails:before {
+  content: "\e914";
+}
+
+.icon-family-1:before {
+  content: "\e915";
+}
+
+.icon-suitcase:before {
+  content: "\e916";
+}
+
+.icon-wreath:before {
+  content: "\e917";
+}
+
+.icon-online-business:before {
+  content: "\e918";
+}
+
+.icon-psychologist:before {
+  content: "\e919";
+}
+
+.icon-rating:before {
+  content: "\e91a";
+}
+
+.icon-phone:before {
+  content: "\e91b";
+}
+
+.icon-business-people:before {
+  content: "\e91c";
+}
+
+.icon-psychology-1:before {
+  content: "\e91d";
+}
+
+.icon-brain:before {
+  content: "\e91e";
+}
+
+.icon-psychology-2:before {
+  content: "\e91f";
+}
+
+.icon-consulting:before {
+  content: "\e920";
+}
+
+.icon-recommend:before {
+  content: "\e921";
+}
+
+.icon-checking:before {
+  content: "\e922";
+}
+
+.icon-psychologist-1:before {
+  content: "\e923";
+}
+
+.icon-plus:before {
+  content: "\e924";
+}
+
+.icon-minus:before {
+  content: "\e925";
+}
+
+.icon-account:before {
+  content: "\e926";
+}
+
+.icon-in-love:before {
+  content: "\e927";
+}
+
+.icon-multiple-user:before {
+  content: "\e928";
+}
+
+.icon-heart-1:before {
+  content: "\e929";
+}
+
+.icon-motivated:before {
+  content: "\e92a";
+}
+
+.icon-family-2:before {
+  content: "\e92b";
+}
+
+.icon-trophy:before {
+  content: "\e92c";
+}
+
+.icon-psychology-3:before {
+  content: "\e92d";
+}
+
+.icon-team:before {
+  content: "\e92e";
+}
+
+.icon-growth:before {
+  content: "\e92f";
+}
+
+.icon-plus-1:before {
+  content: "\e930";
+}
+
+.icon-depression:before {
+  content: "\e931";
+}
+
+.icon-pdf-file:before {
+  content: "\e932";
+}
+
+.icon-form:before {
+  content: "\e933";
+}
+
+.icon-psychologist-2:before {
+  content: "\e934";
+}
+
+.icon-self-improvement:before {
+  content: "\e935";
+}
+
+.icon-family-3:before {
+  content: "\e936";
+}
+
+.icon-close:before {
+  content: "\e937";
+}

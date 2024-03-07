@@ -1,0 +1,193 @@
+body,
+body.boxed-wrapper .page-wrapper,
+.main-menu__bottom-inner,
+.services-one__single,
+.awards-one__single,
+.why-choose-one__list li .icon,
+.contact-one__contact-box,
+.blog-one__content-top {
+    background-color: #1f1919;
+}
+
+.main-menu__logo,
+.main-menu__logo a,
+.main-menu__top-left,
+.main-menu__wrapper-inner-content:before,
+.main-menu__call-icon,
+.stricky-header.main-menu,
+.about-one__experience-box,
+.feature-one__content,
+.services-one,
+.awards-one__wrap,
+.testimonial-one__ratting i,
+.why-choose-one__single,
+.contact-one,
+.blog-one__content {
+    background-color: #272121;
+}
+
+.main-menu__contact-list li .text p,
+.main-menu__contact-list li .text p a,
+.main-menu__top-menu li a,
+.main-menu .main-menu__list>li>a,
+.stricky-header .main-menu__list>li>a,
+.main-menu__call-sub-title,
+.about-one__experience p,
+.about-one__experience-points-text,
+.about-one__sign p,
+.services-one__right-text,
+.services-one__text,
+.services-one__btn,
+.services-one__btn span,
+.testimonial-one__ratting-title,
+.testimonial-one__text,
+.contact-one__form-icon i,
+.blog-one__comment a,
+.blog-one__btn a,
+.blog-one__btn a span,
+.blog-one__content-sub-title {
+    color: #978e8e;
+}
+
+.main-menu__call-number a,
+.main-menu__search,
+.main-menu__cart,
+.about-one__curved-circle-box .curved-circle,
+.section-title__title,
+.about-one__experience h3,
+.about-one__experience-points li .text p,
+.about-one__sign h5,
+.feature-one__title a,
+.services-one__title a,
+.awards-one__title,
+.testimonial-one__client-name h4,
+.why-choose-one__list li .title h3 a,
+.contact-one__title,
+.blog-one__content-title a {
+    color: var(--delogis-white);
+}
+
+.main-menu .main-menu__list>li.current>a,
+.main-menu .main-menu__list>li:hover>a,
+.stricky-header .main-menu__list>li.current>a,
+.stricky-header .main-menu__list>li:hover>a {
+    color: var(--delogis-white);
+    text-shadow: 0.05px 0 0 rgb(255 255 255 / 80%);
+}
+
+.main-menu__search-cart-box:before {
+    background-color: #312b2b;
+}
+
+.about-one__experience-box:before {
+    background-color: #1f1919;
+    border: 1px solid #312b2b;
+}
+
+.about-one__btn:hover {
+    color: var(--delogis-black);
+}
+
+.about-one__btn:before {
+    background-color: var(--delogis-white);
+}
+
+.feature-one__hover-arrow {
+    background-color: var(--delogis-black);
+}
+
+.feature-one__hover-arrow:hover {
+    background-color: var(--delogis-white);
+    color: var(--delogis-black);
+}
+
+.services-one__btn {
+    border-top: 1px solid #312b2b;
+}
+
+.services-one__icon::before {
+    background: rgb(39, 33, 33);
+    background: linear-gradient(90deg, rgba(39, 33, 33, 0) 0%, rgba(39, 33, 33, 1) 80%);
+}
+
+.awards-one__bg {
+    opacity: .20;
+    mix-blend-mode: multiply;
+}
+
+.testimonial-one__ratting i {
+    color: #5b4034;
+}
+
+.testimonial-one__carousel.owl-theme .owl-nav .owl-prev,
+.testimonial-one__carousel.owl-theme .owl-nav .owl-next {
+    background-color: rgb(39, 33, 33);
+    color: var(--delogis-white);
+}
+
+.cases-one__bg-box {
+    background-image: linear-gradient(0deg, rgba(31, 25, 25, 0) 0%, rgb(39, 33, 33) 100%);
+}
+
+
+.cases-one__bg {
+    mix-blend-mode: overlay;
+    opacity: .1;
+}
+
+.brand-one__inner {
+    border-top: 1px solid #312b2b;
+}
+
+.contact-one__shape-1 {
+    opacity: .20;
+    mix-blend-mode: color-burn;
+}
+
+.contact-one__form-input-box input[type="text"] {
+    background-color: #1f1919;
+    color: #978e8e;
+}
+
+.contact-one__form-input-box .bootstrap-select>.dropdown-toggle {
+    background-color: #1f1919 !important;
+    color: #978e8e !important;
+}
+
+.blog-one__comment a:hover {
+    color: var(--delogis-base);
+}
+
+.blog-one__comment a:hover span {
+    color: var(--delogis-base);
+}
+
+.blog-one__btn a:hover {
+    color: var(--delogis-base);
+}
+
+.blog-one__btn a:hover span {
+    color: var(--delogis-base);
+}
+
+.contact-one__nummber a:hover {
+    color: var(--delogis-white);
+}
+
+.services-one__bg {
+    opacity: .30;
+}
+
+.contact-one__form-btn:hover {
+    color: var(--delogis-base);
+}
+
+.contact-one__form-btn:before {
+    background-color: var(--delogis-white);
+}
+
+
+
+
+
+/*  */
