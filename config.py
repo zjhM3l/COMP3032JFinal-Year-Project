@@ -3,19 +3,15 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # from jinja2 import Markup, Environment, FileSystemLoader
 
 class Config:
-    SECRET_KEY = 'a9087FFJFF9nnvc2@#$%FSD'
+    SECRET_KEY = 'dkxlpfbhhjfidjcg'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-    FLASKY_ADMIN_A = '2272393014@qq.com'
-    FLASKY_ADMIN_B = '1104028870@qq.com'
-    FLASKY_ADMIN_C = '1483511346@qq.com'
-    FLASKY_ADMIN_D = '59656068@qq.com'
-    FLASKY_ADMIN_E = '59656068@qq.com'
+    FLASKY_ADMIN = '2272393014@qq.com'
     MAIL_SERVER = 'smtp.qq.com'
     MAIL_PORT = 465
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     MAIL_USERNAME = '2272393014@qq.com'
-    MAIL_PASSWORD = 'dkxlpfbhhjfidjcg'
+    MAIL_PASSWORD = 'l20011026'
     FLASKY_MAIL_SENDER = '2272393014@qq.com'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Group4Confirm]'
     SECURITY_EMAIL_SENDER = 'valid_email@my_domain.com'

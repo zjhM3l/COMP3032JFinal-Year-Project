@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
     intro = db.Column(db.Text)
     career_id = db.Column(db.Integer, db.ForeignKey('careers.id'))
     career = db.relationship('Career', backref='users')
-    awards_urls = db.Column(db.ARRAY(db.String(256)))
+    awards_urls = db.Column(db.String(256))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.Boolean, default=True)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
@@ -73,12 +73,18 @@ class Career(db.Model):
 
     @staticmethod
     def insert_careers():
-        careers = ['Career1', 'Career2', 'Career3']  # 自动生成的职业名称列表
-        for c in careers:
-            career = Career.query.filter_by(name=c).first()
-            if career is None:
-                career = Career(name=c)
-            db.session.add(career)
+        career1 = Career(id=1, name="career1")
+        career2 = Career(id=2, name="career2")
+        career3 = Career(id=3, name="career3")
+        career4 = Career(id=4, name="career4")
+        career5 = Career(id=5, name="career5")
+        career6 = Career(id=6, name="career6")
+        career7 = Career(id=7, name="career7")
+        career8 = Career(id=8, name="career8")
+        career9 = Career(id=9, name="career9")
+        career10 = Career(id=10, name="career10")
+        db.session.add_all([career1, career2, career3, career4, career5, career6, career7,
+                            career8, career9, career10])
         db.session.commit()
 
 
@@ -90,12 +96,13 @@ class Category(db.Model):
 
     @staticmethod
     def insert_categories():
-        categories = ['Category1', 'Category2', 'Category3']  # 自动生成的帖子标签类型列表
-        for cat in categories:
-            category = Category.query.filter_by(name=cat).first()
-            if category is None:
-                category = Category(name=cat)
-            db.session.add(category)
+        category1 = Category(id=1, name="category1")
+        category2 = Category(id=2, name="category2")
+        category3 = Category(id=3, name="category3")
+        category4 = Category(id=4, name="category4")
+        category5 = Category(id=5, name="category5")
+        category6 = Category(id=6, name="category6")
+        db.session.add_all([category1, category2, category3, category4, category5, category6])
         db.session.commit()
 
 
@@ -103,10 +110,10 @@ class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    author = db.relationship('User', backref='posts')
+    author = db.relationship('User', foreign_keys=[author_id], backref='posts')
     hole = db.Column(db.Boolean, default=False)
     anonymous_author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    anonymous_author = db.relationship('User', foreign_keys=[anonymous_author_id])
+    anonymous_author = db.relationship('User', foreign_keys=[anonymous_author_id], backref='tree_hole')
     title = db.Column(db.String(128))
     body = db.Column(db.Text)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
@@ -114,4 +121,16 @@ class Post(db.Model):
     cover_url = db.Column(db.String(256))
     read_count = db.Column(db.Integer, default=0)
     emotion = db.Column(db.Integer)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    post = db.relationship('Post', backref='comments')
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    author = db.relationship('User', foreign_keys=[author_id], backref='comments')
+    anonymous_author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    anonymous_author = db.relationship('User', foreign_keys=[anonymous_author_id], backref='anonymous_comments')
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
