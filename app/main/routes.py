@@ -10,17 +10,17 @@ def index():
 
 
 @main.route('/404', methods=['GET', 'POST'])
-def login():
+def error():
     return render_template('404.html')
 
 
 @main.route('/about', methods=['GET', 'POST'])
-def error():
+def about():
     return render_template('about.html')
 
 
 @main.route('/anxiety-grief', methods=['GET', 'POST'])
-def about():
+def anxietygrief():
     return render_template('anxiety-grief.html')
 
 
@@ -30,67 +30,67 @@ def blog():
 
 
 @main.route('/blog-details', methods=['GET', 'POST'])
-def login():
+def blogdetails():
     return render_template('blog-details.html')
 
 
 @main.route('/blog-sidebar', methods=['GET', 'POST'])
-def login():
+def blogsidebar():
     return render_template('blog-sidebar.html')
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
-def login():
+def lcareercounseling():
     return render_template('career-counseling.html')
 
 
 @main.route('/cart', methods=['GET', 'POST'])
-def login():
+def cart():
     return render_template('cart.html')
 
 
 @main.route('/case-details', methods=['GET', 'POST'])
-def login():
+def casedetails():
     return render_template('case-details.html')
 
 
 @main.route('/cases-1', methods=['GET', 'POST'])
-def login():
+def cases1():
     return render_template('cases-1.html')
 
 
 @main.route('/cases-2', methods=['GET', 'POST'])
-def login():
+def cases2():
     return render_template('cases-2.html')
 
 
 @main.route('/checkout', methods=['GET', 'POST'])
-def login():
+def checkout():
     return render_template('checkout.html')
 
 
 @main.route('/contact', methods=['GET', 'POST'])
-def login():
+def contact():
     return render_template('contact.html')
 
 
 @main.route('/dating-relationship', methods=['GET', 'POST'])
-def login():
+def datingrelationship():
     return render_template('dating-relationship.html')
 
 
 @main.route('/family-psycology', methods=['GET', 'POST'])
-def login():
+def familypsycology():
     return render_template('family-psycology.html')
 
 
 @main.route('/faq', methods=['GET', 'POST'])
-def login():
+def faq():
     return render_template('faq.html')
 
 
 @main.route('/gallery', methods=['GET', 'POST'])
-def login():
+def gallery():
     return render_template('gallery.html')
 
 
@@ -100,45 +100,45 @@ def login():
 
 
 @main.route('/make-appointment', methods=['GET', 'POST'])
-def login():
+def makeappointment():
     return render_template('make-appointment.html')
 
 
 @main.route('/pricing-plans', methods=['GET', 'POST'])
-def login():
+def pricingplans():
     return render_template('pricing-plans.html')
 
 
 @main.route('/product-details', methods=['GET', 'POST'])
-def login():
+def productdetails():
     return render_template('product-details.html')
 
 
 @main.route('/products', methods=['GET', 'POST'])
-def login():
+def products():
     return render_template('products.html')
 
 
 @main.route('/self-esteem-issues', methods=['GET', 'POST'])
-def login():
+def selfesteemissues():
     return render_template('self-esteem-issues.html')
 
 
 @main.route('/services', methods=['GET', 'POST'])
-def login():
+def services():
     return render_template('services.html')
 
 
 @main.route('/team', methods=['GET', 'POST'])
-def login():
+def team():
     return render_template('team.html')
 
 
 @main.route('/team-details', methods=['GET', 'POST'])
-def login():
+def teamdetails():
     return render_template('team-details.html')
 
 
 @main.route('/young-adult-intensive', methods=['GET', 'POST'])
-def login():
+def youngadultintensive():
     return render_template('young-adult-intensive.html')

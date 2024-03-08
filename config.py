@@ -9,6 +9,7 @@ class Config:
     FLASKY_ADMIN_B = '1104028870@qq.com'
     FLASKY_ADMIN_C = '1483511346@qq.com'
     FLASKY_ADMIN_D = '59656068@qq.com'
+    FLASKY_ADMIN_E = '59656068@qq.com'
     MAIL_SERVER = 'smtp.qq.com'
     MAIL_PORT = 465
     MAIL_USE_TLS = False
