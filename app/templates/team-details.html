@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Team Details || delogis || delogis HTML 5 Template </title>
+    <title> Personal Details || delogis || delogis HTML 5 Template </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
@@ -323,11 +323,11 @@
             </div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h2>Team Details</h2>
+                    <h2>Personal Details</h2>
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><span>/</span></li>
-                        <li>Team Details</li>
+                        <li>Personal Details</li>
                     </ul>
                 </div>
             </div>
@@ -343,29 +343,22 @@
                             <div class="team-details__img">
                                 <img src="../static/images/team/team-details-img-1.jpg" alt="">
                             </div>
-                            <div class="team-details__social-box">
-                                <div class="team-details__social-title">
-                                    <p>Follow Me</p>
-                                </div>
-                                <div class="team-details__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-7">
                         <div class="team-details__right">
-                            <h3 class="team-details__title">Hello!
-                                <br> I’m Aleesha Charlotte Your
-                                <br> Personal Psychologist</h3>
-                            <p class="team-details__text">Lorem ipsum dolor sit amet, con adipiscing elit tiam convallis
-                                elit id impedie. Quisq commodo simply free ornare tortor. If you are going to use a
-                                passage.</p>
+                            <h3 class="team-details__title">
+                                <span>{{ User.first_name }}</span>
+                                <span>{{ User.last_name }}</span>
+                            </h3>
+                            <p class="team-details__text">
+                                {{ User.intro }}
+                            </p>
                             <div class="team-details__points-box">
-                                <h3 class="team-details__points-title">I’m Here to Help Your:</h3>
+                                <h3 class="team-details__points-title">
+                                    <span>Email: </span>
+                                    <span>{{ User.email }}</span>
+                                </h3>
                                 <ul class="team-details__points list-unstyled">
                                     <li>
                                         <div class="icon">
@@ -388,8 +381,7 @@
                                 </ul>
                             </div>
                             <div class="team-details__btn-box">
-                                <a href="make-appointment.html" class="team-details__btn thm-btn">Make an
-                                    Appointment</a>
+                                <a href="make-appointment.html" class="team-details__btn thm-btn">My Posts</a>
                             </div>
                         </div>
                     </div>
@@ -432,44 +424,7 @@
         <!--Certificate One End-->
 
         <!--Experience One start-->
-        <section class="experience-one">
-            <div class="container">
-                <div class="experience-one__inner">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="experience-one__left">
-                                <h3 class="experience-one__title">Personal Experience</h3>
-                                <p class="experience-one__text">If you are going to use a passage of Lorem Ipsum, you
-                                    need
-                                    to <br> be sure there isn't anything embarrassing hidden.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="experience-one__right">
-                                <ul class="experience-one__progress-list list-unstyled">
-                                    <li class="experience-one__progress">
-                                        <h4 class="experience-one__progress-title">Counseling</h4>
-                                        <div class="bar">
-                                            <div class="bar-inner count-bar" data-percent="77%">
-                                                <div class="count-text">77%</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="experience-one__progress">
-                                        <h4 class="experience-one__progress-title">Psychology</h4>
-                                        <div class="bar">
-                                            <div class="bar-inner count-bar" data-percent="68%">
-                                                <div class="count-text">68%</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!--Experience One End-->
 
         <!--Contact Three Start-->
