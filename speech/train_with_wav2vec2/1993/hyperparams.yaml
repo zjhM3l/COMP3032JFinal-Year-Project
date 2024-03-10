@@ -1,0 +1,123 @@
+# Generated 2024-03-09 from:
+# /home/sunqi/speechbrain-develop/recipes/IEMOCAP/emotion_recognition/hparams/train_with_wav2vec2.yaml
+# Emotion recognition from speech using wav2vec2
+# ########################################
+
+# Seed needs to be set at top of yaml, before objects with parameters are made
+seed: 1993
+__set_seed: !apply:torch.manual_seed [1993]
+
+# Dataset will be downloaded to the `data_original`
+data_folder: 
+  /home/sunqi/speechbrain-develop/recipes/IEMOCAP/emotion_recognition/trainingResult # e.g., /path/to/IEMOCAP_full_release
+output_folder: results/train_with_wav2vec2/1993
+save_folder: results/train_with_wav2vec2/1993/save
+train_log: results/train_with_wav2vec2/1993/train_log.txt
+
+# URL for the wav2vec2 model, you can change to benchmark diffrenet models
+# Important: we use wav2vec2 base and not the fine-tuned one with ASR task
+# This allow you to have ~4% improvment
+wav2vec2_hub: /home/sunqi/models/wav2vec2-base
+wav2vec2_folder: results/train_with_wav2vec2/1993/save/wav2vec2_checkpoint
+
+# different speakers for train, valid and test sets
+different_speakers: false
+# which speaker is used for test set, value from 1 to 10
+test_spk_id: 1
+
+# Path where data manifest files will be stored
+train_annotation: results/train_with_wav2vec2/1993/train.json
+valid_annotation: results/train_with_wav2vec2/1993/valid.json
+test_annotation: results/train_with_wav2vec2/1993/test.json
+split_ratio: [80, 10, 10]
+skip_prep: false
+
+# The train logger writes training statistics to a file, as well as stdout.
+train_logger: !new:speechbrain.utils.train_logger.FileTrainLogger
+  save_file: results/train_with_wav2vec2/1993/train_log.txt
+
+ckpt_interval_minutes: 15 # save checkpoint every N min
+
+# Training parameters
+number_of_epochs: 30
+batch_size: 4
+lr: 0.0001
+lr_wav2vec2: 0.00001
+
+#freeze all wav2vec2
+freeze_wav2vec2: false
+#set to true to freeze the CONV part of the wav2vec2 model
+# We see an improvement of 2% with freezing CNNs
+freeze_wav2vec2_conv: true
+
+# Model parameters
+encoder_dim: 768
+
+# Number of emotions
+out_n_neurons: 4 # (anger, happiness, sadness, neutral)
+
+dataloader_options:
+  batch_size: 4
+  shuffle: true
+  num_workers: 2    # 2 on linux but 0 works on windows
+  drop_last: false
+
+# Wav2vec2 encoder
+wav2vec2: &id001 !new:speechbrain.lobes.models.huggingface_wav2vec.HuggingFaceWav2Vec2
+  source: /home/sunqi/models/wav2vec2-base
+  output_norm: true
+  freeze: false
+  freeze_feature_extractor: true
+  save_path: results/train_with_wav2vec2/1993/save/wav2vec2_checkpoint
+
+avg_pool: !new:speechbrain.nnet.pooling.StatisticsPooling
+  return_std: false
+
+output_mlp: &id002 !new:speechbrain.nnet.linear.Linear
+
+  input_size: 768
+  n_neurons: 4
+  bias: false
+
+epoch_counter: &id006 !new:speechbrain.utils.epoch_loop.EpochCounter
+  limit: 30
+
+modules:
+  wav2vec2: *id001
+  output_mlp: *id002
+model: &id003 !new:torch.nn.ModuleList
+- [*id002]
+log_softmax: !new:speechbrain.nnet.activations.Softmax
+  apply_log: true
+
+compute_cost: !name:speechbrain.nnet.losses.nll_loss
+
+error_stats: !name:speechbrain.utils.metric_stats.MetricStats
+  metric: !name:speechbrain.nnet.losses.classification_error
+    reduction: batch
+
+opt_class: !name:torch.optim.Adam
+  lr: 0.0001
+
+wav2vec2_opt_class: !name:torch.optim.Adam
+  lr: 0.00001
+
+lr_annealing: &id004 !new:speechbrain.nnet.schedulers.NewBobScheduler
+  initial_value: 0.0001
+  improvement_threshold: 0.0025
+  annealing_factor: 0.9
+  patient: 0
+
+lr_annealing_wav2vec2: &id005 !new:speechbrain.nnet.schedulers.NewBobScheduler
+  initial_value: 0.00001
+  improvement_threshold: 0.0025
+  annealing_factor: 0.9
+
+checkpointer: !new:speechbrain.utils.checkpoints.Checkpointer
+  checkpoints_dir: results/train_with_wav2vec2/1993/save
+  recoverables:
+    model: *id003
+    wav2vec2: *id001
+    lr_annealing_output: *id004
+    lr_annealing_wav2vec2: *id005
+    counter: *id006
