@@ -120,7 +120,6 @@ class Post(db.Model):
     category = db.relationship('Category', backref='posts')
     cover_url = db.Column(db.String(256))
     read_count = db.Column(db.Integer, default=0)
-    emotion = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 
@@ -134,3 +133,22 @@ class Comment(db.Model):
     anonymous_author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     anonymous_author = db.relationship('User', foreign_keys=[anonymous_author_id], backref='anonymous_comments')
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+class Audio(db.Model):
+    __tablename__ = 'audios'
+    id = db.Column(db.Integer, primary_key=True)
+    input = db.Column(db.String(256))  # 存储音频文件路径
+
+
+class Emotion(db.Model):
+    __tablename__ = 'emotions'
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.Integer)  # 0: user emotion, 1: hole emotion, 2: audio emotion
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship('User', backref='user_emotions', foreign_keys=[user_id])
+    hole_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    hole = db.relationship('Post', backref='hole_emotions', foreign_keys=[hole_id])
+    audio_id = db.Column(db.Integer, db.ForeignKey('audios.id'))
+    audio = db.relationship('Audio', backref='audio_emotions')
+    output = db.Column(db.Text)  # 存储情绪检测结果
