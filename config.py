@@ -1,7 +1,7 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 # from jinja2 import Markup, Environment, FileSystemLoader
-
+# fix
 class Config:
     SECRET_KEY = 'dkxlpfbhhjfidjcg'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
