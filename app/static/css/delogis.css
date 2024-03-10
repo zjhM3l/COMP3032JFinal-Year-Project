@@ -12,7 +12,7 @@
 # Page Header
 # Google Map
 # Client Carousel
-¸ü¶àÏÂÔØ£ºhttp://www.bootstrapmb.com
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½http://www.bootstrapmb.com
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -2939,6 +2939,10 @@ ul {
   display: block;
   padding: 120px 0 115px;
   z-index: 1;
+}
+
+.one {
+  padding: 0px 0 115px;
 }
 
 .about-one__left {
