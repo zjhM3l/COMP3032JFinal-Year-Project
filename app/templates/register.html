@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -323,45 +323,56 @@
             </div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h2>Login</h2>
+                    <h2>Register</h2>
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><span>/</span></li>
-                        <li>Login</li>
+                        <li>Register</li>
                     </ul>
                 </div>
             </div>
         </section>
         <!--Page Header End-->
 
-        <!--Login Page Start-->
+        <!--Register Page Start-->
         <section class="login-page">
             <div class="container">
-                <div class="login-page__top">
-                    <p>We have a demo account setup. <span>Username:</span> <a href="#">demo</a> and <span>
-                            Password:</span> <a href="#">demo</a></p>
-                </div>
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12">
+                     <div class="col-xl-12 col-lg-12">
                         <div class="login-page__single">
-                            <h3 class="login-page__title">Login</h3>
-                            <form class="login-page__form" method="post" action="/login">
+                            <h3 class="login-page__title">Register</h3>
+                            <form class="login-page__form" method="post" action="/register">
                                 <div class="login-page__form-input-box">
                                     <input id="email" type="email" name="email" placeholder="Email *">
                                 </div>
                                 <div class="login-page__form-input-box">
                                     <input id="password" type="password" name="password" placeholder="Password *">
                                 </div>
-                                <div class="checked-box">
-                                    <input type="checkbox" name="skipper2" id="skipper2" checked="">
-                                    <label for="skipper2"><span></span>Remember Me?</label>
+
+                                <div class="row">
+                                <div class="col-lg-8">
+
+                                <div class="login-page__form-input-box">
+                                    <input id="captcha" name="captcha" type="password" required="">
                                 </div>
-                                <div class="login-page__form-btn-box">
-                                    <button type="submit" class="thm-btn login-page__form-btn" style="width: 60%;">Login</button>
-                                    <div class="login-page__form-forgot-password">
-                                        <a href="#">Forgot your Password?</a>
+
+                                </div>
+                                <div class="col-lg-4" style="padding-left: 10px; !important; ">
+                                    <button class="thm-btn"  id="captcha-btn" class="btn style1">GET CAPTURE
+                                    </button>
                                     </div>
+                                    </div>
+
+                                <div class="checked-box">
+                                    <input type="checkbox" name="skipper3" id="skipper3" checked="">
+                                    <label for="skipper3"><span></span>I accept company privay policy.</label>
                                 </div>
+
+                                <div class="login-page__form-btn-box">
+                                    <button type="submit" class="thm-btn" style="width: 80%;">Register</button>
+                                </div>
+
+
                             </form>
                         </div>
                     </div>
