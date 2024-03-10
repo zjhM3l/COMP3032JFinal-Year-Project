@@ -1,7 +1,12 @@
 from flask import render_template, flash, redirect, url_for, session, abort, request, current_app, make_response
-from flask_login import login_required, current_user
+from flask_login import login_user, login_required, logout_user, current_user
 from . import main
+from .email import send_email
+from .forms import LoginForm, RegistrationForm
+from .password import PasswordTool
 from .. import db
+from ..models import User
+from werkzeug.security import generate_password_hash
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -96,7 +101,76 @@ def gallery():
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
+    lform = LoginForm()
+    if lform.validate_on_submit():
+        passw_hash = generate_password_hash(lform.password.data)
+        user = User.query.filter_by(email=lform.email.data).first()
+        if user is not None and user.verify_password(lform.password.data):
+            login_user(user, lform.remember_me.data)
+            current_user.statue = True
+            next = request.args.get('next')
+            if next is None or not next.startswith('/'):
+                next = url_for('main.index')
+            return redirect(next)
+        flash('Invalid username or password.')
+    rform = RegistrationForm()
+    password = str(rform.password.data)
+    check = PasswordTool(password)
+    check.process_password()
+    if rform.validate_on_submit():
+        user = User(email=rform.email.data,
+                    password=rform.password.data
+                    )
+        db.session.add(user)
+        db.session.commit()
+        token = user.generate_confirmation_token()
+        if send_email(user.email, 'BJUT Forum Confirmation', 'confirm', user=user, token=token):
+            flash('The email address is not existed or the network is not connected')
+        else:
+            flash('You can now check your email')
+        # flash('Register successfully')   #判断邮件是否成功发送
+        return redirect(url_for('main.login'))
+        # return redirect(url_for('main.index'))
     return render_template('login.html')
+
+@main.route('/confirm/<token>')
+@login_required
+def confirm(token):
+    if current_user.confirmed:
+        return redirect(url_for('main.index'))
+    if current_user.confirm(token):
+        db.session.commit()
+    else:
+        flash('这个确认链接不可用，或已超时')
+    current_user.statue = True
+    return redirect(url_for('main.index'))
+
+
+@main.before_app_request
+def before_request():
+    if current_user.is_authenticated \
+            and not current_user.confirmed \
+            and request.endpoint[:5] != 'main.' \
+            and request.endpoint != 'static':
+        return redirect(url_for('main.unconfirmed'))
+
+
+@main.route('/unconfirmed')
+def unconfirmed():
+    if current_user.is_anonymous or current_user.confirmed:
+        return redirect(url_for('main.index'))
+    flash('Invalid email, please try it again')
+    return render_template('unconfirmed.html')
+
+
+@main.route('/confirm')
+@login_required
+def resend_confirmation():
+    token = current_user.generate_confirmation_token()
+    send_email(current_user.email, '确认你的账户',
+               'templates/confirm', current_user, token)
+    flash('新确认账户邮件已发送到邮箱，注意查收.')
+    return redirect(url_for('main.index'))
 
 
 @main.route('/make-appointment', methods=['GET', 'POST'])
@@ -134,9 +208,10 @@ def team():
     return render_template('team.html')
 
 
-@main.route('/team-details', methods=['GET', 'POST'])
-def teamdetails():
-    return render_template('team-details.html')
+@main.route('/team-details/<email>', methods=['GET', 'POST'])
+def teamdetails(email):
+    user = User.query.filter_by(email=email).first()
+    return render_template('team-details.html', user=user)
 
 
 @main.route('/young-adult-intensive', methods=['GET', 'POST'])
