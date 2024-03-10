@@ -8,9 +8,9 @@ from flask_mail import Mail
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
-# login_manager = LoginManager()
-# login_manager.session_protection = 'strong'
-# login_manager.login_view = 'main.login'
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'main.login'
 pagedown = PageDown()
 mail = Mail()
 
@@ -22,7 +22,7 @@ def create_app(config_name):
 
     bootstrap.init_app(app)
     db.init_app(app)
-    # login_manager.init_app(app)
+    login_manager.init_app(app)
     pagedown.init_app(app)
     mail.init_app(app)
 

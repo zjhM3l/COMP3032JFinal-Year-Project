@@ -1,0 +1,9 @@
+Dear {{ user.username }},
+
+Welcome to BJUT Forum!
+
+Please click on the following link to confirm your account：
+
+{{ url_for('main.confirm', token=token, _external=True) }}
+
+If you never submit a registration request, please ignore this email.
