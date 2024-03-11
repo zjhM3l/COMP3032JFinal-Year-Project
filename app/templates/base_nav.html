@@ -63,10 +63,10 @@
                 <div class="main-menu__wrapper">
                     <div class="main-menu__wrapper-inner">
                         <div class="main-menu__logo">
-                            <a href="index.html"><img src="../static/images/resources/logo-1.png" alt=""></a>
+                            <a href="{{url_for('main.index')}}"><img src="../static/images/resources/logo-1.png" alt=""></a>
                         </div>
                         <div class="main-menu__btn-box">
-                            <a href="make-appointment.html">Make an Appointment</a>
+                            <a href="{{url_for('main.team')}}">Make an Appointment</a>
                         </div>
                         <div class="main-menu__wrapper-inner-content">
                             <div class="main-menu__top">
@@ -86,7 +86,7 @@
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <p><a href="mailto:help@company.com">assistance@ucdService.com</a>
+                                                    <p><a href="assistance@ucdService.com">assistance@ucdService.com</a>
                                                     </p>
                                                 </div>
                                             </li>
@@ -100,9 +100,8 @@
                                             </li>
                                         </ul>
                                         <ul class="list-unstyled main-menu__top-menu">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="faq.html">Faqs</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{{url_for('main.about')}}">About</a></li>
+                                            <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
                                         </ul>
                                     </div>
                                     <div class="main-menu__top-right">
@@ -121,32 +120,35 @@
                                         <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                         <ul class="main-menu__list">
                                             <li class="dropdown current megamenu">
-                                                <a href="index.html">Home </a>
+                                                <a href="{{url_for('main.index')}}">Home </a>
                                             </li>
                                             <li class="dropdown">
 
-                                                <a href="#">Experts</a>
+                                                <a href="{{url_for('main.team')}}">Experts</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="#">Blog</a>
+                                                <a>Blog</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                                    <li><a href="{{url_for('main.blogsidebar')}}">Experts Blog</a></li>
+                                                    <li><a href="{{url_for('main.blog')}}">User Blog</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="#">Emotional Vent Tree</a>
+                                                <a href="{{url_for('main.cases1')}}">Emotional Vent Tree</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="#">More</a>
+                                                <a>More</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="products.html">About</a></li>
-                                                    <li><a href="product-details.html">Faqs</a></li>
+                                                    <li><a href="{{url_for('main.about')}}">About</a></li>
+                                                    <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
                                                 </ul>
                                             </li>
                                              <li class="dropdown">
-                                                <a href="#">Login/Register</a>
+                                                 {% if current_user.is_authenticated %}
+                                                 Hi, <a href="{{url_for('main.teamdetails')}}">{{ current_user.username}}</a>
+                                                 {% else %}
+                                                 <a href="{{url_for('main.login')}}">Login/Register</a>
+                                                 {% endif %}
                                             </li>
                                         </ul>
                                     </div>

@@ -39,7 +39,7 @@ def blogdetails():
     return render_template('blog-details.html')
 
 
-@main.route('/blog-sidebar', methods=['GET', 'POST'])
+@main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
     return render_template('blog-sidebar.html')
 
@@ -59,7 +59,7 @@ def casedetails():
     return render_template('case-details.html')
 
 
-@main.route('/cases-1', methods=['GET', 'POST'])
+@main.route('/cases1', methods=['GET', 'POST'])
 def cases1():
     return render_template('cases-1.html')
 
