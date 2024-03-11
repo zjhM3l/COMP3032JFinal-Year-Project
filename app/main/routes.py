@@ -217,3 +217,35 @@ def teamdetails(email):
 @main.route('/young-adult-intensive', methods=['GET', 'POST'])
 def youngadultintensive():
     return render_template('young-adult-intensive.html')
+
+@main.route('/checkEmail', methods=['GET', 'POST'])
+def checkEmail():
+    chosen_email = request.form.get('email');
+    if re.match(r'^[0-9a-za-z_]{0,19}@[0-9a-za-z]{1,13}\.[com,cn,net]{1,3}$', chosen_email):
+        if not User.query.filter_by(email=chosen_email).first():
+            return jsonify({'text': 'Email is available', 'returnvalue': 0})
+        else:
+            return jsonify({'text': 'Sorry, email is already token', 'returnvalue': 1})
+    else:
+        return jsonify({'text': "emailFormatError" , 'returnvalue': 2})
+
+@main.route("/passwordStrength", methods=['GET', 'POST'])
+def passwordStrength():
+    passwordGet = request.form.get("password")
+    password = list(passwordGet)
+    if len(password) == 0 or " " in password:
+        return "format_error"
+    special = "`~!@#%^&*()_-+=|}{][:;,.><?/\\"
+    has_number, has_lower, has_upper, has_special = 0, 0, 0, 0
+    for i in range(0, len(password)):
+        if ord('0') <= ord(password[i]) <= ord('9'):
+            has_number = 1
+        if password[i].islower():
+            has_lower = 1
+        if password[i].isupper():
+            has_upper = 1
+        if password[i] in special:
+            has_special = 1
+    strong = str(has_special + has_number + has_lower + has_upper)
+    return jsonify({'text': 'this is the password strength', 'returnvalue': strong})
+
