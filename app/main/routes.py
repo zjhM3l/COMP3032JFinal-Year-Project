@@ -101,25 +101,40 @@ def gallery():
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
-    lform = LoginForm()
-    if lform.validate_on_submit():
-        passw_hash = generate_password_hash(lform.password.data)
-        user = User.query.filter_by(email=lform.email.data).first()
-        if user is not None and user.verify_password(lform.password.data):
-            login_user(user, lform.remember_me.data)
+    form = LoginForm()
+    print(form.validate_on_submit())
+    if form.validate_on_submit():
+        passw_hash = generate_password_hash(form.password.data)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.verify_password(form.password.data):
+            login_user(user, form.remember_me.data)
             current_user.statue = True
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
             return redirect(next)
         flash('Invalid username or password.')
-    rform = RegistrationForm()
-    password = str(rform.password.data)
+    return render_template('login.html', form=form)
+
+
+@main.route('/logout')
+@login_required
+def logout():
+    current_user.statue = False
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('main.index'))
+
+
+@main.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    password = str(form.password.data)
     check = PasswordTool(password)
     check.process_password()
-    if rform.validate_on_submit():
-        user = User(email=rform.email.data,
-                    password=rform.password.data
+    if form.validate_on_submit():
+        user = User(email=form.email.data,
+                    password=form.password.data
                     )
         db.session.add(user)
         db.session.commit()
@@ -129,9 +144,10 @@ def login():
         else:
             flash('You can now check your email')
         # flash('Register successfully')   #判断邮件是否成功发送
-        return redirect(url_for('main.login'))
+        return redirect(url_for('auth.login'))
         # return redirect(url_for('main.index'))
-    return render_template('login.html')
+    return render_template('register.html', form=form, level=check.strength_level)
+
 
 @main.route('/confirm/<token>')
 @login_required
@@ -178,6 +194,12 @@ def makeappointment():
     return render_template('make-appointment.html')
 
 
+@main.route('/personal-details/<email>', methods=['GET', 'POST'])
+def personaldetails(email):
+    user = User.query.filter_by(email=email).first()
+    return render_template('personal-details.html', user=user)
+
+
 @main.route('/pricing-plans', methods=['GET', 'POST'])
 def pricingplans():
     return render_template('pricing-plans.html')
@@ -206,12 +228,6 @@ def services():
 @main.route('/team', methods=['GET', 'POST'])
 def team():
     return render_template('team.html')
-
-
-@main.route('/team-details/<email>', methods=['GET', 'POST'])
-def teamdetails(email):
-    user = User.query.filter_by(email=email).first()
-    return render_template('team-details.html', user=user)
 
 
 @main.route('/young-adult-intensive', methods=['GET', 'POST'])
