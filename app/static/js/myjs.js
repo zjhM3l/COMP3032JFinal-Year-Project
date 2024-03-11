@@ -4,7 +4,7 @@ function checkEmail() {
     req.open('post', '/checkEmail', true);
     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     req.send("email=" + email.value);
-    if req.onload = function () {
+    req.onload = function () {
         var json = JSON.parse(req.responseText);
         if (json.returnvalue == 1) {
             //use javascript to change css
@@ -54,10 +54,14 @@ function passwordStrength() {
 function checkPassword() {
     var password = $("input[name='password']").val();
     var password2 = $("input[name='password2']").val();
-    if (password === password2 && password2.length !== 0) {
+    if (password == password2 && password2.length !== 0) {
         updateMessage(pass, 'Correct', 'black');
-    } else if (password !== password2) {
+    } else if (password != password2) {
         updateMessage(pass, 'Sorry, the password does not match', 'red');
     }
 }
 
+function updateMessage(element, text, color) {
+    element.innerText = text;
+    element.style.color = color;
+}
