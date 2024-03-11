@@ -1,7 +1,7 @@
 # from . import login_manager
 from datetime import datetime, timezone, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import TimedSerializer as Serializer
 from flask import current_app
 from . import db, login_manager
 from flask_login import UserMixin
