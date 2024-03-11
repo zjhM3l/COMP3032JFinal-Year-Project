@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, session, abort, request, current_app, make_response
+from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from . import main
 from .email import send_email
@@ -7,6 +7,8 @@ from .password import PasswordTool
 from .. import db
 from ..models import User
 from werkzeug.security import generate_password_hash
+import re
+import string
 
 
 @main.route('/', methods=['GET', 'POST'])
