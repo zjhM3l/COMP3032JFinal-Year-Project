@@ -130,13 +130,17 @@ def logout():
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
+    print("--------------------------------------------")
     form = RegistrationForm()
-    password = str(form.password.data)
-    check = PasswordTool(password)
-    check.process_password()
+    print("Email:", form.email.data)
+    print("Password:", form.password.data)
+    print("Password2:", form.password2.data)
+    if form.password.data != form.password2.data:
+        print("Passwords do not match.")
     if form.validate_on_submit():
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++")
         user = User(email=form.email.data,
-                    password=form.password.data
+                    password_hash=form.password.data
                     )
         db.session.add(user)
         db.session.commit()
@@ -148,7 +152,7 @@ def register():
         # flash('Register successfully')   #判断邮件是否成功发送
         return redirect(url_for('auth.login'))
         # return redirect(url_for('main.index'))
-    return render_template('register.html', form=form, level=check.strength_level)
+    return render_template('register.html', form=form)
 
 
 @main.route('/confirm/<token>')

@@ -21,3 +21,6 @@
 """
 
 ps:非必要注意不要上传data.sqlite文件数据库文件到github以免造成其他人的数据被清除！！！！！！！
+
+生成req
+pip freeze > requirements.txt
