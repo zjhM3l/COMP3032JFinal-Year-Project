@@ -342,22 +342,22 @@
                             Password:</span> <a href="#">demo</a></p>
                 </div>
                 <div class="row">
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-12 col-lg-12">
                         <div class="login-page__single">
                             <h3 class="login-page__title">Login</h3>
-                            <form class="login-page__form">
+                            <form class="login-page__form" method="post" action="/login">
                                 <div class="login-page__form-input-box">
-                                    <input type="email" placeholder="Username or Email *">
+                                    <input id="email" type="email" name="email" placeholder="Email *">
                                 </div>
                                 <div class="login-page__form-input-box">
-                                    <input type="password" placeholder="Password *">
+                                    <input id="password" type="password" name="password" placeholder="Password *">
                                 </div>
                                 <div class="checked-box">
                                     <input type="checkbox" name="skipper2" id="skipper2" checked="">
                                     <label for="skipper2"><span></span>Remember Me?</label>
                                 </div>
                                 <div class="login-page__form-btn-box">
-                                    <button type="submit" class="thm-btn login-page__form-btn">Login</button>
+                                    <button type="submit" class="thm-btn login-page__form-btn" style="width: 60%;">Login</button>
                                     <div class="login-page__form-forgot-password">
                                         <a href="#">Forgot your Password?</a>
                                     </div>
@@ -365,26 +365,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="login-page__single">
-                            <h3 class="login-page__title">Register</h3>
-                            <form class="login-page__form">
-                                <div class="login-page__form-input-box">
-                                    <input type="email" placeholder="Username or Email *">
-                                </div>
-                                <div class="login-page__form-input-box">
-                                    <input type="Password" placeholder="Password *">
-                                </div>
-                                <div class="checked-box">
-                                    <input type="checkbox" name="skipper3" id="skipper3" checked="">
-                                    <label for="skipper3"><span></span>I accept company privay policy.</label>
-                                </div>
-                                <div class="login-page__form-btn-box">
-                                    <button type="submit" class="thm-btn login-page__form-btn">Register</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>

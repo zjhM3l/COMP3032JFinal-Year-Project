@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, session, abort, request, current_app, make_response
+from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from . import main
 from .email import send_email
@@ -7,6 +7,8 @@ from .password import PasswordTool
 from .. import db
 from ..models import User
 from werkzeug.security import generate_password_hash
+import re
+import string
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -101,25 +103,44 @@ def gallery():
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
-    lform = LoginForm()
-    if lform.validate_on_submit():
-        passw_hash = generate_password_hash(lform.password.data)
-        user = User.query.filter_by(email=lform.email.data).first()
-        if user is not None and user.verify_password(lform.password.data):
-            login_user(user, lform.remember_me.data)
+    form = LoginForm()
+    print(form.validate_on_submit())
+    if form.validate_on_submit():
+        passw_hash = generate_password_hash(form.password.data)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.verify_password(form.password.data):
+            login_user(user, form.remember_me.data)
             current_user.statue = True
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
             return redirect(next)
         flash('Invalid username or password.')
-    rform = RegistrationForm()
-    password = str(rform.password.data)
-    check = PasswordTool(password)
-    check.process_password()
-    if rform.validate_on_submit():
-        user = User(email=rform.email.data,
-                    password=rform.password.data
+    return render_template('login.html', form=form)
+
+
+@main.route('/logout')
+@login_required
+def logout():
+    current_user.statue = False
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('main.index'))
+
+
+@main.route('/register', methods=['GET', 'POST'])
+def register():
+    print("--------------------------------------------")
+    form = RegistrationForm()
+    print("Email:", form.email.data)
+    print("Password:", form.password.data)
+    print("Password2:", form.password2.data)
+    if form.password.data != form.password2.data:
+        print("Passwords do not match.")
+    if form.validate_on_submit():
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++")
+        user = User(email=form.email.data,
+                    password_hash=form.password.data
                     )
         db.session.add(user)
         db.session.commit()
@@ -129,9 +150,10 @@ def login():
         else:
             flash('You can now check your email')
         # flash('Register successfully')   #判断邮件是否成功发送
-        return redirect(url_for('main.login'))
+        return redirect(url_for('auth.login'))
         # return redirect(url_for('main.index'))
-    return render_template('login.html')
+    return render_template('register.html', form=form)
+
 
 @main.route('/confirm/<token>')
 @login_required
@@ -178,6 +200,12 @@ def makeappointment():
     return render_template('make-appointment.html')
 
 
+@main.route('/personal-details/<email>', methods=['GET', 'POST'])
+def personaldetails(email):
+    user = User.query.filter_by(email=email).first()
+    return render_template('personal-details.html', user=user)
+
+
 @main.route('/pricing-plans', methods=['GET', 'POST'])
 def pricingplans():
     return render_template('pricing-plans.html')
@@ -208,12 +236,38 @@ def team():
     return render_template('team.html')
 
 
-@main.route('/team-details/<email>', methods=['GET', 'POST'])
-def teamdetails(email):
-    user = User.query.filter_by(email=email).first()
-    return render_template('team-details.html', user=user)
-
-
 @main.route('/young-adult-intensive', methods=['GET', 'POST'])
 def youngadultintensive():
     return render_template('young-adult-intensive.html')
+
+@main.route('/checkEmail', methods=['GET', 'POST'])
+def checkEmail():
+    chosen_email = request.form.get('email');
+    if re.match(r'^[0-9a-za-z_]{0,19}@[0-9a-za-z]{1,13}\.[com,cn,net]{1,3}$', chosen_email):
+        if not User.query.filter_by(email=chosen_email).first():
+            return jsonify({'text': 'Email is available', 'returnvalue': 0})
+        else:
+            return jsonify({'text': 'Sorry, email is already token', 'returnvalue': 1})
+    else:
+        return jsonify({'text': "emailFormatError" , 'returnvalue': 2})
+
+@main.route("/passwordStrength", methods=['GET', 'POST'])
+def passwordStrength():
+    passwordGet = request.form.get("password")
+    password = list(passwordGet)
+    if len(password) == 0 or " " in password:
+        return "format_error"
+    special = "`~!@#%^&*()_-+=|}{][:;,.><?/\\"
+    has_number, has_lower, has_upper, has_special = 0, 0, 0, 0
+    for i in range(0, len(password)):
+        if ord('0') <= ord(password[i]) <= ord('9'):
+            has_number = 1
+        if password[i].islower():
+            has_lower = 1
+        if password[i].isupper():
+            has_upper = 1
+        if password[i] in special:
+            has_special = 1
+    strong = str(has_special + has_number + has_lower + has_upper)
+    return jsonify({'text': 'this is the password strength', 'returnvalue': strong})
+
