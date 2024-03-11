@@ -3,7 +3,6 @@ from flask_login import login_user, login_required, logout_user, current_user
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm
-from .password import PasswordTool
 from .. import db
 from ..models import User
 from werkzeug.security import generate_password_hash

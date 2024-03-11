@@ -158,13 +158,13 @@
                                         <div class="feature-one__shape-1">
                                             <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
                                         </div>
-                                        <h3 class="feature-one__hover-title"><a href="services.html">Personal
+                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.team')}}">Personal
                                                 <br> Consultation</a></h3>
                                         <p class="feature-one__hover-text">Professional psychological experts will provide counseling services.
                                             <br>Guarding your mental health.</p>
                                     </div>
                                     <div class="feature-one__hover-arrow-box">
-                                        <a href="services.html" class="feature-one__hover-arrow"><span
+                                        <a href="{{url_for('main.team')}}" class="feature-one__hover-arrow"><span
                                                 class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                 <div class="feature-one__icon">
                                     <span class="icon-philosophy"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="services.html">Personal
+                                <h3 class="feature-one__title"><a href="{{url_for('main.team')}}">Personal
                                         <br> Consultation</a></h3>
                             </div>
                         </div>
@@ -194,14 +194,14 @@
                                         <div class="feature-one__shape-1">
                                             <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
                                         </div>
-                                        <h3 class="feature-one__hover-title"><a href="services.html">Quality Mental Health Blogs
+                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.blogsidebar')}}">Quality Mental Health Blogs
                                                 </a></h3>
                                         <p class="feature-one__hover-text">Professional mental health articles.
                                             Personal emotional experiences sharing.
                                         </p>
                                     </div>
                                     <div class="feature-one__hover-arrow-box">
-                                        <a href="services.html" class="feature-one__hover-arrow"><span
+                                        <a href="{{url_for('main.blogsidebar')}}" class="feature-one__hover-arrow"><span
                                                 class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                                 <div class="feature-one__icon">
                                     <span class="icon-psychology"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="services.html">Quality Mental Health Blogs
+                                <h3 class="feature-one__title"><a href="{{url_for('main.blogsidebar')}}">Quality Mental Health Blogs
                                  </a></h3>
                             </div>
                         </div>
@@ -231,14 +231,14 @@
                                         <div class="feature-one__shape-1">
                                             <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
                                         </div>
-                                        <h3 class="feature-one__hover-title"><a href="services.html">Emotional Vent Tree
+                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.cases1')}}">Emotional Vent Tree
                                         </a></h3>
                                         <p class="feature-one__hover-text">Express emotions anonymously without revealing your identity.
                                             Access intelligent analysis service if needed.
                                         </p>
                                     </div>
                                     <div class="feature-one__hover-arrow-box">
-                                        <a href="services.html" class="feature-one__hover-arrow"><span
+                                        <a href="{{url_for('main.cases1')}}" class="feature-one__hover-arrow"><span
                                                 class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                 <div class="feature-one__icon">
                                     <span class="icon-somatise"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="services.html">Emotional Vent Tree
+                                <h3 class="feature-one__title"><a href="{{url_for('main.cases1')}}">Emotional Vent Tree
                                         </a></h3>
                             </div>
                         </div>
@@ -377,7 +377,7 @@
                 <div class="cta-one__inner">
                     <p class="cta-one__text">Let’s open your heart story to us, We’ll listen to you</p>
                     <div class="cta-one__btn-box">
-                        <a href="make-appointment.html" class="cta-one__btn thm-btn">Make an Appointment</a>
+                        <a href="{{url_for('main.team')}}" class="cta-one__btn thm-btn">Make an Appointment</a>
                     </div>
                 </div>
             </div>
@@ -503,7 +503,7 @@
                     <img src="../static/images/shapes/awards-one-shape-1.png" alt="">
                 </div>
                 <div class="awards-one__shape-2 float-bob-y-2">
-                    <img src="../static/images/shapes/tree_1.png" alt="" style="height: 540px">
+                    <a href="{{url_for('main.cases1')}}"><img src="../static/images/shapes/tree_1.png" alt="" style="height: 540px;"></a>
                 </div>
                 <div class="container">
                     <div class="awards-one__inner">
