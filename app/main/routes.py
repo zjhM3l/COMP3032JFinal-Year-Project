@@ -112,6 +112,7 @@ def login():
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
+            flash('Login successful. Welcome, {}!'.format(user.username), 'success')
             return redirect(next)
         flash('Invalid username or password.')
     return render_template('login.html', form=form)
@@ -261,4 +262,12 @@ def passwordStrength():
             has_special = 1
     strong = str(has_special + has_number + has_lower + has_upper)
     return jsonify({'text': 'this is the password strength', 'returnvalue': strong})
+
+@main.route('/send_message', methods=['POST'])
+def send_message():
+    return jsonify({'message': 'Please check your email, and click the link'})
+
+@main.route('/login_success', methods=['POST'])
+def send_message():
+    return jsonify({'message': 'Please check your email, and click the link'})
 

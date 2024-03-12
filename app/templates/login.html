@@ -337,16 +337,13 @@
         <!--Login Page Start-->
         <section class="login-page">
             <div class="container">
-                <div class="login-page__top">
-                    <p>We have a demo account setup. <span>Username:</span> <a href="#">demo</a> and <span>
-                            Password:</span> <a href="#">demo</a></p>
-                </div>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="login-page__single">
                             <h3 class="login-page__title">Login</h3>
-                            <form class="login-page__form" method="post" action="/login">
+                            <form class="login-page__form" method="post" action="/login" onsubmit="return checkLogin()">
                                 {{ form.csrf_token }}
+                                <input type="hidden" id="flash_message" name="flash_message" value="{{ get_flashed_messages()[0] }}">
                                 <div class="login-page__form-input-box">
                                     <input id="email" type="email" name="email" placeholder="Email *">
                                 </div>
@@ -361,6 +358,14 @@
                                     <button type="submit" class="thm-btn login-page__form-btn" style="width: 60%;">Login</button>
                                     <div class="login-page__form-forgot-password">
                                         <a href="#">Forgot your Password?</a>
+                                    </div>
+                                </div>
+                                <div class="login-page__form-btn-box">
+                                <div>
+                                    Don’t have an account?
+                                </div>
+                                <div class="login-page__form-forgot-password">
+                                        <a href="/register">Register</a>
                                     </div>
                                 </div>
                             </form>

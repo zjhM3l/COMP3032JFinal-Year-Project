@@ -65,3 +65,24 @@ function updateMessage(element, text, color) {
     element.innerText = text;
     element.style.color = color;
 }
+
+$(document).ready(function () {
+    $("#captcha-btn").click(function () {
+        $.ajax({
+            url: "/send_message",
+            type: "POST",
+            success: function (data) {
+                alert(data.message);
+            }
+        });
+    });
+});
+
+function checkLogin() {
+    var flashMessage = document.getElementById('flash_message').value;
+    if (flashMessage !== '') {
+        alert(flashMessage);
+        return false;
+    }
+    return true;
+}
