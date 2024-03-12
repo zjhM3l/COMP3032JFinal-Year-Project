@@ -103,7 +103,6 @@ def gallery():
 @main.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    print(form.validate_on_submit())
     if form.validate_on_submit():
         passw_hash = generate_password_hash(form.password.data)
         user = User.query.filter_by(email=form.email.data).first()
@@ -129,27 +128,20 @@ def logout():
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
-    print("--------------------------------------------")
     form = RegistrationForm()
-    print("Email:", form.email.data)
-    print("Password:", form.password.data)
-    print("Password2:", form.password2.data)
-    if form.password.data != form.password2.data:
-        print("Passwords do not match.")
     if form.validate_on_submit():
-        print("++++++++++++++++++++++++++++++++++++++++++++++++++")
         user = User(email=form.email.data,
-                    password_hash=form.password.data
+                    password=form.password.data
                     )
         db.session.add(user)
         db.session.commit()
         token = user.generate_confirmation_token()
-        if send_email(user.email, 'BJUT Forum Confirmation', 'confirm', user=user, token=token):
+        if send_email(user.email, 'SoulHarbor Confirmation', 'confirm', user=user, token=token):
             flash('The email address is not existed or the network is not connected')
         else:
             flash('You can now check your email')
         # flash('Register successfully')   #判断邮件是否成功发送
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('main.login'))
         # return redirect(url_for('main.index'))
     return render_template('register.html', form=form)
 
@@ -199,7 +191,7 @@ def makeappointment():
     return render_template('make-appointment.html')
 
 
-@main.route('/personal-details/<email>', methods=['GET', 'POST'])
+@main.route('/personaldetails/<email>', methods=['GET', 'POST'])
 def personaldetails(email):
     user = User.query.filter_by(email=email).first()
     return render_template('personal-details.html', user=user)

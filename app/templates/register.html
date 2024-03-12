@@ -339,7 +339,7 @@
                     <div class="login-page__single">
                         <h3 class="login-page__title">Register</h3>
                         <form class="login-page__form" method="post" action="/register">
-
+                            {{ form.csrf_token }}
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="login-page__form-input-box">

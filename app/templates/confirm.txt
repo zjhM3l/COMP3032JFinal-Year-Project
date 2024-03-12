@@ -1,6 +1,6 @@
-Dear {{ user.username }},
+Dear {{ user.email }},
 
-Welcome to BJUT Forum!
+Welcome to Soul Harbour!
 
 Please click on the following link to confirm your account：
 

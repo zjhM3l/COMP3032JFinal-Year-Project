@@ -346,6 +346,7 @@
                         <div class="login-page__single">
                             <h3 class="login-page__title">Login</h3>
                             <form class="login-page__form" method="post" action="/login">
+                                {{ form.csrf_token }}
                                 <div class="login-page__form-input-box">
                                     <input id="email" type="email" name="email" placeholder="Email *">
                                 </div>

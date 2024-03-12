@@ -1,7 +1,7 @@
 # from . import login_manager
 from datetime import datetime, timezone, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
-from itsdangerous import TimedSerializer as Serializer
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 from . import db, login_manager
 from flask_login import UserMixin
@@ -30,6 +30,7 @@ class User(UserMixin, db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.Boolean, default=True)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    confirmed = db.Column(db.Boolean, default=False)
 
     def generate_confirmation_token(self, expiration=3600):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
