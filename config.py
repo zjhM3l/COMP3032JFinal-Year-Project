@@ -2,6 +2,7 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 # from jinja2 import Markup, Environment, FileSystemLoader
 
+
 class Config:
     SECRET_KEY = 'a9087FFJFF9nnvc2@#$%FSD'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
