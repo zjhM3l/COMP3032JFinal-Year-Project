@@ -267,7 +267,4 @@ def passwordStrength():
 def send_message():
     return jsonify({'message': 'Please check your email, and click the link'})
 
-@main.route('/login_success', methods=['POST'])
-def send_message():
-    return jsonify({'message': 'Please check your email, and click the link'})
 
