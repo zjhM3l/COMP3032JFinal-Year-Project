@@ -103,16 +103,16 @@
                     <div class="col-xl-7 col-lg-7">
                         <div class="team-details__right">
                             <h3 class="team-details__title">
-                                <span>  User.first_name </span>
-                                <span>  User.last_name </span>
+                                <span>  {{ user.first_name or 'First Name'}} </span>
+                                <span>  {{ user.last_name or 'Last Name' }} </span>
                             </h3>
                             <p class="team-details__text">
-                                User.intro
+                                {{ user.intro or 'No introduction available' }}
                             </p>
                             <div class="team-details__points-box">
                                 <h3 class="team-details__points-title">
                                     <span>Email: </span>
-                                    <span>  User.email  </span>
+                                    <span>  {{user.email}}  </span>
                                 </h3>
                                 <ul class="team-details__points list-unstyled">
                                     <li>

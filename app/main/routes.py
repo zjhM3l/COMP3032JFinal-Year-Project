@@ -112,7 +112,7 @@ def login():
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
-            flash('Login successful. Welcome, {}!'.format(user.username), 'success')
+            flash('Login successful. Welcome, {}!'.format(user.email), 'success')
             return redirect(next)
         flash('Invalid username or password.')
     return render_template('login.html', form=form)
@@ -132,7 +132,8 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data,
-                    password=form.password.data
+                    password=form.password.data,
+
                     )
         db.session.add(user)
         db.session.commit()
@@ -232,6 +233,7 @@ def team():
 def youngadultintensive():
     return render_template('young-adult-intensive.html')
 
+
 @main.route('/checkEmail', methods=['GET', 'POST'])
 def checkEmail():
     chosen_email = request.form.get('email');
@@ -242,6 +244,7 @@ def checkEmail():
             return jsonify({'text': 'Sorry, email is already token', 'returnvalue': 1})
     else:
         return jsonify({'text': "emailFormatError" , 'returnvalue': 2})
+
 
 @main.route("/passwordStrength", methods=['GET', 'POST'])
 def passwordStrength():
@@ -262,6 +265,7 @@ def passwordStrength():
             has_special = 1
     strong = str(has_special + has_number + has_lower + has_upper)
     return jsonify({'text': 'this is the password strength', 'returnvalue': strong})
+
 
 @main.route('/send_message', methods=['POST'])
 def send_message():
