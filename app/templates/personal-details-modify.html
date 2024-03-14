@@ -94,78 +94,78 @@
         <!--Page Header End-->
 
         <!--Start Checkout Page-->
-        <section class="checkout-page">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="billing_details ship_different_address">
-                            <div class="billing_title ship_different_address_title">
-                                <h2>Personal Information<span class="fa fa-check"></span></h2>
-                            </div>
-
-                            <form class="billing_details_form ship_different_address_form">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <label for="input-file-now">Personal Profile</label>
-                                        <input type="file" id="input-file-now" class="dropify" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <label>Basic Information</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="billing_input_box">
-                                            <input type="text" name="first_name" value="" placeholder="First Name"
-                                                required="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="billing_input_box">
-                                            <input type="text" name="last_name" value="" placeholder="Last Name"
-                                                required="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="ship_different_input">
-                                            <textarea placeholder="Introduce yourself"
-                                                name="form_order_notes" style="resize:none;"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="ship_different_input">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6">
-
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="text-right d-flex justify-content-end">
-                                            <a href="checkout.html" class="thm-btn">Modify</a>
-                                        </div><!-- /.text-right -->
-                                    </div><!-- /.col-lg-6 -->
-                                </div>
-                            </form>
-                        </div>
+<section class="checkout-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="billing_details ship_different_address">
+                    <div class="billing_title ship_different_address_title">
+                        <h2>Personal Information<span class="fa fa-check"></span></h2>
                     </div>
-                </div>
 
+                    <form class="billing_details_form ship_different_address_form" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <label for="input-file-now">Personal Avatar</label>
+                                <input type="file" id="input-file-now" class="dropify" name="avatar"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <label>Basic Information</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="billing_input_box">
+                                    <input type="text" name="first_name" value="{{ user.first_name or 'First Name' }}" placeholder=""
+                                        required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="billing_input_box">
+                                    <input type="text" name="last_name" value="{{ user.last_name or 'Last Name' }}" placeholder=""
+                                        required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="ship_different_input">
+                                    <textarea placeholder="Introduce yourself"
+                                        name="intro" style="resize:none;">{{ user.intro or 'Introduce yourself!' }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="ship_different_input">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="text-left">
+                                    <a href="{{ url_for('main.personaldetails', email=current_user.email) }}" class="thm-btn">Cancel</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="text-right d-flex justify-content-end">
+                                    <button type="submit" class="thm-btn">Modify</button>
+                                </div><!-- /.text-right -->
+                            </div><!-- /.col-lg-6 -->
+                        </div>
+                    </form>
+                </div>
             </div>
-        </section>
-        <!--End Checkout Page-->
+        </div>
+    </div>
+</section>
+<!--End Checkout Page-->
+
 
         <!--Site Footer Start-->
         {% include 'base_footer.html' %}
