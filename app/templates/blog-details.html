@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> Blog Details || delogis || delogis HTML 5 Template </title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="../static/images/favicons/site.webmanifest" />
-    <meta name="description" content="delogis HTML 5 Template " />
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="../static/images/favicons/site.webmanifest"/>
+    <meta name="description" content="delogis HTML 5 Template "/>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,856 +18,359 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css"/>
+    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css"/>
+    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css"/>
     <link rel="stylesheet" href="../static/vendors/delogis-icons/style.css">
-    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css"/>
+    <link rel="stylesheet" href="../static/vendors/timepicker/blog.css"/>
 
     <!-- template styles -->
-    <link rel="stylesheet" href="../static/css/delogis.css" />
-    <link rel="stylesheet" href="../static/css/delogis-responsive.css" />
+    <link rel="stylesheet" href="../static/css/delogis.css"/>
+    <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
 </head>
 
 <body class="custom-cursor">
 
-    <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div>
+<div class="custom-cursor__cursor"></div>
+<div class="custom-cursor__cursor-two"></div>
 
 
+<div class="preloader">
+    <div class="preloader__image"></div>
+</div>
+<!-- /.preloader -->
 
 
+<div class="page-wrapper">
+    {% include 'base_nav.html' %}
 
-    <div class="preloader">
-        <div class="preloader__image"></div>
-    </div>
-    <!-- /.preloader -->
-
-
-    <div class="page-wrapper">
-        <header class="main-header">
-            <nav class="main-menu">
-                <div class="main-menu__wrapper">
-                    <div class="main-menu__wrapper-inner">
-                        <div class="main-menu__logo">
-                            <a href="index.html"><img src="../static/images/resources/logo-1.png" alt=""></a>
-                        </div>
-                        <div class="main-menu__btn-box">
-                            <a href="make-appointment.html">Make an Appointment</a>
-                        </div>
-                        <div class="main-menu__wrapper-inner-content">
-                            <div class="main-menu__top">
-                                <div class="main-menu__top-inner">
-                                    <div class="main-menu__top-left">
-                                        <ul class="list-unstyled main-menu__contact-list">
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fas fa-clock"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Mon to Fri: 9:00am to 6:00pm</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fas fa-envelope"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p><a href="mailto:help@company.com">help@company.com</a>
-                                                    </p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fas fa-map-marker"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>88 Broklyn Golden Street. New York</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <ul class="list-unstyled main-menu__top-menu">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="faq.html">Faqs</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-menu__top-right">
-                                        <div class="main-menu__social">
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-facebook"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-menu__bottom">
-                                <div class="main-menu__bottom-inner">
-                                    <div class="main-menu__main-menu-box">
-                                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                                        <ul class="main-menu__list">
-                                            <li class="dropdown megamenu">
-                                                <a href="index.html">Home </a>
-                                                <ul>
-                                                    <li>
-                                                        <section class="home-showcase">
-                                                            <div class="container">
-                                                                <div class="home-showcase__inner">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-3">
-                                                                            <div class="home-showcase__item">
-                                                                                <div class="home-showcase__image">
-                                                                                    <img src="../static/images/home-showcase/home-showcase-1-1.jpg"
-                                                                                        alt="">
-                                                                                    <div class="home-showcase__buttons">
-                                                                                        <a href="index.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">Multi
-                                                                                            Page</a>
-                                                                                        <a href="index-one-page.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">One
-                                                                                            Page</a>
-                                                                                    </div>
-                                                                                    <!-- /.home-showcase__buttons -->
-                                                                                </div><!-- /.home-showcase__image -->
-                                                                                <h3 class="home-showcase__title">Home
-                                                                                    Page
-                                                                                    01</h3>
-                                                                                <!-- /.home-showcase__title -->
-                                                                            </div><!-- /.home-showcase__item -->
-                                                                        </div><!-- /.col-lg-3 -->
-                                                                        <div class="col-lg-3">
-                                                                            <div class="home-showcase__item">
-                                                                                <div class="home-showcase__image">
-                                                                                    <img src="../static/images/home-showcase/home-showcase-1-2.jpg"
-                                                                                        alt="">
-                                                                                    <div class="home-showcase__buttons">
-                                                                                        <a href="index2.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">Multi
-                                                                                            Page</a>
-                                                                                        <a href="index2-one-page.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">One
-                                                                                            Page</a>
-                                                                                    </div>
-                                                                                    <!-- /.home-showcase__buttons -->
-                                                                                </div><!-- /.home-showcase__image -->
-                                                                                <h3 class="home-showcase__title">Home
-                                                                                    Page
-                                                                                    02
-                                                                                </h3><!-- /.home-showcase__title -->
-                                                                            </div><!-- /.home-showcase__item -->
-                                                                        </div><!-- /.col-lg-3 -->
-                                                                        <div class="col-lg-3">
-                                                                            <div class="home-showcase__item">
-                                                                                <div class="home-showcase__image">
-                                                                                    <img src="../static/images/home-showcase/home-showcase-1-3.jpg"
-                                                                                        alt="">
-                                                                                    <div class="home-showcase__buttons">
-                                                                                        <a href="index3.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">Multi
-                                                                                            Page</a>
-                                                                                        <a href="index3-one-page.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">One
-                                                                                            Page</a>
-                                                                                    </div>
-                                                                                    <!-- /.home-showcase__buttons -->
-                                                                                </div><!-- /.home-showcase__image -->
-                                                                                <h3 class="home-showcase__title">Home
-                                                                                    Page
-                                                                                    03
-                                                                                </h3><!-- /.home-showcase__title -->
-                                                                            </div><!-- /.home-showcase__item -->
-                                                                        </div><!-- /.col-lg-3 -->
-                                                                        <div class="col-lg-3">
-                                                                            <div class="home-showcase__item">
-                                                                                <div class="home-showcase__image">
-                                                                                    <img src="../static/images/home-showcase/home-showcase-1-4.jpg"
-                                                                                        alt="">
-                                                                                    <div class="home-showcase__buttons">
-                                                                                        <a href="index-dark.html"
-                                                                                            class="thm-btn home-showcase__buttons__item">View
-                                                                                            Page</a>
-                                                                                    </div>
-                                                                                    <!-- /.home-showcase__buttons -->
-                                                                                </div><!-- /.home-showcase__image -->
-                                                                                <h3 class="home-showcase__title">Home
-                                                                                    Page
-                                                                                    04
-                                                                                </h3><!-- /.home-showcase__title -->
-                                                                            </div><!-- /.home-showcase__item -->
-                                                                        </div><!-- /.col-lg-3 -->
-                                                                    </div><!-- /.row -->
-                                                                </div><!-- /.home-showcase__inner -->
-
-                                                            </div><!-- /.container -->
-                                                        </section>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Pages</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="about.html">About</a></li>
-                                                    <li><a href="team.html">Our Team</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                    <li><a href="make-appointment.html">Make Appointment</a></li>
-                                                    <li><a href="gallery.html">Gallery</a></li>
-                                                    <li><a href="pricing-plans.html">Pricing Tables</a></li>
-                                                    <li><a href="faq.html">Our Faqs</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="404.html">404 Error</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Services</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="services.html">Services</a></li>
-                                                    <li><a href="dating-relationship.html">Dating & Relationship</a>
-                                                    </li>
-                                                    <li><a href="self-esteem-issues.html">Self Esteem Issues</a></li>
-                                                    <li><a href="family-psycology.html">Family Psycology</a></li>
-                                                    <li><a href="career-counseling.html">Career Counseling</a></li>
-                                                    <li><a href="anxiety-grief.html">Anxiety & Grief</a></li>
-                                                    <li><a href="young-adult-intensive.html">Young & Adult Intensive</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Cases</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="cases-1.html">Cases One</a></li>
-                                                    <li><a href="cases-2.html">Cases Two</a></li>
-                                                    <li><a href="case-details.html">Case Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Shop</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="products.html">Products</a></li>
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Blog</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-menu__right">
-                                        <div class="main-menu__call">
-                                            <div class="main-menu__call-icon">
-                                                <span class="icon-phone-call"></span>
-                                            </div>
-                                            <div class="main-menu__call-content">
-                                                <p class="main-menu__call-sub-title">Have Question?</p>
-                                                <h5 class="main-menu__call-number"><a href="tel:9288009850">+92 (8800) -
-                                                        9850</a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="main-menu__search-cart-box">
-                                            <div class="main-menu__search-box">
-                                                <a href="#"
-                                                    class="main-menu__search search-toggler icon-magnifying-glass"></a>
-                                            </div>
-                                            <div class="main-menu__cart-box">
-                                                <a href="cart.html" class="main-menu__cart icon-shopping-cart"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
+    <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+    </div><!-- /.stricky-header -->
 
 
-        <!--Page Header Start-->
-        <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+        </div>
+        <div class="container">
+            <div class="page-header__inner">
+                <h2>Blog Details</h2>
+                <ul class="thm-breadcrumb list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>/</span></li>
+                    <li>Blog</li>
+                </ul>
             </div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <h2>Blog Details</h2>
-                    <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><span>/</span></li>
-                        <li>Blog</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!--Page Header End-->
+        </div>
+    </section>
+    <!--Page Header End-->
 
-        <!--Blog Details Start-->
-        <section class="blog-details">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="blog-details__left">
-                            <div class="blog-details__img">
-                                <img src="../static/images/blog/blog-details-img-1.jpg" alt="">
-                                <div class="blog-details__date">
-                                    <p>20
-                                        <br> Mar</p>
-                                </div>
-                            </div>
-                            <div class="blog-details__content">
-                                <ul class="blog-details__meta list-unstyled">
-                                    <li>
-                                        <a href="blog-details.html"><i class="fas fa-user-circle"></i>by Mike
-                                            Hardson</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-details__title">Patient-Led Advocacy Group Shares Patient Perspective
-                                </h3>
-                                <p class="blog-details__text-1">There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. Suspendisse ultricies vestibulum vehicula. Proin
-                                    laoreet porttitor lacus. Duis auctor vel ex eu elementum. Fusce eu volutpat felis.
-                                    Proin sed eros tincidunt, sagittis sapien eu, porta diam. Aenean finibus scelerisque
-                                    nulla non facilisis. Fusce vel orci sed quam gravida condimentum. Aliquam
-                                    condimentum, massa vel mollis volutpat, erat sem pharetra quam, ac mattis arcu elit
-                                    non massa. Nam mollis nunc velit, vel varius arcu fringilla tristique. Cras elit
-                                    nunc, sagittis eu bibendum eu, ultrices placerat sem. Praesent vitae metus dolor.
-                                    Nulla a erat et orci mattis auctor.</p>
-                                <p class="blog-details__text-2">Mauris non dignissim purus, ac commodo diam. Donec sit
-                                    amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                    nulla, sollicitudin at euismod nec, feugiat at nisi. Quisque vitae odio nec lacus
-                                    interdum tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet
-                                    pellentesque vitae et nunc. Sed vitae leo vitae nisl pellentesque semper.</p>
-                                <div class="blog-details__bottom">
-                                    <p class="blog-details__tags">
-                                        <span>Tags</span>
-                                        <a href="#">Depression</a>
-                                        <a href="#">Addict</a>
-                                    </p>
-                                    <div class="blog-details__social-list">
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-facebook"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                                <div class="blog-details__pagenation">
-                                    <div class="blog-details__pagenation-left">
-                                        <div class="blog-details__pagenation-left-img">
-                                            <img src="../static/images/blog/blog-details-pagenation-img-1.jpg" alt="">
-                                        </div>
-                                        <div class="blog-details__pagenation-left-content">
-                                            <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
-                                                23 Mar, 2023</p>
-                                            <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
-                                                    Knowledge
-                                                    of Bipolar Disorder</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="blog-details__pagenation-right">
-                                        <div class="blog-details__pagenation-right-content">
-                                            <p class="blog-details__pagenation-right-date"><i class="fas fa-clock"></i>
-                                                23 Mar, 2023</p>
-                                            <h4 class="blog-details__pagenation-right-title"><a href="#">How to Ensure
-                                                    Direct Treatment Hassle</a></h4>
-                                        </div>
-                                        <div class="blog-details__pagenation-right-img">
-                                            <img src="../static/images/blog/blog-details-pagenation-img-2.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-one">
-                                    <h3 class="comment-one__title">2 Comments</h3>
-                                    <div class="comment-one__single">
-                                        <div class="comment-one__image">
-                                            <img src="../static/images/blog/comment-1-1.jpg" alt="">
-                                        </div>
-                                        <div class="comment-one__content">
-                                            <h3>Kevin Martin</h3>
-                                            <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia
-                                                nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                                nulla, sollicitudin at euismod.</p>
-                                            <a href="blog-details.html" class="thm-btn comment-one__btn">Reply</a>
-                                        </div>
-                                    </div>
-                                    <div class="comment-one__single">
-                                        <div class="comment-one__image">
-                                            <img src="../static/images/blog/comment-1-2.jpg" alt="">
-                                        </div>
-                                        <div class="comment-one__content">
-                                            <h3>Sarah Albert</h3>
-                                            <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia
-                                                nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                                nulla, sollicitudin at euismod.</p>
-                                            <a href="blog-details.html" class="thm-btn comment-one__btn">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-form">
-                                    <h3 class="comment-form__title">Leave a Comment</h3>
-                                    <form action="../static/inc/sendemail.php"
-                                        class="comment-one__form contact-form-validated" novalidate="novalidate">
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <div class="comment-form__input-box">
-                                                    <input type="text" placeholder="Your Name" name="name">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="comment-form__input-box">
-                                                    <input type="email" placeholder="Email Address" name="email">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="comment-form__input-box text-message-box">
-                                                    <textarea name="message" placeholder="Write  a Comment"></textarea>
-                                                </div>
-                                                <div class="comment-form__btn-box">
-                                                    <button type="submit" class="thm-btn comment-form__btn">Submit
-                                                        Comment</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="result"></div>
-                                </div>
+    <!--Blog Details Start-->
+    <section class="blog-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="blog-details__left">
+                        <div class="blog-details__img">
+                            <img src="../static/images/blog/blog-details-img-1.jpg" alt="img">
+                            <div class="blog-details__date">
+                                <p>Date
+                                    <br> Month</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="sidebar">
-                            <div class="sidebar__single sidebar__search">
-                                <form action="#" class="sidebar__search-form">
-                                    <input type="search" placeholder="Keywrord...">
-                                    <button type="submit"><i class="icon-magnifying-glass"></i></button>
-                                </form>
-                            </div>
-                            <div class="sidebar__single sidebar__post">
-                                <h3 class="sidebar__title">Latest Posts</h3>
-                                <ul class="sidebar__post-list list-unstyled">
-                                    <li>
-                                        <div class="sidebar__post-image">
-                                            <img src="../static/images/blog/lp-1-1.jpg" alt="">
-                                        </div>
-                                        <div class="sidebar__post-content">
-                                            <h3>
-                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
-                                                    Comments</span>
-                                                <a href="blog-details.html">Get Deep Knowledge
-                                                    <br> of Bipolar Disorder</a>
-                                            </h3>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar__post-image">
-                                            <img src="../static/images/blog/lp-1-2.jpg" alt="">
-                                        </div>
-                                        <div class="sidebar__post-content">
-                                            <h3>
-                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
-                                                    Comments</span>
-                                                <a href="blog-details.html">If you are going to improf <br>use a passage
-                                                </a>
-                                            </h3>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar__post-image">
-                                            <img src="../static/images/blog/lp-1-3.jpg" alt="">
-                                        </div>
-                                        <div class="sidebar__post-content">
-                                            <h3>
-                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
-                                                    Comments</span>
-                                                <a href="blog-details.html">Donec sit amet is<br> lacinia nulla.</a>
-                                            </h3>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar__single sidebar__category">
-                                <h3 class="sidebar__title">Categories</h3>
-                                <ul class="sidebar__category-list list-unstyled">
-                                    <li><a href="blog-details.html">Stress Management</a></li>
-                                    <li><a href="blog-details.html">Mental Health</a></li>
-                                    <li><a href="blog-details.html">Depressions</a></li>
-                                    <li><a href="blog-details.html">Therapies</a></li>
-                                    <li><a href="blog-details.html">Counseling</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar__single sidebar__cases">
-                                <h3 class="sidebar__title">Cases</h3>
-                                <div class="sidebar__cases-box">
-                                    <div class="sidebar__cases-carousel owl-carousel owl-theme thm-owl__carousel"
-                                        data-owl-options='{
-                                            "loop": true,
-                                            "autoplay": true,
-                                            "margin": 30,
-                                            "nav": false,
-                                            "dots": true,
-                                            "smartSpeed": 500,
-                                            "autoplayTimeout": 10000,
-                                            "navText": ["<span class=\"icon-right-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"],
-                                            "responsive": {
-                                                "0": {
-                                                    "items": 1
-                                                },
-                                                "768": {
-                                                    "items": 1
-                                                },
-                                                "992": {
-                                                    "items": 1
-                                                },
-                                                "1200": {
-                                                    "items": 1
-                                                }
-                                            }
-                                        }'>
-                                        <div class="item">
-                                            <div class="sidebar__cases-single">
-                                                <div class="sidebar__cases-bg"
-                                                    style="background-image: url(../static/images/backgrounds/sidebar-cases-bg.jpg);">
-                                                </div>
-                                                <p>Recovery is
-                                                    <br> Possible</p>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="sidebar__cases-single">
-                                                <div class="sidebar__cases-bg"
-                                                    style="background-image: url(../static/images/backgrounds/sidebar-cases-bg-2.jpg);">
-                                                </div>
-                                                <p>Patient-Led <br> Advocacy</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sidebar__single sidebar__tags">
-                                <h3 class="sidebar__title">Tags</h3>
-                                <div class="sidebar__tags-list">
-                                    <a href="#">Depression</a>
-                                    <a href="#">Addict</a>
-                                    <a href="#">OCD</a>
-                                    <a href="#">Psychology</a>
-                                    <a href="#">Counseling</a>
-                                </div>
-                            </div>
-                            <div class="sidebar__single sidebar__comments">
-                                <h3 class="sidebar__title">Comments</h3>
-                                <ul class="sidebar__comments-list list-unstyled">
-                                    <li>
-                                        <div class="sidebar__comments-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="sidebar__comments-text-box">
-                                            <p>A Wordpress Commenter
-                                                <br> on Launch New Mobile App</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar__comments-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="sidebar__comments-text-box">
-                                            <p> <span>John Doe</span> on Template: <br> Comments</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar__comments-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="sidebar__comments-text-box">
-                                            <p>A Wordpress Commenter on <br> Launch New Mobile App</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar__comments-icon">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                        <div class="sidebar__comments-text-box">
-                                            <p> <span>John Doe</span> on Template: <br>
-                                                Comments</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Blog Details End-->
-
-
-        <!--Site Footer Start-->
-        <footer class="site-footer">
-            <div class="site-footer__shape-1 float-bob-y">
-                <img src="../static/images/shapes/site-footer-shape-1.png" alt="">
-            </div>
-            <div class="site-footer__top">
-                <div class="container">
-                    <div class="site-footer__top-inner">
-                        <div class="site-footer__top-left">
-                            <div class="site-footer__top-icon">
-                                <span class="icon-business-people"></span>
-                            </div>
-                            <div class="site-footer__top-content">
-                                <h3>Psychology Timing: <span>Monday to Friday 8:00am - 6:00pm</span></h3>
-                            </div>
-                        </div>
-                        <div class="site-footer__top-right">
-                            <div class="site-footer__social-shape-1 float-bob-y">
-                                <img src="../static/images/shapes/site-footer-social-shape.png" alt="" class="zoom-fade">
-                            </div>
-                            <div class="site-footer__social-title">
-                                <p>Follow on:</p>
-                            </div>
-                            <div class="site-footer__social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="site-footer__middle">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                            <div class="footer-widget__column footer-widget__about">
-                                <div class="footer-widget__logo">
-                                    <a href="index.html"><img src="../static/images/resources/footer-logo.png" alt=""></a>
-                                </div>
-                                <p class="footer-widget__about-text">Best psychology & counseling to help you understand
-                                    the problems.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="footer-widget__column footer-widget__link">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Explore</h3>
-                                </div>
-                                <ul class="footer-widget__link-list list-unstyled">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="make-appointment.html">Book Appointment</a></li>
-                                    <li><a href="blog.html">Latest News</a></li>
-                                    <li><a href="team.html">Our Therapist</a></li>
-                                    <li><a href="faq.html">Faqs</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="footer-widget__column footer-widget__Contact">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Contact</h3>
-                                </div>
-                                <ul class="footer-widget__Contact-list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="fas fa-map-marker"></span>
-                                        </div>
-                                        <div class="text">
-                                            <span>Visit Office</span>
-                                            <p>66 Broklyn Gold Street. USA</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                        <div class="text">
-                                            <span>Send Email</span>
-                                            <p><a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="fas fa-phone-square"></span>
-                                        </div>
-                                        <div class="text">
-                                            <span>Call Anytime</span>
-                                            <p><a href="tel:+926668880000">+92 (666) 888 0000</a></p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                            <div class="footer-widget__column footer-widget__newsletter">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Newsletter</h3>
-                                </div>
-                                <p class="footer-widget__newsletter-text">Subscribe our newsletter to get latest updates
+                        <div class="blog-details__content">
+                            <ul class="blog-details__meta list-unstyled">
+                                <li>
+                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>by author</a>
+                                </li>
+                                <li>
+                                    <a href="blog-details.html"><i class="fas fa-comments"></i>Number Comments</a>
+                                </li>
+                            </ul>
+                            <h3 class="blog-details__title">Title
+                            </h3>
+                            <p class="blog-details__text-1">Content</p>
+                            <div class="blog-details__bottom">
+                                <p class="blog-details__tags">
+                                    <span>Category</span>
+                                    <a href="#">category</a>
                                 </p>
-                                <form class="footer-widget__email-box" data-url="MC_FORM_URL">
-                                    <div class="footer-widget__email-input-box">
-                                        <input type="email" placeholder="Email address" name="email">
+                                <div class="blog-details__social-list">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-details__pagenation">
+                                <div class="blog-details__pagenation-left">
+                                    <div class="blog-details__pagenation-left-img">
+                                        <img src="../static/images/blog/blog-details-pagenation-img-1.jpg" alt="img">
                                     </div>
-                                    <button type="submit" class="footer-widget__subscribe-btn thm-btn">Register
-                                        Yourself</button>
+                                    <div class="blog-details__pagenation-left-content">
+                                        <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
+                                            date month, year</p>
+                                        <h4 class="blog-details__pagenation-left-title"><a href="#">Recommended post</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="blog-details__pagenation-right">
+                                    <div class="blog-details__pagenation-right-content">
+                                        <p class="blog-details__pagenation-right-date"><i class="fas fa-clock"></i>
+                                            date month, year</p>
+                                        <h4 class="blog-details__pagenation-right-title"><a href="#">Recommended
+                                            post</a></h4>
+                                    </div>
+                                    <div class="blog-details__pagenation-right-img">
+                                        <img src="../static/images/blog/blog-details-pagenation-img-2.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-one">
+                                <h3 class="comment-one__title">Number Comments</h3>
+                                <div class="comment-one__single">
+                                    <div class="comment-one__image">
+                                        <img src="../static/images/blog/comment-1-1.jpg" alt="img">
+                                    </div>
+
+                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
+                                        <h3>Author</h3>
+                                        <p>Content</p>
+                                        <a href="blog-details.html" class="thm-btn comment-one__btn"
+                                           style="position: absolute; top: 0; right: 0;">Reply</a>
+                                    </div>
+
+                                </div>
+                                <div class="comment-one__single">
+                                    <div class="comment-one__image">
+                                        <img src="../static/images/blog/comment-1-2.jpg" alt="img">
+                                    </div>
+                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
+                                        <h3>Author</h3>
+                                        <p>Content</p>
+                                        <a href="blog-details.html" class="thm-btn comment-one__btn"
+                                           style="position: absolute; top: 0; right: 0;">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-form">
+                                <h3 class="comment-form__title">Leave a Comment</h3>
+                                <form action="../static/inc/sendemail.php"
+                                      class="comment-one__form contact-form-validated" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="comment-form__input-box">
+                                                <input type="text" placeholder="Your Name" name="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="comment-form__input-box">
+                                                <input type="email" placeholder="Email Address" name="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="comment-form__input-box text-message-box">
+                                                <textarea name="message" placeholder="Write  a Comment"></textarea>
+                                            </div>
+                                            <div class="comment-form__btn-box">
+                                                <button type="submit" class="thm-btn comment-form__btn">Submit
+                                                    Comment
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
-                                <div class="mc-form__response"></div>
+                                <div class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="site-footer__bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="site-footer__bottom-inner">
-                                <p class="site-footer__bottom-text">© Copyright 2023 By <a href="http://www.bootstrapmb.com">Reserved</a></p>
-                            </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__search">
+                            <form action="#" class="sidebar__search-form">
+                                <input type="search" placeholder="Keywrord...">
+                                <button type="submit"><i class="icon-magnifying-glass"></i></button>
+                            </form>
                         </div>
+                        <div class="sidebar__single sidebar__post">
+                            <h3 class="sidebar__title">Latest Posts</h3>
+                            <ul class="sidebar__post-list list-unstyled">
+                                <li>
+                                    <div class="sidebar__post-image">
+                                        <img src="../static/images/blog/lp-1-1.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar__post-content">
+                                        <h3>
+                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
+                                                    Comments</span>
+                                            <a href="blog-details.html">Get Deep Knowledge
+                                                <br> of Bipolar Disorder</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar__post-image">
+                                        <img src="../static/images/blog/lp-1-2.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar__post-content">
+                                        <h3>
+                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
+                                                    Comments</span>
+                                            <a href="blog-details.html">If you are going to improf <br>use a passage
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar__post-image">
+                                        <img src="../static/images/blog/lp-1-3.jpg" alt="">
+                                    </div>
+                                    <div class="sidebar__post-content">
+                                        <h3>
+                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>2
+                                                    Comments</span>
+                                            <a href="blog-details.html">Donec sit amet is<br> lacinia nulla.</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar__single sidebar__category">
+                            <h3 class="sidebar__title">Categories</h3>
+                            <ul class="sidebar__category-list list-unstyled">
+                                <li><a href="blog-details.html">Stress Management</a></li>
+                                <li><a href="blog-details.html">Mental Health</a></li>
+                                <li><a href="blog-details.html">Depressions</a></li>
+                                <li><a href="blog-details.html">Therapies</a></li>
+                                <li><a href="blog-details.html">Counseling</a></li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </footer>
-        <!--Site Footer End-->
-
-
-    </div><!-- /.page-wrapper -->
-
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
-                                                                  alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
+    </section>
+    <!--Blog Details End-->
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
+
+    {% include 'base_footer.html' %}
+
+
+</div><!-- /.page-wrapper -->
+
+
+<div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <!-- /.mobile-nav__overlay -->
+    <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+        <div class="logo-box">
+            <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
+                                                              alt=""/></a>
         </div>
-        <!-- /.search-popup__content -->
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+            <li>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
+            </li>
+            <li>
+                <i class="fa fa-phone-alt"></i>
+                <a href="tel:666-888-0000">666 888 0000</a>
+            </li>
+        </ul><!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+            <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__top -->
+
+
     </div>
-    <!-- /.search-popup -->
+    <!-- /.mobile-nav__content -->
+</div>
+<!-- /.mobile-nav__wrapper -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
+<div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+        <form action="#">
+            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+            <input type="text" id="search" placeholder="Search Here..."/>
+            <button type="submit" aria-label="search submit" class="thm-btn">
+                <i class="icon-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <!-- /.search-popup__content -->
+</div>
+<!-- /.search-popup -->
 
-
-    <script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/vendors/jarallax/jarallax.min.js"></script>
-    <script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="../static/vendors/nouislider/nouislider.min.js"></script>
-    <script src="../static/vendors/odometer/odometer.min.js"></script>
-    <script src="../static/vendors/swiper/swiper.min.js"></script>
-    <script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="../static/vendors/wnumb/wNumb.min.js"></script>
-    <script src="../static/vendors/wow/wow.js"></script>
-    <script src="../static/vendors/isotope/isotope.js"></script>
-    <script src="../static/vendors/countdown/countdown.min.js"></script>
-    <script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
-    <script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="../static/vendors/vegas/vegas.min.js"></script>
-    <script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="../static/vendors/timepicker/timePicker.js"></script>
-    <script src="../static/vendors/circleType/jquery.circleType.js"></script>
-    <script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
 
 
+<script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendors/jarallax/jarallax.min.js"></script>
+<script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="../static/vendors/nouislider/nouislider.min.js"></script>
+<script src="../static/vendors/odometer/odometer.min.js"></script>
+<script src="../static/vendors/swiper/swiper.min.js"></script>
+<script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="../static/vendors/wnumb/wNumb.min.js"></script>
+<script src="../static/vendors/wow/wow.js"></script>
+<script src="../static/vendors/isotope/isotope.js"></script>
+<script src="../static/vendors/countdown/countdown.min.js"></script>
+<script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="../static/vendors/vegas/vegas.min.js"></script>
+<script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="../static/vendors/timepicker/timePicker.js"></script>
+<script src="../static/vendors/circleType/jquery.circleType.js"></script>
+<script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
 
 
-    <!-- template js -->
-    <script src="../static/js/delogis.js"></script>
+<!-- template js -->
+<script src="../static/js/delogis.js"></script>
 </body>
 
 </html>
