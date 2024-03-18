@@ -78,11 +78,14 @@ $(document).ready(function () {
     });
 });
 
-function checkLogin() {
-    var flashMessage = document.getElementById('flash_message').value;
-    if (flashMessage !== '') {
-        alert(flashMessage);
-        return false;
-    }
-    return true;
-}
+$(document).ready(function () {
+    $("#login-btn").click(function () {
+        $.ajax({
+            url: "/send_message2",
+            type: "POST",
+            success: function (data) {
+                alert(data.message);
+            }
+        });
+    });
+});
