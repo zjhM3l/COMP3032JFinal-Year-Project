@@ -20,10 +20,8 @@ class Config:
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASK_ANNOUNCEMENT_PER_PAGE = 2
     FLASKY_COMMENTS_PER_PAGE = 5
-    UPLOAD_FOLDER = os.getcwd() + '/app/templates/static/avatars'
-    # LAF_UPLOAD_FOLDER = os.getcwd() + '/app/static/lostAndFoundPhoto/'
+    UPLOAD_FOLDER = os.getcwd() + '/app/static/avatars/'
     FLASK_COMMENTS_PER_PAGE = 20
-    # CurrentConfig.GLOBAL_ENV = Environment(loader=FileSystemLoader("./templates"))
 
     @staticmethod
     def init_app(app):

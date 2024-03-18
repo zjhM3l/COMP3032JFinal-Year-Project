@@ -1,5 +1,9 @@
+import os
+
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.utils import secure_filename
+
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm
@@ -112,7 +116,7 @@ def login():
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
-            flash('Login successful. Welcome, {}!'.format(user.username), 'success')
+            flash('Login successful. Welcome, {}!'.format(user.email), 'success')
             return redirect(next)
         flash('Invalid username or password.')
     return render_template('login.html', form=form)
@@ -132,7 +136,8 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data,
-                    password=form.password.data
+                    password=form.password.data,
+
                     )
         db.session.add(user)
         db.session.commit()
@@ -198,6 +203,30 @@ def personaldetails(email):
     return render_template('personal-details.html', user=user)
 
 
+@main.route('/personaldetailsmodify/<email>', methods=['GET', 'POST'])
+def personaldetailsmodify(email):
+    user = User.query.filter_by(email=email).first()
+    if request.method == 'POST':
+        allowed_extensions = {'png', 'jpg', 'jpeg', 'gif'}  # 允许上传的文件类型
+        upload_folder = current_app.config['UPLOAD_FOLDER']
+        if 'avatar' in request.files:
+            file = request.files['avatar']
+            fname = file.filename
+            fext = fname.rsplit('.', 1)[-1] if '.' in fname else ''
+            if file.filename != '':
+                filename = secure_filename(file.filename)
+                if '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions:
+                    target = '{}{}.{}'.format(upload_folder, current_user.email, fext)
+                    file.save(target)
+                    user.avatar_url = '/static/avatars/{}.{}'.format(current_user.email, fext)
+        user.first_name = request.form.get('first_name')
+        user.last_name = request.form.get('last_name')
+        user.intro = request.form.get('intro')
+        db.session.commit()
+        return redirect(url_for('main.personaldetails', email=user.email, user=current_user))
+    return render_template('personal-details-modify.html', email=user.email, user=current_user)
+
+
 @main.route('/pricing-plans', methods=['GET', 'POST'])
 def pricingplans():
     return render_template('pricing-plans.html')
@@ -232,6 +261,7 @@ def team():
 def youngadultintensive():
     return render_template('young-adult-intensive.html')
 
+
 @main.route('/checkEmail', methods=['GET', 'POST'])
 def checkEmail():
     chosen_email = request.form.get('email');
@@ -242,6 +272,7 @@ def checkEmail():
             return jsonify({'text': 'Sorry, email is already token', 'returnvalue': 1})
     else:
         return jsonify({'text': "emailFormatError" , 'returnvalue': 2})
+
 
 @main.route("/passwordStrength", methods=['GET', 'POST'])
 def passwordStrength():
@@ -263,8 +294,13 @@ def passwordStrength():
     strong = str(has_special + has_number + has_lower + has_upper)
     return jsonify({'text': 'this is the password strength', 'returnvalue': strong})
 
+
 @main.route('/send_message', methods=['POST'])
 def send_message():
     return jsonify({'message': 'Please check your email, and click the link'})
+
+@main.route('/send_message2', methods=['POST'])
+def send_message2():
+    return jsonify({'message': 'Login succeeded!'})
 
 

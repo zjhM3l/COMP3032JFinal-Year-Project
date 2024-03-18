@@ -145,12 +145,12 @@
                                             </li>
                                              <li class="dropdown">
                                                  {% if current_user.is_authenticated %}
-                                                 Hi, <a href="{{url_for('main.teamdetails')}}">{{ current_user.username}}</a>
+                                                 Hi, <a href="{{url_for('main.personaldetails', email=current_user.email) }}">{{ current_user.email}}</a>
                                                  {% else %}
                                                  <a href="{{url_for('main.login')}}">Sign In</a>
                                                      <ul class="sub-menu">
                                                     <li><a href="{{url_for('main.login')}}">Login</a></li>
-                                                    <li><a href="{{url_for('main.login')}}">Register</a></li>
+                                                    <li><a href="{{url_for('main.register')}}">Register</a></li>
                                                 </ul>
                                                  {% endif %}
                                             </li>
