@@ -96,19 +96,13 @@
                         <form class="login-page__form" method="post" action="/register">
                             {{ form.csrf_token }}
                             <div class="row">
-                                <div class="col-lg-8">
+
                                     <div class="login-page__form-input-box">
                                         <input id="email" type="email" name="email" placeholder="Email *"
                                                onblur="checkEmail()">
                                     </div>
 
                                     <div id="msg"></div>
-
-                                </div>
-                                <div class="col-lg-4" style="padding-left: 10px; !important; ">
-                                    <button class="thm-btn" id="captcha-btn" class="btn style1">GET CAPTURE
-                                    </button>
-                                </div>
                             </div>
 
 
@@ -131,7 +125,7 @@
                             </div>
 
                             <div class="login-page__form-btn-box">
-                                <button type="submit" class="thm-btn" style="width: 80%;">Register</button>
+                                <button type="submit" class="thm-btn" id="register-btn" style="width: 80%;">Register</button>
                             </div>
 
 
