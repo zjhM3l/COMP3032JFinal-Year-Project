@@ -39,7 +39,7 @@ def blog():
     return render_template('blog.html')
 
 
-@main.route('/blog-details', methods=['GET', 'POST'])
+@main.route('/blogdetails', methods=['GET', 'POST'])
 def blogdetails():
     return render_template('blog-details.html')
 
