@@ -93,51 +93,30 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
-                        <div class="blog-details__img">
-                            <img src="../static/images/blog/blog-details-img-1.jpg" alt="img">
-                            <div class="blog-details__date">
-                                <p>12
-                                    <br> 5</p>
+                        {% if post.photo.decode() != 'n' %}
+                            <div class="blog-details__img">
+                                <img src="{{ post.photo.decode() }}" alt="img">
+                                <div class="blog-details__date">
+                                    <p>{{post.date}}
+                                        <br> {{post.month}}</p>
+                                </div>
                             </div>
-                        </div>
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
                                 <li>
-                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>T1</a>
+                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ post.author }}</a>
                                 </li>
                                 <li>
-                                    <a href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
+                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
                                 </li>
                             </ul>
-                            <h3 class="blog-details__title">Patient-Led Advocacy Group Shares Patient Perspective
+                            <h3 class="blog-details__title">{{ post.title }}
                                 </h3>
-                                <p class="blog-details__text-1">There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. There are many variations of passages of Lorem Ipsum
-                                    available, but majority have suffered alteration in some form, by injected humour,
-                                    or randomised words which don't look even slightly believable. If you are going to
-                                    use a passage of Lorem Ipsum. Suspendisse ultricies vestibulum vehicula. Proin
-                                    laoreet porttitor lacus. Duis auctor vel ex eu elementum. Fusce eu volutpat felis.
-                                    Proin sed eros tincidunt, sagittis sapien eu, porta diam. Aenean finibus scelerisque
-                                    nulla non facilisis. Fusce vel orci sed quam gravida condimentum. Aliquam
-                                    condimentum, massa vel mollis volutpat, erat sem pharetra quam, ac mattis arcu elit
-                                    non massa. Nam mollis nunc velit, vel varius arcu fringilla tristique. Cras elit
-                                    nunc, sagittis eu bibendum eu, ultrices placerat sem. Praesent vitae metus dolor.
-                                    Nulla a erat et orci mattis auctor.</p>
-                                <p class="blog-details__text-2">Mauris non dignissim purus, ac commodo diam. Donec sit
-                                    amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                    nulla, sollicitudin at euismod nec, feugiat at nisi. Quisque vitae odio nec lacus
-                                    interdum tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet
-                                    pellentesque vitae et nunc. Sed vitae leo vitae nisl pellentesque semper.</p>
-
+                                <p class="blog-details__text-1">{{ post.content }}</p>
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
-                                    <a href="#">category</a>
+                                    <a href="#">{{ post.category }}</a>
                                 </p>
                                 <div class="blog-details__social-list">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -176,39 +155,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="comment-one">
-                                <h3 class="comment-one__title">2 Comments</h3>
-                                <div class="comment-one__single">
-                                    <div class="comment-one__image">
-                                        <img src="../static/images/blog/comment-1-1.jpg" alt="img">
-                                    </div>
+                             {% for commendblog in blog.commendblogs %}
 
-                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                        <h3>Kevin Martin</h3>
-                                            <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia
-                                                nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                                nulla, sollicitudin at euismod.</p>
+                             <div class="comment-one">
+				                <h3 id="comments_num2" class="comment-one__title">2 Comments</h3>
 
-                                        <a href="blog-details.html" class="thm-btn comment-one__btn"
-                                           style="position: absolute; top: 0; right: 0;">Reply</a>
-                                    </div>
+                                <div class="comment-author-img">
+				                    <img src="{{ comment.user.avatar_url }}" alt="co">
+            			        </div>
 
+				                <div class="comment-one__content" style="position: relative;min-width: 320px">
+                                        <h3>{{ comment.user.first_name }}  {{ comment.user.last_name }}</h3>
+                                    <p>{{ comment.content }}</p>
                                 </div>
-                                <div class="comment-one__single">
-                                    <div class="comment-one__image">
-                                        <img src="../static/images/blog/comment-1-2.jpg" alt="img">
-                                    </div>
-                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                       <h3>Sarah Albert</h3>
-                                            <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia
-                                                nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus
-                                                nulla, sollicitudin at euismod.</p>
+                             </div>
 
-                                        <a href="blog-details.html" class="thm-btn comment-one__btn"
-                                           style="position: absolute; top: 0; right: 0;">Reply</a>
-                                    </div>
-                                </div>
-                            </div>
+                             {% endfor %}
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
                                 <form action="../static/inc/sendemail.php"
@@ -405,6 +367,34 @@
 
 <!-- template js -->
 <script src="../static/js/delogis.js"></script>
+
+
+<script>
+    function getCommentsNum(postId) {
+    fetch(`/posts/${postId}`)
+        .then(response => response.json())
+        .then(data => {
+            comments_num.innerHTML = `<i class="fas fa-comments"></i>${data.comment_count} Comments`;
+        })
+        .catch(error => {
+            console.error('Error fetching post:', error);
+        });
+}
+
+    function getCommentsNum2(postId) {
+        fetch(`/posts/${postId}`)
+            .then(response => response.json())
+            .then(data => {
+                comments_num2.innerHTML = `<i class="fas fa-comments"></i>${data.comment_count} Comments`;
+            })
+            .catch(error => {
+                console.error('Error fetching post:', error);
+            });
+    }
+    getCommentsNum({{ post.id }});
+    getCommentsNum2({{ post.id }});
+</script>
+
 </body>
 
 </html>

@@ -8,7 +8,7 @@ from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm
 from .. import db
-from ..models import User
+from ..models import User, Post, Comment
 from werkzeug.security import generate_password_hash
 import re
 import string
@@ -303,4 +303,18 @@ def send_message():
 def send_message2():
     return jsonify({'message': 'Login succeeded!'})
 
+@main.route('/posts/<int:post_id>', methods=['GET'])
+def get_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    comment_count = get_comment_count(post_id)
+    post_data = {
+        'id': post.id
+    }
+    post_data['comment_count'] = comment_count
+
+    return jsonify(post_data)
+
+def get_comment_count(post_id):
+    comment_count = Comment.query.filter_by(post_id=post_id).count()
+    return comment_count
 
