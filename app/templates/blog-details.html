@@ -94,25 +94,26 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
                         {% if post.photo.decode() != 'n' %}
-                            <div class="blog-details__img">
-                                <img src="{{ post.photo.decode() }}" alt="img">
-                                <div class="blog-details__date">
-                                    <p>{{post.date}}
-                                        <br> {{post.month}}</p>
-                                </div>
+                        <div class="blog-details__img">
+                            <img src="{{ post.photo.decode() }}" alt="img">
+                            <div class="blog-details__date">
+                                <p>{{ post.date }}
+                                    <br> {{ post.month }}</p>
                             </div>
+                        </div>
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
                                 <li>
                                     <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ post.author }}</a>
                                 </li>
                                 <li>
-                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
+                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2
+                                        Comments</a>
                                 </li>
                             </ul>
                             <h3 class="blog-details__title">{{ post.title }}
-                                </h3>
-                                <p class="blog-details__text-1">{{ post.content }}</p>
+                            </h3>
+                            <p class="blog-details__text-1">{{ post.content }}</p>
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
@@ -131,22 +132,22 @@
                                         <img src="../static/images/blog/blog-details-pagenation-img-1.jpg" alt="img">
                                     </div>
                                     <div class="blog-details__pagenation-left-content">
-                                       <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
-                                                23 Mar, 2023</p>
-                                            <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
-                                                    Knowledge
-                                                    of Bipolar Disorder</a></h4>
+                                        <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
+                                            23 Mar, 2023</p>
+                                        <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
+                                            Knowledge
+                                            of Bipolar Disorder</a></h4>
 
                                         </h4>
                                     </div>
                                 </div>
-                              <div class="blog-details__pagenation-right">
-                                        <div class="blog-details__pagenation-left-content">
-                                       <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
-                                                23 Mar, 2023</p>
-                                            <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
-                                                    Knowledge
-                                                    of Deep learning</a></h4>
+                                <div class="blog-details__pagenation-right">
+                                    <div class="blog-details__pagenation-left-content">
+                                        <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
+                                            23 Mar, 2023</p>
+                                        <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
+                                            Knowledge
+                                            of Deep learning</a></h4>
 
                                         </h4>
                                     </div>
@@ -155,22 +156,22 @@
                                     </div>
                                 </div>
                             </div>
-                             {% for commendblog in blog.commendblogs %}
+                            {% for commendblog in blog.commendblogs %}
 
-                             <div class="comment-one">
-				                <h3 id="comments_num2" class="comment-one__title">2 Comments</h3>
+                                <div class="comment-one">
+                                    <h3 id="comments_num2" class="comment-one__title">2 Comments</h3>
 
-                                <div class="comment-author-img">
-				                    <img src="{{ comment.user.avatar_url }}" alt="co">
-            			        </div>
+                                    <div class="comment-author-img">
+                                        <img src="{{ comment.user.avatar_url }}" alt="co">
+                                    </div>
 
-				                <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                        <h3>{{ comment.user.first_name }}  {{ comment.user.last_name }}</h3>
-                                    <p>{{ comment.content }}</p>
+                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
+                                        <h3>{{ comment.user.first_name }} {{ comment.user.last_name }}</h3>
+                                        <p>{{ comment.content }}</p>
+                                    </div>
                                 </div>
-                             </div>
 
-                             {% endfor %}
+                            {% endfor %}
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
                                 <form action="../static/inc/sendemail.php"
@@ -371,15 +372,15 @@
 
 <script>
     function getCommentsNum(postId) {
-    fetch(`/posts/${postId}`)
-        .then(response => response.json())
-        .then(data => {
-            comments_num.innerHTML = `<i class="fas fa-comments"></i>${data.comment_count} Comments`;
-        })
-        .catch(error => {
-            console.error('Error fetching post:', error);
-        });
-}
+        fetch(`/posts/${postId}`)
+            .then(response => response.json())
+            .then(data => {
+                comments_num.innerHTML = `<i class="fas fa-comments"></i>${data.comment_count} Comments`;
+            })
+            .catch(error => {
+                console.error('Error fetching post:', error);
+            });
+    }
 
     function getCommentsNum2(postId) {
         fetch(`/posts/${postId}`)
@@ -391,6 +392,7 @@
                 console.error('Error fetching post:', error);
             });
     }
+
     getCommentsNum({{ post.id }});
     getCommentsNum2({{ post.id }});
 </script>
