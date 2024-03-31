@@ -7,5 +7,5 @@ inference_pipeline = pipeline(
     task=Tasks.emotion_recognition,
     model="iic/emotion2vec_base_finetuned")
 
-rec_result = inference_pipeline('/Users/sq/Desktop/未命名文件夹/Brain/anger.wav', granularity="utterance", extract_embedding=False)
+rec_result = inference_pipeline('../static/example_wav/anger.wav', granularity="utterance", extract_embedding=False)
 print(rec_result)
