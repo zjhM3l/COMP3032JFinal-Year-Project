@@ -46,7 +46,7 @@ def blogdetails():
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
-    return render_template('blog-sidebar.html')
+    return render_template('expertsBlogs.html')
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
@@ -69,9 +69,14 @@ def cases1():
     return render_template('cases-1.html')
 
 
-@main.route('/cases-2', methods=['GET', 'POST'])
+@main.route('/cases2', methods=['GET', 'POST'])
 def cases2():
     return render_template('cases-2.html')
+
+
+@main.route('/send_blog', methods=['GET', 'POST'])
+def send_blog():
+    return render_template('send_blog.html')
 
 
 @main.route('/checkout', methods=['GET', 'POST'])
@@ -313,6 +318,7 @@ def get_post(post_id):
     post_data['comment_count'] = comment_count
 
     return jsonify(post_data)
+
 
 def get_comment_count(post_id):
     comment_count = Comment.query.filter_by(post_id=post_id).count()
