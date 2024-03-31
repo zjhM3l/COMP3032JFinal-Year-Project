@@ -492,8 +492,8 @@ function chart() {
 
     const profitPieChartOptions = {
         series: dataSeries('#profitPieChart'),
-        labels: ['Current', 'Lost', 'Target'],
-        colors: ['#FF3D57', '#FDBF5E', '#22CCE2'],
+        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
         chart: {
             type: 'donut',
             dropShadow: {
@@ -501,7 +501,7 @@ function chart() {
                 top: 0,
                 left: 4,
                 blur: 0,
-                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)'],
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
                 opacity: 0.35
             }
         },
@@ -546,7 +546,7 @@ function chart() {
                                     return total;
                                 }, 0);
 
-                                return '$' + total;
+                                return total;
                             }
                         }
                     }
@@ -554,6 +554,138 @@ function chart() {
             }
         }
     };
+
+    const audioEmotionChartOptions = {
+        series: dataSeries('#audioEmotion'),
+        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
+        chart: {
+            type: 'donut',
+            dropShadow: {
+                enabled: true,
+                top: 0,
+                left: 4,
+                blur: 0,
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
+                opacity: 0.35
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        legend: {
+            show: false
+        },
+        stroke: {
+            show: false
+        },
+        plotOptions: {
+            pie: {
+                donut: {
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            offsetY: 32,
+                            color: themeStyle('--text-secondary-color'),
+                            formatter: value => value
+                        },
+                        value: {
+                            fontSize: '36px',
+                            fontWeight: 700,
+                            fontFamily: themeStyle('--font-family-default'),
+                            color: themeStyle('--text-primary-color'),
+                            offsetY: -12,
+                            formatter: value => '$' + value
+                        },
+                        total: {
+                            show: true,
+                            color: themeStyle('--text-secondary-color'),
+                            fontWeight: 400,
+                            formatter: w => {
+                                let total;
+
+                                w.globals.seriesTotals.reduce((a, b) => {
+                                    total = a + b;
+
+                                    return total;
+                                }, 0);
+
+                                return total;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const blogSectionChartOptions = {
+        series: dataSeries('#blogSection'),
+        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
+        chart: {
+            type: 'donut',
+            dropShadow: {
+                enabled: true,
+                top: 0,
+                left: 4,
+                blur: 0,
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
+                opacity: 0.35
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        legend: {
+            show: false
+        },
+        stroke: {
+            show: false
+        },
+        plotOptions: {
+            pie: {
+                donut: {
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            offsetY: 32,
+                            color: themeStyle('--text-secondary-color'),
+                            formatter: value => value
+                        },
+                        value: {
+                            fontSize: '36px',
+                            fontWeight: 700,
+                            fontFamily: themeStyle('--font-family-default'),
+                            color: themeStyle('--text-primary-color'),
+                            offsetY: -12,
+                            formatter: value => '$' + value
+                        },
+                        total: {
+                            show: true,
+                            color: themeStyle('--text-secondary-color'),
+                            fontWeight: 400,
+                            formatter: w => {
+                                let total;
+
+                                w.globals.seriesTotals.reduce((a, b) => {
+                                    total = a + b;
+
+                                    return total;
+                                }, 0);
+
+                                return total;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+
 
     const activityBarEChartOptions = {
         grid: {
