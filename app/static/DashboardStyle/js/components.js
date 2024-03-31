@@ -1028,6 +1028,8 @@ function chart() {
     new ChartProgressCircle();
     new Charts('revenueChart', revenueLineChartOptions);
     new Charts('profitPieChart', profitPieChartOptions);
+    new Charts('audioEmotion', audioEmotionChartOptions);
+    new Charts('blogSection', blogSectionChartOptions);
     new Echart('activityChart', activityBarEChartOptions);
     new Charts('taskPieChart', taskRarialChartOptions);
     new Charts('overviewLineChart', overviewLineChartOptions);
