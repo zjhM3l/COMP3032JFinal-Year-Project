@@ -1,4 +1,5 @@
 import os
+import random
 
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
@@ -323,7 +324,12 @@ def sendtreeText():
         # Generate random user information for anonymous author
         anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
         anonymous_email = f"{anonymous_username}@example.com"
-        anonymous_avatar_url = f"/static/defaultAvatars/{choice(os.listdir(app.config['AVATAR_UPLOAD_FOLDER']))}"
+        avatar_folder = '/static/defaultAvatars/'
+        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.png')]
+
+        if avatar_files:
+            random_avatar = random.choice(avatar_files)
+            anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
 
         # Create the anonymous author
         anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url)
