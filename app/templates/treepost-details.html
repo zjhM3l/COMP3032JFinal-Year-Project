@@ -76,49 +76,42 @@
         </div>
         <div class="container">
             <div class="page-header__inner">
-                <h2>Blog Details</h2>
+                <h2>Tree Post Details</h2>
                 <ul class="thm-breadcrumb list-unstyled">
                     <li><a href="index.html">Home</a></li>
                     <li><span>/</span></li>
-                    <li>Blog</li>
+                    <li>tree post</li>
                 </ul>
             </div>
         </div>
     </section>
     <!--Page Header End-->
 
-    <!--Blog Details Start-->
+    <!--Tree post Details Start-->
     <section class="blog-details">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
-                        {% if post.photo.decode() != 'n' %}
                         <div class="blog-details__img">
-                            <img src="{{ post.photo.decode() }}" alt="img">
                             <div class="blog-details__date">
-                                <p>{{ post.date }}
-                                    <br> {{ post.month }}</p>
+                                <p>{{ treepost.date }}
+                                    <br> {{ treepost.month }}</p>
                             </div>
                         </div>
-                        {% endif %}
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
-                                <li>
-                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ post.author }}</a>
-                                </li>
                                 <li>
                                     <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2
                                         Comments</a>
                                 </li>
                             </ul>
-                            <h3 class="blog-details__title">{{ post.title }}
-                            </h3>
-                            <p class="blog-details__text-1">{{ post.content }}</p>
+
+                            <p class="blog-details__text-1">{{ treepost.content }}</p>
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
-                                    <a href="#">{{ post.category }}</a>
+                                    <a href="#">{{ treepost.category }}</a>
                                 </p>
                                 <div class="blog-details__social-list">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -157,17 +150,14 @@
                                     </div>
                                 </div>
                             </div>
-                            {% for commendblog in blog.commendblogs %}
+                            {% for comment in treepost.comments %}
 
                                 <div class="comment-one">
                                     <h3 id="comments_num2" class="comment-one__title">2 Comments</h3>
 
-                                    <div class="comment-author-img">
-                                        <img src="{{ comment.user.avatar_url }}" alt="co">
-                                    </div>
+
 
                                     <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                        <h3>{{ comment.user.first_name }} {{ comment.user.last_name }}</h3>
                                         <p>{{ comment.content }}</p>
                                     </div>
                                 </div>
@@ -177,18 +167,6 @@
                                 <h3 class="comment-form__title">Leave a Comment</h3>
                                 <form action="../static/inc/sendemail.php"
                                       class="comment-one__form contact-form-validated" novalidate="novalidate">
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Your Name" name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Email Address" name="email">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box text-message-box">
