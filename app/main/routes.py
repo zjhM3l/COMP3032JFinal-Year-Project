@@ -6,11 +6,12 @@ from werkzeug.utils import secure_filename
 
 from . import main
 from .email import send_email
-from .forms import LoginForm, RegistrationForm
+from .forms import LoginForm, RegistrationForm, TreeForm
 from .. import db
 from ..models import User, Post, Comment
 from werkzeug.security import generate_password_hash
 import re
+from random import choice
 import string
 
 
@@ -76,11 +77,6 @@ def cases1():
 @main.route('/cases2', methods=['GET', 'POST'])
 def cases2():
     return render_template('cases-2.html')
-
-
-@main.route('/send_blog', methods=['GET', 'POST'])
-def send_blog():
-    return render_template('send_blog.html')
 
 
 @main.route('/checkout', methods=['GET', 'POST'])
@@ -258,7 +254,8 @@ def selfesteemissues():
 
 @main.route('/services', methods=['GET', 'POST'])
 def services():
-    return render_template('services.html')
+    trees = Post.query.filter_by(hole=True).order_by(Post.timestamp.desc()).all()
+    return render_template('services.html', trees=trees)
 
 
 @main.route('/team', methods=['GET', 'POST'])
@@ -308,9 +305,45 @@ def passwordStrength():
 def send_message():
     return jsonify({'message': 'Please check your email, and click the link'})
 
+
 @main.route('/send_message2', methods=['POST'])
 def send_message2():
     return jsonify({'message': 'Login succeeded!'})
 
 
+@main.route('/send_blog', methods=['GET', 'POST'])
+def send_blog():
+    return render_template('send_blog.html')
 
+
+@main.route('/sendtreeText', methods=['GET', 'POST'])
+def sendtreeText():
+    form = TreeForm()
+    if form.validate_on_submit():
+        # Generate random user information for anonymous author
+        anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
+        anonymous_email = f"{anonymous_username}@example.com"
+        anonymous_avatar_url = f"/static/defaultAvatars/{choice(os.listdir(app.config['AVATAR_UPLOAD_FOLDER']))}"
+
+        # Create the anonymous author
+        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url)
+        db.session.add(anonymous_author)
+        db.session.commit()
+
+        # Create the post with anonymous author and current user as the author
+        post = Post(
+            author=current_user,
+            anonymous_author=anonymous_author,
+            hole=True,
+            body=form.body.data
+        )
+        db.session.add(post)
+        db.session.commit()
+
+        return redirect(url_for('main.services'))  # Redirect to the blog page after submission
+    return render_template('services.html', form=form)
+
+
+@main.route('/sendtreeAudio', methods=['GET', 'POST'])
+def sendtreeAudio():
+    return render_template('services.html')

@@ -82,16 +82,16 @@
                             <button class="main-slider__btn-one thm-btn">Text
                             </button>
                             <div class="main-slider__btn-one thm-btn" style="display: none; position: absolute;min-width: 160px; z-index: 1;">
-                                 <a href="{{ url_for('main.text') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Look Trough</a>
-                                 <a href="{{ url_for('main.send_tree') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Send</a>
+                                 <a href="{{ url_for('main.services') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Look Trough</a>
+                                 <a href="{{ url_for('main.sendtreeText') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Send</a>
                             </div>
                         </div>
                          <div class="dropdown" style="position: relative; display: inline-block;">
                             <button class="main-slider__btn-one thm-btn">Speech
                             </button>
                             <div class="main-slider__btn-one thm-btn" style="display: none; position: absolute;min-width: 160px; z-index: 1;">
-                                 <a href="{{ url_for('main.speech') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Look Trough</a>
-                                 <a href="{{ url_for('main.send_tree') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Send</a>
+                                 <a href="{{ url_for('main.services') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Look Trough</a>
+                                 <a href="{{ url_for('main.sendtreeAudio') }}" class="main-slider__btn-one thm-btn" style="text-decoration: none; display: block;">Send</a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
     <section class="services-page">
         <div class="container">
             <div class="row">
-                {% for treepost in tree.treeposts %}
+                {% for treepost in trees %}
                 <!--Services Two Single Start-->
                 <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="services-two__single">
