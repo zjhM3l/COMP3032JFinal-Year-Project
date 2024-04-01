@@ -36,12 +36,16 @@ def anxietygrief():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
-    return render_template('blog.html')
+    blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    return render_template('blog.html', blogs=blogs)
 
 
-@main.route('/blogdetails', methods=['GET', 'POST'])
-def blogdetails():
-    return render_template('blog-details.html')
+@main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
+def blogdetails(id):
+    blog = Post.query.get_or_404(id)
+    comments = blog.comments.order_by(Comment.timestamp.desc())
+    author = blog.author
+    return render_template('blog-details.html', blog=blog, comments=comments, author=author)
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
@@ -308,19 +312,5 @@ def send_message():
 def send_message2():
     return jsonify({'message': 'Login succeeded!'})
 
-@main.route('/posts/<int:post_id>', methods=['GET'])
-def get_post(post_id):
-    post = Post.query.get_or_404(post_id)
-    comment_count = get_comment_count(post_id)
-    post_data = {
-        'id': post.id
-    }
-    post_data['comment_count'] = comment_count
 
-    return jsonify(post_data)
-
-
-def get_comment_count(post_id):
-    comment_count = Comment.query.filter_by(post_id=post_id).count()
-    return comment_count
 
