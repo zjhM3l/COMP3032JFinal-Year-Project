@@ -22,6 +22,8 @@ class Config:
     FLASKY_COMMENTS_PER_PAGE = 5
     UPLOAD_FOLDER = os.getcwd() + '/app/static/avatars/'
     FLASK_COMMENTS_PER_PAGE = 20
+    ALLOWED_EXTENSIONS = {'wav', 'mp3', 'ogg'}
+    AUDIO_UPLOAD_FOLDER = os.getcwd() + '/app/static/audio/'
 
     @staticmethod
     def init_app(app):

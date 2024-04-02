@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Audio</title>
+</head>
+<body>
+    <h1>Tree Audio Recording</h1>
+    <button id="startRecording">Start Recording</button>
+    <button id="stopRecording" disabled>Stop Recording</button>
+    <button id="playRecording" disabled>Play Recording</button>
+    <button id="submitRecording" disabled>Submit Recording</button>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+
+        const startRecording = () => {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.ondataavailable = event => {
+                        if (event.data.size > 0) {
+                            audioChunks.push(event.data);
+                        }
+                    };
+                    mediaRecorder.start();
+                    document.getElementById('startRecording').disabled = true;
+                    document.getElementById('stopRecording').disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error accessing microphone:', error);
+                });
+        };
+
+        const stopRecording = () => {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                document.getElementById('startRecording').disabled = false;
+                document.getElementById('stopRecording').disabled = true;
+                document.getElementById('playRecording').disabled = false;
+                document.getElementById('submitRecording').disabled = false;
+            }
+        };
+
+        const playRecording = () => {
+            const blob = new Blob(audioChunks, { type: 'audio/wav' });
+            const url = URL.createObjectURL(blob);
+            document.getElementById('audioPlayer').src = url;
+        };
+
+        const submitRecording = () => {
+            const blob = new Blob(audioChunks, { type: 'audio/wav' });
+            const formData = new FormData();
+            formData.append('audioFile', blob, 'recording.wav');
+
+            fetch('/sendtreeAudio', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                // Handle response or redirect as needed
+            })
+            .catch(error => {
+                console.error('Error submitting recording:', error);
+            });
+            fetch('/sendtreeAudio', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                // 处理后端返回的数据，例如显示成功提示或重定向到services页面
+                window.location.href = '/services'; // 重定向到services页面
+            })
+            .catch(error => {
+                console.error('Error submitting recording:', error);
+            });
+        };
+
+        document.getElementById('startRecording').addEventListener('click', startRecording);
+        document.getElementById('stopRecording').addEventListener('click', stopRecording);
+        document.getElementById('playRecording').addEventListener('click', playRecording);
+        document.getElementById('submitRecording').addEventListener('click', submitRecording);
+    </script>
+</body>
+</html>

@@ -352,4 +352,21 @@ def sendtreeText():
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
 def sendtreeAudio():
-    return render_template('services.html')
+    user = current_user
+    if request.method == 'POST':
+        if 'audioFile' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+
+        file = request.files['audioFile']
+
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+
+        if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename))
+            flash('File uploaded successfully')
+            return redirect(url_for('main.services'))
+    return render_template('treeAudio.html')
