@@ -25,7 +25,13 @@
                     mediaRecorder.ondataavailable = event => {
                         if (event.data.size > 0) {
                             audioChunks.push(event.data);
+                            console.log('Audio data recorded:', audioChunks.length);
                         }
+                    };
+                    mediaRecorder.onstop = () => {
+                        const blob = new Blob(audioChunks, { type: 'audio/wav' });
+                        const url = URL.createObjectURL(blob);
+                        document.getElementById('audioPlayer').src = url;
                     };
                     mediaRecorder.start();
                     document.getElementById('startRecording').disabled = true;
@@ -36,6 +42,7 @@
                 });
         };
 
+
         const stopRecording = () => {
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
                 mediaRecorder.stop();
@@ -43,6 +50,8 @@
                 document.getElementById('stopRecording').disabled = true;
                 document.getElementById('playRecording').disabled = false;
                 document.getElementById('submitRecording').disabled = false;
+            } else {
+                console.error('MediaRecorder is inactive or not initialized.');
             }
         };
 
@@ -57,18 +66,6 @@
             const formData = new FormData();
             formData.append('audioFile', blob, 'recording.wav');
 
-            fetch('/sendtreeAudio', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                // Handle response or redirect as needed
-            })
-            .catch(error => {
-                console.error('Error submitting recording:', error);
-            });
             fetch('/sendtreeAudio', {
                 method: 'POST',
                 body: formData

@@ -175,13 +175,13 @@ def confirm(token):
     return redirect(url_for('main.index'))
 
 
-@main.before_app_request
-def before_request():
-    if current_user.is_authenticated \
-            and not current_user.confirmed \
-            and request.endpoint[:5] != 'main.' \
-            and request.endpoint != 'static':
-        return redirect(url_for('main.unconfirmed'))
+# @main.before_app_request
+# def before_request():
+#     if current_user.is_authenticated \
+#             and not current_user.confirmed \
+#             and request.endpoint[:5] != 'main.' \
+#             and request.endpoint != 'static':
+#         return redirect(url_for('main.unconfirmed'))
 
 
 @main.route('/unconfirmed')
@@ -408,14 +408,15 @@ def sendtreeAudio():
         if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
             # Generate a unique filename using the user's email and current timestamp
             timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-            filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+            filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+            # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
 
             file.save(os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename))
             flash('File uploaded successfully')
 
             # 构建完整的音频文件路径
-            # audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
-            audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], "anger.wav")
+            audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
+            # audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], "anger.wav")
 
             inference_pipeline = pipeline(
                 task=Tasks.emotion_recognition,
