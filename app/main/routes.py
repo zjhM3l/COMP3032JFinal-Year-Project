@@ -11,9 +11,9 @@ from datetime import datetime
 
 from . import main
 from .email import send_email
-from .forms import LoginForm, RegistrationForm, TreeForm
+from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm
 from .. import db
-from ..models import User, Post, Comment, Emotion, Audio
+from ..models import User, Post, Comment, Emotion, Audio, Category
 from werkzeug.security import generate_password_hash
 import re
 from random import choice
@@ -318,7 +318,44 @@ def send_message2():
 
 @main.route('/send_blog', methods=['GET', 'POST'])
 def send_blog():
-    return render_template('send_blog.html')
+    form = ExpertForm()
+    print("hhhhhhhhhhhhhhhhhhh")
+
+    if form.validate_on_submit():
+
+        t = form.title.data
+
+        cate_id = form.cate_id.data
+        cate = Category.query.get(cate_id)
+        if not cate:
+            flash('There is no such category, please check the number.')
+
+        photo = request.files['photo']
+        fname = photo.filename
+        upload_folder = current_app.config['UPLOAD_EPOST']
+        allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
+        fext = fname.rsplit('.', 1)[-1] if '.' in fname else ''
+        if fext not in allowed_extensions:
+            flash('Please check if its one of png, '
+                  'jpg, jpeg and gif')
+            return redirect(url_for('.send_blog'))
+        target = '{}{}.{}'.format(upload_folder, t, fext)
+        photo.save(target)
+
+        epost = Post(title=form.title.data,
+                     cover_url='/static/postPhoto/{}.{}'.format(t, fext),
+                     hole=False,
+                     body=form.content.data,
+                     category_id=form.cate_id.data,
+                     author=current_user,
+                     )
+        db.session.add(epost)
+        db.session.commit()
+
+        return redirect(url_for('main.blogsidebar'))
+    return render_template('send_blog.html', form=form)
+
+
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])

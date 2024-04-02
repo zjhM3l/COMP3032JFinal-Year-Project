@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_pagedown.fields import PageDownField
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
 from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from ..models import User
@@ -29,3 +29,11 @@ class RegistrationForm(FlaskForm):
 class TreeForm(FlaskForm):
     body = PageDownField('Say something:', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class ExpertForm(FlaskForm):
+    photo = FileField('', validators=[DataRequired()])
+    title = TextAreaField('', validators=[DataRequired()])
+    cate_id = TextAreaField('', validators=[DataRequired()])
+
+    content = TextAreaField('', validators=[DataRequired()])
+    submit = SubmitField('')

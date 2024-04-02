@@ -21,6 +21,7 @@ class Config:
     FLASK_ANNOUNCEMENT_PER_PAGE = 2
     FLASKY_COMMENTS_PER_PAGE = 5
     UPLOAD_FOLDER = os.getcwd() + '/app/static/avatars/'
+    UPLOAD_EPOST = os.getcwd() + '/app/static/postPhoto/'
     FLASK_COMMENTS_PER_PAGE = 20
     ALLOWED_EXTENSIONS = {'wav', 'mp3', 'ogg'}
     AUDIO_UPLOAD_FOLDER = os.path.abspath(os.path.join(os.getcwd(), 'app', 'static', 'audio'))

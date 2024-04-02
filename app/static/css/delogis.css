@@ -11051,6 +11051,26 @@ ul {
   margin-bottom: 20px;
 }
 
+.shape1{
+  height: 60px;
+  width: 100%;
+  border: none;
+  background-color: var(--delogis-primary);
+  padding-left: 30px;
+  padding-right: 30px;
+  outline: none;
+  font-size: 13px;
+  color: var(--delogis-gray);
+  display: block;
+  font-weight: 400;
+  border-radius: var(--delogis-bdr-radius);
+}
+
+.shape input{
+  outline: none;
+  border: none;
+}
+
 .billing_input_box input[type="text"],
 .billing_input_box input[type="email"],
 .billing_input_box input[type="tel"] {
