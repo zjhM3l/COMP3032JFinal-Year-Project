@@ -7,87 +7,66 @@
 </head>
 <body>
     <h1>Tree Audio Recording</h1>
-    <button id="startRecording">Start Recording</button>
-    <button id="stopRecording" disabled>Stop Recording</button>
-    <button id="playRecording" disabled>Play Recording</button>
-    <button id="submitRecording" disabled>Submit Recording</button>
-
-    <audio id="audioPlayer" controls></audio>
+    <button id="start">Start Recording</button>
+    <button id="stop" disabled>Stop Recording</button>
+    <button id="play" disabled>Play Recording</button>
+    <button id="upload" disabled>Submit Recording</button>
 
     <script>
         let mediaRecorder;
-        let audioChunks = [];
+        let chunks = [];
+        let audioChunks;
 
-        const startRecording = () => {
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    mediaRecorder = new MediaRecorder(stream);
-                    mediaRecorder.ondataavailable = event => {
-                        if (event.data.size > 0) {
-                            audioChunks.push(event.data);
-                        }
-                    };
-                    mediaRecorder.start();
-                    document.getElementById('startRecording').disabled = true;
-                    document.getElementById('stopRecording').disabled = false;
-                })
-                .catch(error => {
-                    console.error('Error accessing microphone:', error);
-                });
-        };
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+            mediaRecorder = new MediaRecorder(stream);
 
-        const stopRecording = () => {
-            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.addEventListener("dataavailable", function (event) {
+                chunks.push(event.data);
+            });
+
+            document.getElementById('start').addEventListener('click', () => {
+                mediaRecorder.start();
+                document.getElementById('stop').disabled = false;
+                document.getElementById('start').disabled = true;
+            });
+
+            document.getElementById('stop').addEventListener('click', () => {
                 mediaRecorder.stop();
-                document.getElementById('startRecording').disabled = false;
-                document.getElementById('stopRecording').disabled = true;
-                document.getElementById('playRecording').disabled = false;
-                document.getElementById('submitRecording').disabled = false;
-            }
-        };
+                document.getElementById('start').disabled = false;
+                document.getElementById('play').disabled = false;
+                document.getElementById('upload').disabled = false;
+            });
 
-        const playRecording = () => {
-            const blob = new Blob(audioChunks, { type: 'audio/wav' });
-            const url = URL.createObjectURL(blob);
-            document.getElementById('audioPlayer').src = url;
-        };
+            audioChunks = [];
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
 
-        const submitRecording = () => {
-            const blob = new Blob(audioChunks, { type: 'audio/wav' });
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks);
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                document.getElementById('play').addEventListener('click', () => {
+                    audio.play();
+                });
+            };
+        });
+
+        document.getElementById('upload').addEventListener('click', async () => {
+            // 合并音频片段为一个完整的Blob对象
+            const blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
+
+            // 模拟上传，实际项目中应通过fetch或axios等发送POST请求至服务器
             const formData = new FormData();
-            formData.append('audioFile', blob, 'recording.wav');
-
-            fetch('/sendtreeAudio', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                // Handle response or redirect as needed
-            })
-            .catch(error => {
-                console.error('Error submitting recording:', error);
-            });
-            fetch('/sendtreeAudio', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                // 处理后端返回的数据，例如显示成功提示或重定向到services页面
-                window.location.href = '/services'; // 重定向到services页面
-            })
-            .catch(error => {
-                console.error('Error submitting recording:', error);
-            });
-        };
-
-        document.getElementById('startRecording').addEventListener('click', startRecording);
-        document.getElementById('stopRecording').addEventListener('click', stopRecording);
-        document.getElementById('playRecording').addEventListener('click', playRecording);
-        document.getElementById('submitRecording').addEventListener('click', submitRecording);
+            formData.append('file', blob, 'recording.ogg');
+            alert('uploading')
+            fetch('/sendtreeAudio', { method: 'POST', body: formData })
+                .then((data) => {
+                    console.log('Upload successful!');
+                    window.location.href = '/services';
+                })
+                .catch(error => console.error('Error uploading:', error));
+        });
     </script>
 </body>
 </html>
