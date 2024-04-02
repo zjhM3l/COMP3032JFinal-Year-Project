@@ -4,12 +4,16 @@ import random
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.utils import secure_filename
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
+from datetime import datetime
+
 
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm
 from .. import db
-from ..models import User, Post, Comment
+from ..models import User, Post, Comment, Emotion, Audio
 from werkzeug.security import generate_password_hash
 import re
 from random import choice
@@ -365,8 +369,37 @@ def sendtreeAudio():
             return redirect(request.url)
 
         if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
-            filename = secure_filename(file.filename)
+            # Generate a unique filename using the user's email and current timestamp
+            timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+            filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+
             file.save(os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename))
             flash('File uploaded successfully')
+
+            # 构建完整的音频文件路径
+            # audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
+            audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], "anger.wav")
+
+            inference_pipeline = pipeline(
+                task=Tasks.emotion_recognition,
+                model="iic/emotion2vec_base_finetuned"
+            )
+
+            rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
+            print(rec_result)
+
+            if isinstance(rec_result, list) and len(rec_result) > 0:
+                result_entry = rec_result[0]
+                labels = result_entry.get('labels', [])
+                scores = result_entry.get('scores', [])
+
+                # Save the audio file path and emotion detection result in the database
+                audio = Audio(input=audio_file_path)
+                db.session.add(audio)
+
+                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
+                db.session.add(emotion)
+
+                db.session.commit()
             return redirect(url_for('main.services'))
     return render_template('treeAudio.html')
