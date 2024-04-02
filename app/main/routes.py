@@ -358,11 +358,11 @@ def sendtreeText():
 def sendtreeAudio():
     user = current_user
     if request.method == 'POST':
-        if 'file' not in request.files:
+        if 'audioFile' not in request.files:
             flash('No file part')
             return redirect(request.url)
 
-        file = request.files['file']
+        file = request.files['audioFile']
 
         if file.filename == '':
             flash('No selected file')
