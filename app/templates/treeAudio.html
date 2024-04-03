@@ -6,14 +6,12 @@
 </head>
 <body>
     <script src="../static/js/recorder.js"></script>
-    <h3>操作</h3>
-    <input type="button" value="开始录音" id="startRecord" />
-    <input type="button" value="暂停录音" id="pauseRecord" />
-    <input type="button" value="停止录音" id="stopRecord" />
-    <input type="button" value="播放录音" id="playRecord" />
-    <input type="button" value="发送录音" id="sendRecord" />
-    <h3>录音时长：<span id="time">0</span>s</h3>
-    <audio id="recordedAudio" controls></audio>
+    <h3>Operation</h3>
+    <input type="button" value="start" id="startRecord" />
+    <input type="button" value="finish" id="stopRecord" />
+    <input type="button" value="play" id="playRecord" />
+    <input type="button" value="send" id="sendRecord" />
+    <h3>Audio time：<span id="time">0</span>s</h3>
 </body>
 <script>
     let recorder = new Recorder({
@@ -28,10 +26,6 @@
         });
     });
 
-    document.getElementById('pauseRecord').addEventListener('click', () => {
-        recorder.pause();
-        console.log('暂停录音');
-    });
 
     document.getElementById('playRecord').addEventListener('click', () => {
         recorder.play();
