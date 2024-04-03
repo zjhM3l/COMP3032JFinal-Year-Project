@@ -23,16 +23,6 @@ import requests
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    # url = current_app.config['TEXT_TO_EMOTION_URL']
-    # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-    # payload = "Why did you say that? What is your evidence?!".encode("utf-8")
-    # headers = {
-    #     "apikey": api_key
-    # }
-    # response = requests.request("POST", url, headers=headers, data=payload)
-    # status_code = response.status_code
-    # result = response.text
-    # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     return render_template('index.html')
 
 
@@ -330,7 +320,6 @@ def send_message2():
 @main.route('/send_blog', methods=['GET', 'POST'])
 def send_blog():
     form = ExpertForm()
-    print("hhhhhhhhhhhhhhhhhhh")
 
     if form.validate_on_submit():
 
@@ -361,6 +350,37 @@ def send_blog():
                      author=current_user,
                      )
         db.session.add(epost)
+
+        # url = current_app.config['TEXT_TO_EMOTION_URL']
+        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        # body = form.content.data
+        # payload = body.encode("utf-8")
+        # headers = {
+        #     "apikey": api_key
+        # }
+        # response = requests.request("POST", url, headers=headers, data=payload)
+        # status_code = response.status_code
+        # result = response.text
+        # if status_code != 200:
+        #     result = {
+        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
+        #                    '难过/sad', '吃惊/surprised', '<unk>'],
+        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        #     }
+        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        #
+        # # 创建 Emotion 对象
+        # emotion = Emotion(
+        #     type=1,  # 文本情绪
+        #     user=current_user,
+        #     hole=epost,  # 连接到新创建的博客对象 epost
+        #     output=result  # 将情绪检测结果写入 output 字段
+        # )
+        #
+        # # 将 Emotion 对象添加到数据库会话中并提交更改
+        # db.session.add(emotion)
+
         db.session.commit()
 
         return redirect(url_for('main.blogsidebar'))
@@ -396,6 +416,37 @@ def sendtreeText():
             body=form.body.data
         )
         db.session.add(post)
+
+        # url = current_app.config['TEXT_TO_EMOTION_URL']
+        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        # body = form.content.data
+        # payload = body.encode("utf-8")
+        # headers = {
+        #     "apikey": api_key
+        # }
+        # response = requests.request("POST", url, headers=headers, data=payload)
+        # status_code = response.status_code
+        # result = response.text
+        # if status_code != 200:
+        #     result = {
+        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
+        #                    '难过/sad', '吃惊/surprised', '<unk>'],
+        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        #     }
+        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        #
+        # # 创建 Emotion 对象
+        # emotion = Emotion(
+        #     type=1,  # 文本情绪
+        #     user=current_user,
+        #     hole=post,  # 连接到新创建的博客对象 epost
+        #     output=result  # 将情绪检测结果写入 output 字段
+        # )
+        #
+        # # 将 Emotion 对象添加到数据库会话中并提交更改
+        # db.session.add(emotion)
+
         db.session.commit()
 
         return redirect(url_for('main.services'))  # Redirect to the blog page after submission
