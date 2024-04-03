@@ -8,7 +8,6 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from datetime import datetime
 
-import app
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm
@@ -18,9 +17,7 @@ from werkzeug.security import generate_password_hash
 import re
 from random import choice
 import string
-import requests
-# from pydub import AudioSegment
-import wave
+
 
 
 
