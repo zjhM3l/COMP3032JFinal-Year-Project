@@ -8,7 +8,7 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from datetime import datetime
 
-
+import app
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm
@@ -18,10 +18,21 @@ from werkzeug.security import generate_password_hash
 import re
 from random import choice
 import string
+import requests
 
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
+    # url = current_app.config['TEXT_TO_EMOTION_URL']
+    # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+    # payload = "Why did you say that? What is your evidence?!".encode("utf-8")
+    # headers = {
+    #     "apikey": api_key
+    # }
+    # response = requests.request("POST", url, headers=headers, data=payload)
+    # status_code = response.status_code
+    # result = response.text
+    # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     return render_template('index.html')
 
 
