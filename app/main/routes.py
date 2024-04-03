@@ -19,6 +19,9 @@ import re
 from random import choice
 import string
 import requests
+# from pydub import AudioSegment
+import wave
+
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -457,11 +460,11 @@ def sendtreeText():
 def sendtreeAudio():
     user = current_user
     if request.method == 'POST':
-        if 'audioFile' not in request.files:
+        if 'audio' not in request.files:
             flash('No file part')
             return redirect(request.url)
 
-        file = request.files['audioFile']
+        file = request.files['audio']
 
         if file.filename == '':
             flash('No selected file')
@@ -473,12 +476,11 @@ def sendtreeAudio():
             filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
             # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
 
-            file.save(os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename))
-            flash('File uploaded successfully')
-
-            # 构建完整的音频文件路径
             audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
-            # audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], "anger.wav")
+
+            file.save(audio_file_path)
+            # convert_to_valid_wav(audio_file_path)
+            flash('File uploaded successfully')
 
             inference_pipeline = pipeline(
                 task=Tasks.emotion_recognition,
@@ -503,3 +505,4 @@ def sendtreeAudio():
                 db.session.commit()
             return redirect(url_for('main.services'))
     return render_template('treeAudio.html')
+
