@@ -99,10 +99,13 @@
                         <h2>Say something<span class="fa fa-check"></span></h2>
                     </div>
 
+
                     <input type="button" value="start" id="startRecord" />
+                    &nbsp;&nbsp; 
                     <input type="button" value="finish" id="stopRecord" />
+                    &nbsp;&nbsp; 
                     <input type="button" value="play" id="playRecord" />
-                    <input type="button" value="send" id="sendRecord" />
+                    &nbsp;&nbsp; 
                     <br/><br/>
 
                     <h3>Audio time：<span id="time">0</span>s</h3>
@@ -111,12 +114,14 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="text-left">
-                                    <a href="submit" class="thm-btn">Cancel</a>
+                                    <a href="{{ url_for('main.services') }}">
+                                        <button type="submit" class="thm-btn">Cancel</button>
+                                    </a>                                
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
                                 <div class="text-right d-flex justify-content-end">
-                                    <button type="submit" class="thm-btn">Post</button>
+                                    <button type="submit" class="thm-btn" value="send" id="sendRecord">Send</button>
                                 </div>
                             </div>
                         </div>
