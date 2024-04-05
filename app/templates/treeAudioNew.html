@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Emotional Vent Tree Text </title>
+    <title> Emotional Vent Tree Audio </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
@@ -54,13 +54,11 @@
 </head>
 
 <body class="custom-cursor">
+    <script src="../static/js/recorder.js"></script>
+
 
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
-
-
-
-
 
     <div class="preloader">
         <div class="preloader__image"></div>
@@ -82,7 +80,7 @@
             </div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h2>Don't feel bad, text something to the tree hole?</h2>
+                    <h2>Don't feel bad, say something to the tree hole?</h2>
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="{{url_for('main.index')}}">Home</a></li>
                     </ul>
@@ -98,45 +96,31 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="billing_details ship_different_address">
                     <div class="billing_title ship_different_address_title">
-                        <h2>Text something<span class="fa fa-check"></span></h2>
+                        <h2>Say something<span class="fa fa-check"></span></h2>
                     </div>
 
-                    <form class="billing_details_form ship_different_address_form" enctype="multipart/form-data" method="post" action="/send_blog">
-                        {{ form.csrf_token }}
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <label>Content</label>
-                            </div>
-                        </div>
+                    <input type="button" value="start" id="startRecord" />
+                    <input type="button" value="finish" id="stopRecord" />
+                    <input type="button" value="play" id="playRecord" />
+                    <input type="button" value="send" id="sendRecord" />
+                    <br/><br/>
 
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="ship_different_input">
-                                    <textarea placeholder="You can pour your negative emotions here, or you can just share your happiness!"
-                                        name="content" style="resize:none;"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="ship_different_input">
-
-                                </div>
-                            </div>
-                        </div>
+                    <h3>Audio time：<span id="time">0</span>s</h3>
+                    
+                    <br/><br/>
                         <div class="row">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="text-left">
                                     <a href="submit" class="thm-btn">Cancel</a>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-xl-6 col-lg-6">
                                 <div class="text-right d-flex justify-content-end">
                                     <button type="submit" class="thm-btn">Post</button>
-                                </div><!-- /.text-right -->
-                            </div><!-- /.col-lg-6 -->
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -286,5 +270,52 @@
             });
         </script>
 </body>
+<script>
+    let recorder = new Recorder({
+        sampleBits: 16,
+        sampleRate: 16000,
+        numChannels: 1
+    });
 
+    document.getElementById('startRecord').addEventListener('click', () => {
+        recorder.start().then(() => {
+            console.log('开始录音');
+        });
+    });
+
+
+    document.getElementById('playRecord').addEventListener('click', () => {
+        recorder.play();
+        console.log('播放录音');
+    });
+
+    document.getElementById('stopRecord').addEventListener('click', () => {
+        recorder.stop();
+        console.log('停止录音');
+    });
+
+    recorder.onprocess = function(duration) {
+        document.getElementById('time').textContent = duration.toFixed(2);
+    };
+</script>
+<script>
+    document.getElementById('sendRecord').addEventListener('click', () => {
+        let blob = recorder.getWAVBlob(); // 获取录音的 WAV 格式数据
+        let formData = new FormData();
+        formData.append('audio', blob, 'recording.wav');
+
+        fetch('/sendtreeAudio', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // 处理后端返回的数据
+        })
+        .catch(error => {
+            console.error('Error sending recording:', error);
+        });
+    });
+</script>
 </html>
