@@ -450,7 +450,7 @@ def sendtreeText():
         db.session.commit()
 
         return redirect(url_for('main.services'))  # Redirect to the blog page after submission
-    return render_template('services.html', form=form)
+    return render_template('treeText.html', form=form)
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
