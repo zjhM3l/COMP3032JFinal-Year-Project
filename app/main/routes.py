@@ -8,7 +8,6 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from datetime import datetime
 
-
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm
@@ -18,6 +17,8 @@ from werkzeug.security import generate_password_hash
 import re
 from random import choice
 import string
+
+
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -353,6 +354,37 @@ def send_blog():
                      author=current_user,
                      )
         db.session.add(epost)
+
+        # url = current_app.config['TEXT_TO_EMOTION_URL']
+        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        # body = form.content.data
+        # payload = body.encode("utf-8")
+        # headers = {
+        #     "apikey": api_key
+        # }
+        # response = requests.request("POST", url, headers=headers, data=payload)
+        # status_code = response.status_code
+        # result = response.text
+        # if status_code != 200:
+        #     result = {
+        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
+        #                    '难过/sad', '吃惊/surprised', '<unk>'],
+        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        #     }
+        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        #
+        # # 创建 Emotion 对象
+        # emotion = Emotion(
+        #     type=1,  # 文本情绪
+        #     user=current_user,
+        #     hole=epost,  # 连接到新创建的博客对象 epost
+        #     output=result  # 将情绪检测结果写入 output 字段
+        # )
+        #
+        # # 将 Emotion 对象添加到数据库会话中并提交更改
+        # db.session.add(emotion)
+
         db.session.commit()
 
         return redirect(url_for('main.blogsidebar'))
@@ -388,21 +420,52 @@ def sendtreeText():
             body=form.body.data
         )
         db.session.add(post)
+
+        # url = current_app.config['TEXT_TO_EMOTION_URL']
+        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        # body = form.content.data
+        # payload = body.encode("utf-8")
+        # headers = {
+        #     "apikey": api_key
+        # }
+        # response = requests.request("POST", url, headers=headers, data=payload)
+        # status_code = response.status_code
+        # result = response.text
+        # if status_code != 200:
+        #     result = {
+        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
+        #                    '难过/sad', '吃惊/surprised', '<unk>'],
+        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        #     }
+        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        #
+        # # 创建 Emotion 对象
+        # emotion = Emotion(
+        #     type=1,  # 文本情绪
+        #     user=current_user,
+        #     hole=post,  # 连接到新创建的博客对象 epost
+        #     output=result  # 将情绪检测结果写入 output 字段
+        # )
+        #
+        # # 将 Emotion 对象添加到数据库会话中并提交更改
+        # db.session.add(emotion)
+
         db.session.commit()
 
         return redirect(url_for('main.services'))  # Redirect to the blog page after submission
-    return render_template('services.html', form=form)
+    return render_template('treeText.html', form=form)
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
 def sendtreeAudio():
     user = current_user
     if request.method == 'POST':
-        if 'audioFile' not in request.files:
+        if 'audio' not in request.files:
             flash('No file part')
             return redirect(request.url)
 
-        file = request.files['audioFile']
+        file = request.files['audio']
 
         if file.filename == '':
             flash('No selected file')
@@ -414,12 +477,11 @@ def sendtreeAudio():
             filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
             # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
 
-            file.save(os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename))
-            flash('File uploaded successfully')
-
-            # 构建完整的音频文件路径
             audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
-            # audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], "anger.wav")
+
+            file.save(audio_file_path)
+            # convert_to_valid_wav(audio_file_path)
+            flash('File uploaded successfully')
 
             inference_pipeline = pipeline(
                 task=Tasks.emotion_recognition,
@@ -443,4 +505,5 @@ def sendtreeAudio():
 
                 db.session.commit()
             return redirect(url_for('main.services'))
-    return render_template('treeAudio.html')
+    return render_template('treeAudioNew.html')
+

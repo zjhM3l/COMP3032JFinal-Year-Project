@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title> Services || delogis || delogis HTML 5 Template </title>
+    <title> Emotional Vent Tree </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
@@ -84,38 +84,41 @@
 
 
     <!--Page Header Start-->
-    <section class="page-header">
-        <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
-        </div>
-        <div class="container">
-            <div class="page-header__inner">
-                <div class="title-with-buttons" style="display: flex; align-items: center;">
-                    <h2 class="title" style="margin-right: 300px;">Tree Hole</h2>
-                    <div class="buttons">
-                        <div class="dropdown" style="position: relative; display: inline-block;">
-                            <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown1')">Text</button>
-                            <div id="dropdown1" class="dropdown-content">
-                                <a href="{{ url_for('main.services') }}" class="main-slider__btn-two thm-btn" style=" border: 3px solid #ccc;width: 200px; height: 45px;color: #22CCE2 ">Browse</a>
-                                <a href="{{ url_for('main.sendtreeText') }}" class="main-slider__btn-two thm-btn" style=" border: 3px solid #ccc;width: 200px; height: 45px;color: #22CCE2 ">Send</a>
-                            </div>
+   <section class="page-header">
+    <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+    </div>
+    <div class="container">
+        <div class="page-header__inner">
+            <div class="title-with-buttons" style="display: flex; align-items: center;">
+                <h2 class="title" style="margin-right: 20px;">Tree Hole</h2>
+                <div class="buttons">
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown1')">Text</button>
+                        <div id="dropdown1" class="dropdown-content" >
+                            <a href="{{ url_for('main.services') }}"  style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Browse <i class="fas fa-search"></i></a>
+                            <a href="{{ url_for('main.sendtreeText') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Send <i class="fas fa-paper-plane"></i></a>
                         </div>
-                        <div class="dropdown" style="position: relative; display: inline-block;">
-                            <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown2')">Speech</button>
-                            <div id="dropdown2" class="dropdown-content" >
-                                <a href="{{ url_for('main.services') }}" class="main-slider__btn-two thm-btn" style=" border: 3px solid #ccc;width: 200px; height: 45px;color: #22CCE2">Browse</a>
-                                <a href="{{ url_for('main.sendtreeAudio') }}" class="main-slider__btn-two thm-btn" style=" border: 3px solid #ccc;width: 200px; height: 45px;color: #22CCE2 ">Send</a>
-                            </div>
+                    </div>
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown2')">Speech</button>
+                        <div id="dropdown2" class="dropdown-content" >
+                            <a href="{{ url_for('main.services') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Browse <i class="fas fa-search"></i></a>
+                            <a href="{{ url_for('main.sendtreeAudio') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Send <i class="fas fa-paper-plane"></i></a>
                         </div>
                     </div>
                 </div>
-                <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
-                    <li><span>/</span></li>
-                    <li>Tree Hole</li>
-                </ul>
             </div>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{{url_for('main.index')}}">Home</a></li>
+                <li><span>/</span></li>
+                <li>Tree Hole</li>
+            </ul>
         </div>
-    </section>
+    </div>
+
+</section>
+
+
 
     <!--Page Header End-->
 
