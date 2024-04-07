@@ -93,32 +93,32 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
-                        {% if post.photo.decode() != 'n' %}
+                        {% if blog.cover_url != 'n' %}
                         <div class="blog-details__img">
-                            <img src="{{ post.photo.decode() }}" alt="img">
+                            <img src="{{ blog.cover_url }}" alt="img">
                             <div class="blog-details__date">
-                                <p>{{ post.date }}
-                                    <br> {{ post.month }}</p>
+                                <p>{{ blog.timestamp }}
+{#                                    <br> {{ blog.month }}</p>#}
                             </div>
                         </div>
                         {% endif %}
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
                                 <li>
-                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ post.author }}</a>
+                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ blog.author }}</a>
                                 </li>
                                 <li>
                                     <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2
                                         Comments</a>
                                 </li>
                             </ul>
-                            <h3 class="blog-details__title">{{ post.title }}
+                            <h3 class="blog-details__title">{{ blog.title }}
                             </h3>
-                            <p class="blog-details__text-1">{{ post.content }}</p>
+                            <p class="blog-details__text-1">{{ blog.body }}</p>
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
-                                    <a href="#">{{ post.category }}</a>
+                                    <a href="#">{{ blog.category }}</a>
                                 </p>
                                 <div class="blog-details__social-list">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -394,8 +394,8 @@
             });
     }
 
-    getCommentsNum({{ post.id }});
-    getCommentsNum2({{ post.id }});
+    getCommentsNum({{ blog.id }});
+    getCommentsNum2({{ blog.id }});
 </script>
 
 </body>

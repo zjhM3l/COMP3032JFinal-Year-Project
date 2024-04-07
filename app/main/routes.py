@@ -49,14 +49,18 @@ def blog():
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
     blog = Post.query.get_or_404(id)
-    comments = blog.comments.order_by(Comment.timestamp.desc())
+    # comments = blog.comments.order_by(Comment.timestamp.desc())
     author = blog.author
-    return render_template('blog-details.html', blog=blog, comments=comments, author=author)
+    # return render_template('blog-details.html', blog=blog, comments=comments, author=author)
+    return render_template('blog-details.html', blog=blog, author=author)
+
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
-    return render_template('expertsBlogs.html')
+    blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+
+    return render_template('expertsBlogs.html', blogs=blogs)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
@@ -319,7 +323,6 @@ def send_message2():
 @main.route('/send_blog', methods=['GET', 'POST'])
 def send_blog():
     form = ExpertForm()
-    print("hhhhhhhhhhhhhhhhhhh")
 
     if form.validate_on_submit():
 
