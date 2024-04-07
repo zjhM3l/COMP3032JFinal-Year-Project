@@ -10,7 +10,7 @@ from datetime import datetime
 
 from . import main
 from .email import send_email
-from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm
+from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm
 from .. import db
 from ..models import User, Post, Comment, Emotion, Audio, Category
 from werkzeug.security import generate_password_hash
@@ -59,9 +59,14 @@ def blogdetails(id):
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
+    sform = searchForm()
+    if sform.validate_on_submit():
+        search = sform.body.data
+        print(search + '++++++++++++++++++')
+
     blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
 
-    return render_template('expertsBlogs.html', blogs=blogs)
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])

@@ -30,10 +30,16 @@ class TreeForm(FlaskForm):
     body = PageDownField('Say something:', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+
 class ExpertForm(FlaskForm):
     photo = FileField('', validators=[DataRequired()])
     title = TextAreaField('', validators=[DataRequired()])
     cate_id = TextAreaField('', validators=[DataRequired()])
 
     content = TextAreaField('', validators=[DataRequired()])
+    submit = SubmitField('')
+
+
+class searchForm(FlaskForm):
+    body = PageDownField('', validators=[DataRequired()])
     submit = SubmitField('')

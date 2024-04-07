@@ -64,7 +64,136 @@
 
     <div class="page-wrapper">
 
-        {% include 'base_nav.html' %}
+        <header class="main-header">
+            <nav class="main-menu">
+                <div class="main-menu__wrapper">
+                    <div class="main-menu__wrapper-inner">
+                        <div class="main-menu__logo">
+                            <a href="{{url_for('main.index')}}"><img class="lo1" src="../static/images/resources/logo-1.png" alt=""></a>
+                        </div>
+                        <div class="main-menu__btn-box">
+                            <a href="{{url_for('main.team')}}">Make an Appointment</a>
+                        </div>
+                        <div class="main-menu__wrapper-inner-content">
+                            <div class="main-menu__top">
+                                <div class="main-menu__top-inner">
+                                    <div class="main-menu__top-left">
+                                        <ul class="list-unstyled main-menu__contact-list">
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-clock"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <p>Mon to Fri: 9:00am to 6:00pm</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-envelope"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <p><a href="assistance@ucdService.com">assistance@ucdService.com</a>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="fas fa-map-marker"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <p>Beijing University of Technology</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-unstyled main-menu__top-menu">
+                                            <li><a href="{{url_for('main.about')}}">About</a></li>
+                                            <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="main-menu__top-right">
+                                        <div class="main-menu__social">
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-facebook"></i></a>
+                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-menu__bottom">
+                                <div class="main-menu__bottom-inner">
+                                    <div class="main-menu__main-menu-box">
+                                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                        <ul class="main-menu__list">
+                                            <li class="dropdown current megamenu">
+                                                <a href="{{url_for('main.index')}}">Home </a>
+                                            </li>
+                                            <li class="dropdown">
+
+                                                <a href="{{url_for('main.team')}}">Experts</a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a>Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.blogsidebar')}}">Experts Blog</a></li>
+                                                    <li><a href="{{url_for('main.blog')}}">User Blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="{{url_for('main.services')}}">Emotional Vent Tree</a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a>More</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.about')}}">About</a></li>
+                                                    <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
+                                                </ul>
+                                            </li>
+                                             <li class="dropdown">
+                                                 {% if current_user.is_authenticated %}
+                                                 Hi, <a href="{{url_for('main.personaldetails', email=current_user.email) }}">{{ current_user.email}}</a>
+                                                 {% else %}
+                                                 <a href="{{url_for('main.login')}}">Sign In</a>
+                                                     <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.login')}}">Login</a></li>
+                                                    <li><a href="{{url_for('main.register')}}">Register</a></li>
+                                                </ul>
+                                                 {% endif %}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="main-menu__right">
+                                        <div class="main-menu__call">
+                                            <div class="main-menu__call-icon">
+                                                <span class="icon-phone-call"></span>
+                                            </div>
+                                            <div class="main-menu__call-content">
+                                                <p class="main-menu__call-sub-title">Have Question?</p>
+                                                <h5 class="main-menu__call-number"><a href="tel:001100100">+86 001100100</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="main-menu__search-cart-box">
+                                            <div class="main-menu__search-box">
+                                                <a href="#"
+                                                    class="main-menu__search search-toggler icon-magnifying-glass"></a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+
+
+
+
 
 
         <div class="stricky-header stricked-menu main-menu">
@@ -142,8 +271,9 @@
                     <div class="col-xl-4 col-lg-5">
                         <div class="sidebar">
                             <div class="sidebar__single sidebar__search">
-                                <form action="#" class="sidebar__search-form">
-                                    <input type="search" placeholder="Keywrord...">
+                                <form enctype="multipart/form-data" method="post" action="/blogsidebar" class="sidebar__search-form">
+                                    {{ sform.csrf_token }}
+                                    <input type="search" name="body" placeholder="Search Here...">
                                     <button type="submit"><i class="icon-magnifying-glass"></i></button>
                                 </form>
                             </div>
@@ -260,9 +390,10 @@
         <div class="search-popup__overlay search-toggler"></div>
         <!-- /.search-popup__overlay -->
         <div class="search-popup__content">
-            <form action="#">
+            <form enctype="multipart/form-data" method="post" action="/blogsidebar">
+                {{ sform.csrf_token }}
                 <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
+                <input type="text" name="body" id="search" placeholder="Search Here..." />
                 <button type="submit" aria-label="search submit" class="thm-btn">
                     <i class="icon-magnifying-glass"></i>
                 </button>
