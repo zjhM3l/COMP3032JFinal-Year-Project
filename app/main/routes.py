@@ -1,6 +1,7 @@
 import os
 import random
 
+import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.utils import secure_filename
@@ -359,43 +360,10 @@ def send_blog():
                      author=current_user,
                      )
         db.session.add(epost)
-
-        # url = current_app.config['TEXT_TO_EMOTION_URL']
-        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-        # body = form.content.data
-        # payload = body.encode("utf-8")
-        # headers = {
-        #     "apikey": api_key
-        # }
-        # response = requests.request("POST", url, headers=headers, data=payload)
-        # status_code = response.status_code
-        # result = response.text
-        # if status_code != 200:
-        #     result = {
-        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
-        #                    '难过/sad', '吃惊/surprised', '<unk>'],
-        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-        #     }
-        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        #
-        # # 创建 Emotion 对象
-        # emotion = Emotion(
-        #     type=1,  # 文本情绪
-        #     user=current_user,
-        #     hole=epost,  # 连接到新创建的博客对象 epost
-        #     output=result  # 将情绪检测结果写入 output 字段
-        # )
-        #
-        # # 将 Emotion 对象添加到数据库会话中并提交更改
-        # db.session.add(emotion)
-
         db.session.commit()
 
         return redirect(url_for('main.blogsidebar'))
     return render_template('send_blog.html', form=form)
-
-
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])
@@ -404,16 +372,15 @@ def sendtreeText():
     if form.validate_on_submit():
         # Generate random user information for anonymous author
         anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
-        anonymous_email = f"{anonymous_username}@example.com"
-        avatar_folder = '/static/defaultAvatars/'
-        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.png')]
-
+        anonymous_email = f"{anonymous_username}@soulharbor.com"
+        avatar_folder = 'app/static/defaultAvatars'
+        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.jpg')]
         if avatar_files:
             random_avatar = random.choice(avatar_files)
             anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
 
         # Create the anonymous author
-        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url)
+        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url, password_hash=current_user.password_hash)
         db.session.add(anonymous_author)
         db.session.commit()
 
@@ -426,36 +393,29 @@ def sendtreeText():
         )
         db.session.add(post)
 
-        # url = current_app.config['TEXT_TO_EMOTION_URL']
-        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-        # body = form.content.data
-        # payload = body.encode("utf-8")
-        # headers = {
-        #     "apikey": api_key
-        # }
-        # response = requests.request("POST", url, headers=headers, data=payload)
-        # status_code = response.status_code
-        # result = response.text
-        # if status_code != 200:
-        #     result = {
-        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
-        #                    '难过/sad', '吃惊/surprised', '<unk>'],
-        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-        #     }
-        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        #
-        # # 创建 Emotion 对象
-        # emotion = Emotion(
-        #     type=1,  # 文本情绪
-        #     user=current_user,
-        #     hole=post,  # 连接到新创建的博客对象 epost
-        #     output=result  # 将情绪检测结果写入 output 字段
-        # )
-        #
-        # # 将 Emotion 对象添加到数据库会话中并提交更改
-        # db.session.add(emotion)
+        url = current_app.config['TEXT_TO_EMOTION_URL']
+        api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        body = form.body.data
+        payload = body.encode("utf-8")
+        headers = {
+            "apikey": api_key
+        }
+        response = requests.request("POST", url, headers=headers, data=payload)
+        status_code = response.status_code
+        result = response.text
+        if status_code != 200:
+            result = "<unk>"
 
+        # 创建 Emotion 对象
+        emotion = Emotion(
+            type=1,  # 文本情绪
+            user=current_user,
+            hole=post,  # 连接到新创建的博客对象 epost
+            output=result  # 将情绪检测结果写入 output 字段
+        )
+
+        # 将 Emotion 对象添加到数据库会话中并提交更改
+        db.session.add(emotion)
         db.session.commit()
 
         return redirect(url_for('main.services'))  # Redirect to the blog page after submission

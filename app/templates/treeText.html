@@ -101,7 +101,7 @@
                         <h2>Text something<span class="fa fa-check"></span></h2>
                     </div>
 
-                    <form class="billing_details_form ship_different_address_form" enctype="multipart/form-data" method="post" action="/send_blog">
+                    <form class="billing_details_form ship_different_address_form" enctype="multipart/form-data" method="post" action="/sendtreeText">
                         {{ form.csrf_token }}
                         <div class="row">
                             <div class="col-xl-12">
@@ -113,7 +113,7 @@
                             <div class="col-xl-12">
                                 <div class="ship_different_input">
                                     <textarea placeholder="You can pour your negative emotions here, or you can just share your happiness!"
-                                        name="content" style="resize:none;"></textarea>
+                                        name="body" style="resize:none;"></textarea>
                                 </div>
                             </div>
                         </div>
