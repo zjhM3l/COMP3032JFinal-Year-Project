@@ -122,6 +122,11 @@ class Post(db.Model):
     cover_url = db.Column(db.String(256))
     read_count = db.Column(db.Integer, default=0)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    keyA = db.Column(db.String, default='')
+    keyB = db.Column(db.String, default='')
+    keyC = db.Column(db.String, default='')
+    keyD = db.Column(db.String, default='')
+    keyE = db.Column(db.String, default='')
 
 
 class Comment(db.Model):

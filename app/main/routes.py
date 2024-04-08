@@ -12,6 +12,7 @@ from datetime import datetime
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm
+from sklearn.feature_extraction.text import TfidfVectorizer
 from .. import db
 from ..models import User, Post, Comment, Emotion, Audio, Category
 from werkzeug.security import generate_password_hash
@@ -20,9 +21,6 @@ from random import choice
 import string
 import json
 from collections import defaultdict
-
-
-
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -57,8 +55,52 @@ def blogdetails(id):
     # comments = blog.comments.order_by(Comment.timestamp.desc())
     author = blog.author
     # return render_template('blog-details.html', blog=blog, comments=comments, author=author)
-    return render_template('blog-details.html', blog=blog, author=author)
 
+    # Extract keywords and update the Post model
+    posts = Post.query.all()
+    # Assuming the stop words file is in app/static/stopWord.txt
+    stopwords_file = os.path.join(os.path.dirname(__file__), 'stopWord.txt')
+
+    # Load stop words from the file
+    with open(stopwords_file, 'r', encoding='utf-8') as file:
+        stop_words = file.readlines()
+    stop_words = [word.strip() for word in stop_words]
+
+    # Assuming you have a list of posts' titles and bodies
+    # Here, posts_titles and posts_bodies are placeholders for your actual data
+    posts_titles = [post.title for post in posts]
+    posts_bodies = [post.body for post in posts]
+
+    # Concatenate titles and bodies for TF-IDF analysis
+    text_data = [title + " " + body for title, body in zip(posts_titles, posts_bodies)]
+
+    # Initialize TF-IDF vectorizer
+    tfidf_vectorizer = TfidfVectorizer(stop_words=stop_words)
+
+    # Fit and transform the text data
+    tfidf_matrix = tfidf_vectorizer.fit_transform(text_data)
+
+    # Get feature names (words) from the TF-IDF vectorizer
+    feature_names = tfidf_vectorizer.get_feature_names_out()
+
+    # Assuming you want to extract top keywords for each post and store them in the Post model
+    # This example extracts top 5 keywords and stores them in keyA to keyE fields
+    for i, post in enumerate(posts):
+        feature_index = tfidf_matrix[i, :].nonzero()[1]
+        tfidf_scores = zip(feature_index, [tfidf_matrix[i, x] for x in feature_index])
+        sorted_tfidf_scores = sorted(tfidf_scores, key=lambda x: x[1], reverse=True)[:5]  # Top 5 keywords
+        top_keywords = [feature_names[i] for i, score in sorted_tfidf_scores]
+
+        # Store the top keywords in the Post model
+        post.keyA = top_keywords[0] if len(top_keywords) > 0 else ''
+        post.keyB = top_keywords[1] if len(top_keywords) > 1 else ''
+        post.keyC = top_keywords[2] if len(top_keywords) > 2 else ''
+        post.keyD = top_keywords[3] if len(top_keywords) > 3 else ''
+        post.keyE = top_keywords[4] if len(top_keywords) > 4 else ''
+
+    # Commit changes to the database
+    db.session.commit()
+    return render_template('blog-details.html', blog=blog, author=author)
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
