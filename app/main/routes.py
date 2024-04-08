@@ -19,6 +19,8 @@ import re
 from random import choice
 import string
 import json
+from collections import defaultdict
+
 
 
 
@@ -405,7 +407,7 @@ def sendtreeText():
         status_code = response.status_code
         result = response.text
         if status_code != 200:
-            result = '{"neutral": 1.0}'
+            result = '{"Neutral": 1.0}'
 
         # 创建 Emotion 对象
         emotion = Emotion(
@@ -466,7 +468,20 @@ def sendtreeAudio():
             )
 
             rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
-            print(rec_result)
+            # print(rec_result)
+
+            # 定义标签的分类映射关系
+            label_mapping = {
+                '开心/happy': 'Happy',
+                '生气/angry': 'Angry',
+                '吃惊/surprised': 'Surprise',
+                '难过/sad': 'Sad',
+                '恐惧/fearful': 'Fear',
+                '厌恶/disgusted': 'Fear',
+                '<unk>': 'Neutral',
+                '中立/neutral': 'Neutral',
+                '其他/other': 'Neutral'
+            }
 
             if isinstance(rec_result, list) and len(rec_result) > 0:
                 result_entry = rec_result[0]
@@ -480,7 +495,19 @@ def sendtreeAudio():
                 emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
                 db.session.add(emotion)
 
+                # 合并和分类标签
+                merged_labels = defaultdict(float)
+                for label, score in zip(labels, scores):
+                    mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
+                    merged_labels[mapped_label] += score
+                # print(merged_labels)
+
+                # 获取权重最高的标签
+                max_label = max(merged_labels, key=merged_labels.get)
+                # print(max_label, "++++++++++++++++++++++++++++++++++++")
+
                 db.session.commit()
-            return redirect(url_for('main.services'))
+
+            return redirect(url_for('main.sendresponse', emotion_label=max_label))
     return render_template('treeAudioNew.html')
 
