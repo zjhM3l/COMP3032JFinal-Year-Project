@@ -110,4 +110,9 @@ if (emotion_analysis_result == 'Neutral'){
     emotion_label.textContent = 'Uncertain and fear mood';
     emotion_response_text_label.textContent = 'When we experience fear, it often signals that we are stepping outside of our comfort zone or facing a challenge. Embracing fear can lead us to confront obstacles, develop resilience, and ultimately achieve personal and professional growth. Additionally, fear can sharpen our focus, heighten our senses, and propel us to take necessary precautions, helping to keep us safe and prepared in various situations. In this way, fear can be a catalyst for empowerment and self-improvement.';
     emotion_saying_text_label.textContent = '"Expose yourself to your deepest fear; after that, fear has no power, and the fear of freedom shrinks and vanishes. You are free." - Jim Morrison';
+}else if(emotion_analysis_result == 'Surprise'){
+    emotion_faces_label.append(happy_html);
+    emotion_label.textContent = 'Shocked and surprised mood';
+    emotion_response_text_label.textContent = 'Surprised emotions often indicate moments of revelation, where we are confronted with something unexpected or challenging. In these moments, our minds are sparked into heightened awareness, enabling us to reassess our perspectives, expand our understanding, and adapt to new circumstances. Surprises can lead to breakthroughs, creativity, and innovation as we navigate uncharted territory with fresh insight and renewed vigor. Embracing these emotions allows us to embrace the beauty of uncertainty and the richness of life\'s unpredictability.';
+    emotion_saying_text_label.textContent = '"Life is full of surprises, but the greatest surprises often come from within. Embrace the unexpected with an open heart, for it is in these moments of surprise that we uncover our true strength, resilience, and capacity for growth." - Lao Tzu';
 }
