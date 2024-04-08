@@ -3,7 +3,9 @@ var emotion_response_text_label = document.querySelector('#Tree-hole-AI-response
 var emotion_saying_text_label = document.querySelector('#Tree-hole-AI-famous-saying');
 let emotion_faces_label = $('#emotion-faces');
 
-var emotion_analysis_result = 'Sad';
+// var emotion_analysis_result = 'Sad';
+var emotion_analysis_result = document.getElementById('emotionLabel').dataset.label; // 将后端传递过来的情绪标签注入到 JavaScript 中
+console.log(emotion_analysis_result)
 var emotion_classes = [
     'Neutral',
     'Happy',

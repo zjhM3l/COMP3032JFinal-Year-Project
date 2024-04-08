@@ -18,6 +18,7 @@ from werkzeug.security import generate_password_hash
 import re
 from random import choice
 import string
+import json
 
 
 
@@ -404,7 +405,7 @@ def sendtreeText():
         status_code = response.status_code
         result = response.text
         if status_code != 200:
-            result = "<unk>"
+            result = '{"neutral": 1.0}'
 
         # 创建 Emotion 对象
         emotion = Emotion(
@@ -418,8 +419,19 @@ def sendtreeText():
         db.session.add(emotion)
         db.session.commit()
 
-        return redirect(url_for('main.services'))  # Redirect to the blog page after submission
+        result_dict = json.loads(result)
+        # print(type(result_dict), result_dict)
+        emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+        # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
+
+        return redirect(url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
     return render_template('treeText.html', form=form)
+
+
+@main.route('/sendresponse/<emotion_label>', methods=['GET', 'POST'])
+def sendresponse(emotion_label):
+    print(emotion_label, "--------------------------------------")
+    return render_template('AI-response-detail.html', emotion_label=emotion_label)
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
