@@ -1,6 +1,7 @@
 import os
 import random
 
+import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.utils import secure_filename
@@ -11,14 +12,15 @@ from datetime import datetime
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm
+from sklearn.feature_extraction.text import TfidfVectorizer
 from .. import db
 from ..models import User, Post, Comment, Emotion, Audio, Category
 from werkzeug.security import generate_password_hash
 import re
 from random import choice
 import string
-
-
+import json
+from collections import defaultdict
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -53,8 +55,52 @@ def blogdetails(id):
     # comments = blog.comments.order_by(Comment.timestamp.desc())
     author = blog.author
     # return render_template('blog-details.html', blog=blog, comments=comments, author=author)
-    return render_template('blog-details.html', blog=blog, author=author)
 
+    # Extract keywords and update the Post model
+    posts = Post.query.all()
+    # Assuming the stop words file is in app/static/stopWord.txt
+    stopwords_file = os.path.join(os.path.dirname(__file__), 'stopWord.txt')
+
+    # Load stop words from the file
+    with open(stopwords_file, 'r', encoding='utf-8') as file:
+        stop_words = file.readlines()
+    stop_words = [word.strip() for word in stop_words]
+
+    # Assuming you have a list of posts' titles and bodies
+    # Here, posts_titles and posts_bodies are placeholders for your actual data
+    posts_titles = [post.title for post in posts]
+    posts_bodies = [post.body for post in posts]
+
+    # Concatenate titles and bodies for TF-IDF analysis
+    text_data = [title + " " + body for title, body in zip(posts_titles, posts_bodies)]
+
+    # Initialize TF-IDF vectorizer
+    tfidf_vectorizer = TfidfVectorizer(stop_words=stop_words)
+
+    # Fit and transform the text data
+    tfidf_matrix = tfidf_vectorizer.fit_transform(text_data)
+
+    # Get feature names (words) from the TF-IDF vectorizer
+    feature_names = tfidf_vectorizer.get_feature_names_out()
+
+    # Assuming you want to extract top keywords for each post and store them in the Post model
+    # This example extracts top 5 keywords and stores them in keyA to keyE fields
+    for i, post in enumerate(posts):
+        feature_index = tfidf_matrix[i, :].nonzero()[1]
+        tfidf_scores = zip(feature_index, [tfidf_matrix[i, x] for x in feature_index])
+        sorted_tfidf_scores = sorted(tfidf_scores, key=lambda x: x[1], reverse=True)[:5]  # Top 5 keywords
+        top_keywords = [feature_names[i] for i, score in sorted_tfidf_scores]
+
+        # Store the top keywords in the Post model
+        post.keyA = top_keywords[0] if len(top_keywords) > 0 else ''
+        post.keyB = top_keywords[1] if len(top_keywords) > 1 else ''
+        post.keyC = top_keywords[2] if len(top_keywords) > 2 else ''
+        post.keyD = top_keywords[3] if len(top_keywords) > 3 else ''
+        post.keyE = top_keywords[4] if len(top_keywords) > 4 else ''
+
+    # Commit changes to the database
+    db.session.commit()
+    return render_template('blog-details.html', blog=blog, author=author)
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
@@ -375,43 +421,10 @@ def send_blog():
                      author=current_user,
                      )
         db.session.add(epost)
-
-        # url = current_app.config['TEXT_TO_EMOTION_URL']
-        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-        # body = form.content.data
-        # payload = body.encode("utf-8")
-        # headers = {
-        #     "apikey": api_key
-        # }
-        # response = requests.request("POST", url, headers=headers, data=payload)
-        # status_code = response.status_code
-        # result = response.text
-        # if status_code != 200:
-        #     result = {
-        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
-        #                    '难过/sad', '吃惊/surprised', '<unk>'],
-        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-        #     }
-        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        #
-        # # 创建 Emotion 对象
-        # emotion = Emotion(
-        #     type=1,  # 文本情绪
-        #     user=current_user,
-        #     hole=epost,  # 连接到新创建的博客对象 epost
-        #     output=result  # 将情绪检测结果写入 output 字段
-        # )
-        #
-        # # 将 Emotion 对象添加到数据库会话中并提交更改
-        # db.session.add(emotion)
-
         db.session.commit()
 
         return redirect(url_for('main.blogsidebar'))
     return render_template('send_blog.html', form=form)
-
-
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])
@@ -420,16 +433,15 @@ def sendtreeText():
     if form.validate_on_submit():
         # Generate random user information for anonymous author
         anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
-        anonymous_email = f"{anonymous_username}@example.com"
-        avatar_folder = '/static/defaultAvatars/'
-        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.png')]
-
+        anonymous_email = f"{anonymous_username}@soulharbor.com"
+        avatar_folder = 'app/static/defaultAvatars'
+        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.jpg')]
         if avatar_files:
             random_avatar = random.choice(avatar_files)
             anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
 
         # Create the anonymous author
-        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url)
+        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url, password_hash=current_user.password_hash)
         db.session.add(anonymous_author)
         db.session.commit()
 
@@ -442,40 +454,44 @@ def sendtreeText():
         )
         db.session.add(post)
 
-        # url = current_app.config['TEXT_TO_EMOTION_URL']
-        # api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-        # body = form.content.data
-        # payload = body.encode("utf-8")
-        # headers = {
-        #     "apikey": api_key
-        # }
-        # response = requests.request("POST", url, headers=headers, data=payload)
-        # status_code = response.status_code
-        # result = response.text
-        # if status_code != 200:
-        #     result = {
-        #         "Labels": ['生气/angry', '厌恶/disgusted', '恐惧/fearful', '开心/happy', '中立/neutral', '其他/other',
-        #                    '难过/sad', '吃惊/surprised', '<unk>'],
-        #         "Scores": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-        #     }
-        # # print(status_code, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        # # print(result, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        #
-        # # 创建 Emotion 对象
-        # emotion = Emotion(
-        #     type=1,  # 文本情绪
-        #     user=current_user,
-        #     hole=post,  # 连接到新创建的博客对象 epost
-        #     output=result  # 将情绪检测结果写入 output 字段
-        # )
-        #
-        # # 将 Emotion 对象添加到数据库会话中并提交更改
-        # db.session.add(emotion)
+        url = current_app.config['TEXT_TO_EMOTION_URL']
+        api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+        body = form.body.data
+        payload = body.encode("utf-8")
+        headers = {
+            "apikey": api_key
+        }
+        response = requests.request("POST", url, headers=headers, data=payload)
+        status_code = response.status_code
+        result = response.text
+        if status_code != 200:
+            result = '{"Neutral": 1.0}'
 
+        # 创建 Emotion 对象
+        emotion = Emotion(
+            type=1,  # 文本情绪
+            user=current_user,
+            hole=post,  # 连接到新创建的博客对象 epost
+            output=result  # 将情绪检测结果写入 output 字段
+        )
+
+        # 将 Emotion 对象添加到数据库会话中并提交更改
+        db.session.add(emotion)
         db.session.commit()
 
-        return redirect(url_for('main.services'))  # Redirect to the blog page after submission
+        result_dict = json.loads(result)
+        # print(type(result_dict), result_dict)
+        emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+        # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
+
+        return redirect(url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
     return render_template('treeText.html', form=form)
+
+
+@main.route('/sendresponse/<emotion_label>', methods=['GET', 'POST'])
+def sendresponse(emotion_label):
+    print(emotion_label, "--------------------------------------")
+    return render_template('AI-response-detail.html', emotion_label=emotion_label)
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
@@ -510,7 +526,20 @@ def sendtreeAudio():
             )
 
             rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
-            print(rec_result)
+            # print(rec_result)
+
+            # 定义标签的分类映射关系
+            label_mapping = {
+                '开心/happy': 'Happy',
+                '生气/angry': 'Angry',
+                '吃惊/surprised': 'Surprise',
+                '难过/sad': 'Sad',
+                '恐惧/fearful': 'Fear',
+                '厌恶/disgusted': 'Fear',
+                '<unk>': 'Neutral',
+                '中立/neutral': 'Neutral',
+                '其他/other': 'Neutral'
+            }
 
             if isinstance(rec_result, list) and len(rec_result) > 0:
                 result_entry = rec_result[0]
@@ -524,7 +553,19 @@ def sendtreeAudio():
                 emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
                 db.session.add(emotion)
 
+                # 合并和分类标签
+                merged_labels = defaultdict(float)
+                for label, score in zip(labels, scores):
+                    mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
+                    merged_labels[mapped_label] += score
+                # print(merged_labels)
+
+                # 获取权重最高的标签
+                max_label = max(merged_labels, key=merged_labels.get)
+                # print(max_label, "++++++++++++++++++++++++++++++++++++")
+
                 db.session.commit()
-            return redirect(url_for('main.services'))
+
+            return redirect(url_for('main.sendresponse', emotion_label=max_label))
     return render_template('treeAudioNew.html')
 

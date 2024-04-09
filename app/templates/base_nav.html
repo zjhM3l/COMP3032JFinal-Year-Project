@@ -66,7 +66,7 @@
                             <a href="{{url_for('main.index')}}"><img class="lo1" src="../static/images/resources/logo-1.png" alt=""></a>
                         </div>
                         <div class="main-menu__btn-box">
-                            <a href="{{url_for('main.team')}}">Make an Appointment</a>
+                            <a href="{{url_for('main.services')}}">Emotional Analyze</a>
                         </div>
                         <div class="main-menu__wrapper-inner-content">
                             <div class="main-menu__top">
@@ -124,7 +124,7 @@
                                             </li>
                                             <li class="dropdown">
 
-                                                <a href="{{url_for('main.team')}}">Experts</a>
+                                                <a href="{{url_for('main.about')}}">About</a>
                                             </li>
                                             <li class="dropdown">
                                                 <a>Blog</a>
@@ -137,11 +137,7 @@
                                                 <a href="{{url_for('main.services')}}">Emotional Vent Tree</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a>More</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="{{url_for('main.about')}}">About</a></li>
-                                                    <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
-                                                </ul>
+                                                <a href="{{url_for('main.faq')}}">Faqs</a>
                                             </li>
                                              <li class="dropdown">
                                                  {% if current_user.is_authenticated %}
