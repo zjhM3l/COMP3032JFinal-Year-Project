@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿{% import "_macros.html" as macros %}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -251,17 +253,17 @@
                                 </div>
 
                                 {% endfor %}
-
                             </div>
+
+                        <div class="pagination">
+                            {{ macros.pagination_widget(pagination, '.blogsidebar') }}
+                        </div>
                             <br>
                             <br>
                             <br>
                             <br>
 
-                            <div class="blog-sidebar__load-more">
-                                <a href="blog-details.html" class="thm-btn blog-sidebar__load-more-btn">Load More
-                                    Posts</a>
-                            </div>
+
                         </div>
                     </div>
 

@@ -22,6 +22,7 @@ class Config:
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASK_ANNOUNCEMENT_PER_PAGE = 2
     FLASKY_COMMENTS_PER_PAGE = 5
+    POST_BLOG_PER_PAGE = 4
     UPLOAD_FOLDER = os.getcwd() + '/app/static/avatars/'
     UPLOAD_EPOST = os.getcwd() + '/app/static/postPhoto/'
     FLASK_COMMENTS_PER_PAGE = 20
