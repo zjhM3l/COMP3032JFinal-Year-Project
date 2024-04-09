@@ -235,19 +235,22 @@
                                     <div class="blog-sidebar__content">
                                         <ul class="blog-sidebar__meta list-unstyled">
                                             <li>
-                                                <a href="blog-details.html"><i class="fas fa-user-circle"></i>by {{blog.author.email}}</a>
+                                                <a><i class="fas fa-user-circle"></i>by {{blog.author.email}}</a>
                                             </li>
                                             <li>
-                                                <a href="blog-details.html"><i class="fas fa-comments"></i>{{ blog.timestamp }}</a>
+                                                <a><i class="fas fa-comments"></i>{{ blog.timestamp }}</a>
                                             </li>
                                         </ul>
                                         <h3 class="blog-sidebar__title"><a href="{{url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a></h3>
 
                                         {% set first_50_words = blog.body.split()[:50] %}
 
-                                        <p class="blog-sidebar__text">{{ ' '.join(first_50_words) }}</p>
+                                        <p class="blog-sidebar__text" style="width: 100%; word-wrap: break-word;">
+                                            {{ ' '.join(first_50_words) }}
+                                        </p>
+
                                         <div class="blog-sidebar__btn">
-                                            <a href="blog-details.html"><span class="icon-right-arrow"></span>More </a>
+                                            <a href="{{url_for('main.blogdetails', id=blog.id) }}"><span class="icon-right-arrow"></span>More </a>
                                         </div>
                                     </div>
                                 </div>

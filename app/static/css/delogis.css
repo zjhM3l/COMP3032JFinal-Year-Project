@@ -13503,6 +13503,9 @@ ul {
   margin-bottom: 10px;
 }
 
+.blog-sidebar__text{
+}
+
 .blog-sidebar__title a {
   color: var(--delogis-black);
   -webkit-transition: all 500ms ease;
