@@ -7,7 +7,7 @@
 >>> set FLASK_ENV=development
 >>> flask shell
 
-# woc 原来mac需要将set改成export，困扰我4年了md
+# woc 原来mac需要将set改成export
 
 #重置数据库（仅在需要时进行该操作）：删除data.sqlite文件，再在右侧的数据库里移除所有数据库确保空
 >>> from app.models import db

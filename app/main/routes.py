@@ -110,9 +110,25 @@ def blogsidebar():
         search = sform.body.data
         print(search + '++++++++++++++++++')
 
-    blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    # page = request.args.get('page', 1, type=int)
+    # per_page = current_app.config['POST_BLOG_PER_PAGE']
+    #
+    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    #     page, per_page,
+    #     error_out=False)
+    # blogs = pagination.items
 
-    return render_template('expertsBlogs.html', blogs=blogs, sform=sform)
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['POST_BLOG_PER_PAGE']
+
+    pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False)
+
+    blogs = pagination.items
+
+    # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
