@@ -43,3 +43,7 @@ class ExpertForm(FlaskForm):
 class searchForm(FlaskForm):
     body = PageDownField('', validators=[DataRequired()])
     submit = SubmitField('')
+
+class CommentForm(FlaskForm):
+    body = PageDownField('', validators=[DataRequired()])
+    submit = SubmitField('')

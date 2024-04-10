@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿{% import "_macrosCom.html" as macros %}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -103,10 +105,10 @@
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
                                 <li>
-                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ blog.author }}</a>
+                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ blog.author.email }}</a>
                                 </li>
                                 <li>
-                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>2
+                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>{{ comment_count }}
                                         Comments</a>
                                 </li>
                             </ul>
@@ -155,45 +157,54 @@
                                     </div>
                                 </div>
                             </div>
-                            {% for commendblog in blog.commendblogs %}
+
+                            <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments</h3>
+                            {% for comment in comments %}
 
                                 <div class="comment-one">
-                                    <h3 id="comments_num2" class="comment-one__title">2 Comments</h3>
 
-                                    <div class="comment-author-img">
-                                        <img src="{{ comment.user.avatar_url }}" alt="co">
+                                    <div>
+                                        {% if comment.author.avatar_url %}
+                                            <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}" alt="">
+                                        {% else %}
+                                            <img style="height: 50px; width: 50px" src="../static/images/team/team-details-img-1.jpg" alt="">
+                                        {% endif %}
+
                                     </div>
 
                                     <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                        <h3>{{ comment.user.first_name }} {{ comment.user.last_name }}</h3>
-                                        <p>{{ comment.content }}</p>
+                                        <h6>{{ comment.author.email }}</h6>
+                                        <p>{{ comment.body }}</p>
                                     </div>
                                 </div>
-
                             {% endfor %}
+                        <div class="pagination">
+                            {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
+                        </div>
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
-                                <form action="../static/inc/sendemail.php"
-                                      class="comment-one__form contact-form-validated" novalidate="novalidate">
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Your Name" name="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Email Address" name="email">
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form action=""
+                                      class="comment-one__form contact-form-validated" method="post" novalidate="novalidate">
+                                    {{ cform.csrf_token }}
+{#                                    <div class="row">#}
+{#                                        <div class="col-xl-6">#}
+{#                                            <div class="comment-form__input-box">#}
+{#                                                <input type="text" placeholder="Your Name" name="name">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-xl-6">#}
+{#                                            <div class="comment-form__input-box">#}
+{#                                                <input type="email" placeholder="Email Address" name="email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box text-message-box">
-                                                <textarea name="message" placeholder="Write  a Comment"></textarea>
+                                                <textarea name="body" placeholder="Write a Comment"></textarea>
                                             </div>
                                             <div class="comment-form__btn-box">
-                                                <button type="submit" class="thm-btn comment-form__btn">Submit
+                                                <button type="submit" name="submit" class="thm-btn comment-form__btn">Submit
                                                     Comment
                                                 </button>
                                             </div>
