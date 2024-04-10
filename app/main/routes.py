@@ -454,7 +454,8 @@ def sendtreeText():
             author=current_user,
             anonymous_author=anonymous_author,
             hole=True,
-            body=form.body.data
+            body=form.body.data,
+            title=" "
         )
         db.session.add(post)
 
