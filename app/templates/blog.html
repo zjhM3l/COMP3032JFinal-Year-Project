@@ -160,8 +160,9 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" >
                         <div class="blog-one__single">
                             <div class="blog-one__img-box">
+                                {% if blog.cover_url != 'n' %}
                                 <div class="blog-one__img">
-                                    <img src="../static/images/blog/blog-1-1.jpg" alt="">
+                                    <img src="{{ blog.cover_url }}" alt="img">
                                     <a href="blog-details.html">
                                         <span class="blog-one__plus"></span>
                                     </a>
@@ -169,18 +170,19 @@
                                         <p>{{ blog.timestamp }}</p>
                                     </div>
                                 </div>
+                                {% endif %}
                                 <div class="blog-one__content-top">
                                     <div class="blog-one__content-img">
                                         <img src="../static/images/blog/blog-content-img.jpg" alt="">
                                     </div>
-                                    <p class="blog-one__content-sub-title">by {{ blog.author_id }}</p>
+                                    <p class="blog-one__content-sub-title">by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
                                     <h3 class="blog-one__content-title"><a href="blog-details.html">{{ blog.title }}</a></h3>
                                 </div>
                             </div>
                             <div class="blog-one__content">
                                 <div class="blog-one__comment-and-btn">
                                     <div class="blog-one__comment">
-                                        <a href="blog-details.html"><span class="fas fa-comments"></span>{{ blog.category_id }}</a>
+                                        <a href="blog-details.html"><span class="fas fa-comments"></span>{{ blog.category }}</a>
                                     </div>
                                     <div class="blog-one__btn">
                                          <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span class="icon-right-arrow"></span>More</a>

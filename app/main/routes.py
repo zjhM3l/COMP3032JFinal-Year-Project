@@ -4,6 +4,7 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
+from sqlalchemy import func
 from werkzeug.utils import secure_filename
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
@@ -11,7 +12,7 @@ from datetime import datetime
 
 from . import main
 from .email import send_email
-from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm
+from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm, CommentForm
 from sklearn.feature_extraction.text import TfidfVectorizer
 from .. import db
 from ..models import User, Post, Comment, Emotion, Audio, Category
@@ -53,6 +54,31 @@ def blog():
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
     blog = Post.query.get_or_404(id)
+
+    cform = CommentForm()
+    comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=id).scalar()
+
+    if cform.validate_on_submit():
+        comment = Comment(body=cform.body.data,
+                          post=blog,
+                          author=current_user._get_current_object(),
+                          timestamp=datetime.now())
+        db.session.add(comment)
+        db.session.commit()
+        flash('Your comment has been published')
+        return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
+
+    page = request.args.get('page', 1, type=int)
+    if page == -1:
+        page = (len(blog.comments) - 1) // \
+               current_app.config['POST_BLOG_PER_PAGE'] + 1
+    per_page = current_app.config['POST_BLOG_PER_PAGE']
+
+    pagination = Comment.query.filter_by(post_id=id).order_by(Comment.timestamp.desc()).paginate(
+        page=page, per_page=per_page,
+        error_out=False)
+    comments = pagination.items
+
     # comments = blog.comments.order_by(Comment.timestamp.desc())
     author = blog.author
     # return render_template('blog-details.html', blog=blog, comments=comments, author=author)
@@ -69,8 +95,8 @@ def blogdetails(id):
 
     # Assuming you have a list of posts' titles and bodies
     # Here, posts_titles and posts_bodies are placeholders for your actual data
-    posts_titles = [post.title for post in posts]
-    posts_bodies = [post.body for post in posts]
+    posts_titles = [post.title for post in posts if post.title is not None]
+    posts_bodies = [post.body for post in posts if post.body is not None]
 
     # Concatenate titles and bodies for TF-IDF analysis
     text_data = [title + " " + body for title, body in zip(posts_titles, posts_bodies)]
@@ -101,7 +127,7 @@ def blogdetails(id):
 
     # Commit changes to the database
     db.session.commit()
-    return render_template('blog-details.html', blog=blog, author=author)
+    return render_template('blog-details.html', blog=blog, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count)
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
