@@ -132,6 +132,7 @@ class Post(db.Model):
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
     post = db.relationship('Post', backref='comments')
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
