@@ -45,7 +45,8 @@ def anxietygrief():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
-    blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    blogs = Post.query.filter(Post.author.has(role=False), Post.hole == False).order_by(Post.timestamp.desc()).all()
     return render_template('blog.html', blogs=blogs)
 
 
@@ -121,7 +122,10 @@ def blogsidebar():
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_BLOG_PER_PAGE']
 
-    pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    #     page=page, per_page=per_page, error_out=False)
+
+    pagination = Post.query.filter(Post.author.has(role=True), Post.hole == False).order_by(Post.timestamp.desc()).paginate(
         page=page, per_page=per_page, error_out=False)
 
     blogs = pagination.items
