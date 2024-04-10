@@ -26,3 +26,6 @@ ps:非必要注意不要上传data.sqlite文件数据库文件到github以免造
 
 生成req
 pip freeze > requirements.txt
+
+语音to情绪需要的包安装
+pip install -U funasr modelscope

@@ -46,7 +46,8 @@ def anxietygrief():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
-    blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
+    blogs = Post.query.filter(Post.author.has(role=False), Post.hole == False).order_by(Post.timestamp.desc()).all()
     return render_template('blog.html', blogs=blogs)
 
 
@@ -94,8 +95,8 @@ def blogdetails(id):
 
     # Assuming you have a list of posts' titles and bodies
     # Here, posts_titles and posts_bodies are placeholders for your actual data
-    posts_titles = [post.title for post in posts]
-    posts_bodies = [post.body for post in posts]
+    posts_titles = [post.title for post in posts if post.title is not None]
+    posts_bodies = [post.body for post in posts if post.body is not None]
 
     # Concatenate titles and bodies for TF-IDF analysis
     text_data = [title + " " + body for title, body in zip(posts_titles, posts_bodies)]
@@ -147,7 +148,10 @@ def blogsidebar():
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_BLOG_PER_PAGE']
 
-    pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    #     page=page, per_page=per_page, error_out=False)
+
+    pagination = Post.query.filter(Post.author.has(role=True), Post.hole == False).order_by(Post.timestamp.desc()).paginate(
         page=page, per_page=per_page, error_out=False)
 
     blogs = pagination.items
@@ -476,7 +480,8 @@ def sendtreeText():
             author=current_user,
             anonymous_author=anonymous_author,
             hole=True,
-            body=form.body.data
+            body=form.body.data,
+            title=" "
         )
         db.session.add(post)
 

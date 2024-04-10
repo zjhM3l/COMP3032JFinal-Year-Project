@@ -74,16 +74,16 @@ class Career(db.Model):
 
     @staticmethod
     def insert_careers():
-        career1 = Career(id=1, name="career1")
-        career2 = Career(id=2, name="career2")
-        career3 = Career(id=3, name="career3")
-        career4 = Career(id=4, name="career4")
-        career5 = Career(id=5, name="career5")
-        career6 = Career(id=6, name="career6")
-        career7 = Career(id=7, name="career7")
-        career8 = Career(id=8, name="career8")
-        career9 = Career(id=9, name="career9")
-        career10 = Career(id=10, name="career10")
+        career1 = Career(id=1, name="Technology & Engineering")
+        career2 = Career(id=2, name="Finance & Accounting")
+        career3 = Career(id=3, name="Healthcare & Medicine")
+        career4 = Career(id=4, name="Media & Creative Industries")
+        career5 = Career(id=5, name="Education & Training")
+        career6 = Career(id=6, name="Marketing & Sales")
+        career7 = Career(id=7, name="Law & Policy")
+        career8 = Career(id=8, name="Business & Management")
+        career9 = Career(id=9, name="Social & Humanities Sciences")
+        career10 = Career(id=10, name="Manufacturing & Logistics")
         db.session.add_all([career1, career2, career3, career4, career5, career6, career7,
                             career8, career9, career10])
         db.session.commit()
@@ -97,12 +97,12 @@ class Category(db.Model):
 
     @staticmethod
     def insert_categories():
-        category1 = Category(id=1, name="category1")
-        category2 = Category(id=2, name="category2")
-        category3 = Category(id=3, name="category3")
-        category4 = Category(id=4, name="category4")
-        category5 = Category(id=5, name="category5")
-        category6 = Category(id=6, name="category6")
+        category1 = Category(id=1, name="Dating & Relationship")
+        category2 = Category(id=2, name="Self Esteem Boosters")
+        category3 = Category(id=3, name="Family Dynamics & Parenting")
+        category4 = Category(id=4, name="Career Growth & Development")
+        category5 = Category(id=5, name="Stress Management Techniques")
+        category6 = Category(id=6, name="Mindfulness & Well-being")
         db.session.add_all([category1, category2, category3, category4, category5, category6])
         db.session.commit()
 
@@ -141,6 +141,15 @@ class Comment(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 
+class Helpful(db.Model):
+    __tablename__ = 'follows'
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    emotion = db.Column(db.String, default='')
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+
 class Audio(db.Model):
     __tablename__ = 'audios'
     id = db.Column(db.Integer, primary_key=True)
@@ -158,3 +167,6 @@ class Emotion(db.Model):
     audio_id = db.Column(db.Integer, db.ForeignKey('audios.id'))
     audio = db.relationship('Audio', backref='audio_emotions')
     output = db.Column(db.Text)  # 存储情绪检测结果
+
+
+
