@@ -183,7 +183,7 @@
                                         <a href="blog-details.html"><span class="fas fa-comments"></span>{{ blog.category_id }}</a>
                                     </div>
                                     <div class="blog-one__btn">
-                                        <a href="blog-details.html"><span class="icon-right-arrow"></span>More</a>
+                                         <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span class="icon-right-arrow"></span>More</a>
                                     </div>
                                 </div>
                             </div>
