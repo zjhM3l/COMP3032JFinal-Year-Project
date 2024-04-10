@@ -69,8 +69,8 @@ def blogdetails(id):
 
     # Assuming you have a list of posts' titles and bodies
     # Here, posts_titles and posts_bodies are placeholders for your actual data
-    posts_titles = [post.title for post in posts]
-    posts_bodies = [post.body for post in posts]
+    posts_titles = [post.title for post in posts if post.title is not None]
+    posts_bodies = [post.body for post in posts if post.body is not None]
 
     # Concatenate titles and bodies for TF-IDF analysis
     text_data = [title + " " + body for title, body in zip(posts_titles, posts_bodies)]
