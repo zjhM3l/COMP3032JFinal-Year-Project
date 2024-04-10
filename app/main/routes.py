@@ -127,7 +127,20 @@ def blogdetails(id):
 
     # Commit changes to the database
     db.session.commit()
-    return render_template('blog-details.html', blog=blog, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count)
+
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['POST_BLOG_PER_PAGE']
+
+    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+    #     page=page, per_page=per_page, error_out=False)
+
+    blogsPagination = Post.query.filter(Post.author.has(role=True), Post.hole == False).order_by(
+        Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False)
+
+    blogs = blogsPagination.items
+
+    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count)
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])

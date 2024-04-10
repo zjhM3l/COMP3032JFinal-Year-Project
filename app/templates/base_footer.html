@@ -119,13 +119,17 @@
                                 <div class="footer-widget__title-box">
                                     <h3 class="footer-widget__title">Start</h3>
                                 </div>
-                                <p class="footer-widget__newsletter-text">Login to Enjoy a Better Life
-                                </p>
+                                {% if current_user.is_authenticated %}
+                                                 Hi, <a href="{{url_for('main.personaldetails', email=current_user.email) }}">{{ current_user.email}}</a>
+                                                 {% else %}
+
+                                <p class="footer-widget__newsletter-text">Login to Enjoy a Better Life</p>
                                     <a href="{{url_for('main.login')}}"><button type="submit" class="footer-widget__subscribe-btn thm-btn">Login</button></a>
                                     <br>
                                     <br>
                                     <a href="{{url_for('main.login')}}"><button type="submit" class="footer-widget__subscribe-btn thm-btn">Register
                                         Yourself</button></a>
+                                {% endif %}
                                 <div class="mc-form__response"></div>
                             </div>
                         </div>
