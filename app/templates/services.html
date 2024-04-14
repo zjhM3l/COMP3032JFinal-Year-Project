@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿{% import "_macros.html" as macros %}
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -145,6 +148,10 @@
                 </div>
                 <!--Services Two Single End-->
                 {% endfor %}
+
+                <div class="pagination">
+                    {{ macros.pagination_widget(pagination, '.services') }}
+                </div>
 
             </div>
         </div>
