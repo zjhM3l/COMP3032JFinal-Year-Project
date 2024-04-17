@@ -93,28 +93,24 @@
     <div class="container">
         <div class="page-header__inner">
             <div class="title-with-buttons" style="display: flex; align-items: center;">
-                <h2 class="title" style="margin-right: 20px;">Tree Hole</h2>
+                <h2 class="title" style="margin-right: 20px;">Emotion Vent Tree</h2>
                 <div class="buttons">
                     <div class="dropdown" style="position: relative; display: inline-block;">
-                        <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown1')">Text</button>
-                        <div id="dropdown1" class="dropdown-content" >
-                            <a href="{{ url_for('main.services') }}"  style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Browse <i class="fas fa-search"></i></a>
-                            <a href="{{ url_for('main.sendtreeText') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Send <i class="fas fa-paper-plane"></i></a>
-                        </div>
+                        <button class="main-slider__btn-one thm-btn" >
+                            <a href="{{ url_for('main.sendtreeText') }}" style="color: white"> Text Something </a>
+                        </button>
                     </div>
                     <div class="dropdown" style="position: relative; display: inline-block;">
-                        <button class="main-slider__btn-one thm-btn" onclick="toggleDropdown('dropdown2')">Speech</button>
-                        <div id="dropdown2" class="dropdown-content" >
-                            <a href="{{ url_for('main.services') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Browse <i class="fas fa-search"></i></a>
-                            <a href="{{ url_for('main.sendtreeAudio') }}" style="color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">Send <i class="fas fa-paper-plane"></i></a>
-                        </div>
+                        <button class="main-slider__btn-one thm-btn" >
+                            <a href="{{ url_for('main.sendtreeAudio') }}" style="color: white"> Say Something </a>
+                        </button>
                     </div>
                 </div>
             </div>
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{url_for('main.index')}}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Tree Hole</li>
+                <li>Emotion Vent Tree</li>
             </ul>
         </div>
     </div>
