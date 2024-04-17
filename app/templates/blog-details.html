@@ -80,7 +80,7 @@
             <div class="page-header__inner">
                 <h2>Blog Details</h2>
                 <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="{{url_for('main.blogsidebar')}}">All Blogs</a></li>
+                    <li><a href="{{ url_for('main.blogsidebar') }}">All Blogs</a></li>
                 </ul>
             </div>
         </div>
@@ -94,38 +94,42 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
                         {% if blog.cover_url != 'n' %}
-                        <div class="blog-details__img">
-                            <img src="{{ blog.cover_url }}" alt="img">
-                            <div class="blog-details__date">
-                                <p>{{ blog.timestamp }}
-{#                                    <br> {{ blog.month }}</p>#}
+                            <div class="blog-details__img">
+                                <img src="{{ blog.cover_url }}" alt="img">
+                                <div class="blog-details__date">
+                                    <p>{{ blog.timestamp }}
+                                        {#                                    <br> {{ blog.month }}</p>#}
+                                </div>
                             </div>
-                        </div>
                         {% endif %}
                         <div class="blog-details__content">
                             <ul class="blog-details__meta list-unstyled">
                                 <li>
-                                    <a href="blog-details.html"><i class="fas fa-user-circle"></i>{{ blog.author.email }}</a>
+                                    <a href="blog-details.html"><i
+                                            class="fas fa-user-circle"></i>{{ blog.author.first_name }} {{ blog.author.last_name }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a id="comments_num" href="blog-details.html"><i class="fas fa-comments"></i>{{ comment_count }}
+                                    <a id="comments_num" href="blog-details.html"><i
+                                            class="fas fa-comments"></i>{{ comment_count }}
                                         Comments</a>
                                 </li>
                             </ul>
                             <h3 class="blog-details__title">{{ blog.title }}
                             </h3>
                             <p class="blog-details__text-1">{{ blog.body }}</p>
+
+
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
                                     <a href="#">{{ blog.category }}</a>
                                 </p>
-                                <div class="blog-details__social-list">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
+                                <div class="blog-details__like-button">
+                                <a href="/helpful" class="thm-btn comment-form__btn" style="padding: 8px 15px;">
+                                    <i class="fas fa-heart"></i> Like
+                                </a>
+                            </div>
                             </div>
                             <div class="blog-details__pagenation">
                                 <div class="blog-details__pagenation-left">
@@ -165,9 +169,11 @@
 
                                     <div>
                                         {% if comment.author.avatar_url %}
-                                            <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}" alt="">
+                                            <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}"
+                                                 alt="">
                                         {% else %}
-                                            <img style="height: 50px; width: 50px" src="../static/images/team/team-details-img-1.jpg" alt="">
+                                            <img style="height: 50px; width: 50px"
+                                                 src="../static/images/team/team-details-img-1.jpg" alt="">
                                         {% endif %}
 
                                     </div>
@@ -178,33 +184,35 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                        <div class="pagination">
-                            {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
-                        </div>
+                            <div class="pagination">
+                                {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
+                            </div>
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
                                 <form action=""
-                                      class="comment-one__form contact-form-validated" method="post" novalidate="novalidate">
+                                      class="comment-one__form contact-form-validated" method="post"
+                                      novalidate="novalidate">
                                     {{ cform.csrf_token }}
-{#                                    <div class="row">#}
-{#                                        <div class="col-xl-6">#}
-{#                                            <div class="comment-form__input-box">#}
-{#                                                <input type="text" placeholder="Your Name" name="name">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="col-xl-6">#}
-{#                                            <div class="comment-form__input-box">#}
-{#                                                <input type="email" placeholder="Email Address" name="email">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                                    {#                                    <div class="row">#}
+                                    {#                                        <div class="col-xl-6">#}
+                                    {#                                            <div class="comment-form__input-box">#}
+                                    {#                                                <input type="text" placeholder="Your Name" name="name">#}
+                                    {#                                            </div>#}
+                                    {#                                        </div>#}
+                                    {#                                        <div class="col-xl-6">#}
+                                    {#                                            <div class="comment-form__input-box">#}
+                                    {#                                                <input type="email" placeholder="Email Address" name="email">#}
+                                    {#                                            </div>#}
+                                    {#                                        </div>#}
+                                    {#                                    </div>#}
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box text-message-box">
                                                 <textarea name="body" placeholder="Write a Comment"></textarea>
                                             </div>
                                             <div class="comment-form__btn-box">
-                                                <button type="submit" name="submit" class="thm-btn comment-form__btn">Submit
+                                                <button type="submit" name="submit" class="thm-btn comment-form__btn">
+                                                    Submit
                                                     Comment
                                                 </button>
                                             </div>
@@ -227,32 +235,33 @@
                         <div class="sidebar__single sidebar__post">
                             <h3 class="sidebar__title">Latest Posts</h3>
                             <ul class="sidebar__post-list list-unstyled">
-                                    {% for blog in blogs[:3] %}
+                                {% for blog in blogs[:3] %}
                                     <li>
                                         <div class="sidebar__post-image">
-                                            <img src="{{blog.cover_url}}" alt="">
+                                            <img src="{{ blog.cover_url }}" alt="">
                                         </div>
                                         <div class="sidebar__post-content">
                                             <h3>
-                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>{{ blog.read_count }}
+                                                <span class="sidebar__post-content-meta"><i
+                                                        class="fa fa-comments"></i>{{ blog.read_count }}
                                                     Reads</span>
-                                                <a href="{{url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
+                                                <a href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
                                             </h3>
                                         </div>
                                     </li>
-                                    {% endfor %}
-                                </ul>
+                                {% endfor %}
+                            </ul>
                         </div>
                         <div class="sidebar__single sidebar__category">
                             <h3 class="sidebar__title">Categories</h3>
                             <ul class="sidebar__category-list list-unstyled">
-                                    <li><a >Dating & Relationship</a></li>
-                                    <li><a>Self Esteem Boosters</a></li>
-                                    <li><a >Family Dynamics & Parenting</a></li>
-                                    <li><a>Career Growth & Development</a></li>
-                                    <li><a >Stress Management Techniques</a></li>
-                                    <li><a>Mindfulness & Well-being</a></li>
-                                </ul>
+                                <li><a>Dating & Relationship</a></li>
+                                <li><a>Self Esteem Boosters</a></li>
+                                <li><a>Family Dynamics & Parenting</a></li>
+                                <li><a>Career Growth & Development</a></li>
+                                <li><a>Stress Management Techniques</a></li>
+                                <li><a>Mindfulness & Well-being</a></li>
+                            </ul>
                         </div>
 
                     </div>
