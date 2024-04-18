@@ -5,15 +5,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Users Blogs</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="../static/images/favicons/site.webmanifest" />
-    <meta name="description" content="delogis HTML 5 Template " />
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="../static/images/favicons/site.webmanifest"/>
+    <meta name="description" content="delogis HTML 5 Template "/>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,266 +21,263 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css"/>
+    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css"/>
+    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css"/>
     <link rel="stylesheet" href="../static/vendors/delogis-icons/style.css">
-    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css"/>
 
     <!-- template styles -->
-    <link rel="stylesheet" href="../static/css/delogis.css" />
-    <link rel="stylesheet" href="../static/css/delogis-responsive.css" />
+    <link rel="stylesheet" href="../static/css/delogis.css"/>
+    <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
 </head>
 
 <body class="custom-cursor">
 
-    <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div>
+<div class="custom-cursor__cursor"></div>
+<div class="custom-cursor__cursor-two"></div>
 
 
+<div class="preloader">
+    <div class="preloader__image"></div>
+</div>
+<!-- /.preloader -->
 
 
+<div class="page-wrapper">
 
-    <div class="preloader">
-        <div class="preloader__image"></div>
-    </div>
-    <!-- /.preloader -->
+    {% include 'base_nav.html' %}
 
-
-    <div class="page-wrapper">
-
-        {% include 'base_nav.html' %}
-
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
+    <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+    </div><!-- /.stricky-header -->
 
 
-        <!--Page Header Start-->
-        <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+        </div>
+        <div class="container">
+            <div class="page-header__inner">
+                <h2>Users Blog</h2>
+                <ul class="thm-breadcrumb list-unstyled">
+                    <li><a href="{{ url_for('main.send_blog') }}">Post New Blog</a></li>
+                </ul>
             </div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <h2>Users Blog</h2>
-                    <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="{{url_for('main.send_blog')}}">Post New Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!--Page Header End-->
+        </div>
+    </section>
+    <!--Page Header End-->
 
-        <!--BLog One Start-->
-        <section class="blog-sidebar">
-            <div class="container">
-                <div class="row">
-                    <!--Blog One Single Start-->
+    <!--BLog One Start-->
+    <section class="blog-sidebar">
+        <div class="container">
+            <div class="row">
+                <!--Blog One Single Start-->
 
-                    <div class="sidebar">
-                            <div class="sidebar__single sidebar__search">
-                                <form action="#" class="sidebar__search-form">
-                                    <input type="search" placeholder="Keywrord...">
-                                    <button type="submit"><i class="icon-magnifying-glass"></i></button>
-                                </form>
-                            </div>
-                            <div class="sidebar__single sidebar__post">
-                                <h3 class="sidebar__title">Popular Posts</h3>
-                                <ul class="sidebar__post-list list-unstyled">
+                <div class="sidebar">
+                    <div class="sidebar__single sidebar__search">
+                        <form enctype="multipart/form-data" method="post" action="/blog" class="sidebar__search-form">
+                            <input type="search" name="search" placeholder="Keyword...">
+                            <button type="submit"><i class="icon-magnifying-glass"></i></button>
+                        </form>
+                    </div>
 
-                                    {% for blog in blogs[:3] %}
-                                    <li>
-                                        <div class="sidebar__post-image">
-                                            <img src="{{blog.cover_url}}" alt="">
-                                        </div>
-                                        <div class="sidebar__post-content">
-                                            <h3>
-                                                <span class="sidebar__post-content-meta"><i class="fa fa-comments"></i>{{ blog.read_count }}
+                    <div class="sidebar__single sidebar__post">
+                        <h3 class="sidebar__title">Popular Posts</h3>
+                        <ul class="sidebar__post-list list-unstyled">
+
+                            {% for blog in blogs[:3] %}
+                                <li>
+                                    <div class="sidebar__post-image">
+                                        <img src="{{ blog.cover_url }}" alt="">
+                                    </div>
+                                    <div class="sidebar__post-content">
+                                        <h3>
+                                                <span class="sidebar__post-content-meta"><i
+                                                        class="fa fa-comments"></i>{{ blog.read_count }}
                                                     Reads</span>
-                                                <a href="{{url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
-                                            </h3>
-                                        </div>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            <div class="sidebar__single sidebar__category">
-                                <h3 class="sidebar__title">Categories</h3>
-                                <ul class="sidebar__category-list list-unstyled">
-                                    <li><a >Dating & Relationship</a></li>
-                                    <li><a>Self Esteem Boosters</a></li>
-                                    <li><a >Family Dynamics & Parenting</a></li>
-                                    <li><a>Career Growth & Development</a></li>
-                                    <li><a >Stress Management Techniques</a></li>
-                                    <li><a>Mindfulness & Well-being</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                                            <a href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar__single sidebar__category">
+                        <h3 class="sidebar__title">Categories</h3>
+                        <ul class="sidebar__category-list list-unstyled">
+                            <li><a>Dating & Relationship</a></li>
+                            <li><a>Self Esteem Boosters</a></li>
+                            <li><a>Family Dynamics & Parenting</a></li>
+                            <li><a>Career Growth & Development</a></li>
+                            <li><a>Stress Management Techniques</a></li>
+                            <li><a>Mindfulness & Well-being</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                    {% for blog in blogs %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" >
+                {% for blog in blogs %}
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp">
                         <div class="blog-one__single">
                             <div class="blog-one__img-box">
                                 {% if blog.cover_url != 'n' %}
-                                <div class="blog-one__img">
-                                    <img src="{{ blog.cover_url }}" alt="img">
-                                    <a href="{{url_for('main.blogdetails', id=blog.id) }}">
-                                        <span class="blog-one__plus"></span>
-                                    </a>
-                                    <div class="blog-one__date">
-                                        <p>{{ blog.timestamp }}</p>
+                                    <div class="blog-one__img">
+                                        <img src="{{ blog.cover_url }}" alt="img">
+                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}">
+                                            <span class="blog-one__plus"></span>
+                                        </a>
+                                        <div class="blog-one__date">
+                                            <p>{{ blog.timestamp }}</p>
+                                        </div>
                                     </div>
-                                </div>
                                 {% endif %}
                                 <div class="blog-one__content-top">
                                     <div class="blog-one__content-img">
                                         <img src="../static/images/blog/blog-content-img.jpg" alt="">
                                     </div>
-                                    <p class="blog-one__content-sub-title">by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ blog.title }}</a></h3>
+                                    <p class="blog-one__content-sub-title">
+                                        by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ blog.title }}</a>
+                                    </h3>
                                 </div>
                             </div>
                             <div class="blog-one__content">
                                 <div class="blog-one__comment-and-btn">
                                     <div class="blog-one__comment">
-                                        <a href="{{url_for('main.blogdetails', id=blog.id) }}"><span class="fas fa-comments"></span>{{ blog.category }}</a>
+                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
+                                                class="fas fa-comments"></span>{{ blog.category }}</a>
                                     </div>
                                     <div class="blog-one__btn">
-                                         <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span class="icon-right-arrow"></span>More</a>
+                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
+                                                class="icon-right-arrow"></span>More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                {% endfor %}
 
-                    <div class="pagination">
-                        {{ macros.pagination_widget(pagination, '.blog') }}
-                    </div>
-
-
+                <div class="pagination">
+                    {{ macros.pagination_widget(pagination, '.blog') }}
                 </div>
+
+
             </div>
-        </section>
-        <!--BLog One End-->
-
-        <!--Site Footer Start-->
-        {% include 'base_footer.html' %}
-        <!--Site Footer End-->
-
-
-    </div><!-- /.page-wrapper -->
-
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
-                                                                  alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
+    </section>
+    <!--BLog One End-->
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
+    <!--Site Footer Start-->
+    {% include 'base_footer.html' %}
+    <!--Site Footer End-->
+
+
+</div><!-- /.page-wrapper -->
+
+
+<div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <!-- /.mobile-nav__overlay -->
+    <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+        <div class="logo-box">
+            <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
+                                                              alt=""/></a>
         </div>
-        <!-- /.search-popup__content -->
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+            <li>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
+            </li>
+            <li>
+                <i class="fa fa-phone-alt"></i>
+                <a href="tel:666-888-0000">666 888 0000</a>
+            </li>
+        </ul><!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+            <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__top -->
+
+
     </div>
-    <!-- /.search-popup -->
+    <!-- /.mobile-nav__content -->
+</div>
+<!-- /.mobile-nav__wrapper -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
+<div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <div class="search-popup__content">
+        <form enctype="multipart/form-data" method="post" action="/blog" class="sidebar__search-form">
+            <input type="text" id="search" name="search" placeholder="Search Here..."/>
+            <button type="submit" class="thm-btn">
+                <i class="icon-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<!-- /.search-popup -->
 
-
-    <script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/vendors/jarallax/jarallax.min.js"></script>
-    <script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="../static/vendors/nouislider/nouislider.min.js"></script>
-    <script src="../static/vendors/odometer/odometer.min.js"></script>
-    <script src="../static/vendors/swiper/swiper.min.js"></script>
-    <script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="../static/vendors/wnumb/wNumb.min.js"></script>
-    <script src="../static/vendors/wow/wow.js"></script>
-    <script src="../static/vendors/isotope/isotope.js"></script>
-    <script src="../static/vendors/countdown/countdown.min.js"></script>
-    <script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
-    <script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="../static/vendors/vegas/vegas.min.js"></script>
-    <script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="../static/vendors/timepicker/timePicker.js"></script>
-    <script src="../static/vendors/circleType/jquery.circleType.js"></script>
-    <script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
 
 
+<script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendors/jarallax/jarallax.min.js"></script>
+<script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="../static/vendors/nouislider/nouislider.min.js"></script>
+<script src="../static/vendors/odometer/odometer.min.js"></script>
+<script src="../static/vendors/swiper/swiper.min.js"></script>
+<script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="../static/vendors/wnumb/wNumb.min.js"></script>
+<script src="../static/vendors/wow/wow.js"></script>
+<script src="../static/vendors/isotope/isotope.js"></script>
+<script src="../static/vendors/countdown/countdown.min.js"></script>
+<script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="../static/vendors/vegas/vegas.min.js"></script>
+<script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="../static/vendors/timepicker/timePicker.js"></script>
+<script src="../static/vendors/circleType/jquery.circleType.js"></script>
+<script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
 
 
-    <!-- template js -->
-    <script src="../static/js/delogis.js"></script>
+<!-- template js -->
+<script src="../static/js/delogis.js"></script>
 </body>
 
 </html>
