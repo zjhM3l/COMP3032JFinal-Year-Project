@@ -125,11 +125,17 @@
                                     <span>Category</span>
                                     <a href="#">{{ blog.category }}</a>
                                 </p>
+                                <
                                 <div class="blog-details__like-button">
-                                <a href="/helpful" class="thm-btn comment-form__btn" style="padding: 8px 15px;">
-                                    <i class="fas fa-heart"></i> Like
-                                </a>
-                            </div>
+                                    <form method="post" action="/helpful">
+                                        <button type="submit" class="thm-btn comment-form__btn"
+                                                style="padding: 8px 15px;">
+                                            <i class="fas fa-heart"></i> Like
+                                        </button>
+                                    </form>
+                                </div>
+
+
                             </div>
                             <div class="blog-details__pagenation">
                                 <div class="blog-details__pagenation-left">
