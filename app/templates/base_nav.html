@@ -126,10 +126,11 @@
                                                 <a href="{{url_for('main.about')}}">About</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="{{url_for('main.blogsidebar')}}">Formal Articles</a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="{{url_for('main.blog')}}">User Blogs</a>
+                                                <a>Blog</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.blogsidebar')}}">Experts Blog</a></li>
+                                                    <li><a href="{{url_for('main.blog')}}">User Blog</a></li>
+                                                </ul>
                                             </li>
                                             <li class="dropdown">
                                                 <a href="{{url_for('main.services')}}">Emotional Vent Tree</a>
