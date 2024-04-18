@@ -406,7 +406,6 @@ def selfesteemissues():
 
 @main.route('/services', methods=['GET', 'POST'])
 def services():
-    # trees = Post.query.filter_by(hole=True).order_by(Post.timestamp.desc()).all()
 
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
@@ -416,7 +415,19 @@ def services():
         page=page, per_page=per_page, error_out=False)
     trees = pagination.items
 
-    return render_template('services.html', trees=trees, pagination=pagination)
+    emotions = []  # 用于存储每个hole对应的emotion_label
+
+    for tree in trees:
+        # 查询对应的emotion_label
+        emotion = Emotion.query.filter_by(hole_id=tree.id).first()
+        if emotion:
+            result_dict = json.loads(emotion.output)
+            emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+            emotions.append(emotion_label)
+        else:
+            emotions.append(None)  # 如果没有对应的emotion，则添加None
+
+    return render_template('services.html', trees=trees, emotions=emotions, pagination=pagination)
 
 
 @main.route('/team', methods=['GET', 'POST'])
