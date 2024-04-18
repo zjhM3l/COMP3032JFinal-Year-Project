@@ -5,7 +5,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     TEXT_TO_EMOTION_URL = 'https://api.apilayer.com/text_to_emotion'
-    TEXT_TO_EMOTION_KEY = '2rSFQDftf0ywCA9Xykmr6QUeNvVq2FU1'
+    TEXT_TO_EMOTION_KEY = 'afS4HtNQFlEjVc79MMtPCkfYZOYcE6kh'
     SECRET_KEY = 'a9087FFJFF9nnvc2@#$%FSD'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_ADMIN = '2272393014@qq.com'

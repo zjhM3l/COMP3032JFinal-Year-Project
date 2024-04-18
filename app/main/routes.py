@@ -4,10 +4,10 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
-from sqlalchemy import func
+from sqlalchemy import func, and_
 from werkzeug.utils import secure_filename
-from modelscope.pipelines import pipeline
-from modelscope.utils.constant import Tasks
+# from modelscope.pipelines import pipeline
+# from modelscope.utils.constant import Tasks
 from datetime import datetime
 
 from . import main
@@ -46,12 +46,31 @@ def anxietygrief():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
+    sform = searchForm()
+    search = ''
+    if sform.validate_on_submit():
+        search = sform.body.data
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
 
-    pagination = Post.query.filter(Post.author.has(role=False), Post.hole == False).order_by(
-        Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False)
+    pagination = Post.query.filter(
+        and_(
+            Post.author.has(role=False),
+            Post.hole == False,
+            (
+                    Post.title.like('%' + search + '%') |
+                    # Post.category.like('%' + search + '%') |
+                    Post.keyA.like('%' + search + '%') |
+                    Post.keyB.like('%' + search + '%') |
+                    Post.keyC.like('%' + search + '%') |
+                    Post.keyD.like('%' + search + '%') |
+                    Post.keyE.like('%' + search + '%')
+            )
+        )
+    ).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False
+    )
+
     blogs = pagination.items
 
     return render_template('blog.html', blogs=blogs, pagination=pagination)
@@ -152,17 +171,9 @@ def blogdetails(id):
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
     sform = searchForm()
+    search=''
     if sform.validate_on_submit():
         search = sform.body.data
-        print(search + '++++++++++++++++++')
-
-    # page = request.args.get('page', 1, type=int)
-    # per_page = current_app.config['POST_BLOG_PER_PAGE']
-    #
-    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
-    #     page, per_page,
-    #     error_out=False)
-    # blogs = pagination.items
 
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_BLOG_PER_PAGE']
@@ -170,8 +181,23 @@ def blogsidebar():
     # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
     #     page=page, per_page=per_page, error_out=False)
 
-    pagination = Post.query.filter(Post.author.has(role=True), Post.hole == False).order_by(Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False)
+    pagination = Post.query.filter(
+        and_(
+            Post.author.has(role=True),
+            Post.hole == False,
+            (
+                    Post.title.like('%' + search + '%') |
+                    # Post.category.like('%' + search + '%') |
+                    Post.keyA.like('%' + search + '%') |
+                    Post.keyB.like('%' + search + '%') |
+                    Post.keyC.like('%' + search + '%') |
+                    Post.keyD.like('%' + search + '%') |
+                    Post.keyE.like('%' + search + '%')
+            )
+        )
+    ).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False
+    )
 
     blogs = pagination.items
 
@@ -553,78 +579,78 @@ def sendresponse(emotion_label):
     return render_template('AI-response-detail.html', emotion_label=emotion_label)
 
 
-@main.route('/sendtreeAudio', methods=['GET', 'POST'])
-def sendtreeAudio():
-    user = current_user
-    if request.method == 'POST':
-        if 'audio' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-
-        file = request.files['audio']
-
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-
-        if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
-            # Generate a unique filename using the user's email and current timestamp
-            timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-            filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
-            # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
-
-            audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
-
-            file.save(audio_file_path)
-            # convert_to_valid_wav(audio_file_path)
-            flash('File uploaded successfully')
-
-            inference_pipeline = pipeline(
-                task=Tasks.emotion_recognition,
-                model="iic/emotion2vec_base_finetuned"
-            )
-
-            rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
-            # print(rec_result)
-
-            # 定义标签的分类映射关系
-            label_mapping = {
-                '开心/happy': 'Happy',
-                '生气/angry': 'Angry',
-                '吃惊/surprised': 'Surprise',
-                '难过/sad': 'Sad',
-                '恐惧/fearful': 'Fear',
-                '厌恶/disgusted': 'Fear',
-                '<unk>': 'Neutral',
-                '中立/neutral': 'Neutral',
-                '其他/other': 'Neutral'
-            }
-
-            if isinstance(rec_result, list) and len(rec_result) > 0:
-                result_entry = rec_result[0]
-                labels = result_entry.get('labels', [])
-                scores = result_entry.get('scores', [])
-
-                # Save the audio file path and emotion detection result in the database
-                audio = Audio(input=audio_file_path)
-                db.session.add(audio)
-
-                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
-                db.session.add(emotion)
-
-                # 合并和分类标签
-                merged_labels = defaultdict(float)
-                for label, score in zip(labels, scores):
-                    mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
-                    merged_labels[mapped_label] += score
-                # print(merged_labels)
-
-                # 获取权重最高的标签
-                max_label = max(merged_labels, key=merged_labels.get)
-                # print(max_label, "++++++++++++++++++++++++++++++++++++")
-
-                db.session.commit()
-
-            return redirect(url_for('main.sendresponse', emotion_label=max_label))
-    return render_template('treeAudioNew.html')
+# @main.route('/sendtreeAudio', methods=['GET', 'POST'])
+# def sendtreeAudio():
+#     user = current_user
+#     if request.method == 'POST':
+#         if 'audio' not in request.files:
+#             flash('No file part')
+#             return redirect(request.url)
+#
+#         file = request.files['audio']
+#
+#         if file.filename == '':
+#             flash('No selected file')
+#             return redirect(request.url)
+#
+#         if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
+#             # Generate a unique filename using the user's email and current timestamp
+#             timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+#             filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+#             # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+#
+#             audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
+#
+#             file.save(audio_file_path)
+#             # convert_to_valid_wav(audio_file_path)
+#             flash('File uploaded successfully')
+#
+#             inference_pipeline = pipeline(
+#                 task=Tasks.emotion_recognition,
+#                 model="iic/emotion2vec_base_finetuned"
+#             )
+#
+#             rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
+#             # print(rec_result)
+#
+#             # 定义标签的分类映射关系
+#             label_mapping = {
+#                 '开心/happy': 'Happy',
+#                 '生气/angry': 'Angry',
+#                 '吃惊/surprised': 'Surprise',
+#                 '难过/sad': 'Sad',
+#                 '恐惧/fearful': 'Fear',
+#                 '厌恶/disgusted': 'Fear',
+#                 '<unk>': 'Neutral',
+#                 '中立/neutral': 'Neutral',
+#                 '其他/other': 'Neutral'
+#             }
+#
+#             if isinstance(rec_result, list) and len(rec_result) > 0:
+#                 result_entry = rec_result[0]
+#                 labels = result_entry.get('labels', [])
+#                 scores = result_entry.get('scores', [])
+#
+#                 # Save the audio file path and emotion detection result in the database
+#                 audio = Audio(input=audio_file_path)
+#                 db.session.add(audio)
+#
+#                 emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
+#                 db.session.add(emotion)
+#
+#                 # 合并和分类标签
+#                 merged_labels = defaultdict(float)
+#                 for label, score in zip(labels, scores):
+#                     mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
+#                     merged_labels[mapped_label] += score
+#                 # print(merged_labels)
+#
+#                 # 获取权重最高的标签
+#                 max_label = max(merged_labels, key=merged_labels.get)
+#                 # print(max_label, "++++++++++++++++++++++++++++++++++++")
+#
+#                 db.session.commit()
+#
+#             return redirect(url_for('main.sendresponse', emotion_label=max_label))
+#     return render_template('treeAudioNew.html')
 

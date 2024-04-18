@@ -1,0 +1,2767 @@
+{
+  "Ses03M_impro05b_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05b/Ses03M_impro05b_F018.wav",
+    "length": 1.91,
+    "emo": "neu"
+  },
+  "Ses03F_impro08_F011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro08/Ses03F_impro08_F011.wav",
+    "length": 2.085,
+    "emo": "neu"
+  },
+  "Ses04M_impro06_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro06/Ses04M_impro06_M008.wav",
+    "length": 12.1099375,
+    "emo": "sad"
+  },
+  "Ses05M_impro08_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro08/Ses05M_impro08_M018.wav",
+    "length": 2.8,
+    "emo": "neu"
+  },
+  "Ses01M_script01_3_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_3/Ses01M_script01_3_F001.wav",
+    "length": 5.4588125,
+    "emo": "neu"
+  },
+  "Ses05F_script01_1_M004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_1/Ses05F_script01_1_M004.wav",
+    "length": 4.2199375,
+    "emo": "sad"
+  },
+  "Ses02M_script01_1_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_1/Ses02M_script01_1_F026.wav",
+    "length": 3.81,
+    "emo": "ang"
+  },
+  "Ses03F_script03_2_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script03_2/Ses03F_script03_2_F008.wav",
+    "length": 2.4275,
+    "emo": "neu"
+  },
+  "Ses02F_impro06_M003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro06/Ses02F_impro06_M003.wav",
+    "length": 1.33,
+    "emo": "neu"
+  },
+  "Ses04M_impro03_M021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_M021.wav",
+    "length": 9.0799375,
+    "emo": "hap"
+  },
+  "Ses01M_impro07_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_F024.wav",
+    "length": 2.495,
+    "emo": "hap"
+  },
+  "Ses02M_script02_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_F017.wav",
+    "length": 0.99,
+    "emo": "neu"
+  },
+  "Ses03F_impro03_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro03/Ses03F_impro03_F004.wav",
+    "length": 5.211,
+    "emo": "hap"
+  },
+  "Ses04M_impro05_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro05/Ses04M_impro05_F008.wav",
+    "length": 3.66,
+    "emo": "neu"
+  },
+  "Ses04F_script03_2_F030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_F030.wav",
+    "length": 2.73,
+    "emo": "ang"
+  },
+  "Ses01M_impro01_M031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro01/Ses01M_impro01_M031.wav",
+    "length": 2.67,
+    "emo": "ang"
+  },
+  "Ses04F_script01_3_M030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_M030.wav",
+    "length": 7.4484375,
+    "emo": "sad"
+  },
+  "Ses03M_script03_2_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_M040.wav",
+    "length": 3.990625,
+    "emo": "ang"
+  },
+  "Ses03M_impro07_M015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro07/Ses03M_impro07_M015.wav",
+    "length": 3.9599375,
+    "emo": "hap"
+  },
+  "Ses01F_script01_2_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_2/Ses01F_script01_2_F006.wav",
+    "length": 4.3899375,
+    "emo": "ang"
+  },
+  "Ses02F_impro07_F011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F011.wav",
+    "length": 8.1199375,
+    "emo": "hap"
+  },
+  "Ses05M_impro03_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro03/Ses05M_impro03_F017.wav",
+    "length": 3.0599375,
+    "emo": "hap"
+  },
+  "Ses03M_impro07_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro07/Ses03M_impro07_M010.wav",
+    "length": 1.68,
+    "emo": "hap"
+  },
+  "Ses02M_script01_3_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_3/Ses02M_script01_3_M036.wav",
+    "length": 3.4671875,
+    "emo": "neu"
+  },
+  "Ses02M_impro01_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro01/Ses02M_impro01_F006.wav",
+    "length": 5.2155625,
+    "emo": "neu"
+  },
+  "Ses03F_impro02_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_M001.wav",
+    "length": 7.4399375,
+    "emo": "hap"
+  },
+  "Ses01M_impro07_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_M032.wav",
+    "length": 3.4799375,
+    "emo": "hap"
+  },
+  "Ses03F_impro01_M002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro01/Ses03F_impro01_M002.wav",
+    "length": 7.6775,
+    "emo": "neu"
+  },
+  "Ses01M_script03_1_M033": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_1/Ses01M_script03_1_M033.wav",
+    "length": 3.3,
+    "emo": "hap"
+  },
+  "Ses03F_impro02_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_F041.wav",
+    "length": 6.9499375,
+    "emo": "sad"
+  },
+  "Ses02F_impro07_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F025.wav",
+    "length": 7.6401875,
+    "emo": "hap"
+  },
+  "Ses01M_impro04_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro04/Ses01M_impro04_M025.wav",
+    "length": 1.5274375,
+    "emo": "neu"
+  },
+  "Ses02F_script03_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_M023.wav",
+    "length": 4.3995625,
+    "emo": "hap"
+  },
+  "Ses04F_impro07_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M005.wav",
+    "length": 2.7099375,
+    "emo": "hap"
+  },
+  "Ses04M_script01_2_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_2/Ses04M_script01_2_F010.wav",
+    "length": 8.010375,
+    "emo": "ang"
+  },
+  "Ses03M_impro05a_M027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M027.wav",
+    "length": 2.3199375,
+    "emo": "ang"
+  },
+  "Ses01M_impro05_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F013.wav",
+    "length": 2.5325,
+    "emo": "neu"
+  },
+  "Ses02F_impro08_M007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro08/Ses02F_impro08_M007.wav",
+    "length": 9.1981875,
+    "emo": "neu"
+  },
+  "Ses01F_script01_3_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F022.wav",
+    "length": 5.37,
+    "emo": "neu"
+  },
+  "Ses05F_script03_1_F031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script03_1/Ses05F_script03_1_F031.wav",
+    "length": 4.7099375,
+    "emo": "hap"
+  },
+  "Ses03M_impro02_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro02/Ses03M_impro02_F026.wav",
+    "length": 6.9044375,
+    "emo": "sad"
+  },
+  "Ses04F_script01_3_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_M036.wav",
+    "length": 4.149875,
+    "emo": "sad"
+  },
+  "Ses02F_script02_1_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_F019.wav",
+    "length": 2.2199375,
+    "emo": "neu"
+  },
+  "Ses03F_script01_1_F005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_F005.wav",
+    "length": 3.4485625,
+    "emo": "neu"
+  },
+  "Ses02M_script02_1_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_F018.wav",
+    "length": 10.25,
+    "emo": "ang"
+  },
+  "Ses03F_impro02_F032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_F032.wav",
+    "length": 1.4399375,
+    "emo": "sad"
+  },
+  "Ses02F_script03_2_F035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_2/Ses02F_script03_2_F035.wav",
+    "length": 4.6299375,
+    "emo": "ang"
+  },
+  "Ses01F_script01_3_M030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_M030.wav",
+    "length": 15.214875,
+    "emo": "sad"
+  },
+  "Ses01F_impro06_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_F028.wav",
+    "length": 29.1299375,
+    "emo": "sad"
+  },
+  "Ses05M_impro06_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro06/Ses05M_impro06_F004.wav",
+    "length": 1.6899375,
+    "emo": "sad"
+  },
+  "Ses05M_script02_2_M030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_M030.wav",
+    "length": 2.3,
+    "emo": "sad"
+  },
+  "Ses03F_script01_1_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_M020.wav",
+    "length": 4.652875,
+    "emo": "neu"
+  },
+  "Ses04M_impro07_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_M001.wav",
+    "length": 2.73,
+    "emo": "hap"
+  },
+  "Ses05F_impro06_M002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro06/Ses05F_impro06_M002.wav",
+    "length": 7.0599375,
+    "emo": "sad"
+  },
+  "Ses03F_script01_3_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_M013.wav",
+    "length": 7.09925,
+    "emo": "hap"
+  },
+  "Ses04F_impro08_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro08/Ses04F_impro08_F002.wav",
+    "length": 2.3799375,
+    "emo": "neu"
+  },
+  "Ses03M_impro06_M003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M003.wav",
+    "length": 4.2590625,
+    "emo": "sad"
+  },
+  "Ses01F_script03_1_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_1/Ses01F_script03_1_F022.wav",
+    "length": 9.1599375,
+    "emo": "hap"
+  },
+  "Ses05F_impro03_F049": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_F049.wav",
+    "length": 1.3895625,
+    "emo": "hap"
+  },
+  "Ses05F_impro02_M041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro02/Ses05F_impro02_M041.wav",
+    "length": 2.3168125,
+    "emo": "sad"
+  },
+  "Ses05F_impro04_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro04/Ses05F_impro04_M036.wav",
+    "length": 1.66,
+    "emo": "neu"
+  },
+  "Ses01F_impro04_M019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro04/Ses01F_impro04_M019.wav",
+    "length": 1.31,
+    "emo": "neu"
+  },
+  "Ses03M_script01_2_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_2/Ses03M_script01_2_M008.wav",
+    "length": 3.3611875,
+    "emo": "neu"
+  },
+  "Ses05F_impro02_F027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro02/Ses05F_impro02_F027.wav",
+    "length": 1.7599375,
+    "emo": "sad"
+  },
+  "Ses02M_script02_2_M022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_2/Ses02M_script02_2_M022.wav",
+    "length": 2.28,
+    "emo": "neu"
+  },
+  "Ses05F_impro06_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro06/Ses05F_impro06_F015.wav",
+    "length": 1.66,
+    "emo": "sad"
+  },
+  "Ses03M_impro07_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro07/Ses03M_impro07_F007.wav",
+    "length": 2.4399375,
+    "emo": "hap"
+  },
+  "Ses01F_script01_3_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F014.wav",
+    "length": 4.9174375,
+    "emo": "neu"
+  },
+  "Ses04F_script01_3_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_F012.wav",
+    "length": 2.6498125,
+    "emo": "hap"
+  },
+  "Ses05F_script02_2_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_F028.wav",
+    "length": 19.3143125,
+    "emo": "sad"
+  },
+  "Ses01M_impro01_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro01/Ses01M_impro01_F008.wav",
+    "length": 3.736,
+    "emo": "ang"
+  },
+  "Ses05M_script01_1b_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1b/Ses05M_script01_1b_M005.wav",
+    "length": 11.0299375,
+    "emo": "sad"
+  },
+  "Ses02M_impro08_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_F006.wav",
+    "length": 2.77425,
+    "emo": "neu"
+  },
+  "Ses04F_impro07_F047": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_F047.wav",
+    "length": 1.4499375,
+    "emo": "hap"
+  },
+  "Ses03F_script01_2_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_2/Ses03F_script01_2_F006.wav",
+    "length": 4.5385,
+    "emo": "ang"
+  },
+  "Ses05M_script02_2_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_M026.wav",
+    "length": 5.43,
+    "emo": "ang"
+  },
+  "Ses03M_script01_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_1/Ses03M_script01_1_F017.wav",
+    "length": 2.1444375,
+    "emo": "ang"
+  },
+  "Ses01M_impro03_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro03/Ses01M_impro03_F015.wav",
+    "length": 6.6374375,
+    "emo": "hap"
+  },
+  "Ses03F_script01_1_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_M026.wav",
+    "length": 11.928125,
+    "emo": "sad"
+  },
+  "Ses05F_script02_2_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_M040.wav",
+    "length": 5.1794375,
+    "emo": "hap"
+  },
+  "Ses03F_impro05_M003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro05/Ses03F_impro05_M003.wav",
+    "length": 6.363625,
+    "emo": "neu"
+  },
+  "Ses01M_impro05_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F020.wav",
+    "length": 6.2599375,
+    "emo": "neu"
+  },
+  "Ses01F_script01_3_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_M016.wav",
+    "length": 1.8799375,
+    "emo": "hap"
+  },
+  "Ses01M_script01_1_F030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_1/Ses01M_script01_1_F030.wav",
+    "length": 7.9399375,
+    "emo": "ang"
+  },
+  "Ses02M_impro02_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro02/Ses02M_impro02_F012.wav",
+    "length": 4.1705,
+    "emo": "sad"
+  },
+  "Ses05F_script01_3_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_3/Ses05F_script01_3_F022.wav",
+    "length": 1.7926875,
+    "emo": "sad"
+  },
+  "Ses04F_impro07_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M023.wav",
+    "length": 1.5699375,
+    "emo": "neu"
+  },
+  "Ses01M_script02_2_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_M008.wav",
+    "length": 5.09,
+    "emo": "neu"
+  },
+  "Ses04M_script02_1_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_1/Ses04M_script02_1_M028.wav",
+    "length": 14.315875,
+    "emo": "hap"
+  },
+  "Ses02M_script03_2_M039": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script03_2/Ses02M_script03_2_M039.wav",
+    "length": 1.75475,
+    "emo": "ang"
+  },
+  "Ses03M_impro06_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_F020.wav",
+    "length": 3.9913125,
+    "emo": "sad"
+  },
+  "Ses02F_impro04_M004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro04/Ses02F_impro04_M004.wav",
+    "length": 12.9600625,
+    "emo": "neu"
+  },
+  "Ses02F_impro07_F030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F030.wav",
+    "length": 1.85425,
+    "emo": "hap"
+  },
+  "Ses02M_script01_3_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_3/Ses02M_script01_3_F002.wav",
+    "length": 5.1081875,
+    "emo": "hap"
+  },
+  "Ses05M_impro05_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro05/Ses05M_impro05_F000.wav",
+    "length": 1.56,
+    "emo": "neu"
+  },
+  "Ses04F_impro07_F059": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_F059.wav",
+    "length": 1.7799375,
+    "emo": "hap"
+  },
+  "Ses01M_script02_2_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F024.wav",
+    "length": 6.6654375,
+    "emo": "sad"
+  },
+  "Ses04M_impro07_M043": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_M043.wav",
+    "length": 3.86,
+    "emo": "neu"
+  },
+  "Ses05M_script03_1_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_M028.wav",
+    "length": 2.4699375,
+    "emo": "hap"
+  },
+  "Ses03F_script02_1_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script02_1/Ses03F_script02_1_M006.wav",
+    "length": 5.4226875,
+    "emo": "hap"
+  },
+  "Ses03F_impro05_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro05/Ses03F_impro05_F017.wav",
+    "length": 3.1675,
+    "emo": "ang"
+  },
+  "Ses05F_impro05_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M040.wav",
+    "length": 1.46,
+    "emo": "neu"
+  },
+  "Ses01F_script01_3_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F020.wav",
+    "length": 7.471,
+    "emo": "hap"
+  },
+  "Ses03M_impro04_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro04/Ses03M_impro04_M014.wav",
+    "length": 1.92,
+    "emo": "neu"
+  },
+  "Ses05M_impro04_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro04/Ses05M_impro04_F003.wav",
+    "length": 2.25,
+    "emo": "neu"
+  },
+  "Ses04F_script02_2_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script02_2/Ses04F_script02_2_F041.wav",
+    "length": 3.6813125,
+    "emo": "sad"
+  },
+  "Ses05M_script01_1_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1/Ses05M_script01_1_F018.wav",
+    "length": 3.8199375,
+    "emo": "ang"
+  },
+  "Ses02F_script03_1_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_F025.wav",
+    "length": 2.91,
+    "emo": "hap"
+  },
+  "Ses01M_script02_2_F047": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F047.wav",
+    "length": 3.3765625,
+    "emo": "neu"
+  },
+  "Ses02M_script01_1_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_1/Ses02M_script01_1_F018.wav",
+    "length": 3.5099375,
+    "emo": "neu"
+  },
+  "Ses02M_script02_1_F011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_F011.wav",
+    "length": 1.85,
+    "emo": "neu"
+  },
+  "Ses04F_impro07_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M018.wav",
+    "length": 1.75,
+    "emo": "neu"
+  },
+  "Ses02M_impro05_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro05/Ses02M_impro05_F021.wav",
+    "length": 2.9399375,
+    "emo": "neu"
+  },
+  "Ses03F_impro02_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_M018.wav",
+    "length": 4.09,
+    "emo": "sad"
+  },
+  "Ses05F_impro03_M003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M003.wav",
+    "length": 1.61,
+    "emo": "hap"
+  },
+  "Ses03M_impro05a_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M000.wav",
+    "length": 4.55,
+    "emo": "ang"
+  },
+  "Ses04M_impro03_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_F003.wav",
+    "length": 5.215375,
+    "emo": "hap"
+  },
+  "Ses05M_script01_1b_F034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1b/Ses05M_script01_1b_F034.wav",
+    "length": 2.54,
+    "emo": "ang"
+  },
+  "Ses04F_script03_1_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_1/Ses04F_script03_1_F021.wav",
+    "length": 7.3680625,
+    "emo": "hap"
+  },
+  "Ses05F_impro06_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro06/Ses05F_impro06_F025.wav",
+    "length": 1.85,
+    "emo": "sad"
+  },
+  "Ses04F_script01_3_M039": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_M039.wav",
+    "length": 4.3836875,
+    "emo": "sad"
+  },
+  "Ses02M_impro03_F016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro03/Ses02M_impro03_F016.wav",
+    "length": 2.13575,
+    "emo": "hap"
+  },
+  "Ses01M_impro06_F027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro06/Ses01M_impro06_F027.wav",
+    "length": 2.1099375,
+    "emo": "neu"
+  },
+  "Ses02M_script01_1_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_1/Ses02M_script01_1_M025.wav",
+    "length": 1.74,
+    "emo": "ang"
+  },
+  "Ses05F_script03_2_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script03_2/Ses05F_script03_2_F004.wav",
+    "length": 2.5899375,
+    "emo": "neu"
+  },
+  "Ses01F_impro05_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro05/Ses01F_impro05_M025.wav",
+    "length": 1.3749375,
+    "emo": "neu"
+  },
+  "Ses03M_script01_1_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_1/Ses03M_script01_1_M036.wav",
+    "length": 11.0035,
+    "emo": "sad"
+  },
+  "Ses02M_impro06_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro06/Ses02M_impro06_F004.wav",
+    "length": 4.738875,
+    "emo": "sad"
+  },
+  "Ses05M_script02_2_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_F017.wav",
+    "length": 1.3199375,
+    "emo": "sad"
+  },
+  "Ses01F_script02_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_1/Ses01F_script02_1_M023.wav",
+    "length": 1.93,
+    "emo": "neu"
+  },
+  "Ses05M_impro03_M031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro03/Ses05M_impro03_M031.wav",
+    "length": 4.7099375,
+    "emo": "hap"
+  },
+  "Ses04F_script02_1_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script02_1/Ses04F_script02_1_F014.wav",
+    "length": 8.1,
+    "emo": "ang"
+  },
+  "Ses02F_impro05_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro05/Ses02F_impro05_M000.wav",
+    "length": 4.6299375,
+    "emo": "neu"
+  },
+  "Ses04F_script01_1_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_1/Ses04F_script01_1_F004.wav",
+    "length": 2.36,
+    "emo": "sad"
+  },
+  "Ses05M_script03_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_M023.wav",
+    "length": 6.5615625,
+    "emo": "hap"
+  },
+  "Ses02F_script01_1_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script01_1/Ses02F_script01_1_F006.wav",
+    "length": 2.31,
+    "emo": "sad"
+  },
+  "Ses04M_impro02_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro02/Ses04M_impro02_F021.wav",
+    "length": 4.9499375,
+    "emo": "ang"
+  },
+  "Ses01M_script03_1_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_1/Ses01M_script03_1_F008.wav",
+    "length": 2.5299375,
+    "emo": "hap"
+  },
+  "Ses04F_impro04_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_F025.wav",
+    "length": 4.1299375,
+    "emo": "ang"
+  },
+  "Ses04M_script03_2_M035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_M035.wav",
+    "length": 5.5799375,
+    "emo": "ang"
+  },
+  "Ses01M_impro06_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro06/Ses01M_impro06_M013.wav",
+    "length": 5.1324375,
+    "emo": "sad"
+  },
+  "Ses04M_impro06_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro06/Ses04M_impro06_F010.wav",
+    "length": 3.1599375,
+    "emo": "sad"
+  },
+  "Ses01F_impro06_F005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_F005.wav",
+    "length": 6.6875,
+    "emo": "sad"
+  },
+  "Ses03M_script02_2_F031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_F031.wav",
+    "length": 4.4195625,
+    "emo": "ang"
+  },
+  "Ses02F_script03_1_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_M010.wav",
+    "length": 3.75,
+    "emo": "neu"
+  },
+  "Ses04F_impro07_M041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M041.wav",
+    "length": 2.1199375,
+    "emo": "hap"
+  },
+  "Ses03M_script03_2_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_F003.wav",
+    "length": 4.377125,
+    "emo": "neu"
+  },
+  "Ses01F_script03_2_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_2/Ses01F_script03_2_M036.wav",
+    "length": 4.2675,
+    "emo": "ang"
+  },
+  "Ses05F_impro05_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M005.wav",
+    "length": 4.684,
+    "emo": "neu"
+  },
+  "Ses05F_script03_2_F027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script03_2/Ses05F_script03_2_F027.wav",
+    "length": 3.05,
+    "emo": "ang"
+  },
+  "Ses01F_script03_2_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_2/Ses01F_script03_2_F026.wav",
+    "length": 5.85,
+    "emo": "ang"
+  },
+  "Ses03F_script01_3_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_M029.wav",
+    "length": 5.940625,
+    "emo": "sad"
+  },
+  "Ses01F_impro02_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro02/Ses01F_impro02_F002.wav",
+    "length": 5.7235,
+    "emo": "sad"
+  },
+  "Ses05M_impro06_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro06/Ses05M_impro06_M017.wav",
+    "length": 3.43,
+    "emo": "sad"
+  },
+  "Ses03F_impro02_M031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_M031.wav",
+    "length": 2.27,
+    "emo": "sad"
+  },
+  "Ses01F_script03_2_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_2/Ses01F_script03_2_M040.wav",
+    "length": 16.0,
+    "emo": "ang"
+  },
+  "Ses01M_script03_2_F035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_F035.wav",
+    "length": 5.0099375,
+    "emo": "ang"
+  },
+  "Ses04F_script01_3_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_M028.wav",
+    "length": 3.6625625,
+    "emo": "sad"
+  },
+  "Ses03F_script01_2_M015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_2/Ses03F_script01_2_M015.wav",
+    "length": 2.8924375,
+    "emo": "ang"
+  },
+  "Ses04F_impro06_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro06/Ses04F_impro06_M014.wav",
+    "length": 1.7699375,
+    "emo": "sad"
+  },
+  "Ses01M_impro07_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_F004.wav",
+    "length": 2.7699375,
+    "emo": "hap"
+  },
+  "Ses04M_script01_1_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_1/Ses04M_script01_1_F007.wav",
+    "length": 4.81,
+    "emo": "sad"
+  },
+  "Ses03F_impro02_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_F015.wav",
+    "length": 1.865,
+    "emo": "sad"
+  },
+  "Ses04F_script01_3_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_3/Ses04F_script01_3_F013.wav",
+    "length": 2.56,
+    "emo": "hap"
+  },
+  "Ses05F_impro02_F029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro02/Ses05F_impro02_F029.wav",
+    "length": 10.4799375,
+    "emo": "sad"
+  },
+  "Ses01M_script01_3_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_3/Ses01M_script01_3_F014.wav",
+    "length": 2.0,
+    "emo": "hap"
+  },
+  "Ses03F_impro08_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro08/Ses03F_impro08_F001.wav",
+    "length": 1.1899375,
+    "emo": "neu"
+  },
+  "Ses01M_script03_1_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_1/Ses01M_script03_1_F009.wav",
+    "length": 3.8824375,
+    "emo": "hap"
+  },
+  "Ses04F_impro04_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_F013.wav",
+    "length": 7.0799375,
+    "emo": "ang"
+  },
+  "Ses02M_impro08_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_F019.wav",
+    "length": 3.9619375,
+    "emo": "neu"
+  },
+  "Ses04F_impro06_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro06/Ses04F_impro06_F002.wav",
+    "length": 22.1820625,
+    "emo": "sad"
+  },
+  "Ses03M_impro06_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M032.wav",
+    "length": 2.239,
+    "emo": "sad"
+  },
+  "Ses05M_script03_2_F042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_F042.wav",
+    "length": 0.9599375,
+    "emo": "ang"
+  },
+  "Ses04M_impro05_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro05/Ses04M_impro05_M018.wav",
+    "length": 4.2899375,
+    "emo": "ang"
+  },
+  "Ses04M_impro06_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro06/Ses04M_impro06_F019.wav",
+    "length": 8.4,
+    "emo": "sad"
+  },
+  "Ses03M_script02_2_M046": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_M046.wav",
+    "length": 2.73375,
+    "emo": "hap"
+  },
+  "Ses04M_impro01_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro01/Ses04M_impro01_F002.wav",
+    "length": 5.15,
+    "emo": "neu"
+  },
+  "Ses01M_impro01_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro01/Ses01M_impro01_F019.wav",
+    "length": 3.61,
+    "emo": "ang"
+  },
+  "Ses01M_script03_2_F038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_F038.wav",
+    "length": 5.17,
+    "emo": "ang"
+  },
+  "Ses04F_impro04_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_M020.wav",
+    "length": 4.1099375,
+    "emo": "neu"
+  },
+  "Ses01F_impro06_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_M008.wav",
+    "length": 2.09,
+    "emo": "neu"
+  },
+  "Ses01M_impro06_M012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro06/Ses01M_impro06_M012.wav",
+    "length": 1.457125,
+    "emo": "sad"
+  },
+  "Ses04F_script02_2_F034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script02_2/Ses04F_script02_2_F034.wav",
+    "length": 5.6399375,
+    "emo": "ang"
+  },
+  "Ses04M_script01_3_M037": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_3/Ses04M_script01_3_M037.wav",
+    "length": 3.56,
+    "emo": "hap"
+  },
+  "Ses04F_impro03_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F004.wav",
+    "length": 1.803,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_M007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M007.wav",
+    "length": 2.8718125,
+    "emo": "sad"
+  },
+  "Ses04M_impro07_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_M011.wav",
+    "length": 3.203125,
+    "emo": "hap"
+  },
+  "Ses04F_script03_2_F035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_F035.wav",
+    "length": 3.49,
+    "emo": "ang"
+  },
+  "Ses01M_impro05_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F006.wav",
+    "length": 2.7475,
+    "emo": "neu"
+  },
+  "Ses05M_impro04_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro04/Ses05M_impro04_F009.wav",
+    "length": 4.34,
+    "emo": "neu"
+  },
+  "Ses03M_script02_1_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_1/Ses03M_script02_1_M034.wav",
+    "length": 3.1574375,
+    "emo": "hap"
+  },
+  "Ses02F_script03_2_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_2/Ses02F_script03_2_F007.wav",
+    "length": 4.5,
+    "emo": "neu"
+  },
+  "Ses03M_script02_2_M021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_M021.wav",
+    "length": 8.8199375,
+    "emo": "neu"
+  },
+  "Ses04M_script01_2_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_2/Ses04M_script01_2_M006.wav",
+    "length": 2.8438125,
+    "emo": "neu"
+  },
+  "Ses03F_script02_2_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script02_2/Ses03F_script02_2_M016.wav",
+    "length": 3.6843125,
+    "emo": "neu"
+  },
+  "Ses05M_impro07_F031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro07/Ses05M_impro07_F031.wav",
+    "length": 8.2099375,
+    "emo": "hap"
+  },
+  "Ses05M_impro07_M041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro07/Ses05M_impro07_M041.wav",
+    "length": 4.1,
+    "emo": "hap"
+  },
+  "Ses04F_script03_2_M024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_M024.wav",
+    "length": 2.92,
+    "emo": "neu"
+  },
+  "Ses04M_script01_1_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_1/Ses04M_script01_1_M014.wav",
+    "length": 4.3,
+    "emo": "ang"
+  },
+  "Ses01F_script01_2_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_2/Ses01F_script01_2_F009.wav",
+    "length": 9.1599375,
+    "emo": "ang"
+  },
+  "Ses03M_impro08a_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08a/Ses03M_impro08a_M013.wav",
+    "length": 6.2113125,
+    "emo": "neu"
+  },
+  "Ses05F_impro03_M037": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M037.wav",
+    "length": 7.74,
+    "emo": "hap"
+  },
+  "Ses04M_script02_1_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_1/Ses04M_script02_1_F010.wav",
+    "length": 1.788625,
+    "emo": "ang"
+  },
+  "Ses05M_script03_2_M027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_M027.wav",
+    "length": 2.99,
+    "emo": "ang"
+  },
+  "Ses03M_impro08a_M012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08a/Ses03M_impro08a_M012.wav",
+    "length": 8.3803125,
+    "emo": "neu"
+  },
+  "Ses04F_script02_1_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script02_1/Ses04F_script02_1_M010.wav",
+    "length": 7.66675,
+    "emo": "neu"
+  },
+  "Ses01M_script02_2_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_M020.wav",
+    "length": 9.8325,
+    "emo": "neu"
+  },
+  "Ses05M_script03_1_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_M020.wav",
+    "length": 3.0,
+    "emo": "hap"
+  },
+  "Ses03M_impro05a_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_F021.wav",
+    "length": 1.2599375,
+    "emo": "neu"
+  },
+  "Ses05M_impro08_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro08/Ses05M_impro08_F015.wav",
+    "length": 1.0,
+    "emo": "neu"
+  },
+  "Ses02M_script03_1_F023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script03_1/Ses02M_script03_1_F023.wav",
+    "length": 6.7281875,
+    "emo": "hap"
+  },
+  "Ses04M_script02_2_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_F028.wav",
+    "length": 4.37,
+    "emo": "ang"
+  },
+  "Ses02F_impro06_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro06/Ses02F_impro06_F002.wav",
+    "length": 6.74,
+    "emo": "sad"
+  },
+  "Ses02F_script02_1_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_M040.wav",
+    "length": 9.9599375,
+    "emo": "hap"
+  },
+  "Ses02M_impro08_M019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_M019.wav",
+    "length": 4.0828125,
+    "emo": "neu"
+  },
+  "Ses02M_script03_1_M024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script03_1/Ses02M_script03_1_M024.wav",
+    "length": 3.6644375,
+    "emo": "hap"
+  },
+  "Ses02F_script03_1_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_M008.wav",
+    "length": 4.6899375,
+    "emo": "neu"
+  },
+  "Ses01M_impro01_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro01/Ses01M_impro01_F001.wav",
+    "length": 2.05,
+    "emo": "ang"
+  },
+  "Ses04F_impro07_M072": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M072.wav",
+    "length": 2.8399375,
+    "emo": "neu"
+  },
+  "Ses05M_script03_2_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_F009.wav",
+    "length": 1.6399375,
+    "emo": "neu"
+  },
+  "Ses02F_script03_2_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_2/Ses02F_script03_2_M013.wav",
+    "length": 4.8399375,
+    "emo": "ang"
+  },
+  "Ses02M_impro08_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_M029.wav",
+    "length": 10.872625,
+    "emo": "neu"
+  },
+  "Ses01M_script02_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_1/Ses01M_script02_1_F017.wav",
+    "length": 9.0088125,
+    "emo": "ang"
+  },
+  "Ses05F_impro07_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_M026.wav",
+    "length": 2.73,
+    "emo": "hap"
+  },
+  "Ses01M_script02_2_F035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F035.wav",
+    "length": 5.7025625,
+    "emo": "sad"
+  },
+  "Ses05F_script01_2_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_2/Ses05F_script01_2_F017.wav",
+    "length": 1.66,
+    "emo": "ang"
+  },
+  "Ses02F_impro05_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro05/Ses02F_impro05_F000.wav",
+    "length": 3.651875,
+    "emo": "neu"
+  },
+  "Ses01M_impro07_M024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_M024.wav",
+    "length": 4.46,
+    "emo": "hap"
+  },
+  "Ses05F_impro07_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_M025.wav",
+    "length": 6.1199375,
+    "emo": "hap"
+  },
+  "Ses01F_script01_3_F029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F029.wav",
+    "length": 2.2325,
+    "emo": "neu"
+  },
+  "Ses03F_script01_3_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_F028.wav",
+    "length": 4.1710625,
+    "emo": "sad"
+  },
+  "Ses05M_script02_2_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_M000.wav",
+    "length": 4.17,
+    "emo": "hap"
+  },
+  "Ses03M_script02_2_F038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_F038.wav",
+    "length": 5.9914375,
+    "emo": "sad"
+  },
+  "Ses02M_impro04_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro04/Ses02M_impro04_F004.wav",
+    "length": 2.9591875,
+    "emo": "neu"
+  },
+  "Ses04F_impro03_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F003.wav",
+    "length": 3.5299375,
+    "emo": "hap"
+  },
+  "Ses05M_impro03_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro03/Ses05M_impro03_F007.wav",
+    "length": 4.2399375,
+    "emo": "hap"
+  },
+  "Ses03M_script01_1_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_1/Ses03M_script01_1_M029.wav",
+    "length": 2.2850625,
+    "emo": "neu"
+  },
+  "Ses05F_impro05_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M017.wav",
+    "length": 7.748,
+    "emo": "neu"
+  },
+  "Ses05M_script01_1b_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1b/Ses05M_script01_1b_M040.wav",
+    "length": 2.6076875,
+    "emo": "ang"
+  },
+  "Ses01F_script01_3_F035": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F035.wav",
+    "length": 3.49,
+    "emo": "hap"
+  },
+  "Ses03M_impro02_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro02/Ses03M_impro02_M025.wav",
+    "length": 3.3825625,
+    "emo": "sad"
+  },
+  "Ses03F_script02_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script02_1/Ses03F_script02_1_M023.wav",
+    "length": 2.166,
+    "emo": "neu"
+  },
+  "Ses03F_script01_1_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_M016.wav",
+    "length": 4.17325,
+    "emo": "neu"
+  },
+  "Ses02M_script02_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_M023.wav",
+    "length": 5.1899375,
+    "emo": "hap"
+  },
+  "Ses04F_impro01_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro01/Ses04F_impro01_M005.wav",
+    "length": 1.71,
+    "emo": "ang"
+  },
+  "Ses03M_script02_1_M024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_1/Ses03M_script02_1_M024.wav",
+    "length": 12.153875,
+    "emo": "hap"
+  },
+  "Ses05F_impro03_M068": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M068.wav",
+    "length": 2.3199375,
+    "emo": "hap"
+  },
+  "Ses01F_script01_1_M007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_1/Ses01F_script01_1_M007.wav",
+    "length": 8.795375,
+    "emo": "neu"
+  },
+  "Ses01M_script02_2_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F019.wav",
+    "length": 8.8399375,
+    "emo": "neu"
+  },
+  "Ses01F_impro02_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro02/Ses01F_impro02_F020.wav",
+    "length": 4.5299375,
+    "emo": "sad"
+  },
+  "Ses02F_impro03_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro03/Ses02F_impro03_M001.wav",
+    "length": 3.4321875,
+    "emo": "neu"
+  },
+  "Ses02F_impro07_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F013.wav",
+    "length": 3.3,
+    "emo": "hap"
+  },
+  "Ses01M_script01_2_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_2/Ses01M_script01_2_M017.wav",
+    "length": 4.05,
+    "emo": "ang"
+  },
+  "Ses03F_impro03_F016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro03/Ses03F_impro03_F016.wav",
+    "length": 1.6665,
+    "emo": "hap"
+  },
+  "Ses01F_script02_2_M037": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_2/Ses01F_script02_2_M037.wav",
+    "length": 2.892,
+    "emo": "sad"
+  },
+  "Ses02M_script02_1_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_M029.wav",
+    "length": 7.81,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M000.wav",
+    "length": 3.0665,
+    "emo": "sad"
+  },
+  "Ses03F_script01_1_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_M005.wav",
+    "length": 3.229625,
+    "emo": "neu"
+  },
+  "Ses02F_script03_1_F027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_F027.wav",
+    "length": 2.9599375,
+    "emo": "neu"
+  },
+  "Ses02F_impro07_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F002.wav",
+    "length": 2.4699375,
+    "emo": "hap"
+  },
+  "Ses01F_impro06_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_F021.wav",
+    "length": 16.5849375,
+    "emo": "sad"
+  },
+  "Ses03M_impro05a_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_F001.wav",
+    "length": 3.37,
+    "emo": "neu"
+  },
+  "Ses03M_script01_3_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_3/Ses03M_script01_3_F008.wav",
+    "length": 6.1978125,
+    "emo": "sad"
+  },
+  "Ses03M_impro05a_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M026.wav",
+    "length": 6.14,
+    "emo": "ang"
+  },
+  "Ses05M_impro03_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro03/Ses05M_impro03_F015.wav",
+    "length": 1.81,
+    "emo": "hap"
+  },
+  "Ses02F_impro05_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro05/Ses02F_impro05_M011.wav",
+    "length": 7.6569375,
+    "emo": "neu"
+  },
+  "Ses02M_script01_1_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_1/Ses02M_script01_1_M013.wav",
+    "length": 5.17,
+    "emo": "ang"
+  },
+  "Ses02M_impro07_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro07/Ses02M_impro07_M017.wav",
+    "length": 3.4099375,
+    "emo": "hap"
+  },
+  "Ses05F_impro05_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_F019.wav",
+    "length": 4.86,
+    "emo": "ang"
+  },
+  "Ses03M_impro08b_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08b/Ses03M_impro08b_M016.wav",
+    "length": 3.3899375,
+    "emo": "neu"
+  },
+  "Ses01F_script01_3_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_M020.wav",
+    "length": 2.3,
+    "emo": "hap"
+  },
+  "Ses04M_impro03_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_M008.wav",
+    "length": 9.74,
+    "emo": "hap"
+  },
+  "Ses03F_impro06_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro06/Ses03F_impro06_F020.wav",
+    "length": 9.1226875,
+    "emo": "sad"
+  },
+  "Ses04F_impro04_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_M016.wav",
+    "length": 3.67,
+    "emo": "neu"
+  },
+  "Ses04M_impro01_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro01/Ses04M_impro01_F012.wav",
+    "length": 3.2599375,
+    "emo": "neu"
+  },
+  "Ses04F_script03_1_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_1/Ses04F_script03_1_F007.wav",
+    "length": 2.54,
+    "emo": "hap"
+  },
+  "Ses03F_script02_2_M045": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script02_2/Ses03F_script02_2_M045.wav",
+    "length": 1.8551875,
+    "emo": "hap"
+  },
+  "Ses01F_script02_1_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_1/Ses01F_script02_1_M040.wav",
+    "length": 7.4148125,
+    "emo": "hap"
+  },
+  "Ses04F_impro07_F048": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_F048.wav",
+    "length": 4.1099375,
+    "emo": "hap"
+  },
+  "Ses02M_impro04_F011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro04/Ses02M_impro04_F011.wav",
+    "length": 10.4906875,
+    "emo": "neu"
+  },
+  "Ses01M_impro05_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F014.wav",
+    "length": 1.73,
+    "emo": "neu"
+  },
+  "Ses04M_script01_1_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_1/Ses04M_script01_1_F021.wav",
+    "length": 4.1199375,
+    "emo": "ang"
+  },
+  "Ses05M_script02_1_M007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_1/Ses05M_script02_1_M007.wav",
+    "length": 15.1899375,
+    "emo": "hap"
+  },
+  "Ses05F_script03_2_F033": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script03_2/Ses05F_script03_2_F033.wav",
+    "length": 5.3499375,
+    "emo": "ang"
+  },
+  "Ses03F_impro04_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro04/Ses03F_impro04_F022.wav",
+    "length": 5.411625,
+    "emo": "sad"
+  },
+  "Ses04F_impro04_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_M014.wav",
+    "length": 2.0299375,
+    "emo": "neu"
+  },
+  "Ses04M_impro02_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro02/Ses04M_impro02_F020.wav",
+    "length": 2.4058125,
+    "emo": "sad"
+  },
+  "Ses04F_impro07_M039": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M039.wav",
+    "length": 8.85,
+    "emo": "hap"
+  },
+  "Ses04F_script03_1_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_1/Ses04F_script03_1_F014.wav",
+    "length": 5.290375,
+    "emo": "hap"
+  },
+  "Ses01M_script01_1_F016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_1/Ses01M_script01_1_F016.wav",
+    "length": 6.87,
+    "emo": "ang"
+  },
+  "Ses02F_script02_1_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_M010.wav",
+    "length": 7.0299375,
+    "emo": "neu"
+  },
+  "Ses01F_script02_2_M002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_2/Ses01F_script02_2_M002.wav",
+    "length": 2.423125,
+    "emo": "neu"
+  },
+  "Ses02F_script03_1_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_1/Ses02F_script03_1_M016.wav",
+    "length": 1.36,
+    "emo": "neu"
+  },
+  "Ses03M_impro02_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro02/Ses03M_impro02_M000.wav",
+    "length": 3.422375,
+    "emo": "sad"
+  },
+  "Ses05M_impro02_M027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro02/Ses05M_impro02_M027.wav",
+    "length": 1.92,
+    "emo": "sad"
+  },
+  "Ses05M_impro06_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro06/Ses05M_impro06_M020.wav",
+    "length": 2.14,
+    "emo": "sad"
+  },
+  "Ses04M_script02_2_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_M034.wav",
+    "length": 1.9499375,
+    "emo": "ang"
+  },
+  "Ses05M_script01_1_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1/Ses05M_script01_1_F024.wav",
+    "length": 2.5799375,
+    "emo": "neu"
+  },
+  "Ses05F_impro05_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M034.wav",
+    "length": 2.8899375,
+    "emo": "neu"
+  },
+  "Ses01F_script03_1_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_1/Ses01F_script03_1_F021.wav",
+    "length": 3.9674375,
+    "emo": "hap"
+  },
+  "Ses04M_impro07_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_F014.wav",
+    "length": 4.8299375,
+    "emo": "hap"
+  },
+  "Ses02F_impro04_F016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro04/Ses02F_impro04_F016.wav",
+    "length": 7.87,
+    "emo": "sad"
+  },
+  "Ses03F_impro07_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro07/Ses03F_impro07_F004.wav",
+    "length": 2.4195,
+    "emo": "hap"
+  },
+  "Ses04F_script03_2_F038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_F038.wav",
+    "length": 1.3899375,
+    "emo": "ang"
+  },
+  "Ses03M_script01_1_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_1/Ses03M_script01_1_M028.wav",
+    "length": 3.0584375,
+    "emo": "neu"
+  },
+  "Ses01F_script02_2_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_2/Ses01F_script02_2_M026.wav",
+    "length": 3.990375,
+    "emo": "hap"
+  },
+  "Ses03M_script02_2_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_F041.wav",
+    "length": 8.474625,
+    "emo": "sad"
+  },
+  "Ses02F_impro07_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F010.wav",
+    "length": 5.17,
+    "emo": "hap"
+  },
+  "Ses03F_impro02_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_M014.wav",
+    "length": 2.1449375,
+    "emo": "sad"
+  },
+  "Ses02M_impro08_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_F001.wav",
+    "length": 5.921375,
+    "emo": "hap"
+  },
+  "Ses01M_impro02_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro02/Ses01M_impro02_F010.wav",
+    "length": 3.2599375,
+    "emo": "sad"
+  },
+  "Ses03F_script01_3_M026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_M026.wav",
+    "length": 3.74975,
+    "emo": "neu"
+  },
+  "Ses05M_script02_2_F029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_F029.wav",
+    "length": 4.6899375,
+    "emo": "sad"
+  },
+  "Ses03F_impro03_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro03/Ses03F_impro03_F007.wav",
+    "length": 5.1614375,
+    "emo": "hap"
+  },
+  "Ses02F_impro08_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro08/Ses02F_impro08_F007.wav",
+    "length": 1.105875,
+    "emo": "neu"
+  },
+  "Ses02M_impro08_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro08/Ses02M_impro08_F007.wav",
+    "length": 5.498625,
+    "emo": "neu"
+  },
+  "Ses02M_script02_1_M042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_M042.wav",
+    "length": 3.4699375,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M020.wav",
+    "length": 3.9913125,
+    "emo": "sad"
+  },
+  "Ses03F_script01_3_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_F014.wav",
+    "length": 4.429875,
+    "emo": "hap"
+  },
+  "Ses02F_impro08_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro08/Ses02F_impro08_F010.wav",
+    "length": 12.732375,
+    "emo": "neu"
+  },
+  "Ses05M_impro06_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro06/Ses05M_impro06_F006.wav",
+    "length": 2.1199375,
+    "emo": "sad"
+  },
+  "Ses01F_impro05_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro05/Ses01F_impro05_M000.wav",
+    "length": 1.5799375,
+    "emo": "neu"
+  },
+  "Ses04M_script01_2_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_2/Ses04M_script01_2_F002.wav",
+    "length": 3.799875,
+    "emo": "ang"
+  },
+  "Ses03M_impro03_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro03/Ses03M_impro03_F004.wav",
+    "length": 4.2025,
+    "emo": "hap"
+  },
+  "Ses05M_script01_3_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_3/Ses05M_script01_3_F000.wav",
+    "length": 2.9499375,
+    "emo": "neu"
+  },
+  "Ses04F_script03_2_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_M034.wav",
+    "length": 2.4099375,
+    "emo": "ang"
+  },
+  "Ses04M_script01_3_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_3/Ses04M_script01_3_M028.wav",
+    "length": 14.8091875,
+    "emo": "sad"
+  },
+  "Ses03M_script01_3_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_3/Ses03M_script01_3_F017.wav",
+    "length": 7.1310625,
+    "emo": "hap"
+  },
+  "Ses01M_script01_1_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_1/Ses01M_script01_1_F025.wav",
+    "length": 3.6299375,
+    "emo": "neu"
+  },
+  "Ses02F_script01_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script01_1/Ses02F_script01_1_F017.wav",
+    "length": 4.1299375,
+    "emo": "sad"
+  },
+  "Ses04F_impro08_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro08/Ses04F_impro08_F001.wav",
+    "length": 6.3,
+    "emo": "neu"
+  },
+  "Ses01M_impro02_M021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro02/Ses01M_impro02_M021.wav",
+    "length": 3.7599375,
+    "emo": "sad"
+  },
+  "Ses02F_impro02_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro02/Ses02F_impro02_F009.wav",
+    "length": 4.0520625,
+    "emo": "sad"
+  },
+  "Ses04M_script03_1_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_1/Ses04M_script03_1_F025.wav",
+    "length": 2.54,
+    "emo": "hap"
+  },
+  "Ses01F_script03_2_M027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_2/Ses01F_script03_2_M027.wav",
+    "length": 14.8399375,
+    "emo": "ang"
+  },
+  "Ses01F_impro06_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_F004.wav",
+    "length": 1.97,
+    "emo": "neu"
+  },
+  "Ses05M_script03_2_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_M023.wav",
+    "length": 1.25,
+    "emo": "ang"
+  },
+  "Ses03F_impro04_M009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro04/Ses03F_impro04_M009.wav",
+    "length": 4.6025,
+    "emo": "neu"
+  },
+  "Ses04M_script03_1_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_1/Ses04M_script03_1_F026.wav",
+    "length": 3.99,
+    "emo": "hap"
+  },
+  "Ses04F_impro07_M033": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M033.wav",
+    "length": 1.0399375,
+    "emo": "neu"
+  },
+  "Ses05F_script01_3_M009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_3/Ses05F_script01_3_M009.wav",
+    "length": 15.546,
+    "emo": "hap"
+  },
+  "Ses05F_impro07_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_F028.wav",
+    "length": 4.0599375,
+    "emo": "hap"
+  },
+  "Ses03F_script03_2_F023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script03_2/Ses03F_script03_2_F023.wav",
+    "length": 6.3499375,
+    "emo": "ang"
+  },
+  "Ses01F_impro03_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro03/Ses01F_impro03_M011.wav",
+    "length": 3.93,
+    "emo": "neu"
+  },
+  "Ses03M_script02_2_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_F024.wav",
+    "length": 3.645,
+    "emo": "sad"
+  },
+  "Ses02F_script01_1_M043": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script01_1/Ses02F_script01_1_M043.wav",
+    "length": 2.3199375,
+    "emo": "neu"
+  },
+  "Ses01F_impro02_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro02/Ses01F_impro02_F001.wav",
+    "length": 2.93,
+    "emo": "sad"
+  },
+  "Ses05F_script01_3_M030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_3/Ses05F_script01_3_M030.wav",
+    "length": 5.1778125,
+    "emo": "sad"
+  },
+  "Ses01F_script02_2_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_2/Ses01F_script02_2_F006.wav",
+    "length": 6.2899375,
+    "emo": "ang"
+  },
+  "Ses03F_script01_3_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_3/Ses03F_script01_3_F008.wav",
+    "length": 4.06575,
+    "emo": "sad"
+  },
+  "Ses02M_impro04_M022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro04/Ses02M_impro04_M022.wav",
+    "length": 3.12875,
+    "emo": "sad"
+  },
+  "Ses01F_script01_3_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_M036.wav",
+    "length": 10.68,
+    "emo": "sad"
+  },
+  "Ses04F_impro03_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_M032.wav",
+    "length": 8.6299375,
+    "emo": "neu"
+  },
+  "Ses02M_impro07_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro07/Ses02M_impro07_M006.wav",
+    "length": 2.4690625,
+    "emo": "hap"
+  },
+  "Ses02M_impro01_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro01/Ses02M_impro01_F015.wav",
+    "length": 1.4148125,
+    "emo": "neu"
+  },
+  "Ses05M_script02_2_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_M032.wav",
+    "length": 4.2599375,
+    "emo": "sad"
+  },
+  "Ses03F_impro02_F037": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_F037.wav",
+    "length": 7.5724375,
+    "emo": "sad"
+  },
+  "Ses03F_impro04_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro04/Ses03F_impro04_M017.wav",
+    "length": 3.7045625,
+    "emo": "neu"
+  },
+  "Ses05F_impro07_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_M000.wav",
+    "length": 1.05525,
+    "emo": "hap"
+  },
+  "Ses02M_script01_3_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_3/Ses02M_script01_3_M000.wav",
+    "length": 3.1730625,
+    "emo": "hap"
+  },
+  "Ses02F_impro05_M004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro05/Ses02F_impro05_M004.wav",
+    "length": 7.25,
+    "emo": "neu"
+  },
+  "Ses05M_impro03_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro03/Ses05M_impro03_F021.wav",
+    "length": 4.22625,
+    "emo": "hap"
+  },
+  "Ses04M_script03_2_F029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_F029.wav",
+    "length": 2.5989375,
+    "emo": "ang"
+  },
+  "Ses05M_impro05_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro05/Ses05M_impro05_F001.wav",
+    "length": 1.7799375,
+    "emo": "neu"
+  },
+  "Ses04F_impro03_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F001.wav",
+    "length": 4.1899375,
+    "emo": "hap"
+  },
+  "Ses03F_impro06_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro06/Ses03F_impro06_F024.wav",
+    "length": 3.3153125,
+    "emo": "sad"
+  },
+  "Ses03F_impro06_F028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro06/Ses03F_impro06_F028.wav",
+    "length": 4.1830625,
+    "emo": "sad"
+  },
+  "Ses01F_impro03_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro03/Ses01F_impro03_M016.wav",
+    "length": 1.805,
+    "emo": "neu"
+  },
+  "Ses04F_impro04_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro04/Ses04F_impro04_M006.wav",
+    "length": 3.07,
+    "emo": "neu"
+  },
+  "Ses01F_impro04_F030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro04/Ses01F_impro04_F030.wav",
+    "length": 3.1849375,
+    "emo": "ang"
+  },
+  "Ses02M_impro06_M012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro06/Ses02M_impro06_M012.wav",
+    "length": 2.8799375,
+    "emo": "sad"
+  },
+  "Ses03F_impro06_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro06/Ses03F_impro06_F000.wav",
+    "length": 3.8266875,
+    "emo": "sad"
+  },
+  "Ses03F_impro06_F010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro06/Ses03F_impro06_F010.wav",
+    "length": 10.01275,
+    "emo": "sad"
+  },
+  "Ses01M_script03_2_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_M032.wav",
+    "length": 5.824875,
+    "emo": "ang"
+  },
+  "Ses05M_script03_2_M038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_M038.wav",
+    "length": 1.4399375,
+    "emo": "ang"
+  },
+  "Ses01M_impro07_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_F006.wav",
+    "length": 4.7024375,
+    "emo": "hap"
+  },
+  "Ses01M_impro02_F009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro02/Ses01M_impro02_F009.wav",
+    "length": 3.3,
+    "emo": "sad"
+  },
+  "Ses01M_impro05_F033": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F033.wav",
+    "length": 1.23,
+    "emo": "neu"
+  },
+  "Ses03M_script02_2_M033": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_M033.wav",
+    "length": 1.913625,
+    "emo": "ang"
+  },
+  "Ses04F_script03_2_M007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script03_2/Ses04F_script03_2_M007.wav",
+    "length": 1.68,
+    "emo": "ang"
+  },
+  "Ses03M_script01_2_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_2/Ses03M_script01_2_F000.wav",
+    "length": 2.4843125,
+    "emo": "ang"
+  },
+  "Ses05M_script03_1_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_M016.wav",
+    "length": 3.2899375,
+    "emo": "hap"
+  },
+  "Ses05F_script03_1_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script03_1/Ses05F_script03_1_M017.wav",
+    "length": 2.49,
+    "emo": "hap"
+  },
+  "Ses04M_impro01_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro01/Ses04M_impro01_F021.wav",
+    "length": 4.0025,
+    "emo": "ang"
+  },
+  "Ses02F_script01_3_F020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script01_3/Ses02F_script01_3_F020.wav",
+    "length": 9.09425,
+    "emo": "sad"
+  },
+  "Ses05M_script01_1b_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1b/Ses05M_script01_1b_F022.wav",
+    "length": 2.1599375,
+    "emo": "neu"
+  },
+  "Ses04F_script01_1_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_1/Ses04F_script01_1_F019.wav",
+    "length": 3.6499375,
+    "emo": "ang"
+  },
+  "Ses04F_impro01_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro01/Ses04F_impro01_F019.wav",
+    "length": 2.0399375,
+    "emo": "ang"
+  },
+  "Ses04F_impro05_F004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro05/Ses04F_impro05_F004.wav",
+    "length": 2.2099375,
+    "emo": "ang"
+  },
+  "Ses02M_impro03_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro03/Ses02M_impro03_M016.wav",
+    "length": 1.3628125,
+    "emo": "hap"
+  },
+  "Ses04M_impro08_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro08/Ses04M_impro08_M020.wav",
+    "length": 6.33,
+    "emo": "neu"
+  },
+  "Ses03M_impro05a_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M025.wav",
+    "length": 2.5099375,
+    "emo": "ang"
+  },
+  "Ses05F_impro05_M053": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M053.wav",
+    "length": 1.8799375,
+    "emo": "neu"
+  },
+  "Ses03M_impro05b_F023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05b/Ses03M_impro05b_F023.wav",
+    "length": 6.92,
+    "emo": "neu"
+  },
+  "Ses05M_impro07_M030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro07/Ses05M_impro07_M030.wav",
+    "length": 1.09,
+    "emo": "hap"
+  },
+  "Ses04M_impro03_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_M005.wav",
+    "length": 3.73,
+    "emo": "hap"
+  },
+  "Ses02F_impro04_M019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro04/Ses02F_impro04_M019.wav",
+    "length": 5.350125,
+    "emo": "neu"
+  },
+  "Ses05F_impro04_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro04/Ses05F_impro04_F015.wav",
+    "length": 8.72,
+    "emo": "sad"
+  },
+  "Ses03M_impro08a_F014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08a/Ses03M_impro08a_F014.wav",
+    "length": 2.8,
+    "emo": "ang"
+  },
+  "Ses05F_impro05_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M016.wav",
+    "length": 9.66,
+    "emo": "neu"
+  },
+  "Ses02F_impro06_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro06/Ses02F_impro06_F007.wav",
+    "length": 6.79,
+    "emo": "sad"
+  },
+  "Ses02M_script01_2_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script01_2/Ses02M_script01_2_F013.wav",
+    "length": 3.6399375,
+    "emo": "sad"
+  },
+  "Ses05F_impro07_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_M029.wav",
+    "length": 5.6899375,
+    "emo": "hap"
+  },
+  "Ses03F_impro08_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro08/Ses03F_impro08_F003.wav",
+    "length": 4.8199375,
+    "emo": "neu"
+  },
+  "Ses04F_impro03_M038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_M038.wav",
+    "length": 3.31,
+    "emo": "hap"
+  },
+  "Ses01M_script03_2_M042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_M042.wav",
+    "length": 1.72,
+    "emo": "ang"
+  },
+  "Ses02M_impro03_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro03/Ses02M_impro03_M001.wav",
+    "length": 3.1908125,
+    "emo": "hap"
+  },
+  "Ses03F_script01_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script01_1/Ses03F_script01_1_F017.wav",
+    "length": 9.3605,
+    "emo": "ang"
+  },
+  "Ses05M_impro06_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro06/Ses05M_impro06_M011.wav",
+    "length": 12.43,
+    "emo": "sad"
+  },
+  "Ses05F_impro07_F023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro07/Ses05F_impro07_F023.wav",
+    "length": 4.18,
+    "emo": "hap"
+  },
+  "Ses01M_impro05_F022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro05/Ses01M_impro05_F022.wav",
+    "length": 1.4799375,
+    "emo": "neu"
+  },
+  "Ses02F_impro07_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F012.wav",
+    "length": 5.25,
+    "emo": "hap"
+  },
+  "Ses03M_script02_2_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_F018.wav",
+    "length": 3.736125,
+    "emo": "sad"
+  },
+  "Ses01F_impro05_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro05/Ses01F_impro05_M008.wav",
+    "length": 1.8199375,
+    "emo": "neu"
+  },
+  "Ses01M_impro01_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro01/Ses01M_impro01_M020.wav",
+    "length": 3.62,
+    "emo": "ang"
+  },
+  "Ses03F_impro08_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro08/Ses03F_impro08_F008.wav",
+    "length": 4.2624375,
+    "emo": "neu"
+  },
+  "Ses05F_script02_2_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_M036.wav",
+    "length": 6.702125,
+    "emo": "hap"
+  },
+  "Ses05M_impro07_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro07/Ses05M_impro07_M013.wav",
+    "length": 2.0399375,
+    "emo": "hap"
+  },
+  "Ses02F_impro03_F018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro03/Ses02F_impro03_F018.wav",
+    "length": 7.027,
+    "emo": "hap"
+  },
+  "Ses03M_impro02_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro02/Ses03M_impro02_F015.wav",
+    "length": 3.8004375,
+    "emo": "sad"
+  },
+  "Ses01F_impro05_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro05/Ses01F_impro05_M020.wav",
+    "length": 1.33,
+    "emo": "neu"
+  },
+  "Ses01M_impro04_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro04/Ses01M_impro04_F012.wav",
+    "length": 1.79,
+    "emo": "neu"
+  },
+  "Ses05F_impro02_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro02/Ses05F_impro02_M036.wav",
+    "length": 6.5799375,
+    "emo": "sad"
+  },
+  "Ses03F_impro02_F027": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro02/Ses03F_impro02_F027.wav",
+    "length": 5.5325,
+    "emo": "sad"
+  },
+  "Ses01M_impro06_M021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro06/Ses01M_impro06_M021.wav",
+    "length": 2.1299375,
+    "emo": "sad"
+  },
+  "Ses04M_script03_2_M043": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_M043.wav",
+    "length": 3.0816875,
+    "emo": "ang"
+  },
+  "Ses01M_impro06_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro06/Ses01M_impro06_F017.wav",
+    "length": 2.4449375,
+    "emo": "neu"
+  },
+  "Ses01M_script03_1_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_1/Ses01M_script03_1_F017.wav",
+    "length": 3.93,
+    "emo": "hap"
+  },
+  "Ses03M_impro03_M012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro03/Ses03M_impro03_M012.wav",
+    "length": 2.4955,
+    "emo": "hap"
+  },
+  "Ses04F_impro07_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M001.wav",
+    "length": 1.36,
+    "emo": "hap"
+  },
+  "Ses04M_impro03_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_M025.wav",
+    "length": 11.93075,
+    "emo": "hap"
+  },
+  "Ses04M_impro03_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro03/Ses04M_impro03_M028.wav",
+    "length": 7.2399375,
+    "emo": "hap"
+  },
+  "Ses05F_impro05_M022": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M022.wav",
+    "length": 6.61925,
+    "emo": "neu"
+  },
+  "Ses01M_impro03_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro03/Ses01M_impro03_M010.wav",
+    "length": 2.68,
+    "emo": "hap"
+  },
+  "Ses01M_script01_1_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_1/Ses01M_script01_1_M006.wav",
+    "length": 2.0063125,
+    "emo": "sad"
+  },
+  "Ses02F_impro08_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro08/Ses02F_impro08_F021.wav",
+    "length": 8.3739375,
+    "emo": "neu"
+  },
+  "Ses03F_impro07_F015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro07/Ses03F_impro07_F015.wav",
+    "length": 2.58375,
+    "emo": "neu"
+  },
+  "Ses01F_impro05_M017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro05/Ses01F_impro05_M017.wav",
+    "length": 6.395,
+    "emo": "neu"
+  },
+  "Ses04M_script02_2_M031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_M031.wav",
+    "length": 7.9399375,
+    "emo": "ang"
+  },
+  "Ses05M_script01_1_F001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_1/Ses05M_script01_1_F001.wav",
+    "length": 6.0099375,
+    "emo": "sad"
+  },
+  "Ses05F_impro03_M039": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M039.wav",
+    "length": 11.14,
+    "emo": "hap"
+  },
+  "Ses04M_script02_2_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_F025.wav",
+    "length": 1.3899375,
+    "emo": "ang"
+  },
+  "Ses02F_impro06_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro06/Ses02F_impro06_F000.wav",
+    "length": 5.09,
+    "emo": "sad"
+  },
+  "Ses02M_script02_2_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_2/Ses02M_script02_2_F019.wav",
+    "length": 5.5799375,
+    "emo": "sad"
+  },
+  "Ses04M_script01_2_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_2/Ses04M_script01_2_F003.wav",
+    "length": 3.87,
+    "emo": "ang"
+  },
+  "Ses05F_script02_2_M025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_M025.wav",
+    "length": 2.506125,
+    "emo": "ang"
+  },
+  "Ses01M_impro03_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro03/Ses01M_impro03_M020.wav",
+    "length": 3.31,
+    "emo": "hap"
+  },
+  "Ses04F_impro08_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro08/Ses04F_impro08_M001.wav",
+    "length": 5.6499375,
+    "emo": "neu"
+  },
+  "Ses04M_impro01_M003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro01/Ses04M_impro01_M003.wav",
+    "length": 1.3199375,
+    "emo": "neu"
+  },
+  "Ses01M_script01_1_F036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_1/Ses01M_script01_1_F036.wav",
+    "length": 5.775,
+    "emo": "ang"
+  },
+  "Ses01M_script02_2_F030": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F030.wav",
+    "length": 3.5825,
+    "emo": "ang"
+  },
+  "Ses01M_script03_1_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_1/Ses01M_script03_1_M011.wav",
+    "length": 1.3325,
+    "emo": "hap"
+  },
+  "Ses01M_script02_2_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_2/Ses01M_script02_2_F026.wav",
+    "length": 1.911125,
+    "emo": "sad"
+  },
+  "Ses02F_script02_1_M024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_M024.wav",
+    "length": 6.9599375,
+    "emo": "hap"
+  },
+  "Ses01M_impro07_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_F012.wav",
+    "length": 3.7099375,
+    "emo": "neu"
+  },
+  "Ses02M_script02_1_M038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_1/Ses02M_script02_1_M038.wav",
+    "length": 8.56,
+    "emo": "hap"
+  },
+  "Ses02F_script02_1_M044": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_M044.wav",
+    "length": 1.49,
+    "emo": "neu"
+  },
+  "Ses03M_impro01_F003": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro01/Ses03M_impro01_F003.wav",
+    "length": 3.87475,
+    "emo": "neu"
+  },
+  "Ses02F_script02_1_M002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_1/Ses02F_script02_1_M002.wav",
+    "length": 6.1099375,
+    "emo": "hap"
+  },
+  "Ses01M_impro04_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro04/Ses01M_impro04_F025.wav",
+    "length": 3.2399375,
+    "emo": "neu"
+  },
+  "Ses05F_impro02_F037": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro02/Ses05F_impro02_F037.wav",
+    "length": 1.2,
+    "emo": "sad"
+  },
+  "Ses04M_script02_2_F016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_F016.wav",
+    "length": 14.254,
+    "emo": "sad"
+  },
+  "Ses02M_script02_2_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script02_2/Ses02M_script02_2_M000.wav",
+    "length": 1.98,
+    "emo": "neu"
+  },
+  "Ses05F_script02_2_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_F019.wav",
+    "length": 1.771,
+    "emo": "sad"
+  },
+  "Ses04M_script02_1_M023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_1/Ses04M_script02_1_M023.wav",
+    "length": 7.93,
+    "emo": "hap"
+  },
+  "Ses05M_script03_2_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_2/Ses05M_script03_2_M036.wav",
+    "length": 2.1599375,
+    "emo": "ang"
+  },
+  "Ses03M_impro01_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro01/Ses03M_impro01_F000.wav",
+    "length": 3.3319375,
+    "emo": "neu"
+  },
+  "Ses04M_script01_3_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script01_3/Ses04M_script01_3_M034.wav",
+    "length": 14.5699375,
+    "emo": "sad"
+  },
+  "Ses04F_impro03_F043": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F043.wav",
+    "length": 4.6299375,
+    "emo": "hap"
+  },
+  "Ses03M_impro05a_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M013.wav",
+    "length": 5.09,
+    "emo": "ang"
+  },
+  "Ses05M_impro07_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro07/Ses05M_impro07_F041.wav",
+    "length": 2.2099375,
+    "emo": "hap"
+  },
+  "Ses01F_script01_1_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_1/Ses01F_script01_1_F041.wav",
+    "length": 9.7799375,
+    "emo": "ang"
+  },
+  "Ses02M_impro03_M015": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro03/Ses02M_impro03_M015.wav",
+    "length": 1.6893125,
+    "emo": "hap"
+  },
+  "Ses02M_script03_2_M031": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script03_2/Ses02M_script03_2_M031.wav",
+    "length": 4.7035,
+    "emo": "ang"
+  },
+  "Ses05F_impro05_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro05/Ses05F_impro05_M000.wav",
+    "length": 2.09,
+    "emo": "neu"
+  },
+  "Ses03M_script03_2_M019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_M019.wav",
+    "length": 3.18475,
+    "emo": "neu"
+  },
+  "Ses03M_script03_2_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_M014.wav",
+    "length": 4.9506875,
+    "emo": "ang"
+  },
+  "Ses05F_impro03_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M011.wav",
+    "length": 5.2990625,
+    "emo": "hap"
+  },
+  "Ses04F_impro03_F052": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F052.wav",
+    "length": 1.37,
+    "emo": "hap"
+  },
+  "Ses01M_script02_1_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script02_1/Ses01M_script02_1_F021.wav",
+    "length": 1.5,
+    "emo": "ang"
+  },
+  "Ses03F_script03_1_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_script03_1/Ses03F_script03_1_M005.wav",
+    "length": 2.2224375,
+    "emo": "neu"
+  },
+  "Ses03M_script03_2_F045": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_F045.wav",
+    "length": 4.9589375,
+    "emo": "ang"
+  },
+  "Ses02F_impro07_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_M018.wav",
+    "length": 1.5940625,
+    "emo": "hap"
+  },
+  "Ses05F_impro03_M058": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M058.wav",
+    "length": 1.27,
+    "emo": "hap"
+  },
+  "Ses01F_impro04_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro04/Ses01F_impro04_F013.wav",
+    "length": 4.2368125,
+    "emo": "neu"
+  },
+  "Ses04M_script02_2_M000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_2/Ses04M_script02_2_M000.wav",
+    "length": 2.2766875,
+    "emo": "neu"
+  },
+  "Ses04M_impro04_F007": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro04/Ses04M_impro04_F007.wav",
+    "length": 6.87,
+    "emo": "neu"
+  },
+  "Ses04F_impro07_M079": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_M079.wav",
+    "length": 4.8999375,
+    "emo": "neu"
+  },
+  "Ses03M_impro08a_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08a/Ses03M_impro08a_M018.wav",
+    "length": 4.21975,
+    "emo": "neu"
+  },
+  "Ses01F_script01_3_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script01_3/Ses01F_script01_3_F006.wav",
+    "length": 4.8830625,
+    "emo": "neu"
+  },
+  "Ses04M_impro05_M045": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro05/Ses04M_impro05_M045.wav",
+    "length": 5.3921875,
+    "emo": "ang"
+  },
+  "Ses02F_impro01_F021": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro01/Ses02F_impro01_F021.wav",
+    "length": 10.2134375,
+    "emo": "ang"
+  },
+  "Ses02F_script03_2_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_2/Ses02F_script03_2_F025.wav",
+    "length": 1.86,
+    "emo": "ang"
+  },
+  "Ses04M_script03_2_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_F019.wav",
+    "length": 1.60875,
+    "emo": "ang"
+  },
+  "Ses05F_script01_1_M018": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script01_1/Ses05F_script01_1_M018.wav",
+    "length": 2.49,
+    "emo": "neu"
+  },
+  "Ses05F_impro03_M032": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_impro03/Ses05F_impro03_M032.wav",
+    "length": 3.5899375,
+    "emo": "hap"
+  },
+  "Ses04M_impro07_M042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_M042.wav",
+    "length": 4.1899375,
+    "emo": "neu"
+  },
+  "Ses05M_impro04_M040": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro04/Ses05M_impro04_M040.wav",
+    "length": 2.5899375,
+    "emo": "ang"
+  },
+  "Ses05F_script02_1_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_1/Ses05F_script02_1_M020.wav",
+    "length": 12.3869375,
+    "emo": "hap"
+  },
+  "Ses01F_script02_1_M013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script02_1/Ses01F_script02_1_M013.wav",
+    "length": 3.98725,
+    "emo": "neu"
+  },
+  "Ses05M_script03_1_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_F012.wav",
+    "length": 1.9499375,
+    "emo": "neu"
+  },
+  "Ses03M_script02_2_M028": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script02_2/Ses03M_script02_2_M028.wav",
+    "length": 3.1438125,
+    "emo": "ang"
+  },
+  "Ses02F_script02_2_F042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script02_2/Ses02F_script02_2_F042.wav",
+    "length": 3.8999375,
+    "emo": "hap"
+  },
+  "Ses03F_impro05_F005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro05/Ses03F_impro05_F005.wav",
+    "length": 7.292125,
+    "emo": "ang"
+  },
+  "Ses04M_impro04_F006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro04/Ses04M_impro04_F006.wav",
+    "length": 2.54,
+    "emo": "neu"
+  },
+  "Ses04F_impro03_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_F013.wav",
+    "length": 5.3,
+    "emo": "hap"
+  },
+  "Ses04F_impro08_M014": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro08/Ses04F_impro08_M014.wav",
+    "length": 6.234625,
+    "emo": "ang"
+  },
+  "Ses02M_impro05_F025": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro05/Ses02M_impro05_F025.wav",
+    "length": 6.0950625,
+    "emo": "neu"
+  },
+  "Ses03M_script01_1_F038": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script01_1/Ses03M_script01_1_F038.wav",
+    "length": 4.8334375,
+    "emo": "ang"
+  },
+  "Ses02F_script03_2_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script03_2/Ses02F_script03_2_F041.wav",
+    "length": 1.9599375,
+    "emo": "ang"
+  },
+  "Ses04F_impro06_M011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro06/Ses04F_impro06_M011.wav",
+    "length": 7.2399375,
+    "emo": "sad"
+  },
+  "Ses03M_impro05a_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro05a/Ses03M_impro05a_M001.wav",
+    "length": 3.9499375,
+    "emo": "ang"
+  },
+  "Ses01M_impro03_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro03/Ses01M_impro03_F002.wav",
+    "length": 1.37675,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_M004": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M004.wav",
+    "length": 4.2346875,
+    "emo": "sad"
+  },
+  "Ses02F_impro07_F008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F008.wav",
+    "length": 7.72,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_F019.wav",
+    "length": 2.969125,
+    "emo": "sad"
+  },
+  "Ses04F_impro07_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro07/Ses04F_impro07_F024.wav",
+    "length": 6.6499375,
+    "emo": "hap"
+  },
+  "Ses03M_impro06_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro06/Ses03M_impro06_M010.wav",
+    "length": 5.987,
+    "emo": "sad"
+  },
+  "Ses02F_impro07_F019": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F019.wav",
+    "length": 9.34,
+    "emo": "hap"
+  },
+  "Ses04F_script02_2_M044": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script02_2/Ses04F_script02_2_M044.wav",
+    "length": 5.734625,
+    "emo": "neu"
+  },
+  "Ses02F_impro08_F013": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro08/Ses02F_impro08_F013.wav",
+    "length": 8.6010625,
+    "emo": "neu"
+  },
+  "Ses02F_script01_1_F005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_script01_1/Ses02F_script01_1_F005.wav",
+    "length": 2.7599375,
+    "emo": "sad"
+  },
+  "Ses05M_script02_2_F023": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_F023.wav",
+    "length": 4.3,
+    "emo": "sad"
+  },
+  "Ses01M_script03_2_M034": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_M034.wav",
+    "length": 3.1674375,
+    "emo": "ang"
+  },
+  "Ses04M_script03_2_M041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_M041.wav",
+    "length": 2.71225,
+    "emo": "ang"
+  },
+  "Ses02F_impro07_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro07/Ses02F_impro07_F017.wav",
+    "length": 6.9444375,
+    "emo": "hap"
+  },
+  "Ses04M_script02_1_F012": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_1/Ses04M_script02_1_F012.wav",
+    "length": 2.798375,
+    "emo": "ang"
+  },
+  "Ses01F_impro06_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_impro06/Ses01F_impro06_M005.wav",
+    "length": 1.67,
+    "emo": "neu"
+  },
+  "Ses05M_impro04_F005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro04/Ses05M_impro04_F005.wav",
+    "length": 9.2199375,
+    "emo": "neu"
+  },
+  "Ses04M_script02_1_M008": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script02_1/Ses04M_script02_1_M008.wav",
+    "length": 4.68,
+    "emo": "hap"
+  },
+  "Ses01M_script01_3_M006": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script01_3/Ses01M_script01_3_M006.wav",
+    "length": 1.707125,
+    "emo": "neu"
+  },
+  "Ses05M_script01_2_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_2/Ses05M_script01_2_F002.wav",
+    "length": 2.9499375,
+    "emo": "neu"
+  },
+  "Ses04F_impro03_M042": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_impro03/Ses04F_impro03_M042.wav",
+    "length": 4.938125,
+    "emo": "hap"
+  },
+  "Ses02M_impro07_F000": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_impro07/Ses02M_impro07_F000.wav",
+    "length": 2.1023125,
+    "emo": "hap"
+  },
+  "Ses04M_impro07_M009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_impro07/Ses04M_impro07_M009.wav",
+    "length": 1.43,
+    "emo": "hap"
+  },
+  "Ses05M_impro08_F011": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_impro08/Ses05M_impro08_F011.wav",
+    "length": 7.1199375,
+    "emo": "neu"
+  },
+  "Ses05M_script01_2_M001": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script01_2/Ses05M_script01_2_M001.wav",
+    "length": 5.54,
+    "emo": "neu"
+  },
+  "Ses01F_script03_2_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01F_script03_2/Ses01F_script03_2_M010.wav",
+    "length": 2.6899375,
+    "emo": "neu"
+  },
+  "Ses02M_script03_2_F041": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02M_script03_2/Ses02M_script03_2_F041.wav",
+    "length": 11.4324375,
+    "emo": "ang"
+  },
+  "Ses05M_script03_1_F002": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script03_1/Ses05M_script03_1_F002.wav",
+    "length": 2.37,
+    "emo": "hap"
+  },
+  "Ses03M_impro03_M020": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro03/Ses03M_impro03_M020.wav",
+    "length": 7.9119375,
+    "emo": "hap"
+  },
+  "Ses02F_impro06_M010": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session2/sentences/wav/Ses02F_impro06/Ses02F_impro06_M010.wav",
+    "length": 6.3080625,
+    "emo": "neu"
+  },
+  "Ses04M_script03_2_M053": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_M053.wav",
+    "length": 1.8999375,
+    "emo": "ang"
+  },
+  "Ses03M_impro08b_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_impro08b/Ses03M_impro08b_M005.wav",
+    "length": 10.8999375,
+    "emo": "neu"
+  },
+  "Ses05F_script02_2_M005": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05F_script02_2/Ses05F_script02_2_M005.wav",
+    "length": 6.5494375,
+    "emo": "neu"
+  },
+  "Ses04M_script03_1_M029": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_1/Ses04M_script03_1_M029.wav",
+    "length": 2.1,
+    "emo": "hap"
+  },
+  "Ses04M_script03_2_F017": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04M_script03_2/Ses04M_script03_2_F017.wav",
+    "length": 3.0155,
+    "emo": "ang"
+  },
+  "Ses03F_impro03_F024": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03F_impro03/Ses03F_impro03_F024.wav",
+    "length": 3.28,
+    "emo": "hap"
+  },
+  "Ses01M_script03_2_M036": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_script03_2/Ses01M_script03_2_M036.wav",
+    "length": 3.8399375,
+    "emo": "ang"
+  },
+  "Ses04F_script01_1_M009": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session4/sentences/wav/Ses04F_script01_1/Ses04F_script01_1_M009.wav",
+    "length": 6.4699375,
+    "emo": "ang"
+  },
+  "Ses01M_impro07_F026": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session1/sentences/wav/Ses01M_impro07/Ses01M_impro07_F026.wav",
+    "length": 5.2099375,
+    "emo": "hap"
+  },
+  "Ses05M_script02_2_M016": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session5/sentences/wav/Ses05M_script02_2/Ses05M_script02_2_M016.wav",
+    "length": 11.17,
+    "emo": "neu"
+  },
+  "Ses03M_script03_2_M044": {
+    "wav": "/mnt/lv2/data/ser/IEMOCAP/Session3/sentences/wav/Ses03M_script03_2/Ses03M_script03_2_M044.wav",
+    "length": 1.9563125,
+    "emo": "ang"
+  }
+}
