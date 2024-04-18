@@ -4,7 +4,7 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
-from sqlalchemy import func
+from sqlalchemy import func, and_
 from werkzeug.utils import secure_filename
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
@@ -46,12 +46,31 @@ def anxietygrief():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
+    sform = searchForm()
+    search = ''
+    if sform.validate_on_submit():
+        search = sform.body.data
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
 
-    pagination = Post.query.filter(Post.author.has(role=False), Post.hole == False).order_by(
-        Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False)
+    pagination = Post.query.filter(
+        and_(
+            Post.author.has(role=False),
+            Post.hole == False,
+            (
+                    Post.title.like('%' + search + '%') |
+                    # Post.category.like('%' + search + '%') |
+                    Post.keyA.like('%' + search + '%') |
+                    Post.keyB.like('%' + search + '%') |
+                    Post.keyC.like('%' + search + '%') |
+                    Post.keyD.like('%' + search + '%') |
+                    Post.keyE.like('%' + search + '%')
+            )
+        )
+    ).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False
+    )
+
     blogs = pagination.items
 
     return render_template('blog.html', blogs=blogs, pagination=pagination)
@@ -152,17 +171,9 @@ def blogdetails(id):
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
     sform = searchForm()
+    search=''
     if sform.validate_on_submit():
         search = sform.body.data
-        print(search + '++++++++++++++++++')
-
-    # page = request.args.get('page', 1, type=int)
-    # per_page = current_app.config['POST_BLOG_PER_PAGE']
-    #
-    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
-    #     page, per_page,
-    #     error_out=False)
-    # blogs = pagination.items
 
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_BLOG_PER_PAGE']
@@ -170,8 +181,23 @@ def blogsidebar():
     # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
     #     page=page, per_page=per_page, error_out=False)
 
-    pagination = Post.query.filter(Post.author.has(role=True), Post.hole == False).order_by(Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False)
+    pagination = Post.query.filter(
+        and_(
+            Post.author.has(role=True),
+            Post.hole == False,
+            (
+                    Post.title.like('%' + search + '%') |
+                    # Post.category.like('%' + search + '%') |
+                    Post.keyA.like('%' + search + '%') |
+                    Post.keyB.like('%' + search + '%') |
+                    Post.keyC.like('%' + search + '%') |
+                    Post.keyD.like('%' + search + '%') |
+                    Post.keyE.like('%' + search + '%')
+            )
+        )
+    ).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False
+    )
 
     blogs = pagination.items
 
