@@ -73,7 +73,7 @@ def blog():
 
     blogs = pagination.items
 
-    return render_template('blog.html', blogs=blogs, pagination=pagination)
+    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
 
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
