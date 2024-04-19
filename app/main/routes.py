@@ -4,6 +4,7 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
+from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_
 from werkzeug.utils import secure_filename
 # from modelscope.pipelines import pipeline
@@ -590,78 +591,78 @@ def sendresponse(emotion_label):
     return render_template('AI-response-detail.html', emotion_label=emotion_label)
 
 
-# @main.route('/sendtreeAudio', methods=['GET', 'POST'])
-# def sendtreeAudio():
-#     user = current_user
-#     if request.method == 'POST':
-#         if 'audio' not in request.files:
-#             flash('No file part')
-#             return redirect(request.url)
-#
-#         file = request.files['audio']
-#
-#         if file.filename == '':
-#             flash('No selected file')
-#             return redirect(request.url)
-#
-#         if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
-#             # Generate a unique filename using the user's email and current timestamp
-#             timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-#             filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
-#             # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
-#
-#             audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
-#
-#             file.save(audio_file_path)
-#             # convert_to_valid_wav(audio_file_path)
-#             flash('File uploaded successfully')
-#
-#             inference_pipeline = pipeline(
-#                 task=Tasks.emotion_recognition,
-#                 model="iic/emotion2vec_base_finetuned"
-#             )
-#
-#             rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
-#             # print(rec_result)
-#
-#             # 定义标签的分类映射关系
-#             label_mapping = {
-#                 '开心/happy': 'Happy',
-#                 '生气/angry': 'Angry',
-#                 '吃惊/surprised': 'Surprise',
-#                 '难过/sad': 'Sad',
-#                 '恐惧/fearful': 'Fear',
-#                 '厌恶/disgusted': 'Fear',
-#                 '<unk>': 'Neutral',
-#                 '中立/neutral': 'Neutral',
-#                 '其他/other': 'Neutral'
-#             }
-#
-#             if isinstance(rec_result, list) and len(rec_result) > 0:
-#                 result_entry = rec_result[0]
-#                 labels = result_entry.get('labels', [])
-#                 scores = result_entry.get('scores', [])
-#
-#                 # Save the audio file path and emotion detection result in the database
-#                 audio = Audio(input=audio_file_path)
-#                 db.session.add(audio)
-#
-#                 emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
-#                 db.session.add(emotion)
-#
-#                 # 合并和分类标签
-#                 merged_labels = defaultdict(float)
-#                 for label, score in zip(labels, scores):
-#                     mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
-#                     merged_labels[mapped_label] += score
-#                 # print(merged_labels)
-#
-#                 # 获取权重最高的标签
-#                 max_label = max(merged_labels, key=merged_labels.get)
-#                 # print(max_label, "++++++++++++++++++++++++++++++++++++")
-#
-#                 db.session.commit()
-#
-#             return redirect(url_for('main.sendresponse', emotion_label=max_label))
-#     return render_template('treeAudioNew.html')
+@main.route('/sendtreeAudio', methods=['GET', 'POST'])
+def sendtreeAudio():
+    user = current_user
+    if request.method == 'POST':
+        if 'audio' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+
+        file = request.files['audio']
+
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+
+        if file and file.filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']:
+            # Generate a unique filename using the user's email and current timestamp
+            timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+            filename = secure_filename(f"{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+            # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
+
+            audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
+
+            file.save(audio_file_path)
+            # convert_to_valid_wav(audio_file_path)
+            flash('File uploaded successfully')
+
+            inference_pipeline = pipeline(
+                task=Tasks.emotion_recognition,
+                model="iic/emotion2vec_base_finetuned"
+            )
+
+            rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
+            # print(rec_result)
+
+            # 定义标签的分类映射关系
+            label_mapping = {
+                '开心/happy': 'Happy',
+                '生气/angry': 'Angry',
+                '吃惊/surprised': 'Surprise',
+                '难过/sad': 'Sad',
+                '恐惧/fearful': 'Fear',
+                '厌恶/disgusted': 'Fear',
+                '<unk>': 'Neutral',
+                '中立/neutral': 'Neutral',
+                '其他/other': 'Neutral'
+            }
+
+            if isinstance(rec_result, list) and len(rec_result) > 0:
+                result_entry = rec_result[0]
+                labels = result_entry.get('labels', [])
+                scores = result_entry.get('scores', [])
+
+                # Save the audio file path and emotion detection result in the database
+                audio = Audio(input=audio_file_path)
+                db.session.add(audio)
+
+                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
+                db.session.add(emotion)
+
+                # 合并和分类标签
+                merged_labels = defaultdict(float)
+                for label, score in zip(labels, scores):
+                    mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
+                    merged_labels[mapped_label] += score
+                # print(merged_labels)
+
+                # 获取权重最高的标签
+                max_label = max(merged_labels, key=merged_labels.get)
+                # print(max_label, "++++++++++++++++++++++++++++++++++++")
+
+                db.session.commit()
+
+            return redirect(url_for('main.sendresponse', emotion_label=max_label))
+    return render_template('treeAudioNew.html')
 
