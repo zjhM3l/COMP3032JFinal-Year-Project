@@ -102,27 +102,6 @@
                         </form>
                     </div>
 
-                    <div class="sidebar__single sidebar__post">
-                        <h3 class="sidebar__title">Popular Posts</h3>
-                        <ul class="sidebar__post-list list-unstyled">
-
-                            {% for blog in blogs[:3] %}
-                                <li>
-                                    <div class="sidebar__post-image">
-                                        <img src="{{ blog.cover_url }}" alt="">
-                                    </div>
-                                    <div class="sidebar__post-content">
-                                        <h3>
-                                                <span class="sidebar__post-content-meta"><i
-                                                        class="fa fa-comments"></i>{{ blog.read_count }}
-                                                    Reads</span>
-                                            <a href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
-                                        </h3>
-                                    </div>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
                     <div class="sidebar__single sidebar__category">
                         <h3 class="sidebar__title">Categories</h3>
                         <ul class="sidebar__category-list list-unstyled">
@@ -177,9 +156,35 @@
                     </div>
                 {% endfor %}
 
+                <div class="sidebar">
+                    <div class="sidebar__single sidebar__post">
+                        <h3 class="sidebar__title">Popular Posts</h3>
+                        <ul class="sidebar__post-list list-unstyled">
+
+                            {% for blog in blogs[:3] %}
+                                <li>
+                                    <div class="sidebar__post-image">
+                                        <img src="{{ blog.cover_url }}" alt="">
+                                    </div>
+                                    <div class="sidebar__post-content">
+                                        <h3>
+                                                <span class="sidebar__post-content-meta"><i
+                                                        class="fa fa-comments"></i>{{ blog.read_count }}
+                                                    Reads</span>
+                                            <a href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="pagination">
                     {{ macros.pagination_widget(pagination, '.blog') }}
                 </div>
+
+
 
 
             </div>
