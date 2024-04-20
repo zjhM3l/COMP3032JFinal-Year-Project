@@ -127,9 +127,8 @@
                                 </p>
                                 <
                                 <div class="blog-details__like-button">
-                                    <form method="post" action="/helpful">
-                                        <button type="submit" class="thm-btn comment-form__btn"
-                                                style="padding: 8px 15px;">
+                                    <form id="likeForm" method="post" action="{{ url_for('main.handle_like', id=blog.id) }}">
+                                        <button type="submit" class="thm-btn comment-form__btn" style="padding: 8px 15px;">
                                             <i class="fas fa-heart"></i> Like
                                         </button>
                                     </form>
@@ -373,6 +372,23 @@
 
 
 <script>
+     $(document).ready(function () {
+        $('#likeForm').submit(function (event) {
+            event.preventDefault(); // 阻止表单默认提交
+
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(), // 将表单数据序列化为字符串
+                success: function (response) {
+                    alert('You liked this post and the emotion was recorded.'); // 显示成功提示
+                },
+                error: function () {
+                    alert('An error occurred. Please try again.'); // 显示错误提示
+                }
+            });
+        });
+    });
     function getCommentsNum(postId) {
         fetch(`/posts/${postId}`)
             .then(response => response.json())

@@ -16,7 +16,7 @@ from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm, CommentForm
 from sklearn.feature_extraction.text import TfidfVectorizer
 from .. import db
-from ..models import User, Post, Comment, Emotion, Audio, Category
+from ..models import User, Post, Comment, Emotion, Audio, Category, Helpful
 from werkzeug.security import generate_password_hash
 import re
 from random import choice
@@ -230,6 +230,33 @@ def blogdetails(id):
     blogs = blogsPagination.items
 
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count)
+
+
+@main.route('/handle_like/<int:id>', methods=['POST'])
+def handle_like(id):
+    # 获取当前用户
+    user = current_user
+
+    # 获取当前用户最近一次的情绪记录
+    latest_emotion = Emotion.query.filter_by(user_id=user.id).order_by(Emotion.id.desc()).first()
+
+    if latest_emotion:
+        emotion_label = latest_emotion.emotion
+
+        print(emotion_label)  # 输出最高得分的情绪标签
+        # 将情绪标签写入 Helpful 数据模型
+        helpful_info = Helpful(post_id=id,
+                               user_id=user.id,
+                               emotion=emotion_label,
+                               timestamp=datetime.utcnow())
+        db.session.add(helpful_info)
+        db.session.commit()
+        flash('You liked this post and the emotion was recorded.')
+    else:
+        flash('No emotion record found.')
+
+    # 重定向到原来的页面或其他页面
+    return jsonify({'message': 'Task completed successfully'}), 200
 
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
@@ -627,22 +654,23 @@ def sendtreeText():
         if status_code != 200:
             result = '{"Neutral": 1.0}'
 
+        result_dict = json.loads(result)
+        # print(type(result_dict), result_dict)
+        emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+        # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
+
         # 创建 Emotion 对象
         emotion = Emotion(
             type=1,  # 文本情绪
             user=current_user,
             hole=post,  # 连接到新创建的博客对象 epost
-            output=result  # 将情绪检测结果写入 output 字段
+            output=result,  # 将情绪检测结果写入 output 字段
+            emotion=emotion_label
         )
 
         # 将 Emotion 对象添加到数据库会话中并提交更改
         db.session.add(emotion)
         db.session.commit()
-
-        result_dict = json.loads(result)
-        # print(type(result_dict), result_dict)
-        emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
-        # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
 
         return redirect(url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
     return render_template('treeText.html', form=form)
@@ -710,9 +738,6 @@ def sendtreeAudio():
                 audio = Audio(input=audio_file_path)
                 db.session.add(audio)
 
-                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}")
-                db.session.add(emotion)
-
                 # 合并和分类标签
                 merged_labels = defaultdict(float)
                 for label, score in zip(labels, scores):
@@ -723,6 +748,9 @@ def sendtreeAudio():
                 # 获取权重最高的标签
                 max_label = max(merged_labels, key=merged_labels.get)
                 # print(max_label, "++++++++++++++++++++++++++++++++++++")
+
+                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}", emotion=max_label)
+                db.session.add(emotion)
 
                 db.session.commit()
 

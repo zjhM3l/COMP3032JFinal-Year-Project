@@ -168,6 +168,4 @@ class Emotion(db.Model):
     audio_id = db.Column(db.Integer, db.ForeignKey('audios.id'))
     audio = db.relationship('Audio', backref='audio_emotions')
     output = db.Column(db.Text)  # 存储情绪检测结果
-
-
-
+    emotion = db.Column(db.String(256))
