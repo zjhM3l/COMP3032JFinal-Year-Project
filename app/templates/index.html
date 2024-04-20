@@ -750,6 +750,7 @@
 
         <div style="width: 100%; background-color: #886754; height: 0.5px"></div>
 
+        {% for i in e_blogs %}
         <!--BLog One Start-->
         <section class="blog-one">
             <div class="container">
@@ -764,22 +765,20 @@
                         <div class="blog-one__single">
                             <div class="blog-one__img-box">
                                 <div class="blog-one__img">
-                                    <img src="../static/images/blog/blog-1-1.jpg" alt="">
-                                    <a href="blog-details.html">
+                                    <img src="{{ i.cover_url }}" alt="img">
+                                    <a href="{{ url_for('main.blogdetails', id=i.id) }}">
                                         <span class="blog-one__plus"></span>
                                     </a>
                                     <div class="blog-one__date">
-                                        <p>20
-                                            <br> Mar</p>
+                                        <p>{{ i.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
                                     </div>
                                 </div>
                                 <div class="blog-one__content-top">
                                     <div class="blog-one__content-img">
                                         <img src="../static/images/blog/blog-content-img.jpg" alt="">
                                     </div>
-                                    <p class="blog-one__content-sub-title">by Mike Hardson</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">Patient-Led Advocacy
-                                            Group Shares Patient Perspective</a></h3>
+                                    <p class="blog-one__content-sub-title">by {{ i.author.first_name }} {{ i.author.last_name }}</p>
+                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ i.title }}</a></h3>
                                 </div>
                             </div>
                             <div class="blog-one__content">
@@ -871,6 +870,7 @@
             </div>
         </section>
         <!--BLog One End-->
+        {% endfor %}
 
 
 
