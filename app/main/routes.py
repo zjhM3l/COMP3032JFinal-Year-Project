@@ -5,7 +5,7 @@ import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from modelscope import Tasks, pipeline
-from sqlalchemy import func, and_
+from sqlalchemy import func, and_, desc
 from werkzeug.utils import secure_filename
 # from modelscope.pipelines import pipeline
 # from modelscope.utils.constant import Tasks
@@ -27,7 +27,26 @@ from collections import defaultdict
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    trees = Post.query.filter_by(hole=True).order_by(Post.timestamp.desc())
+
+    u_blogs = Post.query.filter(Post.author.has(role=False), Post.hole == False). \
+        order_by(desc(Post.read_count)).limit(10).all()
+
+    e_blogs = Post.query.filter(Post.author.has(role=True), Post.hole == False). \
+        order_by(desc(Post.read_count)).limit(10).all()
+
+    emotions = []
+
+    for tree in trees:
+        emotion = Emotion.query.filter_by(hole_id=tree.id).first()
+        if emotion:
+            result_dict = json.loads(emotion.output)
+            emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+            emotions.append(emotion_label)
+        else:
+            emotions.append(None)
+
+    return render_template('index.html', u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
 
 
 @main.route('/404', methods=['GET', 'POST'])
@@ -80,6 +99,8 @@ def blog():
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
     blog = Post.query.get_or_404(id)
+    blog.read_count += 1
+    db.session.commit()
 
     cform = CommentForm()
     comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=id).scalar()
