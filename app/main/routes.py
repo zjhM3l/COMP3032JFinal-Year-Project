@@ -64,6 +64,48 @@ def anxietygrief():
     return render_template('anxiety-grief.html')
 
 
+@main.route('/ublog', methods=['GET', 'POST'])
+def ublog():
+    # 获取传递过来的邮箱参数
+    email = request.args.get('email')
+
+    # 根据邮箱查找对应用户的博客内容
+    user = User.query.filter_by(email=email).first()
+    if user is None:
+        # 处理用户不存在的情况
+        flash('User not found.')
+        return redirect(url_for('main.index'))
+
+    sform = searchForm()
+    search = ''
+    if sform.validate_on_submit():
+        search = sform.body.data
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
+
+    pagination = Post.query.filter(
+        and_(
+            Post.author_id == user.id,  # 过滤当前用户的博客
+            Post.hole == False,
+            (
+                    Post.title.like('%' + search + '%') |
+                    # Post.category.like('%' + search + '%') |
+                    Post.keyA.like('%' + search + '%') |
+                    Post.keyB.like('%' + search + '%') |
+                    Post.keyC.like('%' + search + '%') |
+                    Post.keyD.like('%' + search + '%') |
+                    Post.keyE.like('%' + search + '%')
+            )
+        )
+    ).order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page, error_out=False
+    )
+
+    blogs = pagination.items
+
+    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
+
+
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
     sform = searchForm()

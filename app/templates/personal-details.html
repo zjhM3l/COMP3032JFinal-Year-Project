@@ -121,7 +121,7 @@
                             </div>
                             <div class="team-details__btn-box">
                                 <a href="{{url_for('main.personaldetailsmodify', email=current_user.email) }}" class="team-details__btn thm-btn">Profile Modify</a>
-                                <a href="make-appointment.html" class="team-details__btn thm-btn">My Posts</a>
+                                <a href="{{ url_for('main.ublog', email=current_user.email) }}" class="team-details__btn thm-btn">My Posts</a>
                             </div>
                         </div>
                     </div>
