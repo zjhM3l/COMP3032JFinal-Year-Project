@@ -618,8 +618,16 @@ def sendtreeText():
     form = TreeForm()
     if form.validate_on_submit():
         # Generate random user information for anonymous author
-        anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
-        anonymous_email = f"{anonymous_username}@soulharbor.com"
+        # Generate random user information for anonymous author
+        while True:
+            anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
+            anonymous_email = f"{anonymous_username}@soulharbor.com"
+
+            # Check if the generated email is unique
+            existing_user = User.query.filter_by(email=anonymous_email).first()
+            if not existing_user:
+                break  # Exit the loop if the email is unique
+
         avatar_folder = 'app/static/defaultAvatars'
         avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.jpg')]
         if avatar_files:
