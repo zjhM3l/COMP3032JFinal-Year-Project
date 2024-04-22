@@ -490,9 +490,18 @@
                                         <div class="widget__left">
                                             <h3 class="widget__title">Overall Visits</h3>
                                             <div class="widget__status-title text-grey">Total visits for the website</div>
-                                            <div class="widget__trade"><span class="widget__trade-count">4000</span><span class="trade-icon trade-icon--up">
+                                            <div class="widget__trade"><span class="widget__trade-count">{{ overall[0] }}</span>
 
                                             </div>
+
+                                        </div>
+                                        <div class="widget__chart">
+                                            <div class="widget__chart-inner">
+                                                <div class="widget__chart-percentage">{{ overall[1] }}<small>%</small>
+                                                </div>
+                                                <div class="widget__chart-caption">New Visits</div>
+                                            </div>
+                                            <div class="widget__chart-canvas js-progress-circle" data-value="{{ overall[2] }}" data-color="#22CCE2"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -505,10 +514,17 @@
                                         <div class="widget__left">
                                             <h3 class="widget__title">Tree Visits</h3>
                                             <div class="widget__status-title text-grey">Total visits for tree hole</div>
-                                            <div class="widget__trade"><span class="widget__trade-count">1000</span>
+                                            <div class="widget__trade"><span class="widget__trade-count">{{ treeOverall[0] }}</span>
                                             </div>
                                         </div>
-
+                                        <div class="widget__chart">
+                                            <div class="widget__chart-inner">
+                                                <div class="widget__chart-percentage">{{ treeOverall[1] }}<small>%</small>
+                                                </div>
+                                                <div class="widget__chart-caption">New Visits</div>
+                                            </div>
+                                            <div class="widget__chart-canvas js-progress-circle" data-value="{{ treeOverall[2] }}" data-color="#FF3D57"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -520,8 +536,16 @@
                                         <div class="widget__left">
                                             <h3 class="widget__title">Blog visits</h3>
                                             <div class="widget__status-title text-grey">Total visits for blogs</div>
-                                            <div class="widget__trade"><span class="widget__trade-count">500</span>
+                                            <div class="widget__trade"><span class="widget__trade-count">{{ blogOverall[0] }}</span>
                                             </div>
+                                        </div>
+                                        <div class="widget__chart">
+                                            <div class="widget__chart-inner">
+                                                <div class="widget__chart-percentage">{{ blogOverall[1] }}<small>%</small>
+                                                </div>
+                                                <div class="widget__chart-caption">New Visits</div>
+                                            </div>
+                                            <div class="widget__chart-canvas js-progress-circle" data-value="{{ blogOverall[2] }}" data-color="#FDBF5E"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -549,7 +573,7 @@
 
                                             <!-- add chart data here -->
                                             <div class="card__chart">
-                                                <div class="card__chart-item chart-profit" id="profitPieChart" data-series="[200, 120, 180, 140, 220]"></div>
+                                                <div class="card__chart-item chart-profit" id="profitPieChart" data-series="{{ textRatio }}"></div>
                                             </div>
                                         </div>
 
@@ -560,41 +584,37 @@
                                                         <tr>
                                                             <td><span class="signal" style="color: #FF3D57;"></span><span>Happy</span>
                                                             </td>
-                                                            <td><span>500</span><span class="quotation quotation--up">
-                                                            </td>
-                                                            <td><span class="text-grey">37%</span>
+                                                            <td><span>{{ textRatio[0] }}</span><span class="quotation quotation--up">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="signal" style="color: #FDBF5E;"></span><span>Angry</span>
                                                             </td>
-                                                            <td><span>450</span><span class="quotation quotation--down">
-                                                            </td>
-                                                            <td><span class="text-grey">35%</span>
+                                                            <td><span>{{ textRatio[1] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="signal" style="color: #22CCE2;"></span><span>Surprise</span>
                                                             </td>
-                                                            <td><span>300</span><span class="quotation quotation--down">
-                                                            </td>
-                                                            <td><span class="text-grey">28%</span>
+                                                            <td><span>{{ textRatio[2] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="signal" style="color: #c532f7;"></span><span>Sad</span>
                                                             </td>
-                                                            <td><span>300</span><span class="quotation quotation--down">
-                                                            </td>
-                                                            <td><span class="text-grey">28%</span>
+                                                            <td><span>{{ textRatio[3] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="signal" style="color: #060c5b;"></span><span>Fear</span>
                                                             </td>
-                                                            <td><span>300</span><span class="quotation quotation--down">
+                                                            <td><span>{{ textRatio[4] }}</span><span class="quotation quotation--down">
                                                             </td>
-                                                            <td><span class="text-grey">28%</span>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #c48728;"></span><span>Neutral</span>
+                                                            </td>
+                                                            <td><span>{{ textRatio[5] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -619,7 +639,7 @@
                                         </div>
                                         <div class="card__body">
                                             <div class="card__chart">
-                                                <div class="card__chart-item chart-profit" id="audioEmotion" data-series="[200, 120, 180]"></div>
+                                                <div class="card__chart-item chart-profit" id="audioEmotion" data-series="{{ audioRatio }}"></div>
                                             </div>
                                         </div>
                                         <div class="card__footer">
@@ -627,27 +647,39 @@
                                                 <table class="card__stat">
                                                     <tbody>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #FF3D57;"></span><span>Current</span>
+                                                            <td><span class="signal" style="color: #FF3D57;"></span><span>Happy</span>
                                                             </td>
-                                                            <td><span>$500</span><span class="quotation quotation--up"></span>
-                                                            </td>
-                                                            <td><span class="text-grey">37%</span>
+                                                            <td><span>{{ audioRatio[0] }}</span><span class="quotation quotation--up">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #FDBF5E;"></span><span>Lost</span>
+                                                            <td><span class="signal" style="color: #FDBF5E;"></span><span>Angry</span>
                                                             </td>
-                                                            <td><span>$450</span><span class="quotation quotation--down"></span>
-                                                            </td>
-                                                            <td><span class="text-grey">35%</span>
+                                                            <td><span>{{ audioRatio[1] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #22CCE2;"></span><span>Target</span>
+                                                            <td><span class="signal" style="color: #22CCE2;"></span><span>Surprise</span>
                                                             </td>
-                                                            <td><span>$300</span><span class="quotation quotation--down"></span>
+                                                            <td><span>{{ audioRatio[2] }}</span><span class="quotation quotation--down">
                                                             </td>
-                                                            <td><span class="text-grey">28%</span>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #c532f7;"></span><span>Sad</span>
+                                                            </td>
+                                                            <td><span>{{ audioRatio[3] }}</span><span class="quotation quotation--down">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #060c5b;"></span><span>Fear</span>
+                                                            </td>
+                                                            <td><span>{{ audioRatio[4] }}</span><span class="quotation quotation--down">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #c48728;"></span><span>Neutral</span>
+                                                            </td>
+                                                            <td><span>{{ audioRatio[5] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -673,7 +705,7 @@
                                         </div>
                                         <div class="card__body">
                                             <div class="card__chart">
-                                                <div class="card__chart-item chart-profit" id="blogSection" data-series="[200, 120, 180]"></div>
+                                                <div class="card__chart-item chart-profit" id="blogSection" data-series="{{ blogRatio }}"></div>
                                             </div>
                                         </div>
                                         <div class="card__footer">
@@ -681,27 +713,39 @@
                                                 <table class="card__stat">
                                                     <tbody>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #FF3D57;"></span><span>Current</span>
+                                                            <td><span class="signal" style="color: #FF3D57;"></span><span>Dating & Relationship</span>
                                                             </td>
-                                                            <td><span>$500</span><span class="quotation quotation--up"></span>
-                                                            </td>
-                                                            <td><span class="text-grey">37%</span>
+                                                            <td><span>{{ blogRatio[0] }}</span><span class="quotation quotation--up">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #FDBF5E;"></span><span>Lost</span>
+                                                            <td><span class="signal" style="color: #FDBF5E;"></span><span>Self Esteem Boosters</span>
                                                             </td>
-                                                            <td><span>$450</span><span class="quotation quotation--down"></span>
-                                                            </td>
-                                                            <td><span class="text-grey">35%</span>
+                                                            <td><span>{{ blogRatio[1] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span class="signal" style="color: #22CCE2;"></span><span>Target</span>
+                                                            <td><span class="signal" style="color: #22CCE2;"></span><span>Family Dynamics & Parenting</span>
                                                             </td>
-                                                            <td><span>$300</span><span class="quotation quotation--down"></span>
+                                                            <td><span>{{ blogRatio[2] }}</span><span class="quotation quotation--down">
                                                             </td>
-                                                            <td><span class="text-grey">28%</span>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #c532f7;"></span><span>Career Growth & Development</span>
+                                                            </td>
+                                                            <td><span>{{ blogRatio[3] }}</span><span class="quotation quotation--down">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #060c5b;"></span><span>Stress Management Techniques</span>
+                                                            </td>
+                                                            <td><span>{{ blogRatio[4] }}</span><span class="quotation quotation--down">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span class="signal" style="color: #c48728;"></span><span>Mindfulness & Well-being</span>
+                                                            </td>
+                                                            <td><span>{{ blogRatio[5] }}</span><span class="quotation quotation--down">
                                                             </td>
                                                         </tr>
                                                     </tbody>
