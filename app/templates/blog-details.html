@@ -139,7 +139,7 @@
 
                             </div>
 
-                          <!-- recommendation -->
+                            <!-- recommendation -->
                             <div class="row">
                                 {% for recommendation in recommendations %}
                                     <div class="col-lg-6">
@@ -179,11 +179,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <div class="blog-details__pagenation-right-content">
-                                                                <p class="blog-details__pagenation-right-date"><i
+                                                            <div class="blog-details__pagenation-left-content">
+                                                                <p class="blog-details__pagenation-left-date"><i
                                                                         class="fas fa-clock"></i> {{ recommendation.timestamp }}
                                                                 </p>
-                                                                <h4 class="blog-details__pagenation-right-title"><a
+                                                                <h4 class="blog-details__pagenation-left-title"><a
                                                                         href="{{ url_for('main.blogdetails', id=recommendation.id) }}">{{ recommendation.title }}</a>
                                                                 </h4>
                                                             </div>
@@ -196,31 +196,31 @@
                                 {% endfor %}
                             </div>
 
-                            <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments</h3>
-                            {% for comment in comments %}
-
-                                <div class="comment-one">
-
-                                    <div>
-                                        {% if comment.author.avatar_url %}
-                                            <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}"
-                                                 alt="">
-                                        {% else %}
-                                            <img style="height: 50px; width: 50px"
-                                                 src="../static/images/team/team-details-img-1.jpg" alt="">
-                                        {% endif %}
-
+                            {% if comment_count > 0 %}
+                                <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments</h3>
+                                {% for comment in comments %}
+                                    <div class="comment-one">
+                                        <div>
+                                            {% if comment.author.avatar_url %}
+                                                <img style="height: 50px; width: 50px"
+                                                     src="{{ comment.author.avatar_url }}" alt="">
+                                            {% else %}
+                                                <img style="height: 50px; width: 50px"
+                                                     src="../static/images/team/team-details-img-1.jpg" alt="">
+                                            {% endif %}
+                                        </div>
+                                        <div class="comment-one__content" style="position: relative;min-width: 320px">
+                                            <h6>{{ comment.author.email }}</h6>
+                                            <p>{{ comment.body }}</p>
+                                        </div>
                                     </div>
+                                {% endfor %}
 
-                                    <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                        <h6>{{ comment.author.email }}</h6>
-                                        <p>{{ comment.body }}</p>
-                                    </div>
+
+                                <div class="pagination">
+                                    {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
                                 </div>
-                            {% endfor %}
-                            <div class="pagination">
-                                {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
-                            </div>
+                            {% endif %}
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
                                 <form action=""
