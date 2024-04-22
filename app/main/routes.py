@@ -7,8 +7,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
-# from modelscope.pipelines import pipeline
-# from modelscope.utils.constant import Tasks
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
 from datetime import datetime
 
 from . import main
@@ -787,7 +787,7 @@ def sendtreeAudio():
                 db.session.add(emotion)
 
                 db.session.commit()
-
-            return redirect(url_for('main.sendresponse', emotion_label=max_label))
+#             return redirect(url_for('main.sendresponse', emotion_label=max_label))
+            return jsonify({'url': '/sendresponse/'+max_label})
     return render_template('treeAudioNew.html')
 

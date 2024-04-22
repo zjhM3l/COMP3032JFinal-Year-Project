@@ -127,8 +127,10 @@
                                 </p>
                                 <
                                 <div class="blog-details__like-button">
-                                    <form id="likeForm" method="post" action="{{ url_for('main.handle_like', id=blog.id) }}">
-                                        <button type="submit" class="thm-btn comment-form__btn" style="padding: 8px 15px;">
+                                    <form id="likeForm" method="post"
+                                          action="{{ url_for('main.handle_like', id=blog.id) }}">
+                                        <button type="submit" class="thm-btn comment-form__btn"
+                                                style="padding: 8px 15px;">
                                             <i class="fas fa-heart"></i> Like
                                         </button>
                                     </form>
@@ -136,35 +138,62 @@
 
 
                             </div>
-                            <div class="blog-details__pagenation">
-                                <div class="blog-details__pagenation-left">
-                                    <div class="blog-details__pagenation-left-img">
-                                        <img src="../static/images/blog/blog-details-pagenation-img-1.jpg" alt="img">
-                                    </div>
-                                    <div class="blog-details__pagenation-left-content">
-                                        <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
-                                            23 Mar, 2023</p>
-                                        <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
-                                            Knowledge
-                                            of Bipolar Disorder</a></h4>
 
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="blog-details__pagenation-right">
-                                    <div class="blog-details__pagenation-left-content">
-                                        <p class="blog-details__pagenation-left-date"><i class="fas fa-clock"></i>
-                                            23 Mar, 2023</p>
-                                        <h4 class="blog-details__pagenation-left-title"><a href="#">Get Deep
-                                            Knowledge
-                                            of Deep learning</a></h4>
+                          <!-- recommendation -->
+                            <div class="row">
+                                {% for recommendation in recommendations %}
+                                    <div class="col-lg-6">
+                                        {% if loop.index0 % 2 == 0 %}
 
-                                        </h4>
+                                            <div class="blog-details__pagenation-left">
+                                                <div class="blog-details__pagenation-left-item">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="blog-details__pagenation-left-img">
+                                                                <img src="{{ recommendation.cover_url }}"
+                                                                     style="width: 100px;  height: 100px;" alt="img">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="blog-details__pagenation-left-content">
+                                                                <p class="blog-details__pagenation-left-date"><i
+                                                                        class="fas fa-clock"></i> {{ recommendation.timestamp }}
+                                                                </p>
+                                                                <h4 class="blog-details__pagenation-left-title"><a
+                                                                        href="{{ url_for('main.blogdetails', id=recommendation.id) }}">{{ recommendation.title }}</a>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% else %}
+
+                                            <div class="blog-details__pagenation-right">
+                                                <div class="blog-details__pagenation-right-item">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="blog-details__pagenation-right-img">
+                                                                <img src="{{ recommendation.cover_url }}"
+                                                                     style="width: 100px; height: 100px;" alt="img">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <div class="blog-details__pagenation-right-content">
+                                                                <p class="blog-details__pagenation-right-date"><i
+                                                                        class="fas fa-clock"></i> {{ recommendation.timestamp }}
+                                                                </p>
+                                                                <h4 class="blog-details__pagenation-right-title"><a
+                                                                        href="{{ url_for('main.blogdetails', id=recommendation.id) }}">{{ recommendation.title }}</a>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                    <div class="blog-details__pagenation-right-img">
-                                        <img src="../static/images/blog/blog-details-pagenation-img-2.jpg" alt="img">
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
 
                             <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments</h3>
@@ -231,12 +260,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="sidebar">
-                        <div class="sidebar__single sidebar__search">
-                            <form action="#" class="sidebar__search-form">
-                                <input type="search" placeholder="Keywrord...">
-                                <button type="submit"><i class="icon-magnifying-glass"></i></button>
-                            </form>
-                        </div>
+
                         <div class="sidebar__single sidebar__post">
                             <h3 class="sidebar__title">Latest Posts</h3>
                             <ul class="sidebar__post-list list-unstyled">
@@ -372,7 +396,7 @@
 
 
 <script>
-     $(document).ready(function () {
+    $(document).ready(function () {
         $('#likeForm').submit(function (event) {
             event.preventDefault(); // 阻止表单默认提交
 
@@ -389,6 +413,7 @@
             });
         });
     });
+
     function getCommentsNum(postId) {
         fetch(`/posts/${postId}`)
             .then(response => response.json())
