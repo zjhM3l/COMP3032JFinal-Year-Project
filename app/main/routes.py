@@ -7,9 +7,10 @@ from flask_login import login_user, login_required, logout_user, current_user
 from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
-# from modelscope.pipelines import pipeline
-# from modelscope.utils.constant import Tasks
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
 from datetime import datetime
+
 
 from . import main
 from .email import send_email
@@ -22,7 +23,8 @@ import re
 from random import choice
 import string
 import json
-from collections import defaultdict
+
+from collections import defaultdict, Counter
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -47,6 +49,9 @@ def index():
             emotions.append(None)
 
     return render_template('index.html', u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
+
+
+
 
 
 @main.route('/404', methods=['GET', 'POST'])
@@ -135,7 +140,10 @@ def blog():
 
     blogs = pagination.items
 
-    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
+    for blog in blogs:
+        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
+
+    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform, blog_timestamp=blog_timestamp)
 
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
@@ -230,17 +238,38 @@ def blogdetails(id):
     blogs = blogsPagination.items
 
     # Generate recommendations based on keywords
-    effective_words = [word for word in blog.title.split() if
-                       word not in stop_words]  # Assuming blog.title contains effective words
+    effective_words = [word for word in blog.title.split() if word not in stop_words]
     effective_words += [word for word in [blog.keyA, blog.keyB, blog.keyC, blog.keyD, blog.keyE] if
                         word not in stop_words]
     recommendations = []
+    added_post_ids = set()  # Keep track of added post ids to avoid duplicates
+    keyword_counter = Counter()  # Count keyword occurrences for sorting
+
     for word in effective_words:
         related_posts = Post.query.filter(or_(Post.title.contains(word), Post.keyA == word, Post.keyB == word,
                                               Post.keyC == word, Post.keyD == word, Post.keyE == word)).all()
-        recommendations.extend(related_posts)
+        for post in related_posts:
+            if post.id not in added_post_ids:
+                recommendations.append(post)
+                added_post_ids.add(post.id)
+                keyword_counter[word] += 1  # Count keyword occurrences for this post
 
-    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
+    # Sort recommendations based on keyword occurrences and other criteria
+    recommendations.sort(key=lambda x: (keyword_counter[x.keyA] + keyword_counter[x.keyB] + keyword_counter[x.keyC] +
+                                        keyword_counter[x.keyD] + keyword_counter[x.keyE],
+                                        len(set(effective_words) & set([x.keyA, x.keyB, x.keyC, x.keyD, x.keyE]))),
+                         reverse=True)
+
+    # Keep only the top four recommendations
+    recommendations = recommendations[:2]
+    for recommendation in recommendations:
+        recommendation_timestamp = recommendation.timestamp.strftime("%Y-%m-%d")
+
+    for blog in blogs:
+        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
+
+    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
+                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations, recommendation_timestamp=recommendation_timestamp,blog_timestamp = blog_timestamp)
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
@@ -305,7 +334,10 @@ def blogsidebar():
 
     # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
 
-    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination)
+    for blog in blogs:
+        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
+
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination, blog_timestamp=blog_timestamp)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
