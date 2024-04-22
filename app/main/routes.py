@@ -22,7 +22,7 @@ import re
 from random import choice
 import string
 import json
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -230,15 +230,30 @@ def blogdetails(id):
     blogs = blogsPagination.items
 
     # Generate recommendations based on keywords
-    effective_words = [word for word in blog.title.split() if
-                       word not in stop_words]  # Assuming blog.title contains effective words
+    effective_words = [word for word in blog.title.split() if word not in stop_words]
     effective_words += [word for word in [blog.keyA, blog.keyB, blog.keyC, blog.keyD, blog.keyE] if
                         word not in stop_words]
     recommendations = []
+    added_post_ids = set()  # Keep track of added post ids to avoid duplicates
+    keyword_counter = Counter()  # Count keyword occurrences for sorting
+
     for word in effective_words:
         related_posts = Post.query.filter(or_(Post.title.contains(word), Post.keyA == word, Post.keyB == word,
                                               Post.keyC == word, Post.keyD == word, Post.keyE == word)).all()
-        recommendations.extend(related_posts)
+        for post in related_posts:
+            if post.id not in added_post_ids:
+                recommendations.append(post)
+                added_post_ids.add(post.id)
+                keyword_counter[word] += 1  # Count keyword occurrences for this post
+
+    # Sort recommendations based on keyword occurrences and other criteria
+    recommendations.sort(key=lambda x: (keyword_counter[x.keyA] + keyword_counter[x.keyB] + keyword_counter[x.keyC] +
+                                        keyword_counter[x.keyD] + keyword_counter[x.keyE],
+                                        len(set(effective_words) & set([x.keyA, x.keyB, x.keyC, x.keyD, x.keyE]))),
+                         reverse=True)
+
+    # Keep only the top four recommendations
+    recommendations = recommendations[:2]
 
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
 
