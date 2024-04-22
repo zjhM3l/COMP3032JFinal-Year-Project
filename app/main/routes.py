@@ -4,11 +4,11 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
-#from modelscope import Tasks, pipeline
+from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
-# from modelscope.pipelines import pipeline
-# from modelscope.utils.constant import Tasks
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
 from datetime import datetime
 
 from . import main
