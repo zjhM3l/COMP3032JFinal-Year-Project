@@ -62,6 +62,12 @@
   content: "\e907";
 }
 
+.toggleButton{
+  border: none;
+  background-color: transparent;
+  margin-left: 20px;
+}
+
 .icon-left-arrow:before {
   content: "\e908";
 }
