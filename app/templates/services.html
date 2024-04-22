@@ -132,9 +132,43 @@
                 <!--Services Two Single Start-->
                 <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
     <div class="services-two__single">
-        <div class="services-two__icon">
-            <img src="{{ treepost.cover_url }}">
+
+        {% if emotions[loop.index - 1] == "Happy" %}
+
+        <div class="services-two__icon color1">
+
+            <p style="color: white">Happy</p>
         </div>
+
+        {% elif emotions[loop.index - 1] == "Angry" %}
+            <div class="services-two__icon color2">
+                <p style="color: white">Angry</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Surprise" %}
+            <div class="services-two__icon color3">
+                <p style="color: white">Surprise</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Sad" %}
+            <div class="services-two__icon color4">
+                <p style="color: white">Sad</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Fear" %}
+            <div class="services-two__icon color5">
+                <p style="color: white">Fear</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Neutral" %}
+            <div class="services-two__icon color6">
+                <p style="color: white">Neutral</p>
+            </div>
+
+        {% endif %}
+
+
+
         <div class="services-two__content">
             <div class="services-two__title-box">
                 <p class="services-two__text" id="postText{{ loop.index }}">

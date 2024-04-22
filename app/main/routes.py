@@ -560,6 +560,7 @@ def services():
             emotions.append(emotion_label)
         else:
             emotions.append(None)  # 如果没有对应的emotion，则添加None
+        print(emotions)
 
     return render_template('services.html', trees=trees, emotions=emotions, pagination=pagination)
 
