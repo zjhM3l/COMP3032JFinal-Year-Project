@@ -772,7 +772,7 @@ def sendtreeAudio():
                 db.session.add(emotion)
 
                 db.session.commit()
-
-            return redirect(url_for('main.sendresponse', emotion_label=max_label))
+#             return redirect(url_for('main.sendresponse', emotion_label=max_label))
+            return jsonify({'url': '/sendresponse/'+max_label})
     return render_template('treeAudioNew.html')
 

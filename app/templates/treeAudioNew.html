@@ -313,10 +313,11 @@
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
             console.log(data);
             // 处理后端返回的数据
+            location.href = `${location.protocol}//${location.host}${data.url}`
         })
         .catch(error => {
             console.error('Error sending recording:', error);
