@@ -4,11 +4,11 @@ import random
 import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
-from modelscope import Tasks, pipeline
+#from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
-from modelscope.pipelines import pipeline
-from modelscope.utils.constant import Tasks
+#from modelscope.pipelines import pipeline
+#from modelscope.utils.constant import Tasks
 from datetime import datetime
 
 
@@ -25,7 +25,6 @@ import string
 import json
 
 from collections import defaultdict, Counter
-
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -141,7 +140,10 @@ def blog():
 
     blogs = pagination.items
 
-    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
+    for blog in blogs:
+        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
+
+    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform, blog_timestamp=blog_timestamp)
 
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
@@ -260,9 +262,14 @@ def blogdetails(id):
 
     # Keep only the top four recommendations
     recommendations = recommendations[:2]
+    for recommendation in recommendations:
+        recommendation_timestamp = recommendation.timestamp.strftime("%Y-%m-%d")
+
+    for blog in blogs:
+        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
-                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
+                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations, recommendation_timestamp=recommendation_timestamp,blog_timestamp = blog_timestamp)
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
