@@ -5,7 +5,7 @@ import requests
 from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from modelscope import Tasks, pipeline
-from sqlalchemy import func, and_, desc
+from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
 # from modelscope.pipelines import pipeline
 # from modelscope.utils.constant import Tasks
@@ -229,7 +229,18 @@ def blogdetails(id):
 
     blogs = blogsPagination.items
 
-    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count)
+    # Generate recommendations based on keywords
+    effective_words = [word for word in blog.title.split() if
+                       word not in stop_words]  # Assuming blog.title contains effective words
+    effective_words += [word for word in [blog.keyA, blog.keyB, blog.keyC, blog.keyD, blog.keyE] if
+                        word not in stop_words]
+    recommendations = []
+    for word in effective_words:
+        related_posts = Post.query.filter(or_(Post.title.contains(word), Post.keyA == word, Post.keyB == word,
+                                              Post.keyC == word, Post.keyD == word, Post.keyE == word)).all()
+        recommendations.extend(related_posts)
+
+    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
