@@ -11,6 +11,7 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from datetime import datetime
 
+
 from . import main
 from .email import send_email
 from .forms import LoginForm, RegistrationForm, TreeForm, ExpertForm, searchForm, CommentForm
@@ -22,7 +23,9 @@ import re
 from random import choice
 import string
 import json
+
 from collections import defaultdict, Counter
+
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -47,6 +50,9 @@ def index():
             emotions.append(None)
 
     return render_template('index.html', u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
+
+
+
 
 
 @main.route('/404', methods=['GET', 'POST'])
@@ -255,7 +261,8 @@ def blogdetails(id):
     # Keep only the top four recommendations
     recommendations = recommendations[:2]
 
-    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination, cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
+    return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
+                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations)
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
