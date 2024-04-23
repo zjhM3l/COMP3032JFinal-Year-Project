@@ -492,8 +492,8 @@ function chart() {
 
     const profitPieChartOptions = {
         series: dataSeries('#profitPieChart'),
-        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
-        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
+        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear', 'Neutral'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b', '#c48728'],
         chart: {
             type: 'donut',
             dropShadow: {
@@ -501,7 +501,7 @@ function chart() {
                 top: 0,
                 left: 4,
                 blur: 0,
-                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)', 'rgb(196, 135, 40)'],
                 opacity: 0.35
             }
         },
@@ -557,8 +557,8 @@ function chart() {
 
     const audioEmotionChartOptions = {
         series: dataSeries('#audioEmotion'),
-        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
-        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
+        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear', 'Neutral'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b', '#c48728'],
         chart: {
             type: 'donut',
             dropShadow: {
@@ -566,7 +566,7 @@ function chart() {
                 top: 0,
                 left: 4,
                 blur: 0,
-                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)', 'rgb(196, 135, 40)'],
                 opacity: 0.35
             }
         },
@@ -622,8 +622,8 @@ function chart() {
 
     const blogSectionChartOptions = {
         series: dataSeries('#blogSection'),
-        labels: ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear'],
-        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b'],
+        labels: ['Dating & Relationship', 'Self Esteem Boosters', 'Family Dynamics & Parenting', 'Career Growth & Development', 'Stress Management Techniques', 'Mindfulness & Well-being'],
+        colors: ['#FF3D57', '#FDBF5E', '#22CCE2', '#c532f7', '#060c5b', '#c48728'],
         chart: {
             type: 'donut',
             dropShadow: {
@@ -631,7 +631,7 @@ function chart() {
                 top: 0,
                 left: 4,
                 blur: 0,
-                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)'],
+                color: ['rgb(255, 61, 87)', 'rgb(253, 191, 94)', 'rgb(34, 204, 226)', 'rgb(197, 50, 247)', 'rgb(6, 12, 91)', 'rgb(196, 135, 40)'],
                 opacity: 0.35
             }
         },
@@ -661,7 +661,7 @@ function chart() {
                             fontFamily: themeStyle('--font-family-default'),
                             color: themeStyle('--text-primary-color'),
                             offsetY: -12,
-                            formatter: value => '$' + value
+                            formatter: value => value
                         },
                         total: {
                             show: true,

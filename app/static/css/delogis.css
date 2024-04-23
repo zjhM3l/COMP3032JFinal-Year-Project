@@ -6157,12 +6157,38 @@ ul {
   justify-content: center;
   bottom: 0;
   right: 0;
-  width: 90px;
-  height: 87px;
+  width: 80px;
+  height: 77px;
   background-color: var(--delogis-base);
   border-top-left-radius: var(--delogis-bdr-radius);
   z-index: 2;
+  border: 2px solid var(--delogis-base);
 }
+
+.color1{
+    background: linear-gradient(135deg, #FFD700, #FF69B4);
+}
+
+.color2{
+    background: linear-gradient(135deg, #8B0000, #FF4500);
+}
+
+.color3{
+    background: linear-gradient(135deg, #FFA500, #00BFFF);
+}
+
+.color4{
+    background: linear-gradient(135deg, #87CEEB, #000080);
+}
+
+.color5{
+    background: linear-gradient(135deg, #696969, #05a1a2);
+}
+
+.color6{
+    background: linear-gradient(135deg, #D3D3D3, #D2B48C);
+}
+
 
 .services-two__icon span {
   position: relative;

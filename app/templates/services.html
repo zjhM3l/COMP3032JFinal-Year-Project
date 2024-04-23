@@ -131,20 +131,59 @@
                 {% for treepost in trees %}
                 <!--Services Two Single Start-->
                 <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="services-two__single">
-                            <div class="services-two__icon">
-                                <img src="{{ treepost.mood }}">
-                            </div><div class="services-two__content">
-                            <div class="services-two__title-box">
-                                <p class="services-two__text">{{ treepost.content }}
-                                </p>
-                            </div>
-                            <div class="services-two__btn-box">
-                                <a href="{{ treepost.detail }}"><span class="icon-right-arrow"></span>More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="services-two__single">
+
+        {% if emotions[loop.index - 1] == "Happy" %}
+
+        <div class="services-two__icon color1">
+
+            <p style="color: white">Happy</p>
+        </div>
+
+        {% elif emotions[loop.index - 1] == "Angry" %}
+            <div class="services-two__icon color2">
+                <p style="color: white">Angry</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Surprise" %}
+            <div class="services-two__icon color3">
+                <p style="color: white">Surprise</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Sad" %}
+            <div class="services-two__icon color4">
+                <p style="color: white">Sad</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Fear" %}
+            <div class="services-two__icon color5">
+                <p style="color: white">Fear</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Neutral" %}
+            <div class="services-two__icon color6">
+                <p style="color: white">Neutral</p>
+            </div>
+
+        {% endif %}
+
+
+
+        <div class="services-two__content">
+            <div class="services-two__title-box">
+                <p class="services-two__text" id="postText{{ loop.index }}">
+                    {{ treepost.body | truncate(100) }}
+                    {% if treepost.body | length > 100 %}
+                        <span class="moreText" style="display:none;">{{ treepost.body | safe }}</span>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="services-two__btn-box">
+                <button class="toggleButton" data-post="postText{{ loop.index }}">Show More</button>
+            </div>
+        </div>
+    </div>
+</div>
                 <!--Services Two Single End-->
                 {% endfor %}
 
@@ -247,6 +286,28 @@
 <script src="../static/vendors/timepicker/timePicker.js"></script>
 <script src="../static/vendors/circleType/jquery.circleType.js"></script>
 <script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                var postText = document.getElementById(button.getAttribute("data-post"));
+                var moreText = postText.querySelector(".moreText");
+
+                if (moreText.style.display === "none") {
+                    moreText.style.display = "inline";
+                    button.textContent = "Hide";
+                } else {
+                    moreText.style.display = "none";
+                    button.textContent = "Show More";
+                }
+            });
+        });
+    });
+</script>
 
 
 <!-- template js -->
