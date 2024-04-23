@@ -1,0 +1,10 @@
+打开电脑自带的cmd
+依次输入：
+ssh student@csi420-01-vm2.ucd.ie
+ahGhegeey4pusequ
+cd website/
+source venv/bin/activate
+FLASK_APP=manage.py flask run
+
+之后可以在浏览器网址csi420-01-vm2.ucd.ie进入网站
+退出在cmd按ctrl+c
