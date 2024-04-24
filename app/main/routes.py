@@ -564,6 +564,32 @@ def services():
 
     return render_template('services.html', trees=trees, emotions=emotions, pagination=pagination)
 
+@main.route('/audioservices', methods=['GET', 'POST'])
+def audioservices():
+
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
+
+    pagination = Audio.query.order_by(
+        Audio.id.desc()).paginate(
+        page=page, per_page=per_page, error_out=False)
+    audios = pagination.items
+
+    emotions = []  # 用于存储每个hole对应的emotion_label
+
+    # for aud in audios:
+    #     # 查询对应的emotion_label
+    #     emotion = Emotion.query.filter_by(hole_id=aud.id).first()
+    #     if emotion:
+    #         result_dict = json.loads(emotion.output)
+    #         emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+    #         emotions.append(emotion_label)
+    #     else:
+    #         emotions.append(None)  # 如果没有对应的emotion，则添加None
+    #     print(emotions)
+
+    return render_template('audioServices.html', audios=audios, emotions=emotions, pagination=pagination)
+
 
 @main.route('/team', methods=['GET', 'POST'])
 def team():

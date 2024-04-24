@@ -1,0 +1,313 @@
+﻿{% import "_macros.html" as macros %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> Emotionasssssl Vent Tree </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="../static/images/favicons/site.webmanifest"/>
+    <meta name="description" content="delogis HTML 5 Template "/>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css"/>
+    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css"/>
+    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/delogis-icons/style.css">
+    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css"/>
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="../static/css/delogis.css"/>
+    <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
+
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+         .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body class="custom-cursor">
+
+<div class="custom-cursor__cursor"></div>
+<div class="custom-cursor__cursor-two"></div>
+
+
+<div class="preloader">
+    <div class="preloader__image"></div>
+</div>
+<!-- /.preloader -->
+
+
+<div class="page-wrapper">
+    {% include 'base_nav.html' %}
+
+    <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+    </div><!-- /.stricky-header -->
+
+
+    <!--Page Header Start-->
+   <section class="page-header">
+    <div class="page-header-bg" style="background-image: url(../static/images/backgrounds/page-header-bg.jpg)">
+    </div>
+    <div class="container">
+        <div class="page-header__inner">
+            <div class="title-with-buttons" style="display: flex; align-items: center;">
+                <h2 class="title" style="margin-right: 20px;">Emotion Vent Tree</h2>
+                <div class="buttons">
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="main-slider__btn-one thm-btn" >
+                            <a href="{{ url_for('main.sendtreeText') }}" style="color: white"> Text Something </a>
+                        </button>
+                    </div>
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <button class="main-slider__btn-one thm-btn" >
+                            <a href="{{ url_for('main.sendtreeAudio') }}" style="color: white"> Say Something </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{{url_for('main.index')}}">Home</a></li>
+                <li><span>/</span></li>
+                <li>Emotion Vent Tree</li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+
+
+    <!--Page Header End-->
+
+    <!--Services Page Start-->
+    <section class="services-page">
+        <div class="container">
+            <div class="row">
+                <div class="billing_title ship_different_address_title">
+                    <h2>Audio posts shared by others</h2>
+                </div>
+                {% for audio in audios %}
+                <!--Services Two Single Start-->
+                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+    <div class="services-two__single">
+
+        {% if emotions[loop.index - 1] == "Happy" %}
+
+        <div class="services-two__icon color1">
+
+            <p style="color: white">Happy</p>
+        </div>
+
+        {% elif emotions[loop.index - 1] == "Angry" %}
+            <div class="services-two__icon color2">
+                <p style="color: white">Angry</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Surprise" %}
+            <div class="services-two__icon color3">
+                <p style="color: white">Surprise</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Sad" %}
+            <div class="services-two__icon color4">
+                <p style="color: white">Sad</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Fear" %}
+            <div class="services-two__icon color5">
+                <p style="color: white">Fear</p>
+            </div>
+
+        {% elif emotions[loop.index - 1] == "Neutral" %}
+            <div class="services-two__icon color6">
+                <p style="color: white">Neutral</p>
+            </div>
+
+        {% endif %}
+
+
+
+        <div class="services-two__content">
+            <div class="services-two__title-box">
+                <audio controls>
+                    <source src="../static/audio/anger.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+                <!--Services Two Single End-->
+                {% endfor %}
+
+                <div class="pagination">
+                    {{ macros.pagination_widget(pagination, '.services') }}
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--Services Page End-->
+
+    <!--Site Footer Start-->
+    {% include 'base_footer.html' %}
+    <!--Site Footer End-->
+
+
+</div><!-- /.page-wrapper -->
+
+
+<div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <!-- /.mobile-nav__overlay -->
+    <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+        <div class="logo-box">
+            <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
+                                                              alt=""/></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+            <li>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
+            </li>
+            <li>
+                <i class="fa fa-phone-alt"></i>
+                <a href="tel:666-888-0000">666 888 0000</a>
+            </li>
+        </ul><!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+            <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__top -->
+
+
+    </div>
+    <!-- /.mobile-nav__content -->
+</div>
+<!-- /.mobile-nav__wrapper -->
+
+<div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+        <form action="#">
+            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+            <input type="text" id="search" placeholder="Search Here..."/>
+            <button type="submit" aria-label="search submit" class="thm-btn">
+                <i class="icon-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <!-- /.search-popup__content -->
+</div>
+<!-- /.search-popup -->
+
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
+
+
+<script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendors/jarallax/jarallax.min.js"></script>
+<script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="../static/vendors/nouislider/nouislider.min.js"></script>
+<script src="../static/vendors/odometer/odometer.min.js"></script>
+<script src="../static/vendors/swiper/swiper.min.js"></script>
+<script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="../static/vendors/wnumb/wNumb.min.js"></script>
+<script src="../static/vendors/wow/wow.js"></script>
+<script src="../static/vendors/isotope/isotope.js"></script>
+<script src="../static/vendors/countdown/countdown.min.js"></script>
+<script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="../static/vendors/vegas/vegas.min.js"></script>
+<script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="../static/vendors/timepicker/timePicker.js"></script>
+<script src="../static/vendors/circleType/jquery.circleType.js"></script>
+<script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var toggleButtons = document.querySelectorAll(".toggleButton");
+
+        toggleButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                var postText = document.getElementById(button.getAttribute("data-post"));
+                var moreText = postText.querySelector(".moreText");
+
+                if (moreText.style.display === "none") {
+                    moreText.style.display = "inline";
+                    button.textContent = "Hide";
+                } else {
+                    moreText.style.display = "none";
+                    button.textContent = "Show More";
+                }
+            });
+        });
+    });
+</script>
+
+
+<!-- template js -->
+<script src="../static/js/delogis.js"></script>
+
+</body>
+
+</html>
