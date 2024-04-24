@@ -93,18 +93,39 @@
 <section class="checkout-page">
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 col-lg-12">
+            <div class="col-xl-12 col-lg-12 text-center">
                 <div class="billing_details ship_different_address">
                     <div class="billing_title ship_different_address_title">
                         <h2>Say something<span class="fa fa-check"></span></h2>
                     </div>
 
 
-                    <input type="button" value="start" id="startRecord" />
+{#                    <input type="button" value="start" id="startRecord" />#}
+                    <button id="startRecord" value="start">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+4                           <circle cx="12" cy="12" r="10" fill="#9dab3f"/>
+                        </svg>
+                        Start
+                    </button>
+
                     &nbsp;&nbsp; 
-                    <input type="button" value="finish" id="stopRecord" />
+{#                    <input type="button" value="finish" id="stopRecord" />#}
+                    
+                    <button id="stopRecord" value="finish">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="2" fill="#DC3545"/>
+                        </svg>
+                        Stop
+                    </button>
                     &nbsp;&nbsp; 
-                    <input type="button" value="play" id="playRecord" />
+{#                    <input type="button" value="play" id="playRecord" />#}
+                    <button id="playRecord" value="play">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M8 5v14l11-7L8 5z" fill="#007BFF"/>
+                      </svg>
+                        Play
+                    </button>
+                    
                     &nbsp;&nbsp; 
                     <br/><br/>
 
