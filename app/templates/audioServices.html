@@ -129,7 +129,6 @@
                     <h2>Audio posts shared by others</h2>
                 </div>
                 {% for audio in audios %}
-                                        {{ audio.input }}
 
                 <!--Services Two Single Start-->
                 <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
@@ -172,7 +171,7 @@
 
 
         <div class="services-two__content">
-            <div class="services-two__title-box">\                    {{ audio.input }}
+            <div class="services-two__title-box">
 
                 <audio controls>
                     <source src="{{audio.input}}" type="audio/mpeg">
