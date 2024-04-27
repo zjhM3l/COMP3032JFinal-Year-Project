@@ -155,6 +155,7 @@ class Audio(db.Model):
     __tablename__ = 'audios'
     id = db.Column(db.Integer, primary_key=True)
     input = db.Column(db.String(256))  # 存储音频文件路径
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 class Emotion(db.Model):

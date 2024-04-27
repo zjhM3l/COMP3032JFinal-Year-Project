@@ -2,15 +2,15 @@ import os
 import random
 
 import requests
-from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, make_response
+from flask import render_template, flash, redirect, url_for, jsonify, session, abort, request, current_app, \
+    make_response
 from flask_login import login_user, login_required, logout_user, current_user
 from modelscope import Tasks, pipeline
 from sqlalchemy import func, and_, desc, or_
 from werkzeug.utils import secure_filename
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
-from datetime import datetime
-
+from datetime import datetime, timedelta
 
 from . import main
 from .email import send_email
@@ -49,9 +49,6 @@ def index():
             emotions.append(None)
 
     return render_template('index.html', u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
-
-
-
 
 
 @main.route('/404', methods=['GET', 'POST'])
@@ -269,7 +266,88 @@ def blogdetails(id):
         blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
-                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations, recommendation_timestamp=recommendation_timestamp,blog_timestamp = blog_timestamp)
+                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,
+                           recommendation_timestamp=recommendation_timestamp, blog_timestamp=blog_timestamp)
+
+
+@main.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    # 获取正式用户数量
+    formal_users_count = User.query.filter_by(anonymous=False).count()
+    # 获取24小时内新增用户数量
+    twenty_four_hours_ago = datetime.utcnow() - timedelta(hours=24)
+    new_users_count_24h = User.query.filter(User.timestamp >= twenty_four_hours_ago).count()
+    overall = [formal_users_count, new_users_count_24h]
+
+    # 获取所有hole为True属性的帖子的浏览量之和
+    hole_posts_views_sum = db.session.query(func.sum(Post.read_count)).filter_by(hole=True).scalar()
+    # 获取所有hole为True属性且创建时间在24小时内的帖子数量
+    hole_posts_count_24h = Post.query.filter(Post.hole == True, Post.timestamp >= twenty_four_hours_ago).count()
+    tree_overall = [hole_posts_views_sum, hole_posts_count_24h]
+
+    # 获取所有hole为False属性的帖子的浏览量之和
+    blog_hole_posts_views_sum = db.session.query(func.sum(Post.read_count)).filter_by(hole=False).scalar()
+    # 获取所有hole为False属性且创建时间在24小时内的帖子数量
+    blog_hole_posts_count_24h = Post.query.filter(Post.hole == False, Post.timestamp >= twenty_four_hours_ago).count()
+    blog_overall = [blog_hole_posts_views_sum, blog_hole_posts_count_24h]
+
+    # 获取各种情绪类型的数量
+    emotion_counts = {}
+    for emotion_label in ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear', 'Neutral']:
+        emotion_count = Emotion.query.filter_by(type=1, emotion=emotion_label).count()
+        emotion_counts[emotion_label] = emotion_count
+    textRatio = [
+        emotion_counts['Happy'],
+        emotion_counts['Angry'],
+        emotion_counts['Surprise'],
+        emotion_counts['Sad'],
+        emotion_counts['Fear'],
+        emotion_counts['Neutral']
+    ]
+
+    # 获取各种情绪类型的数量（type=2）
+    emotion_counts_audio = {}
+    for emotion_label in ['Happy', 'Angry', 'Surprise', 'Sad', 'Fear', 'Neutral']:
+        emotion_count_audio = Emotion.query.filter_by(type=2, emotion=emotion_label).count()
+        emotion_counts_audio[emotion_label] = emotion_count_audio
+    audioRatio = [
+        emotion_counts_audio['Happy'],
+        emotion_counts_audio['Angry'],
+        emotion_counts_audio['Surprise'],
+        emotion_counts_audio['Sad'],
+        emotion_counts_audio['Fear'],
+        emotion_counts_audio['Neutral']
+    ]
+
+    blogRatio = []
+    categories = ['Dating & Relationship', 'Self Esteem Boosters', 'Family Dynamics & Parenting',
+                  'Career Growth & Development', 'Stress Management Techniques', 'Mindfulness & Well-being']
+    for category_name in categories:
+        # 获取类别的 ID
+        category = Category.query.filter_by(name=category_name).first()
+        if category:
+            # 过滤帖子的 hole 属性和类别 ID
+            category_count = Post.query.filter(Post.hole == False, Post.category_id == category_name).count()
+            blogRatio.append(category_count)
+        else:
+            # 如果类别不存在，则添加零计数
+            blogRatio.append(0)
+
+    # 获取treePosts列表
+    treePosts = []
+    emotions = Emotion.query.order_by(Emotion.id.desc()).all()
+    for emotion in emotions:
+        treePost = {}
+        treePost['inputType'] = 'Text' if emotion.type == 1 else 'Audio'
+        treePost['email'] = emotion.user.email if emotion.user else 'Unknown'
+        treePost['postDate'] = emotion.hole.timestamp if emotion.type == 1 and emotion.hole else (
+            emotion.audio.timestamp if emotion.type == 2 and emotion.audio else 'Unknown')
+        treePost['emotion'] = emotion.emotion
+        treePost['content'] = emotion.hole.body if emotion.hole else "Here should be the audio"
+        treePosts.append(treePost)
+
+    return render_template('dashboard.html', overall=overall, treeOverall=tree_overall, blogOverall=blog_overall,
+                           textRatio=textRatio, audioRatio=audioRatio, blogRatio=blogRatio, treePosts=treePosts)
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
@@ -302,7 +380,7 @@ def handle_like(id):
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
     sform = searchForm()
-    search=''
+    search = ''
     if sform.validate_on_submit():
         search = sform.body.data
 
@@ -337,7 +415,8 @@ def blogsidebar():
     for blog in blogs:
         blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
-    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination, blog_timestamp=blog_timestamp)
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination,
+                           blog_timestamp=blog_timestamp)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
@@ -540,7 +619,6 @@ def selfesteemissues():
 
 @main.route('/services', methods=['GET', 'POST'])
 def services():
-
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
 
@@ -564,9 +642,9 @@ def services():
 
     return render_template('services.html', trees=trees, emotions=emotions, pagination=pagination)
 
+
 @main.route('/audioservices', methods=['GET', 'POST'])
 def audioservices():
-
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
 
@@ -610,7 +688,7 @@ def checkEmail():
         else:
             return jsonify({'text': 'Sorry, email is already token', 'returnvalue': 1})
     else:
-        return jsonify({'text': "emailFormatError" , 'returnvalue': 2})
+        return jsonify({'text': "emailFormatError", 'returnvalue': 2})
 
 
 @main.route("/passwordStrength", methods=['GET', 'POST'])
@@ -705,7 +783,8 @@ def sendtreeText():
             anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
 
         # Create the anonymous author
-        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url, password_hash=current_user.password_hash)
+        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url,
+                                password_hash=current_user.password_hash)
         db.session.add(anonymous_author)
         db.session.commit()
 
@@ -750,7 +829,8 @@ def sendtreeText():
         db.session.add(emotion)
         db.session.commit()
 
-        return redirect(url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
+        return redirect(
+            url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
     return render_template('treeText.html', form=form)
 
 
@@ -843,11 +923,11 @@ def sendtreeAudio():
                 max_label = max(merged_labels, key=merged_labels.get)
                 # print(max_label, "++++++++++++++++++++++++++++++++++++")
 
-                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}", emotion=max_label)
+                emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}",
+                                  emotion=max_label)
                 db.session.add(emotion)
 
                 db.session.commit()
-#             return redirect(url_for('main.sendresponse', emotion_label=max_label))
-            return jsonify({'url': '/sendresponse/'+max_label})
+            #             return redirect(url_for('main.sendresponse', emotion_label=max_label))
+            return jsonify({'url': '/sendresponse/' + max_label})
     return render_template('treeAudioNew.html')
-
