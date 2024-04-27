@@ -756,8 +756,24 @@ def sendtreeText():
 
 @main.route('/sendresponse/<emotion_label>', methods=['GET', 'POST'])
 def sendresponse(emotion_label):
-    print(emotion_label, "--------------------------------------")
-    return render_template('AI-response-detail.html', emotion_label=emotion_label)
+    # 查询点赞量很大的前六个帖子
+    helpful_posts = db.session.query(Helpful.post_id, func.count(Helpful.id).label('helpful_count')). \
+        filter_by(emotion=emotion_label).group_by(Helpful.post_id). \
+        order_by(func.count(Helpful.id).desc()).limit(6).all()
+
+    # 根据查询结果获取对应的帖子对象并添加到recommendations列表中
+    recommendations = []
+    for post_id, helpful_count in helpful_posts:
+        post = Post.query.get(post_id)
+        if post:
+            recommendations.append(post)
+
+    # 如果recommendations为空，则返回最新的六个非树洞帖子
+    if not recommendations:
+        latest_non_hole_posts = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).limit(6).all()
+        recommendations.extend(latest_non_hole_posts)
+
+    return render_template('AI-response-detail.html', emotion_label=emotion_label, recommendations=recommendations[:6])
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
