@@ -482,7 +482,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
+            user.status = True  # 设置用户登录状态为True
             current_user.statue = True
+            db.session.commit()
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
@@ -495,6 +497,9 @@ def login():
 @main.route('/logout')
 @login_required
 def logout():
+    current_user.status = False  # 设置用户登出状态为False
+    current_user.last_seen = datetime.utcnow()  # 更新用户的last_seen时间
+    db.session.commit()
     current_user.statue = False
     logout_user()
     flash('You have been logged out.')
