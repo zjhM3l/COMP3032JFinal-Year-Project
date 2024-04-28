@@ -97,11 +97,11 @@
                 <div class="sidebar">
                     <div class="sidebar__single sidebar__search">
                         <form enctype="multipart/form-data" method="post" action="{{ url_for('main.blog') }}"
-                              class="sidebar__search-form" >
+                              class="sidebar__search-form">
                             {{ sform.hidden_tag() }}
                             <input type="search" name="body" class="sidebar__search-input" placeholder="Keyword...">
                             <button type="submit">
-                                <i class="icon-magnifying-glass" ></i></button>
+                                <i class="icon-magnifying-glass"></i></button>
                         </form>
                     </div>
 
@@ -109,12 +109,12 @@
                     <div class="sidebar__single sidebar__category">
                         <h3 class="sidebar__title">Categories</h3>
                         <ul class="sidebar__category-list list-unstyled">
-                            <li><a>Dating & Relationship</a></li>
-                            <li><a>Self Esteem Boosters</a></li>
-                            <li><a>Family Dynamics & Parenting</a></li>
-                            <li><a>Career Growth & Development</a></li>
-                            <li><a>Stress Management Techniques</a></li>
-                            <li><a>Mindfulness & Well-being</a></li>
+                            <li><a href="{{ url_for('main.blog', category='Dating & Relationship') }}">Dating & Relationship</a></li>
+                                    <li><a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}">Self Esteem Boosters</a></li>
+                                    <li><a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}">Family Dynamics & Parenting</a></li>
+                                    <li><a href="{{ url_for('main.blog', category='Career Growth & Development') }}">Career Growth & Development</a></li>
+                                    <li><a href="{{ url_for('main.blog', category='Stress Management Techniques') }}">Stress Management Techniques</a></li>
+                                    <li><a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}">Mindfulness & Well-being</a></li>
                         </ul>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                                             <span class="blog-one__plus"></span>
                                         </a>
                                         <div class="blog-one__date">
-                                            <p>{{ blog_timestamp }}</p>
+                                            <p>{{ blog.timestamp.strftime("%Y-%m-%d") }}</p>
                                         </div>
                                     </div>
                                 {% endif %}
@@ -140,7 +140,8 @@
                                     </div>
                                     <p class="blog-one__content-sub-title">
                                         by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ blog.title }}</a>
+                                    <h3 class="blog-one__content-title"><a
+                                            href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
                                     </h3>
                                 </div>
                             </div>
