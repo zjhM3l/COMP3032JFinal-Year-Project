@@ -110,6 +110,7 @@ def ublog():
 
 @main.route('/blog', methods=['GET', 'POST'])
 def blog():
+    category_name = request.args.get('category')
     sform = searchForm()
     search = ''
     if sform.validate_on_submit():
@@ -117,23 +118,36 @@ def blog():
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_USER_BLOG_PER_PAGE']
 
-    pagination = Post.query.filter(
-        and_(
-            Post.author.has(role=False),
-            Post.hole == False,
-            (
-                    Post.title.like('%' + search + '%') |
-                    # Post.category.like('%' + search + '%') |
-                    Post.keyA.like('%' + search + '%') |
-                    Post.keyB.like('%' + search + '%') |
-                    Post.keyC.like('%' + search + '%') |
-                    Post.keyD.like('%' + search + '%') |
-                    Post.keyE.like('%' + search + '%')
+    if category_name:
+        pagination = Post.query.filter(
+            and_(
+                Post.author.has(role=False),
+                Post.hole == False,
+                (
+                        Post.category_id.like('%' + category_name + '%')
+                )
             )
+        ).order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=per_page, error_out=False
         )
-    ).order_by(Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False
-    )
+    else:
+        pagination = Post.query.filter(
+            and_(
+                Post.author.has(role=False),
+                Post.hole == False,
+                (
+                        Post.title.like('%' + search + '%') |
+                        # Post.category.like('%' + search + '%') |
+                        Post.keyA.like('%' + search + '%') |
+                        Post.keyB.like('%' + search + '%') |
+                        Post.keyC.like('%' + search + '%') |
+                        Post.keyD.like('%' + search + '%') |
+                        Post.keyE.like('%' + search + '%')
+                )
+            )
+        ).order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=per_page, error_out=False
+        )
 
     blogs = pagination.items
 
@@ -379,6 +393,7 @@ def handle_like(id):
 
 @main.route('/blogsidebar', methods=['GET', 'POST'])
 def blogsidebar():
+    category_name = request.args.get('category')
     sform = searchForm()
     search = ''
     if sform.validate_on_submit():
@@ -386,37 +401,46 @@ def blogsidebar():
 
     page = request.args.get('page', 1, type=int)
     per_page = current_app.config['POST_BLOG_PER_PAGE']
-
-    # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
-    #     page=page, per_page=per_page, error_out=False)
-
-    pagination = Post.query.filter(
-        and_(
-            Post.author.has(role=True),
-            Post.hole == False,
-            (
-                    Post.title.like('%' + search + '%') |
-                    # Post.category.like('%' + search + '%') |
-                    Post.keyA.like('%' + search + '%') |
-                    Post.keyB.like('%' + search + '%') |
-                    Post.keyC.like('%' + search + '%') |
-                    Post.keyD.like('%' + search + '%') |
-                    Post.keyE.like('%' + search + '%')
+    if category_name:
+        pagination = Post.query.filter(
+            and_(
+                Post.author.has(role=True),
+                Post.hole == False,
+                (
+                        Post.category_id.like('%' + category_name + '%')
+                )
             )
+        ).order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=per_page, error_out=False
         )
-    ).order_by(Post.timestamp.desc()).paginate(
-        page=page, per_page=per_page, error_out=False
-    )
+    else:
+        # pagination = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).paginate(
+        #     page=page, per_page=per_page, error_out=False)
+
+        pagination = Post.query.filter(
+            and_(
+                Post.author.has(role=True),
+                Post.hole == False,
+                (
+                        Post.title.like('%' + search + '%') |
+                        # Post.category.like('%' + search + '%') |
+                        Post.keyA.like('%' + search + '%') |
+                        Post.keyB.like('%' + search + '%') |
+                        Post.keyC.like('%' + search + '%') |
+                        Post.keyD.like('%' + search + '%') |
+                        Post.keyE.like('%' + search + '%')
+                )
+            )
+        ).order_by(Post.timestamp.desc()).paginate(
+            page=page, per_page=per_page, error_out=False
+        )
 
     blogs = pagination.items
-
-    # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
 
     for blog in blogs:
         blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
-    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination,
-                           blog_timestamp=blog_timestamp)
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination, blog_timestamp=blog_timestamp)
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
