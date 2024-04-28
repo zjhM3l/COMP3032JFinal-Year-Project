@@ -97,7 +97,7 @@
                             <div class="blog-details__img">
                                 <img src="{{ blog.cover_url }}" alt="img">
                                 <div class="blog-details__date">
-                                    <p>{{ blog_timestamp }}
+                                  <p>{{ blog.timestamp.strftime("%Y-%m-%d") }}</p>
                                         {#                                    <br> {{ blog.month }}</p>#}
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                                         <div class="col-lg-8">
                                                             <div class="blog-details__pagenation-left-content">
                                                                 <p class="blog-details__pagenation-left-date"><i
-                                                                        class="fas fa-clock"></i> {{ recommendation_timestamp }}
+                                                                        class="fas fa-clock"></i> {{ recommendation.timestamp.strftime("%Y-%m-%d") }}
                                                                 </p>
                                                                 <h4 class="blog-details__pagenation-left-title"><a
                                                                         href="{{ url_for('main.blogdetails', id=recommendation.id) }}">{{ recommendation.title }}</a>
@@ -180,7 +180,7 @@
                                                         <div class="col-lg-8">
                                                             <div class="blog-details__pagenation-left-content">
                                                                 <p class="blog-details__pagenation-left-date"><i
-                                                                        class="fas fa-clock"></i> {{ recommendation_timestamp }}
+                                                                        class="fas fa-clock"></i> {{ recommendation.timestamp.strftime("%Y-%m-%d") }}
                                                                 </p>
                                                                 <h4 class="blog-details__pagenation-left-title"><a
                                                                         href="{{ url_for('main.blogdetails', id=recommendation.id) }}">{{ recommendation.title }}</a>
