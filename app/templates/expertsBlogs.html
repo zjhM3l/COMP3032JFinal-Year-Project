@@ -238,7 +238,7 @@
                                                 <a><i class="fas fa-user-circle"></i>by {{ blog.author.first_name }} {{ blog.author.last_name }}</a>
                                             </li>
                                             <li>
-                                                <a><i class="fas fa-comments"></i>{{ blog_timestamp }}</a>
+                                                <a><i class="fas fa-comments"></i>{{ blog.timestamp.strftime("%Y-%m-%d") }}</a>
                                             </li>
                                         </ul>
                                         <h3 class="blog-sidebar__title"><a href="{{url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a></h3>

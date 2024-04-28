@@ -137,11 +137,8 @@ def blog():
 
     blogs = pagination.items
 
-    for blog in blogs:
-        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
-    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform, blog_timestamp=blog_timestamp)
-
+    return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
@@ -257,17 +254,8 @@ def blogdetails(id):
                                         len(set(effective_words) & set([x.keyA, x.keyB, x.keyC, x.keyD, x.keyE]))),
                          reverse=True)
 
-    # Keep only the top four recommendations
-    recommendations = recommendations[:2]
-    for recommendation in recommendations:
-        recommendation_timestamp = recommendation.timestamp.strftime("%Y-%m-%d")
-
-    for blog in blogs:
-        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
-
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
-                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,
-                           recommendation_timestamp=recommendation_timestamp, blog_timestamp=blog_timestamp)
+                           cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,)
 
 
 @main.route('/dashboard', methods=['GET', 'POST'])
@@ -412,11 +400,9 @@ def blogsidebar():
 
     # blogs = Post.query.filter_by(hole=False).order_by(Post.timestamp.desc()).all()
 
-    for blog in blogs:
-        blog_timestamp = blog.timestamp.strftime("%Y-%m-%d")
 
-    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination,
-                           blog_timestamp=blog_timestamp)
+
+    return render_template('expertsBlogs.html', blogs=blogs, sform=sform, pagination=pagination )
 
 
 @main.route('/career-counseling', methods=['GET', 'POST'])
