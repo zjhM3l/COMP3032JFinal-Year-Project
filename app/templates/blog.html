@@ -140,7 +140,7 @@
                                     </div>
                                     <p class="blog-one__content-sub-title">
                                         by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ blog.title }}</a>
+                                    <h3 class="blog-one__content-title"><a href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
                                     </h3>
                                 </div>
                             </div>
