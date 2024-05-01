@@ -819,7 +819,23 @@
                                                                 </td>
                                                                 <td class="table__td"><span>{{ treePost.emotion }}</span>
                                                                 </td>
-                                                                <td class="table__td"><span class="text-grey">{{ treePost.content }}</span>
+                                                                    {% if treePost.inputType == "Text" %}
+                                                                        <td class="table__td"><span class="text-grey">
+                                                                            {{ treePost.content | truncate(100) }}
+                                                                            {% if treePost.content | length > 100 %}
+                                                                                <span class="moreText" style="display:none;">{{ treePost.content | safe }}</span>
+                                                                            {% endif %}
+
+
+                                                                        </span>
+                                                                    {% else %}
+                                                                        <td class="table__td"><span class="text-grey">
+                                                                        <audio controls>
+                                                                            <source src="{{treePost.content}}" type="audio/mpeg">
+                                                                            Your browser does not support the audio element.
+                                                                        </audio>
+                                                                    </span>
+                                                                    {% endif %}
                                                                 </td>
                                                                 <td class="table__td table__actions">
 
