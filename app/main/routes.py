@@ -347,7 +347,7 @@ def dashboard():
         treePost['postDate'] = emotion.hole.timestamp if emotion.type == 1 and emotion.hole else (
             emotion.audio.timestamp if emotion.type == 2 and emotion.audio else 'Unknown')
         treePost['emotion'] = emotion.emotion
-        treePost['content'] = emotion.hole.body if emotion.hole else "Here should be the audio"
+        treePost['content'] = emotion.hole.body if emotion.hole else emotion.audio.input
         treePosts.append(treePost)
 
     return render_template('dashboard.html', overall=overall, treeOverall=tree_overall, blogOverall=blog_overall,
@@ -675,16 +675,14 @@ def audioservices():
 
     emotions = []  # 用于存储每个hole对应的emotion_label
 
-    # for aud in audios:
-    #     # 查询对应的emotion_label
-    #     emotion = Emotion.query.filter_by(hole_id=aud.id).first()
-    #     if emotion:
-    #         result_dict = json.loads(emotion.output)
-    #         emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
-    #         emotions.append(emotion_label)
-    #     else:
-    #         emotions.append(None)  # 如果没有对应的emotion，则添加None
-    #     print(emotions)
+    for aud in audios:
+        # 查询对应的emotion_label
+        emotion = Emotion.query.filter_by(audio_id=aud.id).first()
+        if emotion:
+            emotions.append(emotion.emotion)
+        else:
+            emotions.append(None)  # 如果没有对应的emotion，则添加None
+        print(emotions)
 
     return render_template('audioServices.html', audios=audios, emotions=emotions, pagination=pagination)
 
