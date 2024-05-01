@@ -897,6 +897,8 @@ def sendtreeAudio():
             # filename = secure_filename(f"{user.email}_{timestamp}.{file.filename.rsplit('.', 1)[1].lower()}")
 
             audio_file_path = os.path.join(current_app.config['AUDIO_UPLOAD_FOLDER'], filename)
+            audio_file_path_DB = os.path.join("../static/audio", filename)
+
 
             file.save(audio_file_path)
             # convert_to_valid_wav(audio_file_path)
@@ -929,7 +931,7 @@ def sendtreeAudio():
                 scores = result_entry.get('scores', [])
 
                 # Save the audio file path and emotion detection result in the database
-                audio = Audio(input=audio_file_path)
+                audio = Audio(input=audio_file_path_DB)
                 db.session.add(audio)
 
                 # 合并和分类标签
