@@ -49,7 +49,21 @@
     <!-- template styles -->
     <link rel="stylesheet" href="../static/css/delogis.css" />
     <link rel="stylesheet" href="../static/css/delogis-responsive.css" />
-
+    <style>
+        .custom-button {
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            background-color: #F8F9FA;
+        }
+        .spacer {
+            margin: 0 8px; /* 添加左右间隔 */
+        }
+        .title-adjust {
+            margin-top: -20px; /* 根据实际情况调整上移距离 */
+        }
+    </style>
 
 </head>
 
@@ -95,38 +109,61 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 text-center">
                 <div class="billing_details ship_different_address">
-                    <div class="billing_title ship_different_address_title">
+{#                    <div class="billing_title ship_different_address_title">#}
+{#                        <h2>Say something<span class="fa fa-check"></span></h2>#}
+{#                    </div>#}
+                    
+{#                    <button id="startRecord" value="start" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: #9dab3f;">#}
+{#                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">#}
+{#                            <circle cx="12" cy="12" r="10" fill="#9dab3f"/>#}
+{#                        </svg>#}
+{#                        Start#}
+{#                    </button>#}
+{##}
+{#                    <button id="stopRecord" value="finish" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: red;">#}
+{#                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">#}
+{#                            <rect x="1" y="1" width="22" height="22" rx="2" fill="#DC3545"/>#}
+{#                        </svg>#}
+{#                        Stop#}
+{#                    </button>#}
+{##}
+{#                    &nbsp;&nbsp; #}
+{##}
+{#                    <button id="playRecord" value="play" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: #007BFF;">#}
+{#                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">#}
+{#                            <path d="M8 5v14l11-7L8 5z" fill="#007BFF"/>#}
+{#                        </svg>#}
+{#                        Play#}
+{#                    </button>#}
+                    
+                    <div class="billing_title ship_different_address_title title-adjust">
                         <h2>Say something<span class="fa fa-check"></span></h2>
                     </div>
 
-                    
+<button id="startRecord" value="start" class="custom-button" style="color: #9dab3f;">
+    <svg class="spacer" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" fill="#9dab3f"/>
+    </svg>
+    Start
+</button>
 
-                    <button id="startRecord" value="start" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: #9dab3f;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" fill="#9dab3f"/>
-                        </svg>
-                        Start
-                    </button>
+<button id="stopRecord" value="finish" class="custom-button" style="color: red;">
+    <svg class="spacer" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="22" height="22" rx="2" fill="#DC3545"/>
+    </svg>
+    Stop
+</button>
 
-                    <button id="stopRecord" value="finish" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: red;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="22" height="22" rx="2" fill="#DC3545"/>
-                        </svg>
-                        Stop
-                    </button>
-
-                    &nbsp;&nbsp; 
-
-                    <button id="playRecord" value="play" style="font-size: 16px; padding: 12px 24px; border: none; border-radius: 4px; background-color: #F8F9FA; color: #007BFF;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5v14l11-7L8 5z" fill="#007BFF"/>
-                        </svg>
-                        Play
-                    </button>
+<button id="playRecord" value="play" class="custom-button" style="color: #007BFF;">
+    <svg class="spacer" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 5v14l11-7L8 5z" fill="#007BFF"/>
+    </svg>
+    Play
+</button>
 
 
-                    &nbsp;&nbsp; 
-                    <br/><br/>
+                    <br/><br/>                    <br/><br/>
+
 
                     <h3>Audio time：<span id="time">0</span>s</h3>
                     
