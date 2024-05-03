@@ -858,7 +858,7 @@
                                         <img src="../static/images/blog/blog-content-img.jpg" alt="">
                                     </div>
                                     <p class="blog-one__content-sub-title">by {{ i.author.first_name }} {{ i.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ i.title }}</a></h3>
+                                    <h3 class="blog-one__content-title"><a href="{{ url_for('main.blogdetails', id=i.id) }}">{{ i.title }}</a></h3>
                                 </div>
                             </div>
                             <div class="blog-one__content">
