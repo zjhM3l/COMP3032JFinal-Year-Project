@@ -93,7 +93,14 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="login-page__single">
                         <h3 class="login-page__title">Login</h3>
-                        <form class="login-page__form" method="post" action="/login" onsubmit="return checkLogin()">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <form class="login-page__form" method="post" action="/login">
                             {{ form.csrf_token }}
                             <input type="hidden" id="flash_message" name="flash_message"
                                    value="{{ get_flashed_messages()[0] }}">
@@ -108,7 +115,8 @@
                                 <label for="skipper2"><span></span>Remember Me?</label>
                             </div>
                             <div class="login-page__form-btn-box">
-                                <button type="submit" class="thm-btn login-page__form-btn" id="login-btn" style="width: 60%;">Login
+                                <button type="submit" class="thm-btn login-page__form-btn" id="login-btn"
+                                        style="width: 60%;">Login
                                 </button>
                                 <div class="login-page__form-forgot-password">
                                     <a href="#">Forgot your Password?</a>
@@ -219,6 +227,7 @@
 <script src="../static/vendors/timepicker/timePicker.js"></script>
 <script src="../static/vendors/circleType/jquery.circleType.js"></script>
 <script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+<script src="{{ url_for('static', filename='js/myjs.js') }}"></script>
 
 
 <!-- template js -->
