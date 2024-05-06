@@ -11,6 +11,8 @@ from werkzeug.utils import secure_filename
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 from datetime import datetime, timedelta
+from flask import get_flashed_messages
+
 
 from . import main
 from .email import send_email
@@ -39,6 +41,8 @@ def index():
 
     emotions = []
 
+    flash_message = session.pop('flash_message', None)
+
     for tree in trees:
         emotion = Emotion.query.filter_by(hole_id=tree.id).first()
         if emotion:
@@ -48,7 +52,7 @@ def index():
         else:
             emotions.append(None)
 
-    return render_template('index.html', u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
+    return render_template('index.html', flash_message=flash_message, u_blogs=u_blogs, e_blogs=e_blogs, emotions=emotions, trees=trees)
 
 
 @main.route('/404', methods=['GET', 'POST'])
@@ -500,13 +504,13 @@ def login():
             user.status = True  # 设置用户登录状态为True
             current_user.statue = True
             db.session.commit()
+            session['flash_message'] = ('success', 'Login successful. Welcome, {}!'.format(user.email))
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
-            flash('Login successful. Welcome, {}!'.format(user.email), 'success')
             return redirect(next)
-        flash('Invalid username or password.')
-    return render_template('login.html', form=form)
+        flash('Invalid username or password.', 'error')
+    return render_template('login.html', form=form, flash_message=get_flashed_messages(with_categories=True))
 
 
 @main.route('/logout')
@@ -734,10 +738,6 @@ def passwordStrength():
 def send_message():
     return jsonify({'message': 'Please check your email, and click the link'})
 
-
-@main.route('/send_message2', methods=['POST'])
-def send_message2():
-    return jsonify({'message': 'Login succeeded!'})
 
 
 @main.route('/send_blog', methods=['GET', 'POST'])

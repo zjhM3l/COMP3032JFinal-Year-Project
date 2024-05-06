@@ -1,15 +1,13 @@
-﻿
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+﻿<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Home</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="../static/images/favicons/site.webmanifest" />
-    <meta name="description" content="delogis HTML 5 Template " />
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="../static/images/favicons/site.webmanifest"/>
+    <meta name="description" content="delogis HTML 5 Template "/>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,419 +15,456 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../static/vendors/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/animate.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/animate/custom-animate.css"/>
+    <link rel="stylesheet" href="../static/vendors/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jarallax/jarallax.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/nouislider/nouislider.pips.css"/>
+    <link rel="stylesheet" href="../static/vendors/odometer/odometer.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/swiper/swiper.min.css"/>
     <link rel="stylesheet" href="../static/vendors/delogis-icons/style.css">
-    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css" />
-    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="../static/vendors/tiny-slider/tiny-slider.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/reey-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/alagambe-font/stylesheet.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/owl-carousel/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/bxslider/jquery.bxslider.css"/>
+    <link rel="stylesheet" href="../static/vendors/bootstrap-select/css/bootstrap-select.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/vegas/vegas.min.css"/>
+    <link rel="stylesheet" href="../static/vendors/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" href="../static/vendors/timepicker/timePicker.css"/>
 
     <!-- template styles -->
-    <link rel="stylesheet" href="../static/css/delogis.css" />
-    <link rel="stylesheet" href="../static/css/delogis-responsive.css" />
+    <link rel="stylesheet" href="../static/css/delogis.css"/>
+    <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
 </head>
 
 <body class="custom-cursor">
 
-    <div class="custom-cursor__cursor"></div>
-    <div class="custom-cursor__cursor-two"></div>
+<div class="custom-cursor__cursor"></div>
+<div class="custom-cursor__cursor-two"></div>
 
 
-    <div class="preloader">
-        <div class="preloader__image"></div>
+<div class="preloader">
+    <div class="preloader__image"></div>
+</div>
+<!-- /.preloader -->
+
+
+<div class="page-wrapper">
+
+    {% include 'base_nav.html' %}
+
+    <div style="display: flex; justify-content: center;">
+        {% if flash_message %}
+        <div class="alert alert-{{ flash_message[0] }}">
+            {{ flash_message[1] }}
+        </div>
+        {% endif %}
     </div>
-    <!-- /.preloader -->
 
 
-    <div class="page-wrapper">
+    <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+    </div><!-- /.stricky-header -->
 
-        {% include 'base_nav.html' %}
+    <!-- Main Slider Start -->
+    <section class="main-slider">
+        <div class="main-slider__carousel owl-carousel owl-theme thm-owl__carousel"
+             data-owl-options='{"loop": true, "items": 1, "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"], "margin": 0, "dots": true, "nav": true, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false}'>
 
-
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
-        <!-- Main Slider Start -->
-        <section class="main-slider">
-            <div class="main-slider__carousel owl-carousel owl-theme thm-owl__carousel"
-                data-owl-options='{"loop": true, "items": 1, "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"], "margin": 0, "dots": true, "nav": true, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false}'>
-
-                <div class="item main-slider__slide-1">
-                    <div class="main-slider__bg"
-                        style="background-image: url(../static/images/backgrounds/slider-1-1.jpg);">
-                    </div><!-- /.slider-one__bg -->
-                    <div class="container">
-                        <div class="main-slider__content">
-                            <p class="main-slider__sub-title">Mental health starts from here</p>
-                            <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
-                            <div class="main-slider__btn-box">
-                                <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
-                                <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert Blogs</a>
-                            </div>
+            <div class="item main-slider__slide-1">
+                <div class="main-slider__bg"
+                     style="background-image: url(../static/images/backgrounds/slider-1-1.jpg);">
+                </div><!-- /.slider-one__bg -->
+                <div class="container">
+                    <div class="main-slider__content">
+                        <p class="main-slider__sub-title">Mental health starts from here</p>
+                        <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
+                        <div class="main-slider__btn-box">
+                            <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
+                            <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert
+                                Blogs</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="item main-slider__slide-2">
-                    <div class="main-slider__bg"
-                        style="background-image: url(../static/images/backgrounds/slider-1-2.jpg);">
-                    </div><!-- /.slider-one__bg -->
-                    <div class="container">
-                        <div class="main-slider__content">
-                            <p class="main-slider__sub-title">Mental health starts from here</p>
-                            <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
-                            <div class="main-slider__btn-box">
-                                <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
-                                <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert Blogs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item main-slider__slide-3">
-                    <div class="main-slider__bg"
-                        style="background-image: url(../static/images/backgrounds/slider-1-3.jpg);">
-                    </div><!-- /.slider-one__bg -->
-                    <div class="container">
-                        <div class="main-slider__content">
-                            <p class="main-slider__sub-title">Mental health starts from here</p>
-                            <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
-                            <div class="main-slider__btn-box">
-                                <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
-                                <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert Blogs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </section>
-        <!--Main Sllider Start -->
 
-        <!--About One Start-->
-        <section class="about-one one">
-        </section>
-        <!--About One End-->
-
-        <!--feature One Start-->
-        <section class="feature-one">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">SERVICES WE’RE OFFERING</span>
-                    <h2 class="section-title__title">Meet Your Mental <span>Health</span>
-                        <br> From the Best Services</h2>
+            <div class="item main-slider__slide-2">
+                <div class="main-slider__bg"
+                     style="background-image: url(../static/images/backgrounds/slider-1-2.jpg);">
+                </div><!-- /.slider-one__bg -->
+                <div class="container">
+                    <div class="main-slider__content">
+                        <p class="main-slider__sub-title">Mental health starts from here</p>
+                        <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
+                        <div class="main-slider__btn-box">
+                            <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
+                            <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert
+                                Blogs</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="feature-one__single">
-                            <div class="feature-one__img-box">
-                                <div class="feature-one__img">
-                                    <img src="../static/images/resources/feature-1-1.jpg" alt="">
-                                </div>
-                                <div class="feature-one__hover-content">
-                                    <div class="feature-one__hover-icon">
-                                        <span class="icon-philosophy"></span>
-                                    </div>
-                                    <div class="feature-one__hover-content-inner">
-                                        <div class="feature-one__shape-1">
-                                            <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
-                                        </div>
-                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.blog')}}">User
-                                                <br> Blogs</a></h3>
-                                        <p class="feature-one__hover-text">You can leave your blogs here.
-                                            <br>Release the pressure in your mind</p>
-                                    </div>
-                                    <div class="feature-one__hover-arrow-box">
-                                        <a href="{{url_for('main.blog')}}" class="feature-one__hover-arrow"><span
-                                                class="icon-right-arrow"></span></a>
-                                    </div>
-                                </div>
+            </div>
+
+            <div class="item main-slider__slide-3">
+                <div class="main-slider__bg"
+                     style="background-image: url(../static/images/backgrounds/slider-1-3.jpg);">
+                </div><!-- /.slider-one__bg -->
+                <div class="container">
+                    <div class="main-slider__content">
+                        <p class="main-slider__sub-title">Mental health starts from here</p>
+                        <h2 class="main-slider__title">We're Helping <br> You Enjoy Your Life</h2>
+                        <div class="main-slider__btn-box">
+                            <a href="{{url_for('main.blog')}}" class="main-slider__btn-one thm-btn">User Blogs</a>
+                            <a href="{{url_for('main.blogsidebar')}}" class="main-slider__btn-two thm-btn">Expert
+                                Blogs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--Main Sllider Start -->
+
+    <!--About One Start-->
+    <section class="about-one one">
+    </section>
+    <!--About One End-->
+
+
+    <!--feature One Start-->
+    <section class="feature-one">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">SERVICES WE’RE OFFERING</span>
+                <h2 class="section-title__title">Meet Your Mental <span>Health</span>
+                    <br> From the Best Services</h2>
+            </div>
+            <div class="row">
+                <!--Feature One Single Start-->
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="feature-one__single">
+                        <div class="feature-one__img-box">
+                            <div class="feature-one__img">
+                                <img src="../static/images/resources/feature-1-1.jpg" alt="">
                             </div>
-                            <div class="feature-one__content">
-                                <div class="feature-one__icon">
+                            <div class="feature-one__hover-content">
+                                <div class="feature-one__hover-icon">
                                     <span class="icon-philosophy"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="{{url_for('main.blog')}}">User
+                                <div class="feature-one__hover-content-inner">
+                                    <div class="feature-one__shape-1">
+                                        <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
+                                    </div>
+                                    <h3 class="feature-one__hover-title"><a href="{{url_for('main.blog')}}">User
                                         <br> Blogs</a></h3>
+                                    <p class="feature-one__hover-text">You can leave your blogs here.
+                                        <br>Release the pressure in your mind</p>
+                                </div>
+                                <div class="feature-one__hover-arrow-box">
+                                    <a href="{{url_for('main.blog')}}" class="feature-one__hover-arrow"><span
+                                            class="icon-right-arrow"></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--Feature One Single End-->
-                    <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="feature-one__single">
-                            <div class="feature-one__img-box">
-                                <div class="feature-one__img">
-                                    <img src="../static/images/resources/feature-1-2.jpg" alt="">
-                                </div>
-                                <div class="feature-one__hover-content">
-                                    <div class="feature-one__hover-icon">
-                                        <span class="icon-psychology"></span>
-                                    </div>
-                                    <div class="feature-one__hover-content-inner">
-                                        <div class="feature-one__shape-1">
-                                            <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
-                                        </div>
-                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.blogsidebar')}}">Quality Mental Health Blogs
-                                                </a></h3>
-                                        <p class="feature-one__hover-text">Professional mental health articles.
-                                            Personal emotional experiences sharing.
-                                        </p>
-                                    </div>
-                                    <div class="feature-one__hover-arrow-box">
-                                        <a href="{{url_for('main.blogsidebar')}}" class="feature-one__hover-arrow"><span
-                                                class="icon-right-arrow"></span></a>
-                                    </div>
-                                </div>
+                        <div class="feature-one__content">
+                            <div class="feature-one__icon">
+                                <span class="icon-philosophy"></span>
                             </div>
-                            <div class="feature-one__content">
-                                <div class="feature-one__icon">
+                            <h3 class="feature-one__title"><a href="{{url_for('main.blog')}}">User
+                                <br> Blogs</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <!--Feature One Single End-->
+                <!--Feature One Single Start-->
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                    <div class="feature-one__single">
+                        <div class="feature-one__img-box">
+                            <div class="feature-one__img">
+                                <img src="../static/images/resources/feature-1-2.jpg" alt="">
+                            </div>
+                            <div class="feature-one__hover-content">
+                                <div class="feature-one__hover-icon">
                                     <span class="icon-psychology"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="{{url_for('main.blogsidebar')}}">Quality Mental Health Blogs
-                                 </a></h3>
+                                <div class="feature-one__hover-content-inner">
+                                    <div class="feature-one__shape-1">
+                                        <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
+                                    </div>
+                                    <h3 class="feature-one__hover-title"><a href="{{url_for('main.blogsidebar')}}">Quality
+                                        Mental Health Blogs
+                                    </a></h3>
+                                    <p class="feature-one__hover-text">Professional mental health articles.
+                                        Personal emotional experiences sharing.
+                                    </p>
+                                </div>
+                                <div class="feature-one__hover-arrow-box">
+                                    <a href="{{url_for('main.blogsidebar')}}" class="feature-one__hover-arrow"><span
+                                            class="icon-right-arrow"></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--Feature One Single End-->
-                    <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="feature-one__single">
-                            <div class="feature-one__img-box">
-                                <div class="feature-one__img">
-                                    <img src="../static/images/resources/feature-1-3.jpg" alt="">
-                                </div>
-                                <div class="feature-one__hover-content">
-                                    <div class="feature-one__hover-icon">
-                                        <span class="icon-somatise"></span>
-                                    </div>
-                                    <div class="feature-one__hover-content-inner">
-                                        <div class="feature-one__shape-1">
-                                            <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
-                                        </div>
-                                        <h3 class="feature-one__hover-title"><a href="{{url_for('main.services')}}">Emotional Vent Tree
-                                        </a></h3>
-                                        <p class="feature-one__hover-text">Express emotions anonymously without revealing your identity.
-                                            Access intelligent analysis service if needed.
-                                        </p>
-                                    </div>
-                                    <div class="feature-one__hover-arrow-box">
-                                        <a href="{{url_for('main.services')}}" class="feature-one__hover-arrow"><span
-                                                class="icon-right-arrow"></span></a>
-                                    </div>
-                                </div>
+                        <div class="feature-one__content">
+                            <div class="feature-one__icon">
+                                <span class="icon-psychology"></span>
                             </div>
-                            <div class="feature-one__content">
-                                <div class="feature-one__icon">
+                            <h3 class="feature-one__title"><a href="{{url_for('main.blogsidebar')}}">Quality Mental
+                                Health Blogs
+                            </a></h3>
+                        </div>
+                    </div>
+                </div>
+                <!--Feature One Single End-->
+                <!--Feature One Single Start-->
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="feature-one__single">
+                        <div class="feature-one__img-box">
+                            <div class="feature-one__img">
+                                <img src="../static/images/resources/feature-1-3.jpg" alt="">
+                            </div>
+                            <div class="feature-one__hover-content">
+                                <div class="feature-one__hover-icon">
                                     <span class="icon-somatise"></span>
                                 </div>
-                                <h3 class="feature-one__title"><a href="{{url_for('main.services')}}">Emotional Vent Tree
-                                        </a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Feature One Single End-->
-                </div>
-            </div>
-        </section>
-        <!--feature One End-->
-
-        <!--Services One Start-->
-        <section class="services-one">
-            <div class="services-one__bg" style="background-image: url(../static/images/backgrounds/services-one-bg.png);">
-            </div>
-            <div class="container">
-                <div class="services-one__top">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="services-one__left">
-                                <div class="section-title text-left">
-                                    <span class="section-title__tagline">Mental Health Blogs</span>
-                                    <h2 class="section-title__title">Various Focus of <span>the</span>
-                                        <br>Users' Health Blogs</h2>
+                                <div class="feature-one__hover-content-inner">
+                                    <div class="feature-one__shape-1">
+                                        <img src="../static/images/shapes/feature-one-shape-1.png" alt="">
+                                    </div>
+                                    <h3 class="feature-one__hover-title"><a href="{{url_for('main.services')}}">Emotional
+                                        Vent Tree
+                                    </a></h3>
+                                    <p class="feature-one__hover-text">Express emotions anonymously without revealing
+                                        your identity.
+                                        Access intelligent analysis service if needed.
+                                    </p>
+                                </div>
+                                <div class="feature-one__hover-arrow-box">
+                                    <a href="{{url_for('main.services')}}" class="feature-one__hover-arrow"><span
+                                            class="icon-right-arrow"></span></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6">
-                            <div class="services-one__right">
-                                <p class="services-one__right-text">Share your experiences and insights on mental well-being
-                                    in this safe and supportive space.
-                                    Receive responses and resonate with others in this community. </p>
+                        <div class="feature-one__content">
+                            <div class="feature-one__icon">
+                                <span class="icon-somatise"></span>
                             </div>
+                            <h3 class="feature-one__title"><a href="{{url_for('main.services')}}">Emotional Vent Tree
+                            </a></h3>
                         </div>
                     </div>
                 </div>
-                <div class="services-one__bottom">
-                    <div class="row">
-                        <!--Services One Single Start-->
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-heart"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Dating & Relationship') }}">Dating &
-                                            <br> Relationship</a></h3>
-                                    <p class="services-one__text">Navigating love, connection, and personal dynamics in romantic pursuits.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Dating & Relationship') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-self-confidence"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}">Self Esteem
-                                            <br> Issues</a></h3>
-                                    <p class="services-one__text">Overcoming self-doubt : navigating the complexities of self-esteem issues.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-family"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}">Kids & Family
-                                            <br> Psycology</a></h3>
-                                    <p class="services-one__text">Understanding child development and family dynamics for nurturing environments.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-meeting"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Career Growth & Development') }}">Life & Career
-                                            <br> Counseling</a></h3>
-                                    <p class="services-one__text">Life and career intertwine and the pursuit of fulfillment in professional and personal domains.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Career Growth & Development') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-self-confidence"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Stress Management Techniques') }}">Stress Management
-                                            <br> Techniques</a></h3>
-                                    <p class="services-one__text">Coping strategies for reducing stress and enhancing well-being in daily life.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Stress Management Techniques') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="services-one__single">
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-self-confidence"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}">Mindfulness &
-                                            <br> Well-being</a></h3>
-                                    <p class="services-one__text">Cultivating present moment awareness for improved mental and emotional health.
-                                    </p>
-                                </div>
-                                <div class="services-one__btn-box">
-                                    <a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}" class="services-one__btn"><span
-                                            class="icon-right-arrow"></span>More</a>
-                                </div>
-                            </div>
-                        </div>
+                <!--Feature One Single End-->
+            </div>
+        </div>
+    </section>
+    <!--feature One End-->
 
-                        
-                        
+    <!--Services One Start-->
+    <section class="services-one">
+        <div class="services-one__bg" style="background-image: url(../static/images/backgrounds/services-one-bg.png);">
+        </div>
+        <div class="container">
+            <div class="services-one__top">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="services-one__left">
+                            <div class="section-title text-left">
+                                <span class="section-title__tagline">Mental Health Blogs</span>
+                                <h2 class="section-title__title">Various Focus of <span>the</span>
+                                    <br>Users' Health Blogs</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="services-one__right">
+                            <p class="services-one__right-text">Share your experiences and insights on mental well-being
+                                in this safe and supportive space.
+                                Receive responses and resonate with others in this community. </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--Services One End-->
+            <div class="services-one__bottom">
+                <div class="row">
+                    <!--Services One Single Start-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-heart"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Dating & Relationship') }}">Dating &
+                                    <br> Relationship</a></h3>
+                                <p class="services-one__text">Navigating love, connection, and personal dynamics in
+                                    romantic pursuits.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Dating & Relationship') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Services One Single End-->
+                    <!--Services One Single Start-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-self-confidence"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Self Esteem Boosters') }}">Self Esteem
+                                    <br> Issues</a></h3>
+                                <p class="services-one__text">Overcoming self-doubt : navigating the complexities of
+                                    self-esteem issues.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Services One Single End-->
+                    <!--Services One Single Start-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-family"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}">Kids &
+                                    Family
+                                    <br> Psycology</a></h3>
+                                <p class="services-one__text">Understanding child development and family dynamics for
+                                    nurturing environments.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Services One Single End-->
+                    <!--Services One Single Start-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-meeting"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Career Growth & Development') }}">Life &
+                                    Career
+                                    <br> Counseling</a></h3>
+                                <p class="services-one__text">Life and career intertwine and the pursuit of fulfillment
+                                    in professional and personal domains.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Career Growth & Development') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Services One Single End-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-self-confidence"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Stress Management Techniques') }}">Stress
+                                    Management
+                                    <br> Techniques</a></h3>
+                                <p class="services-one__text">Coping strategies for reducing stress and enhancing
+                                    well-being in daily life.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Stress Management Techniques') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="services-one__single">
+                            <div class="services-one__content">
+                                <div class="services-one__icon">
+                                    <span class="icon-self-confidence"></span>
+                                </div>
+                                <h3 class="services-one__title"><a
+                                        href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}">Mindfulness
+                                    &
+                                    <br> Well-being</a></h3>
+                                <p class="services-one__text">Cultivating present moment awareness for improved mental
+                                    and emotional health.
+                                </p>
+                            </div>
+                            <div class="services-one__btn-box">
+                                <a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}"
+                                   class="services-one__btn"><span
+                                        class="icon-right-arrow"></span>More</a>
+                            </div>
+                        </div>
+                    </div>
 
 
-        <!--CTA One Start-->
-        <section class="cta-one">
-            <div class="cta-one__shape-1">
-                <img src="../static/images/shapes/cta-one-shape-1.png" alt="">
-            </div>
-            <div class="container">
-                <div class="cta-one__inner">
-                    <p class="cta-one__text">Access intelligent analysis service</p>
-                    <div class="cta-one__btn-box">
-                        <a href="{{url_for('main.services')}}" class="cta-one__btn thm-btn">Emotional Text</a>
-                    </div>
-                    <div class="cta-one__btn-box">
-                        <a href="{{url_for('main.audioservices')}}" class="cta-one__btn thm-btn">Emotional Audio</a>
-                    </div>
                 </div>
             </div>
-        </section>
-        <!--CTA One End-->
+        </div>
+    </section>
+    <!--Services One End-->
 
-        <!--Team One Start-->
-        <section class="team-one">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">see develop people</span>
-                    <h2 class="section-title__title">Meet the Develop <span>Team</span>
-                        </h2>
+
+    <!--CTA One Start-->
+    <section class="cta-one">
+        <div class="cta-one__shape-1">
+            <img src="../static/images/shapes/cta-one-shape-1.png" alt="">
+        </div>
+        <div class="container">
+            <div class="cta-one__inner">
+                <p class="cta-one__text">Access intelligent analysis service</p>
+                <div class="cta-one__btn-box">
+                    <a href="{{url_for('main.services')}}" class="cta-one__btn thm-btn">Emotional Text</a>
                 </div>
+                <div class="cta-one__btn-box">
+                    <a href="{{url_for('main.audioservices')}}" class="cta-one__btn thm-btn">Emotional Audio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--CTA One End-->
+
+    <!--Team One Start-->
+    <section class="team-one">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">see develop people</span>
+                <h2 class="section-title__title">Meet the Develop <span>Team</span>
+                </h2>
+            </div>
             <div class="row">
                 <!--Team One Single Start-->
                 <div data-wow-delay="100ms" style="width: 20%;">
@@ -543,83 +578,136 @@
                 </div>
                 <!--Team One Single End-->
             </div>
+        </div>
+    </section>
+    <!--Team One End-->
+
+    <!--Awards One Start-->
+    {#
+    <section class="awards-one">#}
+        {#
+        <div class="awards-one__wrap">#}
+            {#
+            <div class="awards-one__bg" style="background-image: url(../static/images/backgrounds/awards-one-bg.png);">
+                #}
+                {#
             </div>
-        </section>
-        <!--Team One End-->
-
-        <!--Awards One Start-->
-{#        <section class="awards-one">#}
-{#            <div class="awards-one__wrap">#}
-{#                <div class="awards-one__bg" style="background-image: url(../static/images/backgrounds/awards-one-bg.png);">#}
-{#                </div>#}
-{#                <div class="awards-one__shape-1">#}
-{#                    <img src="../static/images/shapes/awards-one-shape-1.png" alt="">#}
-{#                </div>#}
-{#                <div class="awards-one__shape-2 float-bob-y-2">#}
-{#                    <a href="{{url_for('main.cases1')}}"><img src="../static/images/shapes/tree_1.png" alt="" style="height: 540px;"></a>#}
-{#                </div>#}
-{#                <div class="container">#}
-{#                    <div class="awards-one__inner">#}
-{#                        <ul class="awards-one__awards-box list-unstyled">#}
-{#                            <li class="awards-one__single">#}
-{#                                <h3 class="awards-one__title">Text Analysis</h3>#}
-{#                                <p class="awards-one__text">Type anything you want anonymously.</p>#}
-{#                                <div class="awards-one__icon">#}
-{#                                    <span class="icon-wreath"></span>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li class="awards-one__single">#}
-{#                                <h3 class="awards-one__title">Audio Analysis</h3>#}
-{#                                <p class="awards-one__text">Say anything you want anonymously.</p>#}
-{#                                <div class="awards-one__icon">#}
-{#                                    <span class="icon-wreath"></span>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                        <ul class="awards-one__awards-box list-unstyled">#}
-{#                            <li class="awards-one__single">#}
-{#                                <h3 class="awards-one__title">Recent mood</h3>#}
-{#                                <p class="awards-one__text">Classification: Happy. Sad. Neutral...</p>#}
-{#                                <div class="awards-one__icon">#}
-{#                                    <span class="icon-wreath"></span>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li class="awards-one__single">#}
-{#                                <h3 class="awards-one__title">Related articles</h3>#}
-{#                                <p class="awards-one__text">lalala</p>#}
-{#                                <div class="awards-one__icon">#}
-{#                                    <span class="icon-wreath"></span>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </section>#}
-
-        <!--Awards One End-->
-
-        <!--Testimonial One Start-->
-        <section class="testimonial-one">
-            <div class="container">
-                <div class="row">
-                </div>
+            #}
+            {#
+            <div class="awards-one__shape-1">#}
+                {# <img src="../static/images/shapes/awards-one-shape-1.png" alt="">#}
+                {#
             </div>
-        </section>
-        <!--Testimonial One End-->
-
-        <!--Cases One Start-->
-        <section class="cases-one">
-            <div class="cases-one__bg-box"></div>
-            <div class="cases-one__bg" style="background-image: url(../static/images/backgrounds/cases-one-bg.png);"></div>
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">Professional Mental Health Articles</span>
-                    <h2 class="section-title__title">Explore the <span>Professional</span>
-                        <br> Mental Health Insights</h2>
+            #}
+            {#
+            <div class="awards-one__shape-2 float-bob-y-2">#}
+                {# <a href="{{url_for('main.cases1')}}"><img src="../static/images/shapes/tree_1.png" alt=""
+                                                             style="height: 540px;"></a>#}
+                {#
+            </div>
+            #}
+            {#
+            <div class="container">#}
+                {#
+                <div class="awards-one__inner">#}
+                    {#
+                    <ul class="awards-one__awards-box list-unstyled">#}
+                        {#
+                        <li class="awards-one__single">#}
+                            {# <h3 class="awards-one__title">Text Analysis</h3>#}
+                            {# <p class="awards-one__text">Type anything you want anonymously.</p>#}
+                            {#
+                            <div class="awards-one__icon">#}
+                                {# <span class="icon-wreath"></span>#}
+                                {#
+                            </div>
+                            #}
+                            {#
+                        </li>
+                        #}
+                        {#
+                        <li class="awards-one__single">#}
+                            {# <h3 class="awards-one__title">Audio Analysis</h3>#}
+                            {# <p class="awards-one__text">Say anything you want anonymously.</p>#}
+                            {#
+                            <div class="awards-one__icon">#}
+                                {# <span class="icon-wreath"></span>#}
+                                {#
+                            </div>
+                            #}
+                            {#
+                        </li>
+                        #}
+                        {#
+                    </ul>
+                    #}
+                    {#
+                    <ul class="awards-one__awards-box list-unstyled">#}
+                        {#
+                        <li class="awards-one__single">#}
+                            {# <h3 class="awards-one__title">Recent mood</h3>#}
+                            {# <p class="awards-one__text">Classification: Happy. Sad. Neutral...</p>#}
+                            {#
+                            <div class="awards-one__icon">#}
+                                {# <span class="icon-wreath"></span>#}
+                                {#
+                            </div>
+                            #}
+                            {#
+                        </li>
+                        #}
+                        {#
+                        <li class="awards-one__single">#}
+                            {# <h3 class="awards-one__title">Related articles</h3>#}
+                            {# <p class="awards-one__text">lalala</p>#}
+                            {#
+                            <div class="awards-one__icon">#}
+                                {# <span class="icon-wreath"></span>#}
+                                {#
+                            </div>
+                            #}
+                            {#
+                        </li>
+                        #}
+                        {#
+                    </ul>
+                    #}
+                    {#
                 </div>
-                <div class="cases-one__bottom">
-                    <div class="cases-one__carousel owl-carousel owl-theme thm-owl__carousel" data-owl-options='{
+                #}
+                {#
+            </div>
+            #}
+            {#
+        </div>
+        #}
+        {#
+    </section>
+    #}
+
+    <!--Awards One End-->
+
+    <!--Testimonial One Start-->
+    <section class="testimonial-one">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </section>
+    <!--Testimonial One End-->
+
+    <!--Cases One Start-->
+    <section class="cases-one">
+        <div class="cases-one__bg-box"></div>
+        <div class="cases-one__bg" style="background-image: url(../static/images/backgrounds/cases-one-bg.png);"></div>
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Professional Mental Health Articles</span>
+                <h2 class="section-title__title">Explore the <span>Professional</span>
+                    <br> Mental Health Insights</h2>
+            </div>
+            <div class="cases-one__bottom">
+                <div class="cases-one__carousel owl-carousel owl-theme thm-owl__carousel" data-owl-options='{
                         "loop": true,
                         "autoplay": true,
                         "margin": 30,
@@ -643,340 +731,354 @@
                             }
                         }
                     }'>
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-1.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Dating & Relationship') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Dating & Relationship') }}">Dating
-                                                <br> & Relationship</a></h3>
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-1.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Dating & Relationship') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-2.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Self Esteem Boosters') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Self Esteem Boosters') }}">Self Esteem
-                                                <br> Issues</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-3.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Family Dynamics & Parenting') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Family Dynamics & Parenting') }}">Kids & Family <br>
-                                                Psychology</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-4.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Career Growth & Development') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Career Growth & Development') }}">Life & Career<br>
-                                                Counseling</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-5.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Stress Management Techniques') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Stress Management Techniques') }}">Stress Management<br>
-                                                Techniques</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                        <!--Cases one Single Start-->
-                        <div class="item">
-                            <div class="cases-one__single">
-                                <div class="cases-one__img-box">
-                                    <div class="cases-one__img">
-                                        <img src="../static/images/project/cases-1-6.jpg" alt="">
-                                        <div class="cases-one__shape-1">
-                                            <a href="{{ url_for('main.blogsidebar', category='Mindfulness & Well-being') }}" class="cases-one__arrow"><span
-                                                    class="icon-right-arrow"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="cases-one__content">
-                                        <p class="cases-one__sub-title">Mind / Fruestation</p>
-                                        <h3 class="cases-one__title"><a href="{{ url_for('main.blogsidebar', category='Mindfulness & Well-being') }}">Mindfulness &<br>
-                                                Well-being</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Cases one Single End-->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Cases One End-->
-
-        <!--Why Choose One Start-->
-        <section class="why-choose-one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4">
-                        <div class="why-choose-one__left">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">Our benefits</span>
-                                <h2 class="section-title__title">Why <span>Choose</span>
-                                    <br> Us?
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-8">
-                        <div class="why-choose-one__right">
-                            <ul class="why-choose-one__list list-unstyled">
-                                <li>
-                                    <div class="why-choose-one__single">
-                                        <div class="icon">
-                                            <span class="icon-psychologist"></span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href="about.html">Professional
-                                                    <br> Psychologists</a></h3>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="why-choose-one__single">
-                                        <div class="icon">
-                                            <span class="icon-online-business"></span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href="about.html">Useful
-                                                    <br> Articles</a></h3>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="why-choose-one__single">
-                                        <div class="icon">
-                                            <span class="icon-rating"></span>
-                                        </div>
-                                        <div class="title">
-                                            <h3><a href="about.html">AI
-                                                    <br> Assistance</a></h3>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Why Choose One End-->
-
-
-        <div style="width: 100%; background-color: #886754; height: 0.5px"></div>
-
-        <!--BLog One Start-->
-        <section class="blog-one">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="section-title__tagline">From the Blog</span>
-                    <h2 class="section-title__title">Most Popular News <span>&</span>
-                        <br> Articles From the Expert Blog</h2>
-                </div>
-                <div class="row">
-                   {% for i in e_blogs[:3] %}
-                    <!--Blog One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__img-box">
-                                <div class="blog-one__img">
-                                    <img src="{{ i.cover_url }}" alt="img">
-                                    <a href="{{ url_for('main.blogdetails', id=i.id) }}">
-                                        <span class="blog-one__plus"></span>
-                                    </a>
-                                    <div class="blog-one__date">
-                                        <p>{{ i.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
-                                    </div>
-                                </div>
-                                <div class="blog-one__content-top">
-                                    <div class="blog-one__content-img">
-                                        <img src="../static/images/blog/blog-content-img.jpg" alt="">
-                                    </div>
-                                    <p class="blog-one__content-sub-title">by {{ i.author.first_name }} {{ i.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a href="blog-details.html">{{ i.title }}</a></h3>
-                                </div>
-                            </div>
-                            <div class="blog-one__content">
-                                <div class="blog-one__comment-and-btn">
-                                    <div class="blog-one__comment">
-                                        <a href="blog-details.html"><span class="fas fa-comments"></span>{{ i.read_count }} Comments</a>
-                                    </div>
-                                    <div class="blog-one__btn">
-                                        <a href="blog-details.html"><span class="icon-right-arrow"></span>More</a>
-                                    </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Dating & Relationship') }}">Dating
+                                        <br> & Relationship</a></h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--Blog One Single End-->
-                    {% endfor %}
+                    <!--Cases one Single End-->
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-2.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Self Esteem Boosters') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
+                                    </div>
+                                </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Self Esteem Boosters') }}">Self
+                                        Esteem
+                                        <br> Issues</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Cases one Single End-->
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-3.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Family Dynamics & Parenting') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
+                                    </div>
+                                </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Family Dynamics & Parenting') }}">Kids
+                                        & Family <br>
+                                        Psychology</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Cases one Single End-->
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-4.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Career Growth & Development') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
+                                    </div>
+                                </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Career Growth & Development') }}">Life
+                                        & Career<br>
+                                        Counseling</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Cases one Single End-->
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-5.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Stress Management Techniques') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
+                                    </div>
+                                </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Stress Management Techniques') }}">Stress
+                                        Management<br>
+                                        Techniques</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Cases one Single End-->
+                    <!--Cases one Single Start-->
+                    <div class="item">
+                        <div class="cases-one__single">
+                            <div class="cases-one__img-box">
+                                <div class="cases-one__img">
+                                    <img src="../static/images/project/cases-1-6.jpg" alt="">
+                                    <div class="cases-one__shape-1">
+                                        <a href="{{ url_for('main.blogsidebar', category='Mindfulness & Well-being') }}"
+                                           class="cases-one__arrow"><span
+                                                class="icon-right-arrow"></span></a>
+                                    </div>
+                                </div>
+                                <div class="cases-one__content">
+                                    <p class="cases-one__sub-title">Mind / Fruestation</p>
+                                    <h3 class="cases-one__title"><a
+                                            href="{{ url_for('main.blogsidebar', category='Mindfulness & Well-being') }}">Mindfulness
+                                        &<br>
+                                        Well-being</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Cases one Single End-->
                 </div>
             </div>
-        </section>
-        <!--BLog One End-->
-        
-
-
-
-
-       {% include 'base_footer.html' %}
-
-
-    </div><!-- /.page-wrapper -->
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
-                                                                  alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
+    </section>
+    <!--Cases One End-->
 
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </button>
-            </form>
+    <!--Why Choose One Start-->
+    <section class="why-choose-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="why-choose-one__left">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Our benefits</span>
+                            <h2 class="section-title__title">Why <span>Choose</span>
+                                <br> Us?
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="why-choose-one__right">
+                        <ul class="why-choose-one__list list-unstyled">
+                            <li>
+                                <div class="why-choose-one__single">
+                                    <div class="icon">
+                                        <span class="icon-psychologist"></span>
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="about.html">Professional
+                                            <br> Psychologists</a></h3>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="why-choose-one__single">
+                                    <div class="icon">
+                                        <span class="icon-online-business"></span>
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="about.html">Useful
+                                            <br> Articles</a></h3>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="why-choose-one__single">
+                                    <div class="icon">
+                                        <span class="icon-rating"></span>
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="about.html">AI
+                                            <br> Assistance</a></h3>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.search-popup__content -->
+    </section>
+    <!--Why Choose One End-->
+
+
+    <div style="width: 100%; background-color: #886754; height: 0.5px"></div>
+
+    <!--BLog One Start-->
+    <section class="blog-one">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">From the Blog</span>
+                <h2 class="section-title__title">Most Popular News <span>&</span>
+                    <br> Articles From the Expert Blog</h2>
+            </div>
+            <div class="row">
+                {% for i in e_blogs[:3] %}
+                <!--Blog One Single Start-->
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="blog-one__single">
+                        <div class="blog-one__img-box">
+                            <div class="blog-one__img">
+                                <img src="{{ i.cover_url }}" alt="img">
+                                <a href="{{ url_for('main.blogdetails', id=i.id) }}">
+                                    <span class="blog-one__plus"></span>
+                                </a>
+                                <div class="blog-one__date">
+                                    <p>{{ i.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+                                </div>
+                            </div>
+                            <div class="blog-one__content-top">
+                                <div class="blog-one__content-img">
+                                    <img src="../static/images/blog/blog-content-img.jpg" alt="">
+                                </div>
+                                <p class="blog-one__content-sub-title">by {{ i.author.first_name }} {{
+                                    i.author.last_name }}</p>
+                                <h3 class="blog-one__content-title"><a
+                                        href="{{ url_for('main.blogdetails', id=i.id) }}">{{ i.title }}</a></h3>
+                            </div>
+                        </div>
+                        <div class="blog-one__content">
+                            <div class="blog-one__comment-and-btn">
+                                <div class="blog-one__comment">
+                                    <a href="blog-details.html"><span class="fas fa-comments"></span>{{ i.read_count }}
+                                        Comments</a>
+                                </div>
+                                <div class="blog-one__btn">
+                                    <a href="blog-details.html"><span class="icon-right-arrow"></span>More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Blog One Single End-->
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--BLog One End-->
+
+
+    {% include 'base_footer.html' %}
+
+
+</div><!-- /.page-wrapper -->
+
+<div class="mobile-nav__wrapper">
+    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+    <!-- /.mobile-nav__overlay -->
+    <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+        <div class="logo-box">
+            <a href="index.html" aria-label="logo image"><img src="../static/images/resources/logo-2.png" width="135"
+                                                              alt=""/></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+            <li>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:needhelp@packageName__.com">needhelp@delogis.com</a>
+            </li>
+            <li>
+                <i class="fa fa-phone-alt"></i>
+                <a href="tel:666-888-0000">666 888 0000</a>
+            </li>
+        </ul><!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+            <div class="mobile-nav__social">
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-facebook-square"></a>
+                <a href="#" class="fab fa-pinterest-p"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div><!-- /.mobile-nav__social -->
+        </div><!-- /.mobile-nav__top -->
+
+
     </div>
-    <!-- /.search-popup -->
+    <!-- /.mobile-nav__content -->
+</div>
+<!-- /.mobile-nav__wrapper -->
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
+<div class="search-popup">
+    <div class="search-popup__overlay search-toggler"></div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__content">
+        <form action="#">
+            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+            <input type="text" id="search" placeholder="Search Here..."/>
+            <button type="submit" aria-label="search submit" class="thm-btn">
+                <i class="icon-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <!-- /.search-popup__content -->
+</div>
+<!-- /.search-popup -->
 
-
-    <script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/vendors/jarallax/jarallax.min.js"></script>
-    <script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="../static/vendors/nouislider/nouislider.min.js"></script>
-    <script src="../static/vendors/odometer/odometer.min.js"></script>
-    <script src="../static/vendors/swiper/swiper.min.js"></script>
-    <script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
-    <script src="../static/vendors/wnumb/wNumb.min.js"></script>
-    <script src="../static/vendors/wow/wow.js"></script>
-    <script src="../static/vendors/isotope/isotope.js"></script>
-    <script src="../static/vendors/countdown/countdown.min.js"></script>
-    <script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
-    <script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-    <script src="../static/vendors/vegas/vegas.min.js"></script>
-    <script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="../static/vendors/timepicker/timePicker.js"></script>
-    <script src="../static/vendors/circleType/jquery.circleType.js"></script>
-    <script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
 
 
+<script src="../static/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="../static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendors/jarallax/jarallax.min.js"></script>
+<script src="../static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="../static/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="../static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="../static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../static/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="../static/vendors/nouislider/nouislider.min.js"></script>
+<script src="../static/vendors/odometer/odometer.min.js"></script>
+<script src="../static/vendors/swiper/swiper.min.js"></script>
+<script src="../static/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="../static/vendors/wnumb/wNumb.min.js"></script>
+<script src="../static/vendors/wow/wow.js"></script>
+<script src="../static/vendors/isotope/isotope.js"></script>
+<script src="../static/vendors/countdown/countdown.min.js"></script>
+<script src="../static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="../static/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="../static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="../static/vendors/vegas/vegas.min.js"></script>
+<script src="../static/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="../static/vendors/timepicker/timePicker.js"></script>
+<script src="../static/vendors/circleType/jquery.circleType.js"></script>
+<script src="../static/vendors/circleType/jquery.lettering.min.js"></script>
 
 
-    <!-- template js -->
-    <script src="../static/js/delogis.js"></script>
+<!-- template js -->
+<script src="../static/js/delogis.js"></script>
 </body>
 

@@ -78,15 +78,6 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $("#login-btn").click(function () {
-        $.ajax({
-            url: "/send_message2",
-            type: "POST",
-            success: function (data) {
-                alert(data.message);
-            }
-        });
-    });
-});
+
+
 
