@@ -65,8 +65,7 @@
 
 
     <div class="page-wrapper">
-
-        <header class="main-header">
+            <header class="main-header">
             <nav class="main-menu">
                 <div class="main-menu__wrapper">
                     <div class="main-menu__wrapper-inner">
@@ -74,7 +73,7 @@
                             <a href="{{url_for('main.index')}}"><img class="lo1" src="../static/images/resources/logo-1.png" alt=""></a>
                         </div>
                         <div class="main-menu__btn-box">
-                            <a href="{{url_for('main.team')}}">Make an Appointment</a>
+                            <a href="{{url_for('main.services')}}">Emotion Classification</a>
                         </div>
                         <div class="main-menu__wrapper-inner-content">
                             <div class="main-menu__top">
@@ -131,8 +130,7 @@
                                                 <a href="{{url_for('main.index')}}">Home </a>
                                             </li>
                                             <li class="dropdown">
-
-                                                <a href="{{url_for('main.team')}}">Experts</a>
+                                                <a href="{{url_for('main.about')}}">About</a>
                                             </li>
                                             <li class="dropdown">
                                                 <a>Blog</a>
@@ -142,18 +140,22 @@
                                                 </ul>
                                             </li>
                                             <li class="dropdown">
-                                                <a href="{{url_for('main.services')}}">Emotional Vent Tree</a>
+                                                <a>Emotional Vent Tree</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.services')}}">Text Tree</a></li>
+                                                    <li><a href="{{url_for('main.audioservices')}}">Audio Tree</a></li>
+                                                </ul>
+
                                             </li>
                                             <li class="dropdown">
-                                                <a>More</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="{{url_for('main.about')}}">About</a></li>
-                                                    <li><a href="{{url_for('main.faq')}}">Faqs</a></li>
-                                                </ul>
+                                                <a href="{{url_for('main.faq')}}">Faqs</a>
                                             </li>
                                              <li class="dropdown">
                                                  {% if current_user.is_authenticated %}
-                                                 Hi, <a href="{{url_for('main.personaldetails', email=current_user.email) }}">{{ current_user.email}}</a>
+                                                 <a href="{{url_for('main.personaldetails', email=current_user.email) }}">Hi, {{ current_user.email}}</a>
+                                                      <ul class="sub-menu">
+                                                    <li><a href="{{url_for('main.logout')}}">Log out</a></li>
+                                                </ul>
                                                  {% else %}
                                                  <a href="{{url_for('main.login')}}">Sign In</a>
                                                      <ul class="sub-menu">
