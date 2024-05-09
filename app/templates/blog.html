@@ -94,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <!--Blog One Single Start-->
-                <div class="col-xl-4 col-lg-4">
+                <div class="col-xl-4 col-md-4 col-lg-4">
                     <div class="sidebar">
                         <div class="sidebar__single sidebar__search">
                             <form enctype="multipart/form-data" method="post" action="{{ url_for('main.blog') }}"
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-8">
+                <div class="col-xl-8 col-md-8 col-lg-8">
                         <div class="row">
 
                             {% for blog in blogs %}
@@ -146,7 +146,7 @@
                                         {% endif %}
                                         <div class="blog-one__content-top">
                                             <div class="blog-one__content-img">
-                                                <img src="../static/images/blog/blog-content-img.jpg" alt="">
+                                                <img src="{{ blog.author.avatar_url }}" style="height: 70px" alt="img">
                                             </div>
                                             <p class="blog-one__content-sub-title">
                                                 by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
