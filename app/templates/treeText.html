@@ -50,6 +50,18 @@
     <link rel="stylesheet" href="../static/css/delogis.css" />
     <link rel="stylesheet" href="../static/css/delogis-responsive.css" />
 
+    <style>
+        #sendTreeText:disabled {
+          /* 添加灰色背景颜色 */
+          background-color: #dddddd;
+
+          /* 修改文本颜色为灰色 */
+          color: #666666;
+
+          /* 鼠标指针样式设置为默认 */
+          cursor: not-allowed;
+        }
+    </style>
 
 </head>
 
@@ -120,7 +132,8 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="ship_different_input">
-
+                                    <input type="checkbox" name="textAgree" id="textAgree">
+                                    <label for="textAgree"><span></span>The texts posted (anonymous) will be seen by other users. Please make sure to allow this</label>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +145,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="text-right d-flex justify-content-end">
-                                    <button type="submit" class="thm-btn">Post</button>
+                                    <button type="submit" class="thm-btn" id="sendTreeText" disabled>Post</button>
                                 </div><!-- /.text-right -->
                             </div><!-- /.col-lg-6 -->
                         </div>
@@ -243,6 +256,16 @@
     <!-- template js -->
     <script src="../static/js/delogis.js"></script>
     <script src="../static/UploadProfile/js/dropify.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('textAgree');
+        const submitButton = document.getElementById('sendTreeText');
+
+        checkbox.addEventListener('change', function() {
+            submitButton.disabled = !this.checked;
+        });
+    });
+    </script>
     <script>
             $(document).ready(function(){
                 // Basic
