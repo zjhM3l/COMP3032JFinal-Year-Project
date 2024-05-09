@@ -739,116 +739,155 @@ def send_message():
     return jsonify({'message': 'Please check your email, and click the link'})
 
 
-
 @main.route('/send_blog', methods=['GET', 'POST'])
 def send_blog():
     form = ExpertForm()
 
     if form.validate_on_submit():
+        # 检测敏感词
+        sensitive_words_content = check_sensitive_words(form.content.data)
+        sensitive_words_title = check_sensitive_words(form.title.data)
 
-        t = form.title.data
+        if sensitive_words_content or sensitive_words_title:
+            sensitive_words = ", ".join(set(sensitive_words_content + sensitive_words_title))  # 敏感词列表转换为字符串
+            flash(f'Your text contains sensitive words: {sensitive_words}. Please modify and try again.', 'error')
+            return redirect(url_for('main.send_blog'))  # 返回发送文本页面并显示错误提示
+        else:
 
-        cate_id = form.cate_id.data
-        cate = Category.query.get(cate_id)
-        if not cate:
-            flash('There is no such category, please check the number.')
+            t = form.title.data
 
-        photo = request.files['photo']
-        fname = photo.filename
-        upload_folder = current_app.config['UPLOAD_EPOST']
-        allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
-        fext = fname.rsplit('.', 1)[-1] if '.' in fname else ''
-        if fext not in allowed_extensions:
-            flash('Please check if its one of png, '
-                  'jpg, jpeg and gif')
-            return redirect(url_for('.send_blog'))
-        target = '{}{}.{}'.format(upload_folder, t, fext)
-        photo.save(target)
+            cate_id = form.cate_id.data
+            cate = Category.query.get(cate_id)
+            if not cate:
+                flash('There is no such category, please check the number.')
 
-        epost = Post(title=form.title.data,
-                     cover_url='/static/postPhoto/{}.{}'.format(t, fext),
-                     hole=False,
-                     body=form.content.data,
-                     category_id=form.cate_id.data,
-                     author=current_user,
-                     )
-        db.session.add(epost)
-        db.session.commit()
+            photo = request.files['photo']
+            fname = photo.filename
+            upload_folder = current_app.config['UPLOAD_EPOST']
+            allowed_extensions = ['png', 'jpg', 'jpeg', 'gif']
+            fext = fname.rsplit('.', 1)[-1] if '.' in fname else ''
+            if fext not in allowed_extensions:
+                flash('Please check if its one of png, '
+                      'jpg, jpeg and gif')
+                return redirect(url_for('.send_blog'))
+            target = '{}{}.{}'.format(upload_folder, t, fext)
+            photo.save(target)
 
-        return redirect(url_for('main.blogsidebar'))
+            epost = Post(title=form.title.data,
+                         cover_url='/static/postPhoto/{}.{}'.format(t, fext),
+                         hole=False,
+                         body=form.content.data,
+                         category_id=form.cate_id.data,
+                         author=current_user,
+                         )
+            db.session.add(epost)
+            db.session.commit()
+
+            return redirect(url_for('main.blogsidebar'))
     return render_template('send_blog.html', form=form)
+
+
+# 获取敏感词列表
+def load_sensitive_words():
+    sensitive_words = set()
+    sensitive_words_file = os.path.join(os.path.dirname(__file__), 'sensitiveen.txt')
+
+    # Load stop words from the file
+    with open(sensitive_words_file, 'r', encoding='utf-8') as file:
+        for line in file:
+            print(line)
+            word = line.strip()
+            if word:
+                sensitive_words.add(word)
+    return sensitive_words
+
+# 检测文本中是否包含敏感词
+
+
+def check_sensitive_words(text):
+    sensitive_words = load_sensitive_words()
+    words_in_text = text.lower().split()  # 将文本转换为小写并分词
+    for word in words_in_text:
+        if word in sensitive_words:
+            return word  # 返回检测到的第一个敏感词
+    return None  # 如果没有检测到敏感词则返回 None
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])
 def sendtreeText():
     form = TreeForm()
     if form.validate_on_submit():
+        # 检测敏感词
+        sensitive_word = check_sensitive_words(form.body.data)
+        if sensitive_word:
+            flash(f'Your text contains a sensitive word: {sensitive_word}. Please modify and try again.', 'error')
+            return redirect(url_for('main.sendtreeText'))  # 返回发送文本页面并显示错误提示
         # Generate random user information for anonymous author
-        # Generate random user information for anonymous author
-        while True:
-            anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
-            anonymous_email = f"{anonymous_username}@soulharbor.com"
+        else:
+            while True:
+                anonymous_username = ''.join(choice(string.ascii_letters) for _ in range(10))
+                anonymous_email = f"{anonymous_username}@soulharbor.com"
 
-            # Check if the generated email is unique
-            existing_user = User.query.filter_by(email=anonymous_email).first()
-            if not existing_user:
-                break  # Exit the loop if the email is unique
+                # Check if the generated email is unique
+                existing_user = User.query.filter_by(email=anonymous_email).first()
+                if not existing_user:
+                    break  # Exit the loop if the email is unique
 
-        avatar_folder = 'app/static/defaultAvatars'
-        avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.jpg')]
-        if avatar_files:
-            random_avatar = random.choice(avatar_files)
-            anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
+            avatar_folder = 'app/static/defaultAvatars'
+            avatar_files = [file for file in os.listdir(avatar_folder) if file.endswith('.jpg')]
+            if avatar_files:
+                random_avatar = random.choice(avatar_files)
+                anonymous_avatar_url = f"{avatar_folder}{random_avatar}"
 
-        # Create the anonymous author
-        anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url,
-                                password_hash=current_user.password_hash)
-        db.session.add(anonymous_author)
-        db.session.commit()
+            # Create the anonymous author
+            anonymous_author = User(email=anonymous_email, anonymous=True, avatar_url=anonymous_avatar_url,
+                                    password_hash=current_user.password_hash)
+            db.session.add(anonymous_author)
+            db.session.commit()
 
-        # Create the post with anonymous author and current user as the author
-        post = Post(
-            author=current_user,
-            anonymous_author=anonymous_author,
-            hole=True,
-            body=form.body.data,
-            title=" "
-        )
-        db.session.add(post)
+            # Create the post with anonymous author and current user as the author
+            post = Post(
+                author=current_user,
+                anonymous_author=anonymous_author,
+                hole=True,
+                body=form.body.data,
+                title=" "
+            )
+            db.session.add(post)
 
-        url = current_app.config['TEXT_TO_EMOTION_URL']
-        api_key = current_app.config['TEXT_TO_EMOTION_KEY']
-        body = form.body.data
-        payload = body.encode("utf-8")
-        headers = {
-            "apikey": api_key
-        }
-        response = requests.request("POST", url, headers=headers, data=payload)
-        status_code = response.status_code
-        result = response.text
-        if status_code != 200:
-            result = '{"Neutral": 1.0}'
+            url = current_app.config['TEXT_TO_EMOTION_URL']
+            api_key = current_app.config['TEXT_TO_EMOTION_KEY']
+            body = form.body.data
+            payload = body.encode("utf-8")
+            headers = {
+                "apikey": api_key
+            }
+            response = requests.request("POST", url, headers=headers, data=payload)
+            status_code = response.status_code
+            result = response.text
+            if status_code != 200:
+                result = '{"Neutral": 1.0}'
 
-        result_dict = json.loads(result)
-        # print(type(result_dict), result_dict)
-        emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
-        # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
+            result_dict = json.loads(result)
+            # print(type(result_dict), result_dict)
+            emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
+            # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
 
-        # 创建 Emotion 对象
-        emotion = Emotion(
-            type=1,  # 文本情绪
-            user=current_user,
-            hole=post,  # 连接到新创建的博客对象 epost
-            output=result,  # 将情绪检测结果写入 output 字段
-            emotion=emotion_label
-        )
+            # 创建 Emotion 对象
+            emotion = Emotion(
+                type=1,  # 文本情绪
+                user=current_user,
+                hole=post,  # 连接到新创建的博客对象 epost
+                output=result,  # 将情绪检测结果写入 output 字段
+                emotion=emotion_label
+            )
 
-        # 将 Emotion 对象添加到数据库会话中并提交更改
-        db.session.add(emotion)
-        db.session.commit()
+            # 将 Emotion 对象添加到数据库会话中并提交更改
+            db.session.add(emotion)
+            db.session.commit()
 
-        return redirect(
-            url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
+            return redirect(
+                url_for('main.sendresponse', emotion_label=emotion_label))  # Redirect to the blog page after submission
     return render_template('treeText.html', form=form)
 
 
