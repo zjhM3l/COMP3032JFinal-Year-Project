@@ -66,11 +66,7 @@
                             <a href="{{url_for('main.index')}}"><img class="lo1" src="../static/images/resources/logo-1.png" alt=""></a>
                         </div>
                         <div class="main-menu__btn-box">
-                            {% if current_user.role %}
-                                <a href="{{url_for('main.dashboard')}}">Dashboard</a>
-                            {% else %}
-                                <a href="{{url_for('main.services')}}">Emotion Classification</a>
-                            {% endif %}
+                            <a href="{{url_for('main.services')}}">Emotion Classification</a>
                         </div>
                         <div class="main-menu__wrapper-inner-content">
                             <div class="main-menu__top">

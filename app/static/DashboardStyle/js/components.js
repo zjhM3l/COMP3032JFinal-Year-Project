@@ -531,7 +531,7 @@ function chart() {
                             fontFamily: themeStyle('--font-family-default'),
                             color: themeStyle('--text-primary-color'),
                             offsetY: -12,
-                            formatter: value => '$' + value
+                            formatter: value => value
                         },
                         total: {
                             show: true,
@@ -596,7 +596,7 @@ function chart() {
                             fontFamily: themeStyle('--font-family-default'),
                             color: themeStyle('--text-primary-color'),
                             offsetY: -12,
-                            formatter: value => '$' + value
+                            formatter: value => value
                         },
                         total: {
                             show: true,
