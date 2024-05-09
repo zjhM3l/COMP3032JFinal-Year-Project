@@ -88,85 +88,100 @@
     </section>
     <!--Page Header End-->
 
+
     <!--BLog One Start-->
     <section class="blog-sidebar">
         <div class="container">
             <div class="row">
                 <!--Blog One Single Start-->
+                <div class="col-xl-4 col-md-4 col-lg-4">
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__search">
+                            <form enctype="multipart/form-data" method="post" action="{{ url_for('main.blog') }}"
+                                  class="sidebar__search-form">
+                                {{ sform.hidden_tag() }}
+                                <input type="search" name="body" class="sidebar__search-input" placeholder="Keyword...">
+                                <button type="submit">
+                                    <i class="icon-magnifying-glass"></i></button>
+                            </form>
+                        </div>
 
-                <div class="sidebar">
-                    <div class="sidebar__single sidebar__search">
-                        <form enctype="multipart/form-data" method="post" action="{{ url_for('main.blog') }}"
-                              class="sidebar__search-form">
-                            {{ sform.hidden_tag() }}
-                            <input type="search" name="body" class="sidebar__search-input" placeholder="Keyword...">
-                            <button type="submit">
-                                <i class="icon-magnifying-glass"></i></button>
-                        </form>
-                    </div>
 
-
-                    <div class="sidebar__single sidebar__category">
-                        <h3 class="sidebar__title">Categories</h3>
-                        <ul class="sidebar__category-list list-unstyled">
-                            <li><a href="{{ url_for('main.blog', category='Dating & Relationship') }}">Dating & Relationship</a></li>
-                                    <li><a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}">Self Esteem Boosters</a></li>
-                                    <li><a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}">Family Dynamics & Parenting</a></li>
-                                    <li><a href="{{ url_for('main.blog', category='Career Growth & Development') }}">Career Growth & Development</a></li>
-                                    <li><a href="{{ url_for('main.blog', category='Stress Management Techniques') }}">Stress Management Techniques</a></li>
-                                    <li><a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}">Mindfulness & Well-being</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                {% for blog in blogs %}
-                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp">
-                        <div class="blog-one__single">
-                            <div class="blog-one__img-box">
-                                {% if blog.cover_url != 'n' %}
-                                    <div class="blog-one__img">
-                                        <img src="{{ blog.cover_url }}" alt="img">
-                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}">
-                                            <span class="blog-one__plus"></span>
-                                        </a>
-                                        <div class="blog-one__date">
-                                            <p>{{ blog.timestamp.strftime("%Y-%m-%d") }}</p>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                                <div class="blog-one__content-top">
-                                    <div class="blog-one__content-img">
-                                        <img src="../static/images/blog/blog-content-img.jpg" alt="">
-                                    </div>
-                                    <p class="blog-one__content-sub-title">
-                                        by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
-                                    <h3 class="blog-one__content-title"><a
-                                            href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title }}</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="blog-one__content">
-                                <div class="blog-one__comment-and-btn">
-                                    <div class="blog-one__comment">
-                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
-                                                class="fas fa-comments"></span>{{ blog.category }}</a>
-                                    </div>
-                                    <div class="blog-one__btn">
-                                        <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
-                                                class="icon-right-arrow"></span>More</a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="sidebar__single sidebar__category">
+                            <h3 class="sidebar__title">Categories</h3>
+                            <ul class="sidebar__category-list list-unstyled">
+                                <li><a href="{{ url_for('main.blog', category='Dating & Relationship') }}">Dating &
+                                    Relationship</a></li>
+                                <li><a href="{{ url_for('main.blog', category='Self Esteem Boosters') }}">Self Esteem
+                                    Boosters</a></li>
+                                <li><a href="{{ url_for('main.blog', category='Family Dynamics & Parenting') }}">Family
+                                    Dynamics & Parenting</a></li>
+                                <li><a href="{{ url_for('main.blog', category='Career Growth & Development') }}">Career
+                                    Growth & Development</a></li>
+                                <li><a href="{{ url_for('main.blog', category='Stress Management Techniques') }}">Stress
+                                    Management Techniques</a></li>
+                                <li><a href="{{ url_for('main.blog', category='Mindfulness & Well-being') }}">Mindfulness
+                                    & Well-being</a></li>
+                            </ul>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
+                <div class="col-xl-8 col-md-8 col-lg-8">
+                        <div class="row">
 
-                <div class="sidebar">
-                    <div class="sidebar__single sidebar__post">
-                        <h3 class="sidebar__title">Popular Posts</h3>
-                        <ul class="sidebar__post-list list-unstyled">
+                            {% for blog in blogs %}
+                            <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp">
+                                <div class="blog-one__single">
+                                    <div class="blog-one__img-box">
+                                        {% if blog.cover_url != 'n' %}
+                                        <div class="blog-one__img">
+                                            <img src="{{ blog.cover_url }}" alt="img">
+                                            <a href="{{ url_for('main.blogdetails', id=blog.id) }}">
+                                                <span class="blog-one__plus"></span>
+                                            </a>
+                                            <div class="blog-one__date">
+                                                <p>{{ blog.timestamp.strftime("%Y-%m-%d") }}</p>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="blog-one__content-top">
+                                            <div class="blog-one__content-img">
+                                                <img src="{{ blog.author.avatar_url }}" style="height: 70px" alt="img">
+                                            </div>
+                                            <p class="blog-one__content-sub-title">
+                                                by {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+                                            <h3 class="blog-one__content-title"><a
+                                                    href="{{ url_for('main.blogdetails', id=blog.id) }}">{{ blog.title
+                                                }}</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="blog-one__content">
+                                        <div class="blog-one__comment-and-btn">
+                                            <div class="blog-one__comment">
+                                                <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
+                                                        class="fas fa-comments"></span>{{ blog.category }}</a>
+                                            </div>
+                                            <div class="blog-one__btn">
+                                                <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
+                                                        class="icon-right-arrow"></span>More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            </div>
 
-                            {% for blog in blogs[:3] %}
+
+
+
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__post">
+                            <h3 class="sidebar__title">Popular Posts</h3>
+                            <ul class="sidebar__post-list list-unstyled">
+
+                                {% for blog in blogs[:3] %}
                                 <li>
                                     <div class="sidebar__post-image">
                                         <img src="{{ blog.cover_url }}" alt="">
@@ -180,16 +195,16 @@
                                         </h3>
                                     </div>
                                 </li>
-                            {% endfor %}
-                        </ul>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
+
+                    <div class="pagination">
+                        {{ macros.pagination_widget(pagination, '.blog') }}
+                    </div>
+
                 </div>
-
-                <div class="pagination">
-                    {{ macros.pagination_widget(pagination, '.blog') }}
-                </div>
-
-
             </div>
         </div>
     </section>
