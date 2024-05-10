@@ -159,8 +159,8 @@
                                     <div class="blog-one__content">
                                         <div class="blog-one__comment-and-btn">
                                             <div class="blog-one__comment">
-                                                <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
-                                                        class="fas fa-comments"></span>{{ blog.category }}</a>
+                                                <a href="{{ url_for('main.blogdetails', id=blog.id) }} "><span
+                                                        class="fas fa-comments"></span><span style="font-size: 12px">{{ blog.category_id }}</span></a>
                                             </div>
                                             <div class="blog-one__btn">
                                                 <a href="{{ url_for('main.blogdetails', id=blog.id) }}"><span
