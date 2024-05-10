@@ -367,6 +367,16 @@
 </script>
 <script>
     $(document).ready(function () {
+        let blob = recorder.getWAVBlob();
+        console.log(blob.size);
+        $('#sendRecord').click(function () {
+            if ($(".preloader").length) {
+                $(".preloader").fadeIn();
+                setTimeout(function() {
+                    $(".preloader").fadeOut(); // Example jQuery code
+                }, 8000);
+            }
+        });
         // Basic
         $('.dropify').dropify();
 
@@ -439,22 +449,27 @@
 <script>
     document.getElementById('sendRecord').addEventListener('click', () => {
         let blob = recorder.getWAVBlob(); // 获取录音的 WAV 格式数据
-        let formData = new FormData();
-        formData.append('audio', blob, 'recording.wav');
+        if (blob.size === 44){
+            alert("Please say something before clicking SEND!");
+        }else{
+            let formData = new FormData();
+            formData.append('audio', blob, 'recording.wav');
 
-        fetch('/sendtreeAudio', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // 处理后端返回的数据
-                location.href = `${location.protocol}//${location.host}${data.url}`
+            fetch('/sendtreeAudio', {
+                method: 'POST',
+                body: formData
             })
-            .catch(error => {
-                console.error('Error sending recording:', error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // 处理后端返回的数据
+                    location.href = `${location.protocol}//${location.host}${data.url}`
+                })
+                .catch(error => {
+                    console.error('Error sending recording:', error);
+                });
+        }
+
     });
 </script>
 </html>
