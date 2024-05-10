@@ -162,7 +162,7 @@ def blog():
 def blogdetails(id):
     blog = Post.query.get_or_404(id)
     blog.read_count += 1
-    db.session.commit()
+    # db.session.commit()
 
     cform = CommentForm()
     comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=id).scalar()
@@ -175,6 +175,7 @@ def blogdetails(id):
         db.session.add(comment)
         db.session.commit()
         flash('Your comment has been published')
+
         return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
 
     page = request.args.get('page', 1, type=int)
