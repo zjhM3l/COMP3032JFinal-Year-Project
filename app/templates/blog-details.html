@@ -123,7 +123,7 @@
                             <div class="blog-details__bottom">
                                 <p class="blog-details__tags">
                                     <span>Category</span>
-                                    <a href="#">{{ blog.category }}</a>
+                                    <a >{{ blog.category_id }}</a>
                                 </p>
                                 <div class="blog-details__like-button">
                                     <form id="likeForm" method="post"
@@ -196,10 +196,10 @@
                             </div>
 
                             {% if comment_count > 0 %}
-                                <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments</h3>
+                                <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments：</h3>
                                 {% for comment in comments %}
-                                    <div class="comment-one">
-                                        <div>
+                                    <div class="comment-one" style="margin-top: 50px">
+                                        <div style="display: inline-block; vertical-align: top;">
                                             {% if comment.author.avatar_url %}
                                                 <img style="height: 50px; width: 50px"
                                                      src="{{ comment.author.avatar_url }}" alt="">
@@ -208,8 +208,8 @@
                                                      src="../static/images/team/team-details-img-1.jpg" alt="">
                                             {% endif %}
                                         </div>
-                                        <div class="comment-one__content" style="position: relative;min-width: 320px">
-                                            <h6>{{ comment.author.email }}</h6>
+                                        <div class="comment-one__content" style="display: inline-block; min-width: 320px;">
+                                            <h6 style="margin-top: 5px;">{{ comment.author.email }}</h6>
                                             <p>{{ comment.body }}</p>
                                         </div>
                                     </div>
