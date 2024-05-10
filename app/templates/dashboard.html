@@ -425,7 +425,7 @@
         </symbol>
     </svg>
     <div class="sidebar-backdrop"></div>
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background-color: #F2EDEAFF">
         <header class="header">
             <div class="header__inner">
                 <div class="container-fluid">
@@ -455,15 +455,10 @@
                 <div class="sidebar__content" data-simplebar="data-simplebar">
                     <nav class="sidebar__nav">
                         <ul class="sidebar__menu">
-                            <li class="sidebar__menu-item"><a class="sidebar__link active" href="{{ url_for('main.index') }}" aria-expanded="true"><span class="sidebar__link-icon">
+                            <li class="sidebar__menu-item"><a class="sidebar__link active" href="#" aria-expanded="true"><span class="sidebar__link-icon">
                       <svg class="icon-icon-dashboard">
                         <use xlink:href="#icon-dashboard"></use>
-                      </svg></span><span class="sidebar__link-text">Soul Harbour</span></a>
-                            </li>
-                            <li class="sidebar__menu-item"><a class="sidebar__link active" href="{{ url_for('main.send_blog') }}" aria-expanded="true"><span class="sidebar__link-icon">
-                      <svg class="icon-icon-dashboard">
-                        <use xlink:href="#icon-dashboard"></use>
-                      </svg></span><span class="sidebar__link-text">Post Articles</span></a>
+                      </svg></span><span class="sidebar__link-text">Dashboard</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -763,93 +758,93 @@
                     <div class="section__title d-none">
                         <h2>Section</h2>
                     </div>
-                    <div class="row gutter-bottom-xl">
-                        <div class="col-12 d-flex">
-                            <div class="card pb-0">
-                                <div class="card__wrapper">
-                                    <div class="card__container">
-                                        <div class="card__header">
-                                            <div class="card__header-left">
-                                                <h3 class="card__header-title">Tree Hole Posts Info</h3>
-                                            </div>
-                                        </div>
-                                        <div class="card__body">
-                                            <div class="card__scrollbar card__table">
-                                                <div class="card__table-transactions scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">
-                                                    <table class="table table--lines table--striped">
-                                                        <colgroup>
-                                                            <col class="colgroup-1" />
-                                                            <col class="colgroup-2" />
-                                                            <col class="colgroup-3" />
-                                                            <col class="colgroup-4" />
-                                                            <col class="colgroup-5" />
-                                                            <col/>
-                                                        </colgroup>
-                                                        <thead class="table__header table__header--sticky">
-                                                            <tr>
-                                                                <th><span class="text-nowrap">Input Type</span>
-                                                                </th>
-                                                                <th><span>Name</span>
-                                                                </th>
-                                                                <th><span>Date</span>
-                                                                </th>
-                                                                <th><span>Emotion</span>
-                                                                </th>
-                                                                <th><span>Content</span>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for treePost in treePosts %}
-
-                                                                <tr class="table__row">
-                                                                <td class="table__td"><span class="text-grey">{{ treePost.inputType }}</span>
-                                                                </td>
-                                                                <td class="table__td">
-                                                                    <div class="media-item">
-                                                                        <div class="media-item__right">
-                                                                            <h5 class="media-item__title">{{ treePost.email }}</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="table__td"><span class="text-grey">{{ treePost.postDate }}</span>
-                                                                </td>
-                                                                <td class="table__td"><span>{{ treePost.emotion }}</span>
-                                                                </td>
-                                                                    {% if treePost.inputType == "Text" %}
-                                                                        <td class="table__td"><span class="text-grey">
-                                                                            {{ treePost.content | truncate(100) }}
-                                                                            {% if treePost.content | length > 100 %}
-                                                                                <span class="moreText" style="display:none;">{{ treePost.content | safe }}</span>
-                                                                            {% endif %}
-
-
-                                                                        </span>
-                                                                    {% else %}
-                                                                        <td class="table__td"><span class="text-grey">
-                                                                        <audio controls>
-                                                                            <source src="{{treePost.content}}" type="audio/mpeg">
-                                                                            Your browser does not support the audio element.
-                                                                        </audio>
-                                                                    </span>
-                                                                    {% endif %}
-                                                                </td>
-                                                                <td class="table__td table__actions">
-
-                                                                </td>
-                                                            </tr>
-
-                                                            {% endfor %}
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{#                    <div class="row gutter-bottom-xl">#}
+{#                        <div class="col-12 d-flex">#}
+{#                            <div class="card pb-0">#}
+{#                                <div class="card__wrapper">#}
+{#                                    <div class="card__container">#}
+{#                                        <div class="card__header">#}
+{#                                            <div class="card__header-left">#}
+{#                                                <h3 class="card__header-title">Tree Hole Posts Info</h3>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="card__body">#}
+{#                                            <div class="card__scrollbar card__table">#}
+{#                                                <div class="card__table-transactions scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">#}
+{#                                                    <table class="table table--lines table--striped">#}
+{#                                                        <colgroup>#}
+{#                                                            <col class="colgroup-1" />#}
+{#                                                            <col class="colgroup-2" />#}
+{#                                                            <col class="colgroup-3" />#}
+{#                                                            <col class="colgroup-4" />#}
+{#                                                            <col class="colgroup-5" />#}
+{#                                                            <col/>#}
+{#                                                        </colgroup>#}
+{#                                                        <thead class="table__header table__header--sticky">#}
+{#                                                            <tr>#}
+{#                                                                <th><span class="text-nowrap">Input Type</span>#}
+{#                                                                </th>#}
+{#                                                                <th><span>Name</span>#}
+{#                                                                </th>#}
+{#                                                                <th><span>Date</span>#}
+{#                                                                </th>#}
+{#                                                                <th><span>Emotion</span>#}
+{#                                                                </th>#}
+{#                                                                <th><span>Content</span>#}
+{#                                                                </th>#}
+{#                                                            </tr>#}
+{#                                                        </thead>#}
+{#                                                        <tbody>#}
+{#                                                            {% for treePost in treePosts %}#}
+{##}
+{#                                                                <tr class="table__row">#}
+{#                                                                <td class="table__td"><span class="text-grey">{{ treePost.inputType }}</span>#}
+{#                                                                </td>#}
+{#                                                                <td class="table__td">#}
+{#                                                                    <div class="media-item">#}
+{#                                                                        <div class="media-item__right">#}
+{#                                                                            <h5 class="media-item__title">{{ treePost.email }}</h5>#}
+{#                                                                        </div>#}
+{#                                                                    </div>#}
+{#                                                                </td>#}
+{#                                                                <td class="table__td"><span class="text-grey">{{ treePost.postDate }}</span>#}
+{#                                                                </td>#}
+{#                                                                <td class="table__td"><span>{{ treePost.emotion }}</span>#}
+{#                                                                </td>#}
+{#                                                                    {% if treePost.inputType == "Text" %}#}
+{#                                                                        <td class="table__td"><span class="text-grey">#}
+{#                                                                            {{ treePost.content | truncate(100) }}#}
+{#                                                                            {% if treePost.content | length > 100 %}#}
+{#                                                                                <span class="moreText" style="display:none;">{{ treePost.content | safe }}</span>#}
+{#                                                                            {% endif %}#}
+{##}
+{##}
+{#                                                                        </span>#}
+{#                                                                    {% else %}#}
+{#                                                                        <td class="table__td"><span class="text-grey">#}
+{#                                                                        <audio controls>#}
+{#                                                                            <source src="{{treePost.content}}" type="audio/mpeg">#}
+{#                                                                            Your browser does not support the audio element.#}
+{#                                                                        </audio>#}
+{#                                                                    </span>#}
+{#                                                                    {% endif %}#}
+{#                                                                </td>#}
+{#                                                                <td class="table__td table__actions">#}
+{##}
+{#                                                                </td>#}
+{#                                                            </tr>#}
+{##}
+{#                                                            {% endfor %}#}
+{#                                                        </tbody>#}
+{#                                                    </table>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                 </section>
             </div>
         </main>
