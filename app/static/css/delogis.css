@@ -9641,7 +9641,7 @@ ul {
 .thm-breadcrumb li a {
   position: relative;
   display: inline-block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--delogis-white);
   -webkit-transition: all 500ms ease;

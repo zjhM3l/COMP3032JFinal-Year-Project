@@ -93,24 +93,11 @@
     <div class="container">
         <div class="page-header__inner">
             <div class="title-with-buttons" style="display: flex; align-items: center;">
-                <h2 class="title" style="margin-right: 20px;">Emotion Vent Tree</h2>
-                <div class="buttons">
-                    <div class="dropdown" style="position: relative; display: inline-block;">
-                        <button class="main-slider__btn-one thm-btn" >
-                            <a href="{{ url_for('main.sendtreeText') }}" style="color: white"> Text Something </a>
-                        </button>
-                    </div>
-                    <div class="dropdown" style="position: relative; display: inline-block;">
-                        <button class="main-slider__btn-one thm-btn" >
-                            <a href="{{ url_for('main.sendtreeAudio') }}" style="color: white"> Say Something </a>
-                        </button>
-                    </div>
-                </div>
+                <h2 class="title" style="margin-right: 20px;">Emotion Vent Tree - Audio</h2>
+
             </div>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="{{url_for('main.index')}}">Home</a></li>
-                <li><span>/</span></li>
-                <li>Emotion Vent Tree</li>
+                <li><a href="{{ url_for('main.sendtreeAudio') }}">Say Something</a></li>
             </ul>
         </div>
     </div>
