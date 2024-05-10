@@ -124,8 +124,8 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="ship_different_input">
-                                    <textarea placeholder="You can pour your negative emotions here, or you can just share your happiness!"
-                                        name="body" minlength="150" style="resize:none;"></textarea>
+                                    <textarea id="treeInputText" placeholder="You can pour your negative emotions here, or you can just share your happiness!"
+                                        name="body" minlength="150" style="resize:none;" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -258,16 +258,23 @@
     <script src="../static/UploadProfile/js/dropify.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const checkbox = document.getElementById('textAgree');
-        const submitButton = document.getElementById('sendTreeText');
+            const checkbox = document.getElementById('textAgree');
+            const submitButton = document.getElementById('sendTreeText');
 
-        checkbox.addEventListener('change', function() {
-            submitButton.disabled = !this.checked;
+            checkbox.addEventListener('change', function() {
+                submitButton.disabled = !this.checked;
+            });
         });
-    });
     </script>
     <script>
             $(document).ready(function(){
+                $('#sendTreeText').click(function() {
+                    if ($(".preloader").length) {
+                        if ($("#treeInputText").val() != 0 ){
+                            $(".preloader").fadeIn();
+                        }
+                    }
+                });
                 // Basic
                 $('.dropify').dropify();
 
