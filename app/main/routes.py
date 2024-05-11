@@ -274,7 +274,7 @@ def blogdetails(id):
                          reverse=True)
 
     # Keep only the top four recommendations
-    recommendations = recommendations[:2]
+    recommendations = recommendations[1:3]
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
                            cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,)
 
