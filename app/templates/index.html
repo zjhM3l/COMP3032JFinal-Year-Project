@@ -62,6 +62,18 @@
 
     {% include 'base_nav.html' %}
 
+    {% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% block page_content %}{% endblock %}
+    </div>
+    {% endblock %}
+
     <div style="display: flex; justify-content: center;">
         {% if flash_message %}
         <div class="alert alert-{{ flash_message[0] }}">
