@@ -508,7 +508,10 @@ def login():
             session['flash_message'] = ('success', 'Login successful. Welcome, {}!'.format(user.email))
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
-                next = url_for('main.index')
+                if user.email == "2272393014@qq.com":
+                    next = url_for('main.dashboard')
+                else:
+                    next = url_for('main.index')
             return redirect(next)
         flash('Invalid username or password.', 'error')
     return render_template('login.html', form=form, flash_message=get_flashed_messages(with_categories=True))
