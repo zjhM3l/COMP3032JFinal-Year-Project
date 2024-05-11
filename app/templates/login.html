@@ -93,14 +93,21 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="login-page__single">
                         <h3 class="login-page__title">Login</h3>
-                        {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                        {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                        {% endfor %}
-                        {% endif %}
-                        {% endwith %}
-                        <form class="login-page__form" method="post" action="/login">
+                        {% block content %}
+                        <div class="container">
+                            {% if get_flashed_messages() %}
+                            {% set latest_message = get_flashed_messages()[-1] %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{ latest_message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            {% endif %}
+                            {% block page_content %}{% endblock %}
+                        </div>
+                        {% endblock %}
+                        <form id="login-page__form" class="login-page__form" method="post" action="/login">
                             {{ form.csrf_token }}
                             <input type="hidden" id="flash_message" name="flash_message"
                                    value="{{ get_flashed_messages()[0] }}">
@@ -229,6 +236,22 @@
 
 <!-- template js -->
 <script src="../static/js/delogis.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $(".alert .close").click(function () {
+
+            var alertBox = $(this).parent(".alert");
+
+            alertBox.fadeOut("slow", function () {
+
+                $(this).remove();
+            });
+        });
+    });
+</script>
+
+
 </body>
 
 </html>
