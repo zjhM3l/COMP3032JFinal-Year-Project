@@ -47,6 +47,18 @@
     <!-- template styles -->
     <link rel="stylesheet" href="../static/css/delogis.css"/>
     <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
+     <style>
+        #register-btn:disabled {
+          /* 添加灰色背景颜色 */
+          background-color: #dddddd;
+
+          /* 修改文本颜色为灰色 */
+          color: #666666;
+
+          /* 鼠标指针样式设置为默认 */
+          cursor: not-allowed;
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -119,13 +131,16 @@
                             </div>
 
 
-                            <div class="checked-box">
-                                <input type="checkbox" name="skipper3" id="skipper3" checked="">
-                                <label for="skipper3"><span></span>I accept company privay policy.</label>
+                            <div class="check-box">
+                                <label for="agreeRegister"><span></span>We respect every
+                                user in "Soul Harbour" and if you accept the policy and want to use "Soul Harbour", please click to agree. At "Soul Harbour", our moral code is a need to release people's stress and improve their emotions. We seriously care about
+                                users' feelings and emotional health. But in "Soul Harbour"
+                                the only AI-based service is emotion classification. Any responses provided would just be positive and inspiring with specific emotional preferences and those responses would not be provided by AI!</label>
+                                <input type="checkbox" name="agreeRegister" id="agreeRegister">
                             </div>
 
                             <div class="login-page__form-btn-box">
-                                <button type="submit" class="thm-btn" id="register-btn" style="width: 80%;">Register
+                                <button type="submit" class="thm-btn" id="register-btn" style="width: 80%;" disabled>Register
                                 </button>
                             </div>
 
@@ -232,6 +247,17 @@
 <!-- template js -->
 <script src="../static/js/delogis.js"></script>
 <script src="../static/js/myjs.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('agreeRegister');
+            const submitButton = document.getElementById('register-btn');
+
+            checkbox.addEventListener('change', function() {
+                submitButton.disabled = !this.checked;
+            });
+        });
+    </script>
 </body>
 
 </html>
