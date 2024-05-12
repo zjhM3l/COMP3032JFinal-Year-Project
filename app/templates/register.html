@@ -47,16 +47,16 @@
     <!-- template styles -->
     <link rel="stylesheet" href="../static/css/delogis.css"/>
     <link rel="stylesheet" href="../static/css/delogis-responsive.css"/>
-     <style>
+    <style>
         #register-btn:disabled {
-          /* 添加灰色背景颜色 */
-          background-color: #dddddd;
+            /* 添加灰色背景颜色 */
+            background-color: #dddddd;
 
-          /* 修改文本颜色为灰色 */
-          color: #666666;
+            /* 修改文本颜色为灰色 */
+            color: #666666;
 
-          /* 鼠标指针样式设置为默认 */
-          cursor: not-allowed;
+            /* 鼠标指针样式设置为默认 */
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -132,15 +132,26 @@
 
 
                             <div class="check-box">
-                                <label for="agreeRegister"><span></span>We respect every
-                                user in "Soul Harbour" and if you accept the policy and want to use "Soul Harbour", please click to agree. At "Soul Harbour", our moral code is a need to release people's stress and improve their emotions. We seriously care about
-                                users' feelings and emotional health. But in "Soul Harbour"
-                                the only AI-based service is emotion classification. Any responses provided would just be positive and inspiring with specific emotional preferences and those responses would not be provided by AI!</label>
-                                <input type="checkbox" name="agreeRegister" id="agreeRegister">
+                                 <div class="row">
+                                    <div class="col-xl-1 col-lg-1">
+                                    <input type="checkbox" name="agreeRegister" id="agreeRegister">
+                                    </div>
+                                    <div class="col-lg-11">
+                                    <label for="agreeRegister"><span></span>We respect every
+                                        user in "Soul Harbour" and if you accept the policy and want to use "Soul
+                                        Harbour", please click to agree. At "Soul Harbour", our moral code is a need to
+                                        release people's stress and improve their emotions. We seriously care about
+                                        users' feelings and emotional health. But in "Soul Harbour"
+                                        the only AI-based service is emotion classification. Any responses provided
+                                        would just be positive and inspiring with specific emotional preferences and
+                                        those responses would not be provided by AI!</label>
+                                    </div>
+                                 </div>
                             </div>
 
                             <div class="login-page__form-btn-box">
-                                <button type="submit" class="thm-btn" id="register-btn" style="width: 80%;" disabled>Register
+                                <button type="submit" class="thm-btn" id="register-btn" style="width: 95%;margin-top: 20px" disabled>
+                                    Register
                                 </button>
                             </div>
 
@@ -248,16 +259,16 @@
 <script src="../static/js/delogis.js"></script>
 <script src="../static/js/myjs.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkbox = document.getElementById('agreeRegister');
-            const submitButton = document.getElementById('register-btn');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('agreeRegister');
+        const submitButton = document.getElementById('register-btn');
 
-            checkbox.addEventListener('change', function() {
-                submitButton.disabled = !this.checked;
-            });
+        checkbox.addEventListener('change', function () {
+            submitButton.disabled = !this.checked;
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
