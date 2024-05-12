@@ -745,8 +745,8 @@
                         <div class="blog-one__content">
                             <div class="blog-one__comment-and-btn">
                                 <div class="blog-one__comment">
-                                    <a href="blog-details.html"><span class="fas fa-comments"></span>{{ i.read_count }}
-                                        Comments</a>
+                                    <a href="{{ url_for('main.blogdetails', id=i.id) }} "><span
+                                                        class="fas fa-comments"></span><span style="font-size: 12px">{{ i.category_id }}</span></a>
                                 </div>
                                 <div class="blog-one__btn">
                                     <a href="{{ url_for('main.blogdetails', id=i.id) }}"><span
