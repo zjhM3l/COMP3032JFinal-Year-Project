@@ -456,8 +456,6 @@
                 <p class="cta-one__text">Access intelligent analysis service</p>
                 <div class="cta-one__btn-box">
                     <a href="{{url_for('main.services')}}" class="cta-one__btn thm-btn">Emotional Text</a>
-                </div>
-                <div class="cta-one__btn-box">
                     <a href="{{url_for('main.audioservices')}}" class="cta-one__btn thm-btn">Emotional Audio</a>
                 </div>
             </div>
@@ -740,11 +738,12 @@
                         <div class="blog-one__content">
                             <div class="blog-one__comment-and-btn">
                                 <div class="blog-one__comment">
-                                    <a href="blog-details.html"><span class="fas fa-comments"></span>{{ i.read_count }}
-                                        Comments</a>
+                                    <a href="{{ url_for('main.blogdetails', id=i.id) }} "><span
+                                                        class="fas fa-comments"></span><span style="font-size: 12px">{{ i.category_id }}</span></a>
                                 </div>
                                 <div class="blog-one__btn">
-                                    <a href="blog-details.html"><span class="icon-right-arrow"></span>More</a>
+                                    <a href="{{ url_for('main.blogdetails', id=i.id) }}"><span
+                                                        class="icon-right-arrow"></span>More</a>
                                 </div>
                             </div>
                         </div>
