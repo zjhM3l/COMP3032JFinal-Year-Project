@@ -93,20 +93,16 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="login-page__single">
                         <h3 class="login-page__title">Login</h3>
-                        {% block content %}
-                        <div class="container">
+
+                        <div style="display: flex; justify-content: center;">
                             {% if get_flashed_messages() %}
                             {% set latest_message = get_flashed_messages()[-1] %}
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 {{ latest_message }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             {% endif %}
-                            {% block page_content %}{% endblock %}
                         </div>
-                        {% endblock %}
+
                         <form id="login-page__form" class="login-page__form" method="post" action="/login">
                             {{ form.csrf_token }}
                             <input type="hidden" id="flash_message" name="flash_message"
@@ -237,17 +233,18 @@
 <!-- template js -->
 <script src="../static/js/delogis.js"></script>
 <script>
-    $(document).ready(function () {
 
-        $(".alert .close").click(function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-            var alertBox = $(this).parent(".alert");
+        var flashMessage = document.querySelector('.alert');
 
-            alertBox.fadeOut("slow", function () {
 
-                $(this).remove();
-            });
-        });
+        if (flashMessage) {
+
+            setTimeout(function () {
+                flashMessage.style.display = 'none';
+            }, 2000);
+        }
     });
 </script>
 

@@ -61,23 +61,19 @@
 <div class="page-wrapper">
 
     {% include 'base_nav.html' %}
-
-    {% block content %}
-    <div class="container">
-        {% for message in get_flashed_messages() %}
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% block page_content %}{% endblock %}
-    </div>
-    {% endblock %}
-
     <div style="display: flex; justify-content: center;">
         {% if flash_message %}
         <div class="alert alert-{{ flash_message[0] }}">
             {{ flash_message[1] }}
+        </div>
+        {% endif %}
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        {% if get_flashed_messages() %}
+        {% set latest_message = get_flashed_messages()[-1] %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" >
+            {{ latest_message }}
         </div>
         {% endif %}
     </div>
@@ -469,7 +465,6 @@
     </section>
 
 
-
     <!--Cases One Start-->
     <section class="cases-one">
         <div class="cases-one__bg-box"></div>
@@ -854,5 +849,22 @@
 
 <!-- template js -->
 <script src="../static/js/delogis.js"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var flashMessage = document.querySelector('.alert');
+
+
+        if (flashMessage) {
+
+            setTimeout(function () {
+                flashMessage.style.display = 'none';
+            }, 2000);
+        }
+    });
+</script>
+
+
 </body>
 
