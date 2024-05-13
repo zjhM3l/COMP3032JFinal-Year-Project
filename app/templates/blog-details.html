@@ -93,6 +93,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-details__left">
+                        <input type="hidden" id="post-id" value="{{ blog.id }}">
                         {% if blog.cover_url != 'n' %}
                             <div class="blog-details__img">
                                 <img src="{{ blog.cover_url }}" alt="img">
@@ -195,46 +196,44 @@
                                 {% endfor %}
                             </div>
 
-                            {% if comment_count > 0 %}
-                                <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments：</h3>
-                                {% for comment in comments %}
-                                    <div class="comment-one" style="margin-top: 50px">
-                                        <div style="display: inline-block; vertical-align: top;">
-                                            {% if comment.author.avatar_url %}
-                                                <img style="height: 50px; width: 50px"
-                                                     src="{{ comment.author.avatar_url }}" alt="">
-                                            {% else %}
-                                                <img style="height: 50px; width: 50px"
-                                                     src="../static/images/team/team-details-img-1.jpg" alt="">
-                                            {% endif %}
-                                        </div>
-                                        <div class="comment-one__content" style="display: inline-block; min-width: 320px;">
-                                            <h6 style="margin-top: 5px;">{{ comment.author.first_name }} {{ comment.author.last_name }}</h6>
-                                            <p>{{ comment.body }}</p>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-
-
-                                <div class="pagination">
-                                    {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
-                                </div>
-                            {% endif %}
+<!--                            <div id="comments-section">-->
+<!--                                {% if comment_count > 0 %}-->
+<!--                                    <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments：</h3>-->
+<!--                                    {% for comment in comments %}-->
+<!--                                        <div class="comment-one" style="margin-top: 50px">-->
+<!--                                            <div style="display: inline-block; vertical-align: top;">-->
+<!--                                                {% if comment.author.avatar_url %}-->
+<!--                                                    <img style="height: 50px; width: 50px"-->
+<!--                                                         src="{{ comment.author.avatar_url }}" alt="">-->
+<!--                                                {% else %}-->
+<!--                                                    <img style="height: 50px; width: 50px"-->
+<!--                                                         src="../static/images/team/team-details-img-1.jpg" alt="">-->
+<!--                                                {% endif %}-->
+<!--                                            </div>-->
+<!--                                            <div class="comment-one__content" style="display: inline-block; min-width: 320px;">-->
+<!--                                                <h6 style="margin-top: 5px;">{{ comment.author.first_name }} {{ comment.author.last_name }}</h6>-->
+<!--                                                <p>{{ comment.body }}</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    {% endfor %}-->
+<!--                                    <div class="pagination">-->
+<!--                                        {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}-->
+<!--                                    </div>-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+                            {% include 'comment_section.html' %}
                             <div class="comment-form">
                                 <h3 class="comment-form__title">Leave a Comment</h3>
-                                <form action=""
-                                      class="comment-one__form contact-form-validated" method="post"
-                                      novalidate="novalidate">
+                                <form id="comment-form" class="comment-one__form contact-form-validated" method="post" novalidate="novalidate">
                                     {{ cform.csrf_token }}
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box text-message-box">
-                                                <textarea name="body" placeholder="Write a Comment"></textarea>
+                                                <textarea id="comment-body" name="body" placeholder="Write a Comment"></textarea>
                                             </div>
                                             <div class="comment-form__btn-box">
-                                                <button type="submit" name="submit" class="thm-btn comment-form__btn">
-                                                    Submit
-                                                    Comment
+                                                <button id="submit-comment" type="button" class="thm-btn comment-form__btn">
+                                                    Submit Comment
                                                 </button>
                                             </div>
                                         </div>
@@ -396,6 +395,26 @@
                 },
                 error: function () {
                     alert('An error occurred. Please try again.'); // 显示错误提示
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        // 监听提交评论按钮点击事件
+        $('#submit-comment').click(function() {
+            var commentBody = $('#comment-body').val(); // 获取评论内容
+            var postId = $('#post-id').val(); // 获取当前文章的 ID，使用模板引擎获取
+            $.ajax({
+                url: '/comment', // 后端处理评论的路由
+                type: 'POST',
+                data: { body: commentBody, post_id: postId }, // 传递评论内容和文章 ID
+                success: function(response) {
+                    // 在成功提交评论后，局部刷新评论展示区域
+                    $('#comments-section').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', error);
                 }
             });
         });

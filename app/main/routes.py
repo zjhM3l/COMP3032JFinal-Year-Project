@@ -155,8 +155,32 @@ def blog():
 
     blogs = pagination.items
 
-
     return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
+
+
+# 单独处理评论的路由
+@main.route('/comment', methods=['POST'])
+def comment():
+    comment_body = request.form.get('body')  # 获取评论内容
+    post_id = request.form.get('post_id')  # 获取评论所属的文章 ID
+    post = Post.query.get_or_404(post_id)
+
+    if comment_body and post_id:
+        comment = Comment(body=comment_body,
+                          post=post,
+                          author=current_user._get_current_object(),
+                          timestamp=datetime.now())
+        db.session.add(comment)
+        db.session.commit()
+        flash('Your comment has been published')
+
+    # 重新查询评论数据，更新评论展示区域
+    updated_comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=post_id).scalar()
+    updated_pagination = Comment.query.filter_by(post_id=post_id).order_by(Comment.timestamp.desc()).paginate(
+        page=1, per_page=current_app.config['POST_BLOG_PER_PAGE'], error_out=False)
+    updated_comments = updated_pagination.items
+    return render_template('comment_section.html', comment_count=updated_comment_count, blog=post, pagination=updated_pagination, comments=updated_comments)
+
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
@@ -167,16 +191,16 @@ def blogdetails(id):
     cform = CommentForm()
     comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=id).scalar()
 
-    if cform.validate_on_submit():
-        comment = Comment(body=cform.body.data,
-                          post=blog,
-                          author=current_user._get_current_object(),
-                          timestamp=datetime.now())
-        db.session.add(comment)
-        db.session.commit()
-        flash('Your comment has been published')
-
-        return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
+    # if cform.validate_on_submit():
+    #     comment = Comment(body=cform.body.data,
+    #                       post=blog,
+    #                       author=current_user._get_current_object(),
+    #                       timestamp=datetime.now())
+    #     db.session.add(comment)
+    #     db.session.commit()
+    #     flash('Your comment has been published')
+    #
+    #     return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
 
     page = request.args.get('page', 1, type=int)
     if page == -1:
@@ -277,7 +301,6 @@ def blogdetails(id):
     recommendations = recommendations[1:3]
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
                            cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,)
-
 
 @main.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
