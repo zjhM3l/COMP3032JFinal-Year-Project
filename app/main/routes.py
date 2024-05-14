@@ -385,7 +385,6 @@ def dashboard():
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
-@login_required
 def handle_like(id):
     # 获取当前用户
     user = current_user
@@ -404,9 +403,6 @@ def handle_like(id):
                                timestamp=datetime.utcnow())
         db.session.add(helpful_info)
         db.session.commit()
-        flash('You liked this post and the emotion was recorded.')
-    else:
-        flash('No emotion record found.')
 
     # 重定向到原来的页面或其他页面
     return jsonify({'message': 'Task completed successfully'}), 200
