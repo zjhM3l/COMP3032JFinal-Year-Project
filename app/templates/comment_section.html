@@ -10,17 +10,11 @@
 </head>
 <body>
 <div id="comments-section">
-        <div style="display: flex; justify-content: center;">
-        {% if flash_message %}
-        <div class="alert alert-{{ flash_message[0] }}">
-            {{ flash_message[1] }}
-        </div>
-        {% endif %}
-    </div>
-    <div style="display: flex; justify-content: center;">
+
+    <div id="flash-container" style="display: flex; justify-content: center;">
         {% if get_flashed_messages() %}
         {% set latest_message = get_flashed_messages()[-1] %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" >
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ latest_message }}
         </div>
         {% endif %}
@@ -28,38 +22,34 @@
 
 
     {% if comment_count > 0 %}
-        <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments：</h3>
-        {% for comment in comments %}
-            <div class="comment-one" style="margin-top: 50px">
-                <div style="display: inline-block; vertical-align: top;">
-                    {% if comment.author.avatar_url %}
-                        <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}" alt="">
-                    {% else %}
-                        <img style="height: 50px; width: 50px" src="../static/images/team/team-details-img-1.jpg" alt="">
-                    {% endif %}
-                </div>
-                <div class="comment-one__content" style="display: inline-block; min-width: 320px;">
-                    <h6 style="margin-top: 5px;">{{ comment.author.first_name }} {{ comment.author.last_name }}</h6>
-                    <p>{{ comment.body }}</p>
-                </div>
-            </div>
-        {% endfor %}
-        <div class="pagination">
-            {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
+    <h3 id="comments_num2" class="comment-one__title">{{ comment_count }} Comments：</h3>
+    {% for comment in comments %}
+    <div class="comment-one" style="margin-top: 50px">
+        <div style="display: inline-block; vertical-align: top;">
+            {% if comment.author.avatar_url %}
+            <img style="height: 50px; width: 50px" src="{{ comment.author.avatar_url }}" alt="">
+            {% else %}
+            <img style="height: 50px; width: 50px" src="../static/images/team/team-details-img-1.jpg" alt="">
+            {% endif %}
         </div>
+        <div class="comment-one__content" style="display: inline-block; min-width: 320px;">
+            <h6 style="margin-top: 5px;">{{ comment.author.first_name }} {{ comment.author.last_name }}</h6>
+            <p>{{ comment.body }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination, '.blogdetails', id=blog.id) }}
+    </div>
     {% endif %}
 </div>
 <script>
-
     document.addEventListener("DOMContentLoaded", function () {
-
         var flashMessage = document.querySelector('.alert');
 
-
         if (flashMessage) {
-
             setTimeout(function () {
-                flashMessage.style.display = 'none';
+                flashMessage.remove();
             }, 2000);
         }
     });

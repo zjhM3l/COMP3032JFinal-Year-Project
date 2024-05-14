@@ -412,12 +412,24 @@
                 success: function(response) {
                     // 在成功提交评论后，局部刷新评论展示区域
                     $('#comments-section').html(response);
+
+
+                    autoCloseFlashMessage();
                 },
                 error: function(xhr, status, error) {
                     console.log('Error:', error);
                 }
             });
         });
+
+    function autoCloseFlashMessage() {
+        var flashMessage = document.querySelector('.alert');
+        if (flashMessage) {
+            setTimeout(function () {
+                flashMessage.remove();
+            }, 2000);
+        }
+    }
     });
 
     function getCommentsNum(postId) {
