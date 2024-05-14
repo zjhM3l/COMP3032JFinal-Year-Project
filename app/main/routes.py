@@ -775,12 +775,12 @@ def send_blog():
 
     if form.validate_on_submit():
         # 检测敏感词
-        sensitive_words_content = check_sensitive_words(form.content.data)
-        sensitive_words_title = check_sensitive_words(form.title.data)
+        text_to_check = f"{form.title.data} {form.content.data}"
+        sensitive_words = check_sensitive_words(text_to_check)
 
-        if sensitive_words_content or sensitive_words_title:
-            sensitive_words = ", ".join(set(sensitive_words_content + sensitive_words_title))  # 敏感词列表转换为字符串
-            flash(f'Your text contains sensitive words: {sensitive_words}. Please modify and try again.', 'error')
+        if sensitive_words:
+            sensitive_words_str = ", ".join(set(sensitive_words))
+            flash(f'Your text contains sensitive words: {sensitive_words_str}. Please modify and try again.', 'error')
             return redirect(url_for('main.send_blog'))  # 返回发送文本页面并显示错误提示
         else:
 
