@@ -71,6 +71,7 @@ def anxietygrief():
 
 
 @main.route('/ublog', methods=['GET', 'POST'])
+@login_required
 def ublog():
     # 获取传递过来的邮箱参数
     email = request.args.get('email')
@@ -155,8 +156,37 @@ def blog():
 
     blogs = pagination.items
 
-
     return render_template('blog.html', blogs=blogs, pagination=pagination, sform=sform)
+
+
+# 单独处理评论的路由
+@main.route('/comment', methods=['POST'])
+@login_required
+def comment():
+    comment_body = request.form.get('body')  # 获取评论内容
+    post_id = request.form.get('post_id')  # 获取评论所属的文章 ID
+    post = Post.query.get_or_404(post_id)
+    # 检测敏感词
+    sensitive_word = check_sensitive_words(comment_body)
+    if sensitive_word:
+        flash(f'Your text contains a sensitive word: {sensitive_word}. Please modify and try again.', 'error')
+    else:
+        if comment_body and post_id:
+            comment = Comment(body=comment_body,
+                              post=post,
+                              author=current_user._get_current_object(),
+                              timestamp=datetime.now())
+            db.session.add(comment)
+            db.session.commit()
+            flash('Your comment has been published')
+
+    # 重新查询评论数据，更新评论展示区域
+    updated_comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=post_id).scalar()
+    updated_pagination = Comment.query.filter_by(post_id=post_id).order_by(Comment.timestamp.desc()).paginate(
+        page=1, per_page=current_app.config['POST_BLOG_PER_PAGE'], error_out=False)
+    updated_comments = updated_pagination.items
+    return render_template('comment_section.html', comment_count=updated_comment_count, blog=post, pagination=updated_pagination, comments=updated_comments)
+
 
 @main.route('/blogdetails/<int:id>', methods=['GET', 'POST'])
 def blogdetails(id):
@@ -167,16 +197,16 @@ def blogdetails(id):
     cform = CommentForm()
     comment_count = db.session.query(func.count(Comment.id)).filter_by(post_id=id).scalar()
 
-    if cform.validate_on_submit():
-        comment = Comment(body=cform.body.data,
-                          post=blog,
-                          author=current_user._get_current_object(),
-                          timestamp=datetime.now())
-        db.session.add(comment)
-        db.session.commit()
-        flash('Your comment has been published')
-
-        return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
+    # if cform.validate_on_submit():
+    #     comment = Comment(body=cform.body.data,
+    #                       post=blog,
+    #                       author=current_user._get_current_object(),
+    #                       timestamp=datetime.now())
+    #     db.session.add(comment)
+    #     db.session.commit()
+    #     flash('Your comment has been published')
+    #
+    #     return redirect(url_for('.blogdetails', id=blog.id, page=-1, user=current_user))
 
     page = request.args.get('page', 1, type=int)
     if page == -1:
@@ -278,7 +308,6 @@ def blogdetails(id):
     return render_template('blog-details.html', blog=blog, blogs=blogs, author=author, pagination=pagination,
                            cform=cform, comments=comments, comment_count=comment_count, recommendations=recommendations,)
 
-
 @main.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     # 获取正式用户数量
@@ -370,7 +399,6 @@ def handle_like(id):
     if latest_emotion:
         emotion_label = latest_emotion.emotion
 
-        print(emotion_label)  # 输出最高得分的情绪标签
         # 将情绪标签写入 Helpful 数据模型
         helpful_info = Helpful(post_id=id,
                                user_id=user.id,
@@ -378,9 +406,6 @@ def handle_like(id):
                                timestamp=datetime.utcnow())
         db.session.add(helpful_info)
         db.session.commit()
-        flash('You liked this post and the emotion was recorded.')
-    else:
-        flash('No emotion record found.')
 
     # 重定向到原来的页面或其他页面
     return jsonify({'message': 'Task completed successfully'}), 200
@@ -596,12 +621,14 @@ def makeappointment():
 
 
 @main.route('/personaldetails/<email>', methods=['GET', 'POST'])
+@login_required
 def personaldetails(email):
     user = User.query.filter_by(email=email).first()
     return render_template('personal-details.html', user=user)
 
 
 @main.route('/personaldetailsmodify/<email>', methods=['GET', 'POST'])
+@login_required
 def personaldetailsmodify(email):
     user = User.query.filter_by(email=email).first()
     if request.method == 'POST':
@@ -666,7 +693,6 @@ def services():
             emotions.append(emotion_label)
         else:
             emotions.append(None)  # 如果没有对应的emotion，则添加None
-        print(emotions)
 
     return render_template('services.html', trees=trees, emotions=emotions, pagination=pagination)
 
@@ -690,7 +716,6 @@ def audioservices():
             emotions.append(emotion.emotion)
         else:
             emotions.append(None)  # 如果没有对应的emotion，则添加None
-        print(emotions)
 
     return render_template('audioServices.html', audios=audios, emotions=emotions, pagination=pagination)
 
@@ -744,6 +769,7 @@ def send_message():
 
 
 @main.route('/send_blog', methods=['GET', 'POST'])
+@login_required
 def send_blog():
     form = ExpertForm()
 
@@ -799,7 +825,6 @@ def load_sensitive_words():
     # Load stop words from the file
     with open(sensitive_words_file, 'r', encoding='utf-8') as file:
         for line in file:
-            print(line)
             word = line.strip()
             if word:
                 sensitive_words.add(word)
@@ -818,6 +843,7 @@ def check_sensitive_words(text):
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])
+@login_required
 def sendtreeText():
     form = TreeForm()
     if form.validate_on_submit():
@@ -873,9 +899,7 @@ def sendtreeText():
                 result = '{"Neutral": 1.0}'
 
             result_dict = json.loads(result)
-            # print(type(result_dict), result_dict)
             emotion_label = max(result_dict.items(), key=lambda x: x[1])[0]
-            # print(emotion_label, "++++++++++++++++++++++++++++++++++++++++")
 
             # 创建 Emotion 对象
             emotion = Emotion(
@@ -918,6 +942,7 @@ def sendresponse(emotion_label):
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
+@login_required
 def sendtreeAudio():
     user = current_user
     if request.method == 'POST':
@@ -951,7 +976,6 @@ def sendtreeAudio():
             )
 
             rec_result = inference_pipeline(audio_file_path, granularity="utterance", extract_embedding=False)
-            # print(rec_result)
 
             # 定义标签的分类映射关系
             label_mapping = {
@@ -980,11 +1004,9 @@ def sendtreeAudio():
                 for label, score in zip(labels, scores):
                     mapped_label = label_mapping.get(label, 'Unknown')  # 默认未知标签
                     merged_labels[mapped_label] += score
-                # print(merged_labels)
 
                 # 获取权重最高的标签
                 max_label = max(merged_labels, key=merged_labels.get)
-                # print(max_label, "++++++++++++++++++++++++++++++++++++")
 
                 emotion = Emotion(type=2, user=user, audio=audio, output=f"Labels: {labels}, Scores: {scores}",
                                   emotion=max_label)
