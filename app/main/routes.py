@@ -71,6 +71,7 @@ def anxietygrief():
 
 
 @main.route('/ublog', methods=['GET', 'POST'])
+@login_required
 def ublog():
     # 获取传递过来的邮箱参数
     email = request.args.get('email')
@@ -160,6 +161,7 @@ def blog():
 
 # 单独处理评论的路由
 @main.route('/comment', methods=['POST'])
+@login_required
 def comment():
     comment_body = request.form.get('body')  # 获取评论内容
     post_id = request.form.get('post_id')  # 获取评论所属的文章 ID
@@ -383,6 +385,7 @@ def dashboard():
 
 
 @main.route('/handle_like/<int:id>', methods=['POST'])
+@login_required
 def handle_like(id):
     # 获取当前用户
     user = current_user
@@ -619,12 +622,14 @@ def makeappointment():
 
 
 @main.route('/personaldetails/<email>', methods=['GET', 'POST'])
+@login_required
 def personaldetails(email):
     user = User.query.filter_by(email=email).first()
     return render_template('personal-details.html', user=user)
 
 
 @main.route('/personaldetailsmodify/<email>', methods=['GET', 'POST'])
+@login_required
 def personaldetailsmodify(email):
     user = User.query.filter_by(email=email).first()
     if request.method == 'POST':
@@ -767,6 +772,7 @@ def send_message():
 
 
 @main.route('/send_blog', methods=['GET', 'POST'])
+@login_required
 def send_blog():
     form = ExpertForm()
 
@@ -841,6 +847,7 @@ def check_sensitive_words(text):
 
 
 @main.route('/sendtreeText', methods=['GET', 'POST'])
+@login_required
 def sendtreeText():
     form = TreeForm()
     if form.validate_on_submit():
@@ -941,6 +948,7 @@ def sendresponse(emotion_label):
 
 
 @main.route('/sendtreeAudio', methods=['GET', 'POST'])
+@login_required
 def sendtreeAudio():
     user = current_user
     if request.method == 'POST':

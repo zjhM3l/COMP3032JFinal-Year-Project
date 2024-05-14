@@ -82,6 +82,22 @@
 
     <div class="page-wrapper">
         {% include 'base_nav.html' %}
+        <div style="display: flex; justify-content: center;">
+        {% if flash_message %}
+        <div class="alert alert-{{ flash_message[0] }}">
+            {{ flash_message[1] }}
+        </div>
+        {% endif %}
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        {% if get_flashed_messages() %}
+        {% set latest_message = get_flashed_messages()[-1] %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" >
+            {{ latest_message }}
+        </div>
+        {% endif %}
+    </div>
 
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
@@ -315,6 +331,21 @@
                 })
             });
         </script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var flashMessage = document.querySelector('.alert');
+
+
+        if (flashMessage) {
+
+            setTimeout(function () {
+                flashMessage.style.display = 'none';
+            }, 2000);
+        }
+    });
+</script>
 </body>
 
 </html>
