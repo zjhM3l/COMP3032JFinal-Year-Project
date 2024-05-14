@@ -15353,3 +15353,43 @@ body.boxed-wrapper {
 .boxed-wrapper .main-menu__contact-list li+li {
   margin-left: 16px;
 }
+
+button.closeU{
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .6;
+}
+.closeU:hover,
+/*当鼠标放到按钮上时*/
+.closeU:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .8;
+}
+/*button无边框*/
+button.closeU {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.xxx{
+	position: absolute;
+	left: 65%;
+}
+
+div.contain.flashs{
+	position: absolute;
+	z-index: 999;
+	width: 50%;
+	text-align: center;
+	left: 25%;
+}
