@@ -11,14 +11,14 @@
 <body>
 <div id="comments-section">
 
-    <div id="flash-container" style="display: flex; justify-content: center;">
-        {% if get_flashed_messages() %}
-        {% set latest_message = get_flashed_messages()[-1] %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ latest_message }}
-        </div>
-        {% endif %}
-    </div>
+{#    <div id="flash-container" style="display: flex; justify-content: center;">#}
+{#        {% if get_flashed_messages() %}#}
+{#        {% set latest_message = get_flashed_messages()[-1] %}#}
+{#        <div class="alert alert-warning alert-dismissible fade show" role="alert">#}
+{#            {{ latest_message }}#}
+{#        </div>#}
+{#        {% endif %}#}
+{#    </div>#}
 
 
     {% if comment_count > 0 %}
@@ -43,6 +43,16 @@
     </div>
     {% endif %}
 </div>
+
+<div id="flash-container" style="display: flex; justify-content: center;">
+        {% if get_flashed_messages() %}
+        {% set latest_message = get_flashed_messages()[-1] %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ latest_message }}
+        </div>
+        {% endif %}
+    </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var flashMessage = document.querySelector('.alert');
