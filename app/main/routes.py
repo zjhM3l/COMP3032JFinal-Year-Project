@@ -381,7 +381,7 @@ def dashboard():
         treePost['postDate'] = emotion.hole.timestamp if emotion.type == 1 and emotion.hole else (
             emotion.audio.timestamp if emotion.type == 2 and emotion.audio else 'Unknown')
         treePost['emotion'] = emotion.emotion
-        treePost['content'] = emotion.hole.body if emotion.hole else emotion.audio.input
+        # treePost['content'] = emotion.hole.body if emotion.hole else emotion.audio.input
         treePosts.append(treePost)
 
     return render_template('dashboard.html', overall=overall, treeOverall=tree_overall, blogOverall=blog_overall,
