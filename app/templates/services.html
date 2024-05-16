@@ -275,20 +275,19 @@
         {% endif %}
 
 
-
         <div class="services-two__content">
-            <div class="services-two__title-box">
-                <p class="services-two__text" id="postText{{ loop.index }}">
-                    {{ treepost.body | truncate(100) }}
-                    {% if treepost.body | length > 100 %}
-                        <span class="moreText" style="display:none;">{{ treepost.body | safe }}</span>
-                    {% endif %}
-                </p>
-            </div>
-            <div class="services-two__btn-box">
-                <button class="toggleButton" data-post="postText{{ loop.index }}">Show More</button>
-            </div>
+    <div class="services-two__title-box">
+        <div class="text-content" id="textContent{{ loop.index }}">
+            <p class="services-two__text defaultText">{{ treepost.body | truncate(100) }}</p>
+            {% if treepost.body | length > 100 %}
+                <p class="services-two__text moreText" style="display:none;">{{ treepost.body | safe }}</p>
+            {% endif %}
         </div>
+    </div>
+    <div class="services-two__btn-box">
+        <button class="toggleButton" data-post="postText{{ loop.index }}">Show More</button>
+    </div>
+</div>
     </div>
 </div>
                 <!--Services Two Single End-->
@@ -401,14 +400,18 @@
 
         toggleButtons.forEach(function(button) {
             button.addEventListener("click", function() {
-                var postText = document.getElementById(button.getAttribute("data-post"));
-                var moreText = postText.querySelector(".moreText");
+                var postId = button.getAttribute("data-post");
+                var textContent = document.getElementById("textContent" + postId.slice(8));
+                var defaultText = textContent.querySelector(".defaultText");
+                var moreText = textContent.querySelector(".moreText");
 
                 if (moreText.style.display === "none") {
-                    moreText.style.display = "inline";
+                    moreText.style.display = "block";
+                    defaultText.style.display = "none";
                     button.textContent = "Hide";
                 } else {
                     moreText.style.display = "none";
+                    defaultText.style.display = "block";
                     button.textContent = "Show More";
                 }
             });
