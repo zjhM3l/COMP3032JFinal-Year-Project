@@ -813,7 +813,7 @@ def send_blog():
             db.session.add(epost)
             db.session.commit()
 
-            return redirect(url_for('main.blogsidebar'))
+            return redirect(url_for('main.blog'))
     return render_template('send_blog.html', form=form)
 
 
