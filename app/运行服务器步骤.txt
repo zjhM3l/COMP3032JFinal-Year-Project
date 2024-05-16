@@ -6,5 +6,7 @@ cd website/
 source venv/bin/activate
 FLASK_APP=manage.py flask run
 
+gunicorn --bind 0.0.0.0:5000 wsgi:app
+
 之后可以在浏览器网址csi420-01-vm2.ucd.ie进入网站
 退出在cmd按ctrl+c
